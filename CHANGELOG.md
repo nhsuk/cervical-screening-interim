@@ -1,10 +1,10 @@
 # NHS.UK prototype kit Changelog
 
-## 3.0.4 - 20th September 2019
+## 3.0.4 - 24th September 2019
 
 :wrench: **Fixes**
 
-- Only set cookies to prevent prototype kit clashes in the development environment
+- Remove cookies from documentation only environments (experimental)
 
 ## 3.0.3 - 11th September 2019
 

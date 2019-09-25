@@ -27,7 +27,6 @@ const utils = require('./lib/utils.js')
 const port = process.env.PORT || config.port;
 const useDocumentation = process.env.SHOW_DOCS || config.useDocumentation;
 const onlyDocumentation = process.env.DOCS_ONLY;
-const environment = process.env.NODE_ENV || 'development';
 
 // Initialise applications
 const app = express();
@@ -64,31 +63,28 @@ nunjucksAppEnv.addGlobal('version', packageInfo.version);
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
-// Only set cookies to prevent prototype kit clashes in the development environment
-if (environment === 'development') {
-  // Session uses service name to avoid clashes with other prototypes
-  const sessionName = 'nhsuk-prototype-kit-' + (Buffer.from(config.serviceName, 'utf8')).toString('hex')
-  let sessionOptions = {
-    secret: sessionName,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 4 // 4 hours
-    }
+// Session uses service name to avoid clashes with other prototypes
+const sessionName = 'nhsuk-prototype-kit-' + (Buffer.from(config.serviceName, 'utf8')).toString('hex')
+let sessionOptions = {
+  secret: sessionName,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 4 // 4 hours
   }
+}
 
-  // Support session data in cookie or memory
-  if (useCookieSessionStore === 'true') {
-    app.use(sessionInCookie(Object.assign(sessionOptions, {
-      cookieName: sessionName,
-      proxy: true,
-      requestKey: 'session'
-    })))
-  } else {
-    app.use(sessionInMemory(Object.assign(sessionOptions, {
-      name: sessionName,
-      resave: false,
-      saveUninitialized: false
-    })))
-  }
+// Support session data in cookie or memory
+if (useCookieSessionStore === 'true' && onlyDocumentation !== true) {
+  app.use(sessionInCookie(Object.assign(sessionOptions, {
+    cookieName: sessionName,
+    proxy: true,
+    requestKey: 'session'
+  })))
+} else {
+  app.use(sessionInMemory(Object.assign(sessionOptions, {
+    name: sessionName,
+    resave: false,
+    saveUninitialized: false
+  })))
 }
 
 // Support for parsing data in POSTs
