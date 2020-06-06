@@ -123,9 +123,7 @@ router.post("/*/prior-notification-8-check", function (req, res) {
 
 router.post("/*/patient-cease-confirm", function (req, res) {
     var cease = req.session.data["pnl-cease"];
-    console.log("testing cease")
-
-    
+   
     if (cease == "yes") {
         
     res.redirect("/" + getVersion(req) + "/prior-notification/prior-notification-9-cease-review")
