@@ -36,13 +36,66 @@ NHS Cervical screening management system
      What would you like to do?
    </p>
 
-   <button class="nhsuk-button" type="submit">
-     Start new enquiry
-   </button>
+   <a href="CSSE-create-step1" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-bottom-6">
+     Start a new enquiry
+   </a>
+   
 
-   <p class="nhsuk-body">
-     Search an existing enquiry
-   </p>
+
+   <div class="nhsuk-form-group">
+     <fieldset class="nhsuk-fieldset" aria-describedby="search-existing-query" role="group">
+       <legend class="nhsuk-fieldset__legend nhsuk-label">
+         <h2 class="nhsuk-heading-l">
+           Search an existing enquiry
+         </h2>
+       </legend>
+
+       <label for="search-name" class="nhsuk-label">Name</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['#'] }}">
+
+       <label for="search-code" class="nhsuk-label">Code</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">
+
+       <div class="nhs-date-input" id="search-date">
+
+        <label for="search-date" class="nhsuk-label">Date</label>
+
+         <div class="nhsuk-hint" for="search-date-hint">
+          For example, 15 3 1984
+         </div>
+
+         <div class="nhsuk-date-input__item">
+           <div class="nhsuk-form-group">
+            <label for="search-date-day" class="nhsuk-label">Day</label>
+            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="search-date-day" name="search-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+           </div>
+         </div>
+
+         <div class="nhsuk-date-input__item">
+          <div class="nhsuk-form-group">
+           <label for="search-date-month" class="nhsuk-label">Month</label>
+           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="search-date-month" name="search-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="nhsuk-date-input__item">
+          <div class="nhsuk-form-group">
+           <label for="search-date-day" class="nhsuk-label">Year</label>
+           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="search-date-day" name="search-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+
+       </div>
+
+
+
+      
+     </fieldset>
+   </div>
+
+   <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
+     Search
+   </button>
    
 
     
