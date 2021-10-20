@@ -54,7 +54,38 @@ NHS Cervical screening management system
 
               <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="expand-test-criteria">
                 <div class="nhsuk-form-group">
-                  
+                  <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+                    <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                      <p class="nhsuk-body">
+                        Which tests would you like to include?
+                      </p>
+                    </legend>
+                
+                    <div class="nhsuk-radios">
+                
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="yes-patient-data" name="patient-data" type="radio" value="Yes" aria-describedby="yes-patient-data">
+                        <label class="nhsuk-label nhsuk-radios__label" for="yes-patient-data">
+                          All tests
+                        </label>
+                      </div>
+                
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No" aria-describedby="no-patient-data-hint">
+                        <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
+                          Most recent test only
+                        </label>
+                      </div>
+
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No" aria-describedby="no-patient-data-hint">
+                        <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
+                          First test only
+                        </label>
+                      </div>
+                
+                    </div>
+                  </fieldset>
                 </div>
               </div>
 
