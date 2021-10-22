@@ -370,6 +370,14 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     <h2>HPV vaccination record</h2>
 
+
+      <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+                  <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                    Add HPV vaccination
+                  </button>
+                </form>
+
+
                     <table role="table" class="">
                         <caption class="nhsuk-table__caption"><h2>HPV vaccination record</h2></caption>
             <thead role="rowgroup" class="nhsuk-table__head">
@@ -389,6 +397,40 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                         </tr>
                       </thead>
                       <tbody class="nhsuk-table__body">
+                        {% if data['hpvAdded'] === 'True' %}
+                        <tr role="row" class="nhsuk-table__row">
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                              {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                            {% else %}
+                            22-Oct-2021
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['vaccineName'] === 'gardasil'%}
+                              Gardasil
+                            {% elif data['vaccineName'] === 'other'%}
+                              {{ data['other'] }}
+                              {% else %}
+                              Cervarix
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['batchNumber'] %}
+                              {{ data['batchNumber'] }}
+                            {% else %}
+                            dfsdfs
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['dose'] %}
+                              {{ data['dose'] }}
+                            {% else %}
+                            3
+                            {% endif %}
+                          </td>
+                        </tr>
+                        {% endif %}
                         <tr role="row" class="nhsuk-table__row">
                           <td role="cell" class="nhsuk-table__cell">
                             11-Dec-2015
@@ -424,15 +466,82 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     {% elif data.patientSummary.nhs_number == '9100002801' %}
 
-    <div class="nhsuk-u-reading-width">
     <h2>HPV vaccination record</h2>
+
+    <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+                <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                  Add HPV vaccination
+                </button>
+              </form>
+
+              {% if data['hpvAdded'] === 'True' %}
+
+
+              <table role="table" class="">
+                  <caption class="nhsuk-table__caption"><h2>HPV vaccination record</h2></caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row">
+                    <th role="columnheader" class="" scope="col">
+                      Date given
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Vaccine name
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Batch number
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      Dose
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+                  <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">
+                      {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                        {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                      {% else %}
+                      22-Oct-2021
+                      {% endif %}
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      {% if data['vaccineName'] === 'gardasil'%}
+                        Gardasil
+                      {% elif data['vaccineName'] === 'other'%}
+                        {{ data['other'] }}
+                        {% else %}
+                        Cervarix
+                      {% endif %}
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      {% if data['batchNumber'] %}
+                        {{ data['batchNumber'] }}
+                      {% else %}
+                      dfsdfs
+                      {% endif %}
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">
+                      {% if data['dose'] %}
+                        {{ data['dose'] }}
+                      {% else %}
+                      3
+                      {% endif %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              {% else %}
+
+
+              <div class="nhsuk-u-reading-width">
 
     <p>There is no HPV vaccination information for this patient.</p>
 
     <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
-      Why there is no HVP vaccination information
+      Why there is no HPV vaccination information
     </span>
   </summary>
   <div class="nhsuk-details__text">
@@ -445,11 +554,18 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
   </div>
 </details>
+{% endif %}
 
 
     {% else %}
 
     <h2>HPV vaccination record</h2>
+
+    <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+                <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                  Add HPV vaccination
+                </button>
+              </form>
 
                     <table role="table" class="">
                         <caption class="nhsuk-table__caption"><h2>HPV vaccination record</h2></caption>
@@ -470,6 +586,40 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                         </tr>
                       </thead>
                       <tbody class="nhsuk-table__body">
+                        {% if data['hpvAdded'] === 'True' %}
+                        <tr role="row" class="nhsuk-table__row">
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                              {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                            {% else %}
+                            22-Oct-2021
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['vaccineName'] === 'gardasil'%}
+                              Gardasil
+                            {% elif data['vaccineName'] === 'other'%}
+                              {{ data['other'] }}
+                              {% else %}
+                              Cervarix
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['batchNumber'] %}
+                              {{ data['batchNumber'] }}
+                            {% else %}
+                            dfsdfs
+                            {% endif %}
+                          </td>
+                          <td role="cell" class="nhsuk-table__cell">
+                            {% if data['dose'] %}
+                              {{ data['dose'] }}
+                            {% else %}
+                            3
+                            {% endif %}
+                          </td>
+                        </tr>
+                        {% endif %}
                         <tr role="row" class="nhsuk-table__row">
                           <td role="cell" class="nhsuk-table__cell">
                             11-Dec-2015
