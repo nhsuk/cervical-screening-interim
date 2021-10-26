@@ -307,61 +307,54 @@ NHS Cervical screening management system
   </div>
     </div>
 
-     <div class="nhsuk-form-group">
-          <form action="/v12/worklists-v12/review-duplicate-test-result" method="post">
-
- <fieldset class="nhsuk-fieldset">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-              <h2 class="nhsuk-fieldset__heading nhsuk-label nhsuk-label__strong nhsuk-u-margin-top-4">
-                How would you like to action this result?
-              </h2>
-              <div class="nhsuk-hint" id="example-hints-1-item-hint">
-                 The action will be reviewed by a checker before being processed.
-                </div>
-            </legend>
-
-            <div class="nhsuk-radios">
-
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-1" name="rejectAction" type="radio" value="replace">
-                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                  Replace original with duplicate 
-                </label>
-                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 The duplicate test result will go through manual matching and then to the rejected list to be resolved. The original will be removed and archived.
-                </div>
-              </div>
-
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="remove">
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Remove duplicate
-                </label>
-                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 The original test result will stay on the rejected list to be resolved. The duplicate will be removed and archived.
-                </div>
-              </div>
-
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="comment">
-                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Add CRM and comments
-                </label>
-                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                  A new CRM and comment will be added to both results.
-                </div>
-              </div>
-
-            </div>
-          </fieldset>
-
-           <button class="nhsuk-button nhsuk-u-margin-top-5 nhsuk-button--ers" type="submit">Continue</button>
-          </form>
-
-        </div>
 
 
-<br>
+    <form action="manc-rejected-checkdup" method="post"> <input type="hidden" name="hideDetails" value="true">
+   <div class="nhsuk-form-group">
+     <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+       <legend class="nhsuk-fieldset__legend--m nhsuk-label__strong">
+         <h1 class="nhsuk-fieldset__heading">Are you sure you want to remove this test result?</h1>
+       </legend>
+
+<div class="nhsuk-checkboxes">
+           <div class="nhsuk-checkboxes__item">
+           <input class="nhsuk-checkboxes__input" id="confirmIdentity" name="confirmIdentity" type="checkbox" value="confirmIdentity">
+           <label class="nhsuk-label nhsuk-checkboxes__label" for="confirmIdentity">
+                Yes, I want the original test result
+           </label>
+           <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
+             The duplicate test result will go through manual matching and then to the rejected list to be resolved. The original will be removed and archived.
+           </div>
+         </div>
+
+
+           <div class="nhsuk-form-group">
+             <h1 class="nhsuk-label-wrapper">
+               <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
+                 Enter CRM case number
+               </label>
+             </h1>
+             <span class="nhsuk-hint" id="example-hint">
+               For example, CAS-12345-ABCDE.
+             </span>
+             <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off" value="{{ data.crm }}">
+           </div>
+           <div class="nhsuk-form-group">
+
+           <div class="nhsuk-grid-row">
+           <div class="nhsuk-grid-column-one-half">
+             <label class="nhsuk-label nhsuk-label__strong" for="example">
+               Comments
+             </label>
+                 <span class="nhsuk-hint" id="example-hint"> Add a comment explaining this action taken.</span>
+
+             <textarea class="nhsuk-textarea" id="example" name="comments" rows="4" aria-describedby="example-hint" autocomplete="off">{{ data.comments }}</textarea>
+           </div>
+         </div>
+       </div>
+  <br>
+   <button class="nhsuk-button nhsuk-button--ers" type="submit">Send to checker</button>
+ </form>
 
 
 
