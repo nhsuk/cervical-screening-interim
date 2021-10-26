@@ -1,0 +1,9 @@
+﻿Rejections outstanding,,,,,,,,,,
+Slide no,Surname,Forename(s),DoB,NHS No,Test Date,Result,Infection,HPV-PS,Address,Error message
+12345,Jones,Fliss,12-Dec-94,123451,18-Oct-21,1,9,Y,123 Green Road Liverpool L21 2FF,Missing data
+12346,Jones,Fliss,13-Dec-94,123452,19-Oct-21,1,9,Y,124 Green Road Liverpool L21 2FF,Missing data
+12347,Jones,Fliss,14-Dec-94,123453,20-Oct-21,1,9,Y,125 Green Road Liverpool L21 2FF,Missing data
+12348,Jones,Fliss,15-Dec-94,123454,21-Oct-21,1,9,Y,126 Green Road Liverpool L21 2FF,Missing data
+12349,Jones,Fliss,16-Dec-94,123455,22-Oct-21,1,9,Y,127 Green Road Liverpool L21 2FF,Missing data
+12350,Jones,Fliss,17-Dec-94,123456,23-Oct-21,1,9,Y,128 Green Road Liverpool L21 2FF,Missing data
+12351,Jones,Fliss,18-Dec-94,123457,24-Oct-21,1,9,Y,129 Green Road Liverpool L21 2FF,Missing data

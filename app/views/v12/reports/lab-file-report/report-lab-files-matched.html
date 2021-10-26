@@ -44,7 +44,7 @@ NHS Cervical screening management system
 
     <div class="nhsuk-details__text">
 
-           <div class="nhsuk-hint" id="example-hint">
+           <p>
                 Enter the file details you wish to search by:
               </p>
 
@@ -63,11 +63,11 @@ NHS Cervical screening management system
       
       What date range would you like to view?<br>
       <br>
-      Minimum view 1 day.<br>
-      Maximum view is 7 days.
-    </div>
+      <p class="nhsuk-hint">Minimum view 1 day.<br>
+      Maximum view is 7 days.</p>
+   
       <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-one-third">
+        <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-4">
           {{ dateInput({
             "id": "example",
             "namePrefix": "example",
@@ -97,7 +97,7 @@ NHS Cervical screening management system
             ]
           }) }}
         </div>
-        <div class="nhsuk-grid-column-one-third">
+        <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-4">
           {{ dateInput({
             "id": "example",
             "namePrefix": "example",
@@ -128,12 +128,13 @@ NHS Cervical screening management system
           }) }}
         </div>
       </div>
+      <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-4" type="submit">Search</button>
+    </div>
       <br>
       <br>
 
 
-          <button class="nhsuk-button nhsuk-button--ers" type="submit">Search</button>
-
+         
   </details>
 
 
