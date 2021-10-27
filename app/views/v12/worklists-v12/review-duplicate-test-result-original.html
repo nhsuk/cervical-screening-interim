@@ -48,8 +48,8 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
 
     {{ backLink({
-      "href": "manc-rejected",
-      "text": "Go back to rejected results"
+      "href": "manc-query",
+      "text": "Go back to results to query"
     }) }}
 
   </div>
@@ -65,7 +65,7 @@ NHS Cervical screening management system
     <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
       <li class="nhsuk-panel"> <p><strong>Test results have duplicate slide numbers. </strong></p>
       <p>Review both test results and choose which to use.</p>
-        <p>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</p>
+        <p>The original result contains invalid or missing patient and test result data. This would need resolving before the test result can be added to the a patient.</p>
       </li>
     </ul>
  </div>
@@ -85,7 +85,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            Duplicate patient details
+            Duplicate result
           </legend>
 
           <div class="nhsuk-summary-list__row">
@@ -206,7 +206,7 @@ NHS Cervical screening management system
                 <dl class="nhsuk-summary-list">
       <div class="nhsuk-grid-column-full">
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-                  Original patient details
+                  Original result
                 </legend>
 
       <div class="nhsuk-summary-list__row">
@@ -311,7 +311,7 @@ NHS Cervical screening management system
     </div>
 
      <div class="nhsuk-form-group">
-          <form action="/v12/worklists-v12/review-duplicate-test-result" method="post">
+          <form action="/v12/worklists-v12/review-duplicate-test-result-original" method="post">
 
  <fieldset class="nhsuk-fieldset">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
