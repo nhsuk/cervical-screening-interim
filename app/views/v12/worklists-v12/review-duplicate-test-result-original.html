@@ -95,17 +95,17 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">Date of birth </dt>
-              <dd class="nhsuk-summary-list__value">22 March 1986</dd>
+              <dd class="nhsuk-summary-list__value">14 April 1990</dd>
             </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">NHS number </dt>
-              <dd class="nhsuk-summary-list__value"><span class="highlight">308 219 3881</span></dd>
+              <dd class="nhsuk-summary-list__value"><span class="highlight">345 678 9812</span></dd>
             </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">Contact address </dt>
-              <dd class="nhsuk-summary-list__value">19 Forest Road, Bromley, BR4 7BG</dd>
+              <dd class="nhsuk-summary-list__value">60 Tong Road, Shipley, SP5 5TH</dd>
             </div>
 
     </dl>
@@ -166,7 +166,7 @@ NHS Cervical screening management system
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Result</dt>
-    <dd class="nhsuk-summary-list__value"><span class="highlight">-</span></dd>
+    <dd class="nhsuk-summary-list__value">X0A</dd>
   </div>
 
 
@@ -216,17 +216,17 @@ NHS Cervical screening management system
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Date of birth </dt>
-          <dd class="nhsuk-summary-list__value">22 March 1986</dd>
+          <dd class="nhsuk-summary-list__value">14 April 1990</dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">NHS number </dt>
-          <dd class="nhsuk-summary-list__value">{{ data['nhs_number'] or "123 456 7890" }}</dd>
+          <dd class="nhsuk-summary-list__value"><span class="highlight">{{ data['nhs_number'] or "123 456 7890" }}</span></dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Contact address </dt>
-          <dd class="nhsuk-summary-list__value">19 Forest Road, Bromley, BR4 7BG</dd>
+          <dd class="nhsuk-summary-list__value">60 Tong Road, Shipley, SP5 5TH</dd>
         </div>
 
           </dl>
@@ -276,7 +276,7 @@ NHS Cervical screening management system
   {% set nextTestDueDate = data['test_date'] %}
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Test date</dt>
-    <dd class="nhsuk-summary-list__value"><span class="highlight">-</span></dd>
+    <dd class="nhsuk-summary-list__value">1-June-2021</dd>
   </div>
 
  <div class="nhsuk-summary-list__row">
@@ -286,7 +286,7 @@ NHS Cervical screening management system
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Result</dt>
-<dd class="nhsuk-summary-list__value">X0A</dd>
+<dd class="nhsuk-summary-list__value"><span class="highlight">T0A</span></dd>
   </div>
 
   <div class="nhsuk-summary-list__row">
@@ -326,32 +326,31 @@ NHS Cervical screening management system
             <div class="nhsuk-radios">
 
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-1" name="rejectAction" type="radio" value="replace">
+                <input class="nhsuk-radios__input" id="example-1" name="rejectAction2" type="radio" value="replace">
                 <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                   Replace original with duplicate 
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 The duplicate test result will go through manual matching and then to the rejected list to be resolved. The original will be removed and archived.
+                 This will save the duplicate test result to the patient summary page. The original will be removed and archived.
                 </div>
               </div>
 
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="remove">
+                <input class="nhsuk-radios__input" id="example-2" name="rejectAction2" type="radio" value="remove">
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Remove duplicate
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 The original test result will stay on the rejected list to be resolved. The duplicate will be removed and archived.
-                </div>
+                    The original test result will go through manual matching and then to the rejected list to be resolved. The duplicate will be removed and archived.                </div>
               </div>
 
               <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="comment">
+                <input class="nhsuk-radios__input" id="example-2" name="rejectAction2" type="radio" value="comment">
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                   Add CRM and comments
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                  A new CRM and comment will be added to both results.
+                  This will add a new CRM and comment to the duplicate result.
                 </div>
               </div>
 

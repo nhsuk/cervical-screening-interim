@@ -620,9 +620,9 @@ else {
 //DE-DUP original result
 
 router.post("/v12/worklists-v12/review-duplicate-test-result-original", function (req, res) {
-var rejectAction = req.session.data['rejectAction'];
+var rejectAction2 = req.session.data['rejectAction2'];
 
-if (rejectAction == 'replace') {
+if (rejectAction2 == 'replace') {
   res.redirect("/v12/worklists-v12/confirm-duplicate-test-result-original");
 }
 
