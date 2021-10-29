@@ -14,7 +14,7 @@
 
       <li class="only-print"><span><strong>Name: </strong> {{ data['last_name'] or "Smith" }} , {{ data['first_name'] or "Jane" }} {{ data['title'] or 'Mrs'}}</span></li>
 
-      <li><strong>DOB: </strong> {{ data['age'] or '30'}} years ({{ data['age'] or '4 June 1988' }})</li>
+      <li><strong>DOB: </strong> {{ data['age'] or '30'}} years ({{ data['dob'] or '4 June 1988' }})</li>
 
       <li><span><strong>NHS No: </strong> {{ data['nhs_number'] or '123 456 7890' }}</span></li>
 

@@ -73,15 +73,18 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-one-half">
  <div class="nhsuk-panel-with-label">
 
-      {% include '../components/patient-result-duplicate.html' %}
+      {% include '../components/patient-result-duplicate-rhodes-dup.html' %}
+
+      <h2 class="nhsuk-heading-m nhsuk-u-padding-left-3 nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-3">Duplicate result</h2>
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-u-margin-bottom-0">
 
         <div class="nhsuk-form-group">
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            Duplicate result
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+            Duplicate patient details
           </legend>
 
           <div class="nhsuk-summary-list__row">
@@ -96,7 +99,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">NHS number </dt>
-              <dd class="nhsuk-summary-list__value"><span class="highlight">345 678 9812</span></dd>
+              <dd class="nhsuk-summary-list__value">345 678 9812</dd>
             </div>
 
             <div class="nhsuk-summary-list__row">
@@ -114,7 +117,7 @@ NHS Cervical screening management system
         <div class="nhsuk-form-group">
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
             Duplicate test result details
           </legend>
 
@@ -192,7 +195,8 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-column-one-half">
  <div class="nhsuk-panel-with-label">
 
-   {% include '../components/patient-result-duplicate.html' %}
+   {% include '../components/patient-result-duplicate-rhodes-og.html' %}
+   <h2 class="nhsuk-heading-m nhsuk-u-padding-left-3 nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-3">Original result</h2>
 
 
 
@@ -201,8 +205,8 @@ NHS Cervical screening management system
               <div class="nhsuk-form-group">
                 <dl class="nhsuk-summary-list">
       <div class="nhsuk-grid-column-full">
-                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-                  Original result
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                  Original patient details
                 </legend>
 
       <div class="nhsuk-summary-list__row">
@@ -217,7 +221,7 @@ NHS Cervical screening management system
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">NHS number </dt>
-          <dd class="nhsuk-summary-list__value"><span class="highlight">{{ data['nhs_number'] or "123 456 7890" }}</span></dd>
+          <dd class="nhsuk-summary-list__value">{{ data['nhs_number'] or "123 456 7890" }}</dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
@@ -234,7 +238,7 @@ NHS Cervical screening management system
         <div class="nhsuk-form-group">
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
             Original test result details
           </legend>
 
@@ -282,7 +286,7 @@ NHS Cervical screening management system
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Result</dt>
-<dd class="nhsuk-summary-list__value"><span class="highlight">T0A</span></dd>
+<dd class="nhsuk-summary-list__value"><span class="highlight">-</span></dd>
   </div>
 
   <div class="nhsuk-summary-list__row">
@@ -305,7 +309,6 @@ NHS Cervical screening management system
   </div>
   </div>
     </div>
-
 
     <form action="manc-rejected-checkdup" method="post"> <input type="hidden" name="hideDetails" value="true">
    <div class="nhsuk-form-group">
