@@ -1,0 +1,286 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step5">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to Step 5: Define sender details</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 6 of 12</span>
+    <h1 class="nhsuk-heading-l">
+        Define test result details
+    </h1>
+
+    <form action="CSSE-create-step7" method="post">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="date-type">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+              What date type would you like to include?
+            </p>
+          </legend>
+
+          <div class="nhsuk-radios nhsuk-radios--conditional">
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="date-type" id="test-taken-date" value="Test taken date" aria-controls="expand-test-taken-date" aria-expnded="false">
+              <label for="test-taken-date" class="nhsuk-label nhsuk-radios__label">
+                Test taken date
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-test-taken-date">
+              <div class="nhsuk-form-group">
+                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                    <p class="nhsuk-body">
+                      What date range would you like to include?
+                    </p>
+                  </legend>
+
+                  <div class="nhsuk-grid-row">
+
+                    <div class="nhsuk-grid-column-one-half">
+                      <div class="nhs-date-input" id="test-taken-date-from">
+
+                        <label for="test-taken-date-input" class="nhsuk-label nhsuk-label__strong">
+                          Enter date from
+                        </label>
+                
+                         <div class="nhsuk-hint" for="test-taken-date-hint">
+                          For example, 15 3 1984
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                           <div class="nhsuk-form-group">
+                            <label for="test-taken-date-date-day" class="nhsuk-label">
+                              Day
+                            </label>
+                            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                           </div>
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-month" class="nhsuk-label nhsuk-label__strong">
+                            Month
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-month" name="test-taken-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-year" class="nhsuk-label nhsuk-label__strong">
+                            Year
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="test-taken-date-year" name="test-taken-date-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                       </div>
+                    </div>
+
+                    <div class="nhsuk-grid-column-one-half">
+
+                      <div class="nhs-date-input" id="test-taken-date-to">
+
+                        <label for="test-taken-date" class="nhsuk-label nhsuk-label__strong">
+                          Enter date to
+                        </label>
+                
+                         <div class="nhsuk-hint" for="test-taken-date-hint">
+                          For example, 15 3 1984
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                           <div class="nhsuk-form-group">
+                            <label for="test-taken-date-day" class="nhsuk-label nhsuk-label__strong">
+                              Day
+                            </label>
+                            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                           </div>
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-month" class="nhsuk-label nhsuk-label__strong">
+                            Month
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-month" name="test-taken-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-year" class="nhsuk-label nhsuk-label__strong">
+                            Year
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                       </div>
+                    </div>
+
+
+                  </div>
+              
+
+                </fieldset>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="nhsuk-radios nhsuk-radios--conditional">
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="date-type" id="prev-noti-date" value="Previous notification date" aria-controls="expand-prev-noti-date" aria-expnded="false">
+              <label for="prev-noti-date" class="nhsuk-label nhsuk-radios__label">
+                Previous notification date
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-prev-noti-date">
+              <div class="nhsuk-form-group">
+                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                    <p class="nhsuk-body">
+                      What date range would you like to include?
+                    </p>
+                  </legend>
+
+                  <div class="nhsuk-grid-row">
+
+                    <div class="nhsuk-grid-column-one-half">
+                      <div class="nhs-date-input" id="test-taken-date-from">
+
+                        <label for="test-taken-date-input" class="nhsuk-label nhsuk-label__strong">
+                          Enter date from
+                        </label>
+                
+                         <div class="nhsuk-hint" for="test-taken-date-hint">
+                          For example, 15 3 1984
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                           <div class="nhsuk-form-group">
+                            <label for="test-taken-date-date-day" class="nhsuk-label">
+                              Day
+                            </label>
+                            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                           </div>
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-month" class="nhsuk-label nhsuk-label__strong">
+                            Month
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-month" name="test-taken-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-year" class="nhsuk-label nhsuk-label__strong">
+                            Year
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="test-taken-date-year" name="test-taken-date-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                       </div>
+                    </div>
+
+                    <div class="nhsuk-grid-column-one-half">
+
+                      <div class="nhs-date-input" id="test-taken-date-to">
+
+                        <label for="test-taken-date" class="nhsuk-label nhsuk-label__strong">
+                          Enter date to
+                        </label>
+                
+                         <div class="nhsuk-hint" for="test-taken-date-hint">
+                          For example, 15 3 1984
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                           <div class="nhsuk-form-group">
+                            <label for="test-taken-date-day" class="nhsuk-label nhsuk-label__strong">
+                              Day
+                            </label>
+                            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                           </div>
+                         </div>
+                
+                         <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-month" class="nhsuk-label nhsuk-label__strong">
+                            Month
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="test-taken-date-month" name="test-taken-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                           <label for="test-taken-date-year" class="nhsuk-label nhsuk-label__strong">
+                            Year
+                           </label>
+                           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="test-taken-date-day" name="test-taken-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                          </div>
+                        </div>
+                
+                       </div>
+                    </div>
+
+
+                  </div>
+              
+
+                </fieldset>
+              </div>
+            </div>
+
+
+          </div>
+      
+            
+        </fieldset>
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Save and continue
+      </button>
+    </form>
+   
+
+    
+  </div>
+</div>
+{% endblock %}

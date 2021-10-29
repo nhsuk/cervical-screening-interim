@@ -37,7 +37,7 @@ NHS Cervical screening management system
 
     <form action="CSSE-create-step5" method="post">
       <div class="nhsuk-form-group">
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-criteria">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="result-type">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 What result type would you like to include?
@@ -48,18 +48,18 @@ NHS Cervical screening management system
               Select all options that are relevant to you
             </div>
 
-            <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+            <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-tests" value="Has tests" aria-controls="expand-test-criteria" aria-expnded="false">
-                <label for="has-tests" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="self-sample" value="Self-sample results">
+                <label for="self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Self-sample results
                 </label>
               </div>
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-no-tests" value="Does not have tests">
-                <label for="has-no-test" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="not-self-sample" value="Not self-sample results">
+                <label for="not-self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Not self-sample results
                 </label>
               </div>
@@ -69,7 +69,7 @@ NHS Cervical screening management system
               
           </fieldset>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-criteria">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="result-type">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 What HPV primary status would you like to see?
@@ -80,18 +80,18 @@ NHS Cervical screening management system
               Select all options that are relevant to you
             </div>
 
-            <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+            <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-tests" value="Has tests" aria-controls="expand-test-criteria" aria-expnded="false">
-                <label for="has-tests" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="hpv-primary" value="HPV primary">
+                <label for="hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   HPV primary
                 </label>
               </div>
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-no-tests" value="Does not have tests">
-                <label for="has-no-test" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="not-hpv-primary" value="Not HPV primary">
+                <label for="not-hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   Not HPV primary
                 </label>
               </div>
