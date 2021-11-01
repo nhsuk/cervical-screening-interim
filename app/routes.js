@@ -602,7 +602,7 @@ router.post('/v12/reports-gp/history-batch', function (req, res) {
 })
 
 
-// De-duplicate
+// De-duplicate flow 1
 
 router.post("/v12/worklists-v12/review-duplicate-test-result", function (req, res) {
 var rejectAction = req.session.data['rejectAction'];
@@ -617,7 +617,7 @@ else {
 
 })
 
-//DE-DUP original result
+//DE-DUP original result flow 2
 
 router.post("/v12/worklists-v12/review-duplicate-test-result-original", function (req, res) {
 var rejectAction2 = req.session.data['rejectAction2'];
@@ -628,6 +628,21 @@ if (rejectAction2 == 'replace') {
 
 else {
   res.redirect("/v12/worklists-v12/review-duplicate-test-result-original");
+}
+
+})
+
+//DE-DUP flow 3
+
+router.post("/v12/worklists-v12/review-test-result", function (req, res) {
+var rejectAction3 = req.session.data['rejectAction3'];
+
+if (rejectAction3 == 'remove') {
+  res.redirect("/v12/worklists-v12/confirm-test-result");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-test-result");
 }
 
 })

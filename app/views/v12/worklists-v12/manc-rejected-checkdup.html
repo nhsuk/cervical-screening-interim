@@ -142,14 +142,26 @@ NHS Cervical screening management system
         <tr>
           <td>Janet Fraser</td>
           <td>998 666 1234</td>
-          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
+          {% if data['checkedRejected3'] === 'True' %}
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Checker Rejected</span></td>
+          {% else %}
+          <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To Check</span></td>
+          {% endif %}
+          {% if data['checkedRejected3'] === 'True' %}
+          <td>Joanna Jones</td>
+          {% else %}
           <td></td>
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid data</span></td>
+          {% endif %}
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           <td>11:06 am
             <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-invalid">Review</a>
+            {% if data['checkedRejected3'] === 'True' %}
+            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="#">Review</a>
+            {% else %}
+            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-3">Check</a>
+            {% endif %}
          </td>
-          <tr>
+          <!-- <tr>
           <td>Janet Fraser</td>
           <td>998 666 1234</td>
           <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
@@ -171,7 +183,7 @@ NHS Cervical screening management system
             <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
            <td><a  class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3"  href="rejected-awaiting-sidebyside">Review</a>
          </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Joy Mccrone</td>
           <td>308 219 3281</td>

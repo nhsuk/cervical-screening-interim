@@ -282,6 +282,52 @@ comments="
 
 
 
+                {% if data['janetFraser'] === 'checkAccepted' %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    {{ result.test_date | returnDateFormat }}
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    X0A - 12 months
+                    <span class="nhsuk-table__cell--hint">Negative HPV negative routine</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    A86020
+                    <span class="nhsuk-table__cell--hint">Source: G</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    21010009
+                    <span class="nhsuk-table__cell--hint"> Nat Code: CHR3</span>
+                  </td>
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag nhsuk-tag--orange {{ letterStyle }}">Processing</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                    <td class="nhsuk-table__cell">
+                      <a href=""
+                        style="margin-left:4px; margin-right:4px;">Review</a>
+                        <a href=""
+                        style="margin-left:4px; margin-right:4px;">Delete</a>
+
+                         <br><a href="">Cancel letter</a>
+
+                    </td>
+                </tr>
+
+
+                {% endif %}
+
+                {% endif %}
+
 
 
 
