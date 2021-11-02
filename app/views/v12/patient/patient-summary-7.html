@@ -21,7 +21,7 @@
           <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
         </svg>
         <span class="nhsuk-header__service-name">
-          Cervical Screening
+          Cervical Screening Management System
         </span>
       </a>
     </div>
@@ -371,12 +371,13 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     <h2>HPV vaccination record</h2>
 
-
+    {% if data.role == 'csas' %}
       <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
                   <button class="nhsuk-button nhsuk-button--ers" type="submit">
                     Add HPV vaccination
                   </button>
                 </form>
+    {% endif %}
 
 
                     <table role="table" class="">
@@ -395,6 +396,12 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <th role="columnheader" class="" scope="col">
                             Dose
                           </th>
+                          {% if data.role == 'csas' %}
+                          <th role="columnheader" class="" scope="col">
+                            Amend
+                          </th>
+                          {% endif %}
+
                         </tr>
                       </thead>
                       <tbody class="nhsuk-table__body">
@@ -430,6 +437,13 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                             3
                             {% endif %}
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+                            <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                            <br>
+                            <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+                          </td>
+                          {% endif %}
                         </tr>
                         {% endif %}
                         <tr role="row" class="nhsuk-table__row">
@@ -445,6 +459,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <td role="cell" class="nhsuk-table__cell">
                             2
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+
+                          </td>
+                          {% endif %}
                         </tr>
                         <tr role="row" class="nhsuk-table__row">
                           <td role="cell" class="nhsuk-table__cell">
@@ -459,6 +478,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <td role="cell" class="nhsuk-table__cell">
                             1
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+
+                          </td>
+                          {% endif %}
                         </tr>
                       </tbody>
                     </table>
@@ -469,11 +493,14 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     <h2>HPV vaccination record</h2>
 
+    {% if data.role == 'csas' %}
     <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
                 <button class="nhsuk-button nhsuk-button--ers" type="submit">
                   Add HPV vaccination
                 </button>
               </form>
+              {% endif %}
+
 
               {% if data['hpvAdded'] === 'True' %}
 
@@ -494,6 +521,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                     <th role="columnheader" class="" scope="col">
                       Dose
                     </th>
+                    {% if data.role == 'csas' %}
+                    <th role="columnheader" class="" scope="col">
+                      Amend
+                    </th>
+                    {% endif %}
                   </tr>
                 </thead>
                 <tbody class="nhsuk-table__body">
@@ -528,6 +560,13 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                       3
                       {% endif %}
                     </td>
+                    {% if data.role == 'csas' %}
+                    <td role="cell" class="nhsuk-table__cell">
+                      <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                      <br>
+                      <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+                    </td>
+                    {% endif %}
                   </tr>
                 </tbody>
               </table>
@@ -539,22 +578,6 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     <p>There is no HPV vaccination information for this patient.</p>
 
-    <details class="nhsuk-details">
-  <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">
-      Why there is no HPV vaccination information
-    </span>
-  </summary>
-  <div class="nhsuk-details__text">
-    <p>There might be no HPV vaccination information if:</p>
-    <ul>
-      <li>the patient has not had the HPV vaccination</li>
-      <li>the patient did not have the HPV vaccination in England, the Isle of Man or while serving in the armed forces</li>
-      <li>the patient’s vaccination record is not up to date or cannot be found</li>
-    </ul>
-
-  </div>
-</details>
 </div>
 
 {% endif %}
@@ -564,11 +587,13 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
 
     <h2>HPV vaccination record</h2>
 
+    {% if data.role == 'csas' %}
     <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
                 <button class="nhsuk-button nhsuk-button--ers" type="submit">
                   Add HPV vaccination
                 </button>
               </form>
+      {% endif %}
 
                     <table role="table" class="">
                         <caption class="nhsuk-table__caption"><h2>HPV vaccination record</h2></caption>
@@ -586,6 +611,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <th role="columnheader" class="" scope="col">
                             Dose
                           </th>
+                          {% if data.role == 'csas' %}
+                          <th role="columnheader" class="" scope="col">
+                            Amend
+                          </th>
+                          {% endif %}
                         </tr>
                       </thead>
                       <tbody class="nhsuk-table__body">
@@ -611,7 +641,7 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                             {% if data['batchNumber'] %}
                               {{ data['batchNumber'] }}
                             {% else %}
-                            dfsdfs
+                            HP3PV5895H
                             {% endif %}
                           </td>
                           <td role="cell" class="nhsuk-table__cell">
@@ -621,6 +651,13 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                             3
                             {% endif %}
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+                            <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                            <br>
+                            <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+                          </td>
+                          {% endif %}
                         </tr>
                         {% endif %}
                         <tr role="row" class="nhsuk-table__row">
@@ -636,6 +673,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <td role="cell" class="nhsuk-table__cell">
                             2
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+
+                          </td>
+                          {% endif %}
                         </tr>
                         <tr role="row" class="nhsuk-table__row">
                           <td role="cell" class="nhsuk-table__cell">
@@ -650,6 +692,11 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
                           <td role="cell" class="nhsuk-table__cell">
                             1
                           </td>
+                          {% if data.role == 'csas' %}
+                          <td role="cell" class="nhsuk-table__cell">
+
+                          </td>
+                          {% endif %}
                         </tr>
                       </tbody>
                     </table>
