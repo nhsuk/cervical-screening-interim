@@ -67,6 +67,17 @@ NHS Cervical screening management system
           </div>
         {% endif %}
         {% endfor %}
+        {% if data['hpvEdited'] === 'True' %}
+        <div class="nhs-screening-whole-timeline__item">
+          <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
+            <h2 class="nhs-screening-whole-timeline__title">HPV vaccination edited</h2>
+            <p class="nhs-screening-whole-timeline__by">by Jane Smith</p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">22-Oct-2020, 09:00:00 am</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: 1234567789</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">Comments: HPV vaccination date given updated</time></p>
+         </div>
+        </div>
+        {% endif %}
         {% if data['hpvAdded'] === 'True' %}
         <div class="nhs-screening-whole-timeline__item">
           <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
@@ -76,7 +87,8 @@ NHS Cervical screening management system
             <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: 1234567789</time></p>
          </div>
         </div>
-        {% else %}
+        {% endif %}
+        {% if data['hpvRemoved'] === 'True' %}
         <div class="nhs-screening-whole-timeline__item">
           <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
             <h2 class="nhs-screening-whole-timeline__title">HPV vaccination removed</h2>

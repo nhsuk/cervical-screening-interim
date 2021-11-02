@@ -1,6 +1,11 @@
 {% extends "layout-v2.html" %}
 
 {% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 {% block pageTitle %}
   NHS Cervical screening management system
@@ -36,7 +41,7 @@
   <h1 class="nhsuk-heading-l">Edit HPV vaccination</h1>
 
 
-    <form action="/v12/patient/add-hpv/review-hpv-vaccination" method="post">
+    <form action="/v12/patient/add-hpv/review-hpv-vaccination?hpvEdited=True" method="post">
 
       <div class="nhsuk-form-group">
       <fieldset class="nhsuk-fieldset" aria-describedby="dateGiven-hint" role="group">

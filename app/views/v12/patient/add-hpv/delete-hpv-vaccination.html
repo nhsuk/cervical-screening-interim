@@ -3,6 +3,11 @@
 
 
 {% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 {% block pageTitle %}
   NHS Cervical screening management system
@@ -34,7 +39,7 @@
   <h1 class="nhsuk-heading-l">Check HPV vaccination before deleting</h1>
 
 
-  <form action="/v12/patient/patient-summary-7?hpvAdded=" method="post"> <input type="hidden" name="hideDetails" value="true">
+  <form action="/v12/patient/patient-summary-7?hpvRemoved=True" method="post"> <input type="hidden" name="hideDetails" value="true">
 
       <dl class="nhsuk-summary-list">
 
