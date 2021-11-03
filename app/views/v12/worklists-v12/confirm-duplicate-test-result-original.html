@@ -221,7 +221,8 @@ NHS Cervical screening management system
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">NHS number </dt>
-          <dd class="nhsuk-summary-list__value">{{ data['nhs_number'] or "123 456 7890" }}</dd>
+          <dd class="nhsuk-summary-list__value">345 678 9<sapn class="highlight">0</sapn>12
+</dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
@@ -310,7 +311,7 @@ NHS Cervical screening management system
   </div>
     </div>
 
-    <form action="manc-rejected-checkdup" method="post"> <input type="hidden" name="hideDetails" value="true">
+    <form action="manc-rejected-checkdup?sendChecker=True" method="post"> <input type="hidden" name="hideDetails" value="true">
    <div class="nhsuk-form-group">
      <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
        <legend class="nhsuk-fieldset__legend--m nhsuk-label__strong">
@@ -321,10 +322,10 @@ NHS Cervical screening management system
            <div class="nhsuk-checkboxes__item">
            <input class="nhsuk-checkboxes__input" id="confirmIdentity" name="confirmIdentity" type="checkbox" value="confirmIdentity">
            <label class="nhsuk-label nhsuk-checkboxes__label" for="confirmIdentity">
-                Yes, I want the remove the duplicate
+                Yes, I want to replace the original test result with the duplicate.
            </label>
            <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
-             The original test result will go through manual matching and then to the rejected list to be resolved. The duplicate will be removed and archived.
+             This will save the duplicate test result to the patient summary page. The original will be removed and archived. 
            </div>
          </div>
 
