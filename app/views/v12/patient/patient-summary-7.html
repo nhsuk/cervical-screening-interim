@@ -94,9 +94,9 @@
       <span class="nhsuk-tag nhsuk-tag--blue"><span>{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span></span>
     {% endif %}
 
-    {% if data.patientSummary.pnl_action == 'Ceased' %}
+    <!-- {% if data.patientSummary.pnl_action == 'Ceased' %}
       <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
-    {% endif %}
+    {% endif %} -->
     <dl class="nhsuk-summary-list nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -234,12 +234,120 @@ comments="
               </thead>
               <tbody class="nhsuk-table__body nhsuk-body-">
 
+                {% if data['samanthaRhodes'] === 'checkAccepted' %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    {{ result.test_date | returnDateFormat }}
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    X0A - 12 months
+                    <span class="nhsuk-table__cell--hint">Negative HPV negative routine</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    A86020
+                    <span class="nhsuk-table__cell--hint">Source: G</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    21010009
+                    <span class="nhsuk-table__cell--hint"> Nat Code: CHR3</span>
+                  </td>
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag nhsuk-tag--orange {{ letterStyle }}">Processing</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                    <td class="nhsuk-table__cell">
+                      <a href=""
+                        style="margin-left:4px; margin-right:4px;">Review</a>
+                        <a href=""
+                        style="margin-left:4px; margin-right:4px;">Delete</a>
+
+                         <br><a href="">Cancel letter</a>
+
+                    </td>
+                </tr>
+
+
+                {% endif %}
+
+                {% endif %}
+
+
+
+                {% if data['janetFraser'] === 'checkAccepted' %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    {{ result.test_date | returnDateFormat }}
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    X0A - 12 months
+                    <span class="nhsuk-table__cell--hint">Negative HPV negative routine</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    A86020
+                    <span class="nhsuk-table__cell--hint">Source: G</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    21010009
+                    <span class="nhsuk-table__cell--hint"> Nat Code: CHR3</span>
+                  </td>
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag nhsuk-tag--orange {{ letterStyle }}">Processing</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                    <td class="nhsuk-table__cell">
+                      <a href=""
+                        style="margin-left:4px; margin-right:4px;">Review</a>
+                        <a href=""
+                        style="margin-left:4px; margin-right:4px;">Delete</a>
+
+                         <br><a href="">Cancel letter</a>
+
+                    </td>
+                </tr>
+
+
+                {% endif %}
+
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               {% for result in data.patientSummary.results %}
               {% if result.is_deleted == false %}
 
                 <tr class="nhsuk-table__row">
                   <td class="nhsuk-table__cell fixed-side">
-                    {{ result.test_date | returnDateFormat }}
+                    11-Sep-2021
                     <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
                   </td>
                   <td class="nhsuk-table__cell">
