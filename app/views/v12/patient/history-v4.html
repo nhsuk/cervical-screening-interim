@@ -32,14 +32,14 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link" aria-current="page">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP Information</a></li>
-  
+
   </ul>
 </nav>
 
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
   <div class="nhsuk-grid-column-full">
     <h1 class="nhsuk-heading-l">Audit</h1>
-     
+
       {% if data['audit_msg_show'] == 1 %}
         {{ insetText({
           "HTML": "<p>" + data.auditMsg + "</p>",
@@ -58,7 +58,7 @@ NHS Cervical screening management system
               <h2 class="nhs-screening-whole-timeline__title">Test result added</h2>
               <p class="nhs-screening-whole-timeline__by">by Jane Smith</p>
               <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">{{ result.created | returnDateAndTime }}</time></p>
-            </div> 
+            </div>
             <p>({{ result['result_code'] + result['infection_code'] + result['action_code'] }}) {{ result['result_code'] | returnResultText }}, {{ result['infection_code'] | returnInfectionText }}, {{ result['action_code'] | returnActionText }}</p>
             {% if result.crm != null %}
               <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: {{ result.crm }}</time></p>
@@ -67,6 +67,39 @@ NHS Cervical screening management system
           </div>
         {% endif %}
         {% endfor %}
+        {% if data['hpvEdited'] === 'True' %}
+        <div class="nhs-screening-whole-timeline__item">
+          <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
+            <h2 class="nhs-screening-whole-timeline__title">HPV vaccination edited</h2>
+            <p class="nhs-screening-whole-timeline__by">by Jane Smith</p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">22-Oct-2020, 09:00:00 am</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: 1234567789</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">Comments: HPV vaccination date given updated</time></p>
+         </div>
+        </div>
+        {% endif %}
+        {% if data['hpvAdded'] === 'True' %}
+        <div class="nhs-screening-whole-timeline__item">
+          <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
+            <h2 class="nhs-screening-whole-timeline__title">HPV vaccination added</h2>
+            <p class="nhs-screening-whole-timeline__by">by Jane Smith</p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">22-Oct-2020, 09:00:00 am</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: 1234567789</time></p>
+         </div>
+        </div>
+        {% endif %}
+        {% if data['hpvRemoved'] === 'True' %}
+        <div class="nhs-screening-whole-timeline__item">
+          <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
+            <h2 class="nhs-screening-whole-timeline__title">HPV vaccination removed</h2>
+            <p class="nhs-screening-whole-timeline__by">by Jane Smith</p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">22-Oct-2020, 09:00:00 am</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: 1234567789</time></p>
+            <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">Comments: HPV vaccination added in error</time></p>
+         </div>
+        </div>
+        {% endif %}
+
           <div class="nhs-screening-whole-timeline__item">
             <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
               <h2 class="nhs-screening-whole-timeline__title">Result letter cancelled</h2>
@@ -95,7 +128,7 @@ NHS Cervical screening management system
               <p class="nhs-screening-whole-timeline__date">New address: Flat 9, St. Andrews Court, St Andrews Street, Northampton,NN1 2HH</p>
               <p class="nhs-screening-whole-timeline__date">Old address: 2 Brickyard Cottages, Moor Lane, Shipton By Beningbrough,YO30 1AU</p>
             </div>
-            
+
           </div>
 
           <div class="nhs-screening-whole-timeline__item">
@@ -129,7 +162,7 @@ NHS Cervical screening management system
             <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">CRM Case Number: CAS-12345-ABCDE</time></p>
             <p class="nhs-screening-whole-timeline__date"><time datetime="2017-11-20T14:27">Comments: Requested via the GP form</time></p>
           </div>
-  
+
           <div class="nhs-screening-whole-timeline__item">
             <div class="nhs-screening-whole-timeline__header nhsuk-u-margin-bottom-2">
               <h2 class="nhs-screening-whole-timeline__title">Next test due date changed</h2>
@@ -222,7 +255,7 @@ NHS Cervical screening management system
             </div>
           </div>
         </div>
-        
+
   </div>
 </div>
 

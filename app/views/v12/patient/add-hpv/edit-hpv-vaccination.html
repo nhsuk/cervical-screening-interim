@@ -1,0 +1,237 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+
+  {% include '../../components/header.html' %}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+  {% if data['edit-test'] != 'true' %}
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="../patient-summary-7">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to patient summary</a>
+    </div>
+  {% endif %}
+
+<div class="nhsuk-panel-with-label">
+    {% include '../../components/hpv-patient.html' %}
+
+  <h1 class="nhsuk-heading-l">Edit HPV vaccination</h1>
+
+
+    <form action="/v12/patient/add-hpv/review-hpv-vaccination?hpvEdited=True" method="post">
+
+      <div class="nhsuk-form-group">
+      <fieldset class="nhsuk-fieldset" aria-describedby="dateGiven-hint" role="group">
+        <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+          Date given
+        </legend>
+      <span class="nhsuk-hint" id="dateGiven-hint">
+          For example, 13 6 2011
+        </span>
+
+
+        <div class="nhsuk-date-input" id="dateGiven">
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-day">
+                Day
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dateGiven-day" value="{{ data['dateGiven-day'] or "22" }}" name="dateGiven-day" type="number" pattern="[0-9]*">
+            </div>
+          </div>
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-month">
+                Month
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dateGiven-month" value="{{ data['dateGiven-month'] or "10" }}" name="dateGiven-month" type="number" pattern="[0-9]*">
+            </div>
+          </div>
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-year">
+                Year
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dateGiven-year" value="{{ data['dateGiven-year'] or "2021" }}" name="dateGiven-year" type="number" pattern="[0-9]*">
+            </div>
+          </div></div></fieldset>
+
+
+      </div>
+
+
+      <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+          Vaccine name
+        </legend>
+
+        <div class="nhsuk-radios nhsuk-radios--conditional">
+
+          <div class="nhsuk-radios__item">
+
+            {% if data['vaccineName'] === 'cervarix'%}
+            <input class="nhsuk-radios__input" id="vaccineName-1" name="vaccineName" type="radio" value="cervarix" checked="checked">
+            {% else %}
+            <input class="nhsuk-radios__input" id="vaccineName-1" name="vaccineName" type="radio" value="cervarix">
+            {% endif %}
+            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-1">
+              Cervarix
+            </label>
+          </div>
+
+
+          <div class="nhsuk-radios__item">
+            {% if data['vaccineName'] === 'gardasil'%}
+            <input class="nhsuk-radios__input" id="vaccineName-2" name="vaccineName" type="radio" value="gardasil" checked="checked">
+            {% else %}
+            <input class="nhsuk-radios__input" id="vaccineName-2" name="vaccineName" type="radio" value="gardasil">
+            {% endif %}
+            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-2">
+              Gardasil
+            </label>
+          </div>
+
+          {% if data['vaccineName'] === 'other'%}
+
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="vaccineName-3" name="vaccineName" type="radio" value="other" checked="checked" aria-controls="conditional-vaccineName-3" aria-expanded="false">
+            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-3">
+              Other
+            </label>
+          </div>
+
+          <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-vaccineName-3">
+
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="other">
+          Enter vaccine name
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--width-10" id="other" name="other" value="{{ data['other'] }}" type="text">
+      </div>
+
+
+          </div>
+
+          {% else %}
+
+
+
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="vaccineName-3" name="vaccineName" type="radio" value="other" aria-controls="conditional-vaccineName-3" aria-expanded="false">
+            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-3">
+              Other
+            </label>
+          </div>
+
+          <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-vaccineName-3">
+
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="other">
+          Enter vaccine name
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--width-10" id="other" name="other" type="text">
+      </div>
+          </div>
+          {% endif %}
+
+
+
+        </div>
+        </fieldset>
+
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-label__strong" for="batchNumber">
+          Batch number
+        </label>
+        <span class="nhsuk-hint" id="batchNumber-hint">
+          Leave blank if no batch number provided
+        </span>
+        <input class="nhsuk-input nhsuk-input--width-10" id="batchNumber" name="batchNumber" value="{{ data['batchNumber'] or "HP3PV5895H"}}" type="text" aria-describedby="batchNumber-hint">
+      </div>
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-label__strong" for="dose">
+          Dose
+        </label>
+        <span class="nhsuk-hint" id="dose-hint">
+          Leave blank if no dose provided
+        </span>
+        <input class="nhsuk-input nhsuk-input--width-2" id="dose" name="dose" value="{{ data['dose'] or "3"}}" type="text" aria-describedby="dose-hint">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-label__strong" for="hpvCrm">
+          CRM case number
+        </label>
+        <span class="nhsuk-hint" id="hpvCrm-hint">
+          For example, CAS-12345-ABCDE
+        </span>
+        <input class="nhsuk-input nhsuk-input--width-10" id="hpvCrm" name="hpvCrm" value="{{ data['hpvCrm'] or "CAS-12345-ABCDE"}}" type="text" aria-describedby="hpvCrm-hint">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-label__strong" for="hpvComments">
+          Comments (optional)
+        </label>
+        <textarea class="nhsuk-textarea" id="hpvComments" value="{{ data['hpvComments'] or "NA"}}" name="hpvComments" rows="5"></textarea>
+      </div>
+
+
+
+        <button class="nhsuk-button nhsuk-button--ers" type="submit">
+          Continue
+        </button>
+    </form>
+
+    <p><a href="../patient-summary-7">Exit without saving</a></p>
+
+  </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}

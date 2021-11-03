@@ -3,6 +3,11 @@
 
 
 {% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 {% block pageTitle %}
   NHS Cervical screening management system
@@ -34,7 +39,7 @@
   <h1 class="nhsuk-heading-l">Add HPV vaccination</h1>
 
 
-    <form action="/v12/patient/patient-summary-7?hpvAdded=True" method="post">
+    <form action="/v12/patient/add-hpv/review-hpv-vaccination" method="post">
 
       {{ dateInput({
         "id": "dateGiven",
@@ -64,6 +69,9 @@
           }
         ]
       }) }}
+
+
+
 
 
       {% set otherHtml %}
@@ -135,10 +143,22 @@
         "classes": "nhsuk-input--width-2"
       }) }}
 
+      {{ input({
+        "label": {
+          "text": "CRM case number",
+          "classes": "nhsuk-label__strong"
+        },
+        "hint": {
+          "text": "For example, CAS-12345-ABCDE"
+        },
+        "id": "hpvCrm",
+        "name": "hpvCrm",
+        "classes": "nhsuk-input--width-10"
+      }) }}
 
 {{ textarea({
-  "name": "comments",
-  "id": "comments",
+  "name": "hpvComments",
+  "id": "hpvComments",
   "label": {
     "text": "Comments (optional)",
     "classes": "nhsuk-label__strong"
