@@ -87,15 +87,11 @@ NHS Cervical screening management system
           <td></td>
           {% endif %}
 
-          {% if data['missing_data2'] === 'True' %}
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Missing data</span></td>
-          {% else %}
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
-          {% endif %}
 
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           <td>08:44 am
             <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-            {% if (data['checkedRejected2'] === 'True') or (data['missing_data2'] === 'True') %}
+            {% if (data['checkedRejected2'] === 'True') %}
             <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="#">Check</a></td>
             {% else %}
           <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-2">Check</a>
@@ -113,7 +109,7 @@ NHS Cervical screening management system
           {% else %}
           <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To Check</span></td>
           {% endif %}
-          {% if data['checkedRejected'] === 'True' %}
+          {% if (data['checkedRejected'] === 'True') or (data['acceptAction'] === 'True')  %}
           <td>Joanna Jones</td>
           {% else %}
           <td></td>
@@ -124,8 +120,8 @@ NHS Cervical screening management system
 
           <td>08:44 am
             <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-            {% if (data['checkedRejected'] === 'True') or (data[‘acceptAction’] === ‘True’)  %}
-            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check">Review</a>
+            {% if (data['checkedRejected'] === 'True') or (data['acceptAction'] === 'True')  %}
+            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check">Review</a></td>
             {% else %}
           <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check">Check</a></td>
 
