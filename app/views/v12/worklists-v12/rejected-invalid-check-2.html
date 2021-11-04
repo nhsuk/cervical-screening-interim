@@ -83,7 +83,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            Amended test result details
+          Test result details
           </legend>
 
 <div class="nhsuk-summary-list__row">
@@ -114,7 +114,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Slide number</dt>
-    <dd class="nhsuk-summary-list__value">2101000<span class="highlight">3</span></dd>
+    <dd class="nhsuk-summary-list__value"><span class="highlight">-</span></dd>
   </div>
 
   {% set nextTestDueDate = data['test_date'] %}
@@ -153,87 +153,6 @@ NHS Cervical screening management system
 </div>
 </div>
 
-       <div class="nhsuk-grid-column-one-half">
- <div class="nhsuk-panel-with-label">
-
-      {% include '../components/patient-result-2.html' %}
-
-
-      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
-
-        <div class="nhsuk-form-group">
-          <dl class="nhsuk-summary-list">
-<div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            Original test result details
-          </legend>
-
-<div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">National code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['national-code'] or "CHR3" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Health Authority</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['health-authority'] or "-" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Self-sample</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['self-sample'] or "No" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Source code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['source-code'] or "G" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Sender code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['sender-code'] or "0000Y" }} </dd>
-  </div>
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Slide number</dt>
-    <dd class="nhsuk-summary-list__value">2101000<span class="highlight">9</span></dd>
-  </div>
-
-  {% set nextTestDueDate = data['test_date'] %}
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Test date</dt>
-    <dd class="nhsuk-summary-list__value">1-June-2021</dd>
-  </div>
-
- <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">HPV Primary</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['hpv-primary'] or "Yes" }} </dd>
-  </div>
-
-<div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Result</dt>
-    <dd class="nhsuk-summary-list__value">X0R</dd>
-  </div>
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Repeat in months</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['repeat-months'] or "12" }} months</dd>
-  </div>
-
-
-
-
-
-
-
-
-      </dl>
-</dl>
-</div>
-</div>
-
-
 
 
      <div class="nhsuk-form-group">
@@ -247,7 +166,7 @@ NHS Cervical screening management system
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Action</dt>
-    <dd class="nhsuk-summary-list__value">Edit and add test details</dd>
+    <dd class="nhsuk-summary-list__value">Remove result</dd>
   </div>
 
   <div class="nhsuk-summary-list__row">
@@ -257,7 +176,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Comments</dt>
-    <dd class="nhsuk-summary-list__value">Updated slide number to 21010003 after confirmation from lab. </dd>
+    <dd class="nhsuk-summary-list__value">Checked with lab about missing slide number and they confirmed it was sent in error, so removing the result </dd>
   </div>
 
 
