@@ -3,9 +3,9 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
-<script type="text/javascript" src="/js/add-national-code-list.js"></script>
-<script type="text/javascript" src="/js/add-source-code-list.js"></script>
-<script type="text/javascript" src="/js/add-sender-code-list.js"></script>
+<script type="text/javascript" src="/js/add-ccg-code-list.js"></script>
+<script type="text/javascript" src="/js/add-gp-practice-code-list.js"></script>
+<script type="text/javascript" src="/js/add-post-code-list.js"></script>
 
 <!--Add Javascript for 'add list input here'-->
 <style type="text/css" media="screen">
@@ -40,72 +40,72 @@ NHS Cervical screening management system
         Define location details
     </h1>
 
-    <form action="CSSE-create-step6" method="post">
+    <form action="CSSE-create-step9" method="post">
       <div class="nhsuk-form-group">
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="national-code">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add CCG location code
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="national-code-list">
+            <ul class="nhsuk-list" id="ccg-code-list">
 
             </ul>
 
-            <label for="national-code" class="nhsuk-label">
+            <label for="ccg-code" class="nhsuk-label">
               Enter CCG location code to include
             </label>
-            <input id="national-code-input" name="national-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+            <input id="ccg-code-input" name="ccg-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
               
           </fieldset>
 
-          <a id="add-national-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+          <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add CCG location code
           </a>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-code">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add GP practice code
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="source-code-list">
+            <ul class="nhsuk-list" id="gp-practice-code-list">
 
             </ul>
 
-            <label for="source-code" class="nhsuk-label">
+            <label for="gp-practice-code" class="nhsuk-label">
               Enter GP practice code to include
             </label>
-            <input id="source-code-input" name="source-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+            <input id="gp-practice-code-input" name="gp-practice-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
               
           </fieldset>
 
-          <a id="add-source-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+          <a id="add-gp-practice-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add GP practice code
           </a>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="sender-code">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add post code
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="sender-code-list">
+            <ul class="nhsuk-list" id="post-code-list">
 
             </ul>
 
-            <label for="sender-code" class="nhsuk-label">
+            <label for="post-code" class="nhsuk-label">
               Enter post code to include
             </label>
-            <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
               
           </fieldset>
 
-          <a id="add-sender-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add post code
           </a>
           
