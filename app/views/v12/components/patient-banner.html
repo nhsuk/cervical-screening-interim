@@ -1,7 +1,12 @@
+
+
+
+{% if data.patientSummary.nhs_number == '9991023867' %}
+
 <nav style="border-bottom:4px solid #425563" class="nhsuk-breadcrumb patient-info" aria-label="PatientBanner">
   <div class="nhsuk-width-container patient-info-container">
     <ul role="navigation">
-      <li class="patient-dropdown no-print"><a style="color:white" href="#">{{ data['last_name'] or "Smith" }}, {{ data['first_name'] or "Jane" }} ({{ data['title'] or 'Mrs'}})</a>
+      <li class="patient-dropdown no-print"><a style="color:white" href="#">Depetris, Ella Miss</a>
         <svg style="width:16px;height:16px;" class="nhsuk-icon__arrow-down" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" wiid="C235">
 
                   <g id="Arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" wiid="C236">
@@ -9,26 +14,46 @@
                   </g>
               </svg>
       <div id="patient-dropdown-container">
-        <p class="nhsuk-body-s"><strong>Address: </strong> {{ data['address'] or '20 Thornhill Street, Pudsey, LS15 6FD' }}</p>
+        <p class="nhsuk-body-s"><strong>Address: </strong> 52 HOLLY MEWS TOWNSVILLE LS20 8QF</p>
       </div></li>
 
-      <li class="only-print"><span><strong>Name: </strong> {{ data['last_name'] or "Smith" }} , {{ data['first_name'] or "Jane" }} {{ data['title'] or 'Mrs'}}</span></li>
+      <li class="only-print"><span><strong>Name: </strong> Depetris, Ella Miss</span></li>
 
-      <li><strong>DOB: </strong> {{ data['age'] or '30'}} years ({{ data['dob'] or '4 June 1988' }})</li>
+      <li><strong>DOB: </strong> 63 years (28 October 1958)</li>
 
-      <li><span><strong>NHS No: </strong> {{ data['nhs_number'] or '123 456 7890' }}</span></li>
+      <li><span><strong>NHS No: </strong> 9991023867</span></li>
 
-      <li class="only-print"><span><strong>Address: </strong> {{ data['address'] or '20 Thornhill Street, Pudsey, LS15 6FD' }}</span></li>
+      <li class="only-print"><span><strong>Address: </strong> 52 HOLLY MEWS TOWNSVILLE LS20 8QF</span></li>
     </ul>
   </div>
-  <!-- COMMENT OUT IF YOU NEED A CLOSE BUTTON ON THE PATIENT BANNER
-  add this to the patient-info nav section padding-left:48px
-  <a style="box-shadow: none;border: 1px solid #4c6272; background-color: transparent; margin: 8px; margin-right: 48px; display: flex; align-items: center; width: unset; height: unset" class="nhsuk-button nhsuk-button-ers" href="/v12/patient/search/search">
-    <span style="color: #4c6272; font-size: 16px; line-height: 1.5; margin-left: 8px">Close</span>
-    <svg style="width: unset;height: unset;fill: #4c6272; transform: scale(.7);" class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="32" width="32">
-      <path styl="fill: #4c6272;" d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-    </svg>
-  </a>
-  -->
 
 </nav>
+{% elif data.patientSummary.nhs_number == '9100002801' %}
+<nav style="border-bottom:4px solid #425563" class="nhsuk-breadcrumb patient-info" aria-label="PatientBanner">
+  <div class="nhsuk-width-container patient-info-container">
+    <ul role="navigation">
+      <li class="patient-dropdown no-print"><a style="color:white" href="#"> Hitchings, Veronica Mrs</a>
+        <svg style="width:16px;height:16px;" class="nhsuk-icon__arrow-down" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" wiid="C235">
+
+                  <g id="Arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" wiid="C236">
+                      <polygon id="Rectangle" fill="#ffffff" fill-rule="nonzero" transform="translate(75.000000, 75.000000) rotate(45.000000) translate(-75.000000, -75.000000) " points="75 75 97 53 97 97 53 97" wiid="C237"></polygon>
+                  </g>
+              </svg>
+      <div id="patient-dropdown-container">
+        <p class="nhsuk-body-s"><strong>Address: </strong> 47 Ashburnham Road, Livermead, EXETER, Devon, EX2 5SE</p>
+      </div></li>
+
+      <li class="only-print"><span><strong>Name: </strong> Hitchings, Veronica Mrs</span></li>
+
+      <li><strong>DOB: </strong> 53 years (25 June 1968)</li>
+
+      <li><span><strong>NHS No: </strong> 9100002801</span></li>
+
+      <li class="only-print"><span><strong>Address: </strong> 47 Ashburnham Road, Livermead, EXETER, Devon, EX2 5SE</span></li>
+    </ul>
+  </div>
+
+</nav>
+{% else %}
+
+{% endif %}
