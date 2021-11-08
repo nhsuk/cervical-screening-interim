@@ -647,5 +647,7 @@ else {
 
 })
 
-
+router.post("/v12/reports-gp/cancer-audit", function (req, res) {
+  res.redirect("/v12/reports-gp/cancer-audit/report");
+})
 module.exports = router;
