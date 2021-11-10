@@ -120,8 +120,8 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited" style="white-space: nowrap;">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded" style="white-space: nowrap;">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
             <a href="complete-confirm" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="complete-confirm-non-responder">Mark as complete</a></br>
+            <a href="complete-confirm-patients-to-review">Mark as complete</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             {% if data['MarkComplete'] === 'yes' %}
@@ -130,9 +130,17 @@ NHS Cervical screening management system
               -
             {% endif %}
             </br>
-            -
+            {% if data['MarkComplete2'] === 'yes' %}
+              Jane Smith
+            {% else %}
+              -
+            {% endif %}
             </br>
-            -
+            {% if data['MarkComplete3'] === 'yes' %}
+              Jane Smith
+            {% else %}
+              -
+            {% endif %}
             </br>
           </td>
           <td class="nhsuk-table__cell ">
@@ -142,10 +150,20 @@ NHS Cervical screening management system
               -
             </br>
             {% endif %}
-            -
+            {% if data['MarkComplete2'] === 'yes' %}
+              <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
+            {% else %}
+              -
             </br>
-            -
+            {% endif %}
+
+            {% if data['MarkComplete3'] === 'yes' %}
+              <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
+            {% else %}
+              -
             </br>
+            {% endif %}
+          
           </td>
         </tr>
         <tr role="row" class="nhsuk-table__row">
