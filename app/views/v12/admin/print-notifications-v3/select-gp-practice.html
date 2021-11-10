@@ -31,7 +31,7 @@ NHS Cervical screening management system
     }) }}
 
     <h1 class="nhsuk-heading-l">Choose a GP surgery to print notifications</h1>
-    
+
     <p>Listed GP surgeries have not given an email address to receive notifications. Choose a GP surgery to print and send notifications to.</p>
 
     <details class="nhsuk-details">
@@ -98,14 +98,17 @@ NHS Cervical screening management system
           <th role="columnheader" class="" scope="col">
             Address
           </th>
-          <th role="columnheader" class="" scope="col">
+          <th role="columnheader" class="" scope="col" style="column-width:500px;">
             Print preview
           </th>
-          <th role="columnheader" class="" scope="col">
-            Last viewed by
+          <th role="columnheader" class="" scope="col" style="column-width:300px;">
+            Action
           </th>
           <th role="columnheader" class="" scope="col">
-            Last view date
+            Last marked as completed by
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Last completed time and date
           </th>
         </tr>
       </thead>
@@ -114,9 +117,14 @@ NHS Cervical screening management system
         <tr role="row" class="nhsuk-table__row">
           <td class="nhsuk-table__cell">A123456</td>
           <td class="nhsuk-table__cell ">122 Farburn Terrace, CA10 0WP</td>
-          <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
+          <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited" style="white-space: nowrap;">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded" style="white-space: nowrap;">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            Jane Smith</br>
+            <a href="complete-confirm" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
+          <td class="nhsuk-table__cell ">
+            -</br>
             -</br>
             -</br>
           </td>
@@ -130,6 +138,11 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell">B234567</td>
           <td class="nhsuk-table__cell ">65 Chapel Lane, AB41 4YZ</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
+          <td class="nhsuk-table__cell ">
+            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
             -</br>
@@ -146,6 +159,11 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">78 Scotsburn Rd, RG20 5BX</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
+            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
+          <td class="nhsuk-table__cell ">
             Jane Smith</br>
             -</br>
             -</br>
@@ -160,6 +178,11 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell">D456789</td>
           <td class="nhsuk-table__cell ">81 Berkeley Rd, AB2 1ZB</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
+          <td class="nhsuk-table__cell ">
+            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
             -</br>
@@ -176,6 +199,11 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">91 Roker Terrace, PE6 7EW</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
+            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
+          <td class="nhsuk-table__cell ">
             Jane Smith</br>
             -</br>
             -</br>
@@ -190,6 +218,12 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell">F678901</td>
           <td class="nhsuk-table__cell ">120 Preston Rd, BH20 8WG</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
+
+          <td class="nhsuk-table__cell ">
+            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+            <a href="">Mark as complete</a></br>
+          </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
             -</br>
