@@ -28,9 +28,12 @@
       <class="nhsuk-panel-with-label__label">
       <h3 class="nhsuk-panel-with-label__label">Mark as complete
   <span style="color:white;" class="nhsuk-table__cell--hint"></span></h3>
-    <span class="nhsuk-hint">Step 1 of 3</span>
 
-    <div class="nhsuk-form-group" >
+
+
+    <form action="select-gp-practice" method="post">
+
+    <div class="nhsuk-form-group">
 
     <fieldset class="nhsuk-fieldset">
       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
@@ -53,14 +56,14 @@
 
 
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-inline-1" name="example-inline" type="radio" value="yes">
+      <input class="nhsuk-radios__input" id="MarkComplete" name="MarkComplete" type="radio" value="yes">
       <label class="nhsuk-label nhsuk-radios__label" for="example-inline-1">
         Yes
       </label>
     </div>
 
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-inline-2" name="example-inline" type="radio" value="no">
+      <input class="nhsuk-radios__input" id="MarkComplete" name="MarkComplete" type="radio" value="no">
       <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
         No
       </label>
@@ -70,17 +73,18 @@
     </fieldset>
 
 
-    <a  class="nhsuk-button nhsuk-u-margin-top-5" type="submit" href="select-gp-practice">
-  Confirm
-  </a>
+    <br>
+
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">Confirm</button>
 
   </div>
 
 
+
       <p><a href="manage-sender-codes">Exit without saving</a></p>
 
-
     </form>
+
   </div>
 
   </div>

@@ -124,14 +124,28 @@ NHS Cervical screening management system
             <a href="">Mark as complete</a></br>
           </td>
           <td class="nhsuk-table__cell ">
-            -</br>
-            -</br>
-            -</br>
+            {% if data['MarkComplete'] === 'yes' %}
+              Jane Smith
+            {% else %}
+              -
+            {% endif %}
+            </br>
+            -
+            </br>
+            -
+            </br>
           </td>
           <td class="nhsuk-table__cell ">
-            12-01-2020<br>
-            -</br>
-            -</br>
+            {% if data['MarkComplete'] === 'yes' %}
+              <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
+            {% else %}
+              -
+            </br>
+            {% endif %}
+            -
+            </br>
+            -
+            </br>
           </td>
         </tr>
         <tr role="row" class="nhsuk-table__row">
