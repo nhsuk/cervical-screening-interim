@@ -66,7 +66,7 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="all-patient-data" id="all-patient-data" value="All">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="all-patient-data" id="all-patient-data" value="All patient fields">
                     <label for="all-patient-data" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
@@ -221,15 +221,15 @@ NHS Cervical screening management system
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-deduc-code" id="patient-deduc-code" value="Deduction code">
+                    <label for="patient-deduc-code" class="nhsuk-label nhsuk-checkboxes__label">
                       Deduction code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-pco" id="patient-pco" value="New PCO code">
+                    <label for="patient-pco" class="nhsuk-label nhsuk-checkboxes__label">
                       New PCO code
                     </label>
                   </div>
@@ -250,7 +250,7 @@ NHS Cervical screening management system
             </summary>
             <div class="nhsuk-details__text">
 
-              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="patient-data">
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="practice-data-fields">
                 <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                   <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                     Which practice data do you want to exclude?
@@ -260,43 +260,43 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="active" id="active" value="Active">
-                    <label for="active" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-all" id="practice-all" value="All practice fields">
+                    <label for="practice-all" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-pco" id="practice-pco" value="PCO code">
+                    <label for="practice-pco" class="nhsuk-label nhsuk-checkboxes__label">
                       PCO code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-national-code" id="practice-national-code" value="National practice code">
+                    <label for="practice-national-code" class="nhsuk-label nhsuk-checkboxes__label">
                       National practice code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-gp-code" id="practice-gp-code" value="National GP code">
+                    <label for="practice-gp-code" class="nhsuk-label nhsuk-checkboxes__label">
                       National GP code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-name" id="practice-name" value="Practice name">
+                    <label for="practice-name" class="nhsuk-label nhsuk-checkboxes__label">
                       Practice name
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-local-code" id="practice-local-code" value="Local GP code (Cipher only)">
+                    <label for="practice-local-code" class="nhsuk-label nhsuk-checkboxes__label">
                       Local GP code (Cipher only)
                     </label>
                   </div>
@@ -317,7 +317,7 @@ NHS Cervical screening management system
             </summary>
             <div class="nhsuk-details__text">
 
-              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="patient-data">
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="recall-data-fields">
                 <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                   <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                     Which recall data do you want to exclude?
@@ -327,79 +327,79 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="active" id="active" value="Active">
-                    <label for="active" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-all" id="recall-all" value="Select all">
+                    <label for="recall-all" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
                   </div>
     
     
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-f" id="recall-date-f" value="Recall date">
+                    <label for="recall-date-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Recall date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-type-f" id="recall-date-type-f" value="Recall type (Participant status)">
+                    <label for="recall-date-type-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Recall type (Participant status)
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-status-f" id="recall-date-status-f" value="Recall status (Episode status)">
+                    <label for="recall-date-status-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Recall status (Episode status)
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-invitation-date" id="recall-invitation-date" value="Invitation date">
+                    <label for="recall-invitation-date" class="nhsuk-label nhsuk-checkboxes__label">
                       Invitation date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-noti-date-f" id="recall-noti-date-f" value="Notification date">
+                    <label for="recall-noti-date-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Notification date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-num-test" id="recall-num-test" value="Total number of test">
+                    <label for="recall-num-test" class="nhsuk-label nhsuk-checkboxes__label">
                       Total number of test
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-num-test-sel" id="recall-num-test-sel" value="Number of test selected">
+                    <label for="recall-num-test-sel" class="nhsuk-label nhsuk-checkboxes__label">
                       Number of test selected
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-fnr" id="recall-fnr" value="FNR count">
+                    <label for="recall-fnr" class="nhsuk-label nhsuk-checkboxes__label">
                       FNR count
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-reason-cease" id="recall-reason-cease" value="Reason for ceasing">
+                    <label for="recall-reason-cease" class="nhsuk-label nhsuk-checkboxes__label">
                       Reason for ceasing
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-wihdraw-consent" id="recall-wihdraw-consent" value="Withdrawal consent held">
+                    <label for="recall-wihdraw-consent" class="nhsuk-label nhsuk-checkboxes__label">
                       Withdrawal consent held
                     </label>
                   </div>
@@ -420,7 +420,7 @@ NHS Cervical screening management system
             </summary>
             <div class="nhsuk-details__text">
 
-              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="patient-data">
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-data-fields">
                 <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                   <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                     Which test data do you want to exclude?
@@ -430,142 +430,142 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="active" id="active" value="Active">
-                    <label for="active" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-all-f" id="test-all-f" value="Select all test fields">
+                    <label for="test-all-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
                   </div>
     
     
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-dot" id="test-dot" value="Date of test">
+                    <label for="test-dot" class="nhsuk-label nhsuk-checkboxes__label">
                       Date of test
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-prt" id="test-prt" value="Prior recall type">
+                    <label for="test-prt" class="nhsuk-label nhsuk-checkboxes__label">
                       Prior recall type
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-nlc" id="test-nlc" value="National lab code">
+                    <label for="test-nlc" class="nhsuk-label nhsuk-checkboxes__label">
                       National lab code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-sn" id="test-sn" value="Slide number">
+                    <label for="test-sn" class="nhsuk-label nhsuk-checkboxes__label">
                       Slide number
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-pnd" id="test-pnd" value="Prior notification date">
+                    <label for="test-pnd" class="nhsuk-label nhsuk-checkboxes__label">
                       Prior notification date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-prs" id="test-prs" value="Prior recall status">
+                    <label for="test-prs" class="nhsuk-label nhsuk-checkboxes__label">
                       Prior recall status
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-ic" id="test-ic" value="Infection code">
+                    <label for="test-ic" class="nhsuk-label nhsuk-checkboxes__label">
                       Infection code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-pid" id="test-pid" value="Prior invitation date">
+                    <label for="test-pid" class="nhsuk-label nhsuk-checkboxes__label">
                       Prior invitation date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-rc" id="test-rc" value="Result code">
+                    <label for="test-rc" class="nhsuk-label nhsuk-checkboxes__label">
                       Result code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-sc" id="test-sc" value="Sender code">
+                    <label for="test-sc" class="nhsuk-label nhsuk-checkboxes__label">
                       Sender code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-tid" id="test-tid" value="Test input date">
+                    <label for="test-tid" class="nhsuk-label nhsuk-checkboxes__label">
                       Test input date
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-ac" id="test-ac" value="Action code">
+                    <label for="test-ac" class="nhsuk-label nhsuk-checkboxes__label">
                       Action code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-soc" id="test-soc" value="Source code">
+                    <label for="test-soc" class="nhsuk-label nhsuk-checkboxes__label">
                       Source code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-st" id="test-st" value="Source type">
+                    <label for="test-st" class="nhsuk-label nhsuk-checkboxes__label">
                       Source type
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-tcom" id="test-tcom" value="Test results comments">
+                    <label for="test-tcom" class="nhsuk-label nhsuk-checkboxes__label">
                       Test results comments
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-repm" id="test-repm" value="Repeat months">
+                    <label for="test-repm" class="nhsuk-label nhsuk-checkboxes__label">
                       Repeat months
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-hpti" id="test-hpti" value="HPV primary test indicator">
+                    <label for="test-hpti" class="nhsuk-label nhsuk-checkboxes__label">
                       HPV primary test indicator
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-spco" id="test-spco" value="Screening PCO">
+                    <label for="test-spco" class="nhsuk-label nhsuk-checkboxes__label">
                       Screening PCO
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="deductive" id="deductive" value="Deductive">
-                    <label for="deductive" class="nhsuk-label nhsuk-checkboxes__label">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-ddate" id="test-ddate" value="Anticipated delivery date">
+                    <label for="test-ddate" class="nhsuk-label nhsuk-checkboxes__label">
                       Anticipated delivery date
                     </label>
                   </div>
