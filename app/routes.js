@@ -654,4 +654,19 @@ router.post("/v12/reports-gp/cancer-audit", function (req, res) {
 router.post("/v12/reports-gp/cancer-audit/add-another", function (req, res) {
   res.redirect("/v12/reports-gp/cancer-audit/report-2-patients");
 })
+
+//bypass-pnl
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-defer-length", function (req, res) {
+var bypassPnl = req.session.data['bypassPnl'];
+
+if (bypassPnl == 'yes') {
+  res.redirect("prior-notification-defer-bypass-pnl");
+}
+
+else {
+  res.redirect("prior-notification-defer-ntdd");
+}
+
+})
 module.exports = router;
