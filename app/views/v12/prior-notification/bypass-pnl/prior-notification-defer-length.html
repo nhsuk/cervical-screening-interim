@@ -34,36 +34,6 @@ NHS Cervical screening management system
       <span class="nhsuk-hint">Step 2 of 3</span>
       {% endif %}
       {% if (data.role == 'csas') %}
-
-      <!-- {% set message %}
-          {% if data['pnl-defer-reason'] != null %}
-            {% if data['pnl-defer-reason'] == 'Discharge from colposcopy' %}
-              <p>The earliest next test due date you can enter is {{ 71 | returnDate("days") | returnNumericDateFormat }}</p>
-              <p>If the next test due date sent by the colposcopy is earlier than {{ 71 | returnDate("days") | returnNumericDateFormat }}, enter it as a comment</p>
-              <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
-            {% else %}
-              <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
-            {% endif %}
-          {% else %}
-            <p>Maximum deferral can not exceed X months</p>
-          {% endif %}
-        {% endset %}
-
-         {% if data['pnl-defer-reason'] == 'Administrative' %}
-         <div class="nhsuk-inset-text">
-               <span class="nhsuk-u-visually-hidden">Information: </span>
-               <p>The earliest next test due date you can enter is (10 weeks from tomorrow).
-         <p>If the next test due date is supposed to be earlier than (10 weeks from tomorrow), enter it as a comment.
-         <p>Maximum deferral con not exceed 36/60 months</p>
-             </div>
-
-         {% else %}
-          {{ insetText({
-            "HTML":  message
-          }) }}
-          {% endif %} -->
-
-
           <form action="prior-notification-defer-length" method="post">
                   <div class="nhsuk-grid-row">
                     <div class="nhsuk-grid-column-three-quarters">
@@ -97,6 +67,7 @@ NHS Cervical screening management system
                     </div>
                   </div>
 
+                </br>
                   <button class="nhsuk-button nhsuk-button--ers">Continue</button>
 
                 </form>

@@ -661,11 +661,27 @@ router.post("/v12/prior-notification/bypass-pnl/prior-notification-defer-length"
 var bypassPnl = req.session.data['bypassPnl'];
 
 if (bypassPnl == 'yes') {
-  res.redirect("prior-notification-defer-bypass-pnl");
+  res.redirect("prior-notification-defer-ntdd");
 }
 
 else {
-  res.redirect("prior-notification-defer-ntdd");
+  res.redirect("prior-notification-defer-bypass-pnl");
+}
+
+})
+module.exports = router;
+
+
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-defer", function (req, res) {
+var pnlDeferReason = req.session.data['pnlDeferReason'];
+
+if (pnlDeferReason == 'Administrative') {
+  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-defer-length");
+}
+
+else {
+  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-defer");
 }
 
 })

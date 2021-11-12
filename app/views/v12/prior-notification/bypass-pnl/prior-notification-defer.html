@@ -1,4 +1,4 @@
-{% extends "layout-v2.html" %}
+s{% extends "layout-v2.html" %}
 
 {% block pageTitle %}
   NHS Cervical screening management system
@@ -38,7 +38,87 @@
       {% else %}
         <span class="nhsuk-hint">Step 1 of 3</span>
       {% endif %}
-      {% include '../../components/patient-defer-reason2.html' %}
+
+
+        <form action="prior-notification-defer" method="post">
+      {% if data.role != 'csas' %}
+      <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">See how to defer a patient who wishes to be deferred</span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>To defer a patient for informed choice:</p>
+              <ul class="nhsuk-list">
+                <li>1. Find the correct defer form in <a href="">primary care support on the NHS Cervical Screening Administration Service (CSAS) website</a>.</li>
+                <li>2. Fill in and sign the form (the patient needs to sign to defer for informed choice).</li>
+                <li>3. Submit the form using the <a href="">CSAS delay or defer online form</a>.</li>
+              </ul>
+            </div>
+          </details>
+      {% endif %}
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            Choose a reason to amend the patients recall date
+          </legend>
+          <div class="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-1" name="pnlDeferReason" type="radio" value="Pregnancy">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                Pregnancy
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Recent test" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+              Recent test
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Under care of colposcopy" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+              Under care of colposcopy
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Undergoing treatment relevant to screening" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+              Undergoing treatment relevant to screening
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Discharge from colposcopy" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+              Discharge from colposcopy
+              </label>
+            </div>
+            {% if data.role == 'csas' %}
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Patient wishes to defer" checked>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                Patient wishes to defer
+                </label>
+              </div>
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-2" name="pnlDeferReason" type="radio" value="Administrative" checked>
+                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                  Administrative
+                </label>
+              </div>
+            {% endif %}
+          </div>
+        </fieldset>
+      </div>
+
+       <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+
+      </form>
+
+
+
+
+
     </div>
 
   </div>
