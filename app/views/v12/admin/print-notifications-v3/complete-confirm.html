@@ -1,11 +1,20 @@
 {% extends "layout-v2.html" %}
 
+
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(5) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+
 {% block pageTitle %}
   NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-  {% include '../../components/header-3.html' %}
+{% include '../../components/header.html' %}
 {% endblock %}
 
 {% block content %}
@@ -26,7 +35,7 @@
 
      <div class="nhsuk-panel-with-label">
       <class="nhsuk-panel-with-label__label">
-      <h3 class="nhsuk-panel-with-label__label">Mark as printed
+      <h3 class="nhsuk-panel-with-label__label">Mark as sent
   <span style="color:white;" class="nhsuk-table__cell--hint"></span></h3>
 
 
@@ -38,12 +47,12 @@
     <fieldset class="nhsuk-fieldset">
       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
         <h1 class="nhsuk-fieldset__heading">
-          Are you sure you want to mark this as printed?
+          Are you sure you want to mark this list as sent?
         </h1>
       </legend>
 
       <div class="nhsuk-hint nhsuk-u-margin-bottom-2">
-    Marking a list as printed is confirming it you have:
+    Marking a list as sent is confirming you have:
   <ul>
     <li class="nhsuk-u-margin-top-2">
       viewed and printed the list
@@ -58,7 +67,7 @@
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="MarkComplete" name="MarkComplete" type="radio" value="yes">
       <label class="nhsuk-label nhsuk-radios__label" for="example-inline-1">
-        Yes, I want to mark the list as sent and record the date
+        Yes, I want to mark this list as sent and record the date
       </label>
     </div>
 

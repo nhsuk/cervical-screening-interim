@@ -1,11 +1,19 @@
 {% extends "layout-v2.html" %}
 
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(5) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+
 {% block pageTitle %}
   NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-  {% include '../../components/header-3.html' %}
+{% include '../../components/header.html' %}
 {% endblock %}
 
 {% block content %}
@@ -26,7 +34,7 @@
 
      <div class="nhsuk-panel-with-label">
       <class="nhsuk-panel-with-label__label">
-      <h3 class="nhsuk-panel-with-label__label">Mark as complete
+      <h3 class="nhsuk-panel-with-label__label">Mark as sent
   <span style="color:white;" class="nhsuk-table__cell--hint"></span></h3>
 
 
@@ -38,18 +46,18 @@
     <fieldset class="nhsuk-fieldset">
       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
         <h1 class="nhsuk-fieldset__heading">
-          Are you sure you want to mark this as complete?
+          Are you sure you want to mark this list as sent?
         </h1>
       </legend>
 
       <div class="nhsuk-hint nhsuk-u-margin-bottom-2">
-    Marking a list as complete is confirming it has been:
+        Marking a list as sent is confirming you have:
   <ul>
     <li class="nhsuk-u-margin-top-2">
-      printed
+      viewed and printed the list
       </li>
       <li>
-        sent to the GP practice
+        sent the list to the GP practice
         </li>
     </ul>
   </div>
@@ -58,14 +66,14 @@
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="MarkComplete3" name="MarkComplete3" type="radio" value="yes">
       <label class="nhsuk-label nhsuk-radios__label" for="example-inline-1">
-        Yes
+        Yes, I want to mark this list as sent and record the date
       </label>
     </div>
 
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="MarkComplete3" name="MarkComplete3" type="radio" value="no">
       <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
-        No
+        No, I do not want to mark this list as sent
       </label>
     </div>
 
