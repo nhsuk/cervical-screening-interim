@@ -16,9 +16,14 @@ nationalCodeButton.addEventListener('click', addNumberTolist);
 //Function to save the nhs number and spit it back out above
 function addNumberTolist() {
   var number = nationalCodeinput.value; // get value of whats inside the box
-  nationalCodes.push(number) //adds it to the array
-  nationalCodelist.innerHTML+="<li><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' data-nhsnumber='"+number+"'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+  var nationalCodelength = nationalCodes.push(number) //adds it to the array
+  nationalCodelist.innerHTML+="<li id='national-code-"+nationalCodelength+"'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+nationalCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
   nationalCodeinput.value="" // clears the box for the next input
   
+}
+
+function  removeNumberFromList(id) {
+  var nationalCodeElement = document.getElementById('national-code-'+id);
+  nationalCodeElement.parentNode.removeChild(nationalCodeElement);
 }
 
