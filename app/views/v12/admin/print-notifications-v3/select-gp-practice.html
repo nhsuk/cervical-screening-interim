@@ -30,21 +30,24 @@ NHS Cervical screening management system
       "text": "Back to Admin"
     }) }}
 
-    <h1 class="nhsuk-heading-l">Choose a GP surgery to print notifications</h1>
+    <h1 class="nhsuk-heading-l">Choose a print notification list to send</h1>
 
-    <p>Listed GP surgeries have not given an email address to receive notifications. Choose a GP surgery to print and send notifications to.</p>
+    <p>Listed GP practices have not given an email address to receive notifications.</p>
+    <p>
+      Choose a notification list to print and sent to a GP practice. You can see when the notification list was last sent.
+      </p>
 
     <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
         <span class="nhsuk-details__summary-text">
-          How to find a GP surgery not on the list?
+          How to find a GP practice not on the list?
         </span>
       </summary>
       <div class="nhsuk-details__text">
         <form action="print-patients-due-to-be-invited" method="">
           {{ input({
             "label": {
-            "text": "Enter GP practice code to find a GP surgery"
+            "text": "Enter GP practice code to find a GP practice"
             },
               "hint": {
               "text": "GP practice codes have 1 letter followed by a 5 digit number, like A12345."
@@ -98,17 +101,17 @@ NHS Cervical screening management system
           <th role="columnheader" class="" scope="col">
             Address
           </th>
-          <th role="columnheader" class="" scope="col" style="column-width:500px;">
+          <th role="columnheader" class="" scope="col" style="column-width:360px;">
             Print preview
           </th>
-          <th role="columnheader" class="" scope="col" style="column-width:300px;">
+          <th role="columnheader" class="" scope="col">
             Action
           </th>
-          <th role="columnheader" class="" scope="col">
-            Last marked as completed by
+          <th role="columnheader" class="" scope="col" style="column-width:200px;">
+            Last sent by
           </th>
           <th role="columnheader" class="" scope="col">
-            Last completed time and date
+            Last sent time and date
           </th>
         </tr>
       </thead>
@@ -119,9 +122,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">122 Farburn Terrace, CA10 0WP</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited" style="white-space: nowrap;">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded" style="white-space: nowrap;">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            <a href="complete-confirm" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="complete-confirm-non-responder">Mark as complete</a></br>
-            <a href="complete-confirm-patients-to-review">Mark as complete</a></br>
+            <a href="complete-confirm" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="complete-confirm-non-responder">Mark as sent</a></br>
+            <a href="complete-confirm-patients-to-review">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             {% if data['MarkComplete'] === 'yes' %}
@@ -148,22 +151,22 @@ NHS Cervical screening management system
               <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
             {% else %}
               -
-            </br>
             {% endif %}
+            </br>
             {% if data['MarkComplete2'] === 'yes' %}
               <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
             {% else %}
               -
-            </br>
             {% endif %}
+            </br>
+            {% if data['MarkComplete3'] === 'yes' %}
+              <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
+            {% else %}
+              -
+            {% endif %}
+            </br>
 
-            {% if data['MarkComplete3'] === 'yes' %}
-              <p style="white-space: nowrap;" class="nhsuk-u-margin-bottom-0">12-01-2020 at 1.30pm</p>
-            {% else %}
-              -
-            </br>
-            {% endif %}
-          
+
           </td>
         </tr>
         <tr role="row" class="nhsuk-table__row">
@@ -171,9 +174,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">65 Chapel Lane, AB41 4YZ</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
@@ -191,9 +194,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">78 Scotsburn Rd, RG20 5BX</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
@@ -211,9 +214,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">81 Berkeley Rd, AB2 1ZB</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
@@ -231,9 +234,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell ">91 Roker Terrace, PE6 7EW</td>
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
           <td class="nhsuk-table__cell ">
-            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
@@ -252,9 +255,9 @@ NHS Cervical screening management system
           <td class="nhsuk-table__cell "><a href="print-patients-due-to-be-invited">Patients due to be invited</a><br><a href="print-patients-who-have-not-responded">Patients who have not responded</a><br><a href="v12/get-paper-gp-notifications">Patients to review</a></td>
 
           <td class="nhsuk-table__cell ">
-            <a href="" style="white-space: nowrap;">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
-            <a href="">Mark as complete</a></br>
+            <a href="" style="white-space: nowrap;">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
+            <a href="">Mark as sent</a></br>
           </td>
           <td class="nhsuk-table__cell ">
             Jane Smith</br>
