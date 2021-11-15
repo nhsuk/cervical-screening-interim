@@ -66,6 +66,7 @@
         {% else %}
       {% endif %}
 
+
       {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
       {% if (data['pnl_update_msg_show'] > 1) %}
         {{ insetText({
@@ -115,7 +116,8 @@
             {% if data.patientSummary.pnl_action == 'Ceased' %}
               Actions:
               {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Radiotherapy (to the pelvic area which affects the cervix)" %}
-                <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a>
+              <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a>
+                <!-- <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a> -->
               {% elif data.patientSummary.pnl_reason == "Due to age" %}
                 <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
               {% else %}

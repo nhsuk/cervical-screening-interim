@@ -1,0 +1,209 @@
+{% extends "layout-v2.html" %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+  {% include '../../components/header-3.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="prior-notification-reinstate">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to step 1 - Do you want the patient to be added to the PNL?</a>
+    </div>
+
+    <div class="nhsuk-panel-with-label">
+      {% include '../../components/pnl-patient-2.html' %}
+
+      {% if data.role == 'csas' %}
+        <span class="nhsuk-hint">Step 2 of 4</span>
+      {% else %}
+        <span class="nhsuk-hint">Step 2 of 3</span>
+      {% endif %}
+        {% if (data.role == 'csas') %}
+        <h1 class="nhsuk-fieldset__legend--m">
+          Enter the next test due date for the patient
+        </h1>
+
+
+        {% set message %}
+          {% if data['pnl-defer-reason'] != null %}
+            {% if data['pnl-defer-reason'] == 'Discharge from colposcopy' %}
+              <p>The earliest next test due date you can enter is {{ 71 | returnDate("days") | returnNumericDateFormat }}</p>
+              <p>If the next test due date sent by the colposcopy is earlier than {{ 71 | returnDate("days") | returnNumericDateFormat }}, enter it as a comment</p>
+              <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
+            {% else %}
+              <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
+            {% endif %}
+          {% else %}
+            <p>Maximum deferral can not exceed X months</p>
+          {% endif %}
+        {% endset %}
+
+         <div class="nhsuk-inset-text">
+               <span class="nhsuk-u-visually-hidden">Information: </span>
+               <p>The earliest next test due date you can enter is XX Month Year (10 weeks from tomorrow).
+         <p>If the next test due date is supposed to be earlier than XX Month Year, enter it as a comment.
+         <p>Maximum deferral can not exceed 36/60 months</p>
+             </div>
+
+
+
+          <form action="prior-notification-reinstate-crm" method="post">
+
+          <div id="nhsuk-form-group-dob-ntdd" class="nhsuk-form-group nhsuk-u-margin-bottom-6">
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="ntdd-from" role="group">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                  Next test due date
+                </legend>
+                <span class="nhsuk-hint" id="example-hint">
+                  For example, 15 3 1984
+                </span>
+                <span id="dob-from-error-error" class="nhsuk-error-message" style="display: none">
+                  You must enter a date
+                </span>
+                <div class="nhsuk-date-input" id="ntdd-from">
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="ntdd-day">
+                        Day
+                      </label>
+                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="day" name="ntdd-day" type="number" pattern="[0-9]*" value="day">                                </div>
+                  </div>
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="ntdd-month">
+                        Month
+                      </label>
+                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-dob-input__input nhsuk-input--width-2" id="month" name="ntdd-month" type="number" pattern="[0-9]*" value="month">
+                    </div>
+                  </div>
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="ntdd-year">
+                        Year
+                      </label>
+                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-dob-input__input nhsuk-input--width-4" id="year" name="ntdd-year" type="number" pattern="[0-9]*" value="year">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="ntdd" name="ntdd" value="19 01 2021">
+              </fieldset>
+            </div>
+          </div>
+
+          <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+
+          </form>
+        {% else %}
+        <h1 class="nhsuk-fieldset__legend--m">
+         How long do you want to defer the patient?
+        </h1>
+
+
+
+          {% set pnlDeferInfo %}
+            {% if data['pnl-defer-reason'] == 'Pregnancy' %}
+              <p>Minimum deferral is 3 months from date of delivery.</br>Maximum deferral is 12 months from today's date.</br> </br>The earliest the next test due date can be set is 10 weeks from tomorrow.</p>
+           {% else %}
+              <p>Minimum deferral is {{ data['minMonths'] }} months, which will set the next test due date 10 weeks from tomorrow's date.</br>Maximum deferral can not exceed {{ data['maxMonths'] }} months.</br>
+            {% endif %}
+          {% endset %}
+
+
+          {{ insetText({
+            "HTML":  pnlDeferInfo,
+            "classes": "nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-4"
+          }) }}
+
+        <form action="prior-notification-{{ data.pnlversion }}-defer-review" method="post">
+
+        {% if data['pnl-defer-reason'] ==  'Pregnancy' %}
+          <div id="nhsuk-form-group-dob-advanced" class="nhsuk-form-group nhsuk-u-margin-bottom-6">
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
+                <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                  Estimated date of delivery
+                </legend>
+                <span class="nhsuk-hint" id="example-hint">
+                  For example, 15 3 1984
+                </span>
+
+                <div class="nhsuk-date-input" id="edd-from">
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="edd-day">
+                        Day
+                      </label>
+                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="day" name="edd-day" type="number" pattern="[0-9]*" value="day">                                </div>
+                  </div>
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="edd-month">
+                        Month
+                      </label>
+                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-dob-input__input nhsuk-input--width-2" id="month" name="edd-month" type="number" pattern="[0-9]*" value="month">
+                    </div>
+                  </div>
+                  <div class="nhsuk-date-input__item">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label nhsuk-date-input__label" for="edd-year">
+                        Year
+                      </label>
+                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-dob-input__input nhsuk-input--width-4" id="year" name="edd-year" type="number" pattern="[0-9]*" value="year">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="ntdd" name="ntdd" value="19 01 2021">
+              </fieldset>
+            </div>
+          </div>
+        {% endif %}
+
+          {% set pnlDeferLabel %}
+            {% if data['pnl-defer-reason'] == 'Pregnancy' %}
+              Months to defer from date of delivery
+            {% else %}
+              Months to defer
+            {% endif %}
+          {% endset %}
+
+        <div class='nhsuk-form-group'>
+        <fieldset class='nhsuk-fieldset' aria-describedby='dob-from' role='group'>
+        <legend class='nhsuk-fieldset__legend nhsuk-label__strong'>
+                {{pnlDeferLabel}}
+               </legend>
+
+         <input class='nhsuk-input nhsuk-input--width-2' id='deferlength' name='defer-length' type='number'>
+        </fieldset>
+        </div>
+
+          <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+
+          </form>
+
+        {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
