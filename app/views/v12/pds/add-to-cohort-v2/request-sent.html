@@ -1,0 +1,111 @@
+{% extends "layout-v2.html" %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+{% block header %}
+  {% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-half">
+
+        <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-8">
+               <h1 class="nhsuk-heading-l">Request to add patient into the cervical screening programme successfully submitted</h1>
+            </div>
+
+    <div class="nhsuk-panel-with-label">
+      <h2 class="nhsuk-panel-with-label__label">Patient details</h2>
+
+      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-summary-list--no-border">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Olly Smith
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            04-06-1988
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            NHS number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            834 469 0382
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Contact information
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            30 Hemlock Road<br>
+            York<br>
+            YO31 9DG<br>
+          </dd>
+        </div>
+
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    CRM
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{ data['addCrmCohort'] or 'CAS-12345-ABCDE' }}
+                  </dd>
+
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Comments
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    {{ data['addCommentCohort'] or 'GP has sent confirmation of patient consent' }}
+                  </dd>
+
+                </div>
+
+
+      </dl>
+    </div>
+
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+
+  <h2 class="nhsuk-heading-s nhsuk-u-padding-top-2">What happens next</h2>
+
+  <p>A patient summary has been created for the patient. Check back in 1 day to confirm Personal Demographics Service have added the patient information into the cervical screening programme.</p>
+
+  <p>Once added, the patient will be given a next test due date based on their age. If the patient is younger than 25 their next test due date will be set 20 weeks before their 25th birthday.</p>
+
+
+
+      <a href="/v12/patient/new-patient-summary-2" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-right-6">Continue to patient summary</a>
+      <p><a href="../search/search-all-results">Back to search results</p>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
