@@ -78,7 +78,7 @@
             CRM
           </dt>
           <dd class="nhsuk-summary-list__value">
-            CAS-12345-ABCDE
+            {{ data['addCrmCohort'] or 'CAS-12345-ABCDE' }}
           </dd>
 
           <dd class="nhsuk-summary-list__actions">
@@ -94,7 +94,7 @@
             Comments
           </dt>
           <dd class="nhsuk-summary-list__value">
-            GP has sent confirmation of patient consent
+            {{ data['addCommentCohort'] or 'GP has sent confirmation of patient consent' }}
           </dd>
 
           <dd class="nhsuk-summary-list__actions">

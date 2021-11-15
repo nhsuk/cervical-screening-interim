@@ -5,9 +5,8 @@ NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-{% include '../../components/header-3.html' %}
+  {% include '../../components/header.html' %}
 {% endblock %}
-
 
 {% block content %}
 <div class="nhsuk-grid-row">
@@ -26,7 +25,7 @@ NHS Cervical screening management system
           <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-full">
 
-              <form action="" method="post">
+              <form action="review-patient" method="post">
                 <fieldset class="nhsuk-fieldset">
                   <div class="nhsuk-form-group">
                     <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="example-heading">
@@ -35,7 +34,7 @@ NHS Cervical screening management system
                     <span class="nhsuk-hint" id="example-hint">
                       For example, CAS-12345-ABCDE
                     </span>
-                    <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off" value="{{ data.crm }}">
+                    <input class="nhsuk-input nhsuk-input--width-10" type="text" name="addCrmCohort" autocomplete="off" value="{{ data['addCrmCohort'] }}">
                   </div>
                 <div class="nhsuk-form-group">
                   <label class="nhsuk-label nhsuk-label__strong nhsuk-u-padding-top-1" for="example">
@@ -44,14 +43,14 @@ NHS Cervical screening management system
                   <span class="nhsuk-hint nhsuk-u-padding-top-3" id="example-hint" for="one-half">
 
                   </span>
-                  <textarea class="nhsuk-textarea commentBox char-textarea" id="rejcomment3" value="rejcomment3" name="rejcomment3" rows="5" data-length=200 required></textarea>
+                  <textarea class="nhsuk-textarea commentBox char-textarea" id="addCommentCohort" value="{{ data['addCommentCohort'] }}" name="addCommentCohort" rows="5" data-length=200></textarea>
 
                 </fieldset>
                 </div>
   </div>
+  <input type="submit" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-6 nhsuk-u-margin-right-6" value="Continue">
+  </input>
 
-
-      <a href="review-patient" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-6 nhsuk-u-margin-right-6">Continue</a>
       <p><a href="../search/search-all-results">Exit without saving</p>
 
 

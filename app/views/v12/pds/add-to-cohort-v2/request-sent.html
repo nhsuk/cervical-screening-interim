@@ -3,7 +3,6 @@
 {% block pageTitle %}
   NHS Cervical screening management system
 {% endblock %}
-
 {% block header %}
   {% include '../../components/header.html' %}
 {% endblock %}
@@ -67,7 +66,7 @@
                     CRM
                   </dt>
                   <dd class="nhsuk-summary-list__value">
-                    CAS-12345-ABCDE
+                    {{ data['addCrmCohort'] or 'CAS-12345-ABCDE' }}
                   </dd>
 
                 </div>
@@ -77,7 +76,7 @@
                     Comments
                   </dt>
                   <dd class="nhsuk-summary-list__value">
-                    GP has sent confirmation of patient consent
+                    {{ data['addCommentCohort'] or 'GP has sent confirmation of patient consent' }}
                   </dd>
 
                 </div>
