@@ -324,10 +324,10 @@ router.post("/*/patient/search/search", function(req, res) {
       res.redirect("/" + getVersion(req) + "/patient/patient-summary");
     }
 
-     
+
   }
 
-   
+
   const patVersion = req.session.data["patversion"];
 
   if (patVersion >= '2') {
@@ -463,13 +463,13 @@ router.post("/*/add-test-result", function (req, res) {
   var currentPatient = patient.getPatient(nhsNumber);
   patient.addTestResult(nhsNumber, req.session.data);
   patient.reinstatePatient(nhsNumber);
-  
-  
+
+
   // get the patient again with the new results
   currentPatient = patient.getPatient(nhsNumber);
   req.session.data['patientSummary'] = currentPatient;
   const patVersion = req.session.data["patversion"];
-  
+
   res.redirect("/" + getVersion(req) + "/patient/patient-summary-" + patVersion);
 })
 
@@ -488,7 +488,7 @@ router.post("/*/edit-test-result", function (req, res) {
   currentPatient = patient.getPatient(nhsNumber);
   req.session.data['patientSummary'] = currentPatient;
   const patVersion = req.session.data["patversion"];
-  
+
   res.redirect("/" + getVersion(req) + "/patient/patient-summary-" + patVersion);
 })
 
@@ -505,20 +505,20 @@ router.post("/*/delete-test-result", function (req, res) {
   currentPatient = patient.getPatient(nhsNumber);
   req.session.data['patientSummary'] = currentPatient;
   const patVersion = req.session.data["patversion"];
-  
+
   res.redirect("/" + getVersion(req) + "/patient/patient-summary-" + patVersion);
 })
 
 router.post("/*/check-test-result", function (req, res) {
   var result = (req.session.data["result-result"] + req.session.data["result-infection"] + req.session.data["result-action"]).toUpperCase();
   console.log("result : " + result)
-  if(result=="X0R"){ 
+  if(result=="X0R"){
     res.redirect("/v12/patient/add-test-result/add-test-result-repeat-in-months-x0r")
   }
-  if(result=="09R" || result=="29R"){ 
+  if(result=="09R" || result=="29R"){
     res.redirect("/v12/patient/add-test-result/add-test-result-repeat-in-months-09r")
   }
-  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){ 
+  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){
     res.redirect("/v12/patient/add-test-result/add-test-result-repeat-in-months-manual-input")
   }
   res.redirect("/v12/patient/add-test-result/add-test-result-ntdd")
@@ -527,13 +527,13 @@ router.post("/*/check-test-result", function (req, res) {
 router.post("/*/check-logged-test-result", function (req, res) {
   var result = (req.session.data["result-result"] + req.session.data["result-infection"] + req.session.data["result-action"]).toUpperCase();
   console.log("result : " + result)
-  if(result=="X0R"){ 
+  if(result=="X0R"){
     res.redirect("/v12/patient/log-test-result/log-test-result-repeat-in-months-x0r")
   }
-  if(result=="09R" || result=="29R"){ 
+  if(result=="09R" || result=="29R"){
     res.redirect("/v12/patient/log-test-result/log-test-result-repeat-in-months-09r")
   }
-  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){ 
+  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){
     res.redirect("/v12/patient/log-test-result/log-test-result-repeat-in-months-manual-input")
   }
   res.redirect("/v12/patient/log-test-result/log-test-result-ntdd")
@@ -542,13 +542,13 @@ router.post("/*/check-logged-test-result", function (req, res) {
 router.post("/*/check-add-logged-test-result", function (req, res) {
   var result = (req.session.data["result-result"] + req.session.data["result-infection"] + req.session.data["result-action"]).toUpperCase();
   console.log("result : " + result)
-  if(result=="X0R"){ 
+  if(result=="X0R"){
     res.redirect("/v12/patient/add-log-test-result/add-log-test-result-repeat-in-months-x0r")
   }
-  if(result=="09R" || result=="29R"){ 
+  if(result=="09R" || result=="29R"){
     res.redirect("/v12/patient/add-log-test-result/add-log-test-result-repeat-in-months-09r")
   }
-  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){ 
+  if(result=="0R" || result=="0S" || result=="1R" || result=="1S" || result=="2R" || result=="2S" || result=="3R" || result=="3S" || result=="4S" || result=="5S" || result=="6S" || result=="7S" || result=="8R" || result=="8S" || result=="9R" || result=="9S"){
     res.redirect("/v12/patient/add-log-test-result/add-log-test-result-repeat-in-months-manual-input")
   }
   res.redirect("/v12/patient/add-logged-result/add-log-test-result-ntdd")
@@ -580,7 +580,7 @@ router.post("/*/resend-result-letter", function (req, res) {
 router.get("/get-senders", function (req, res) {
   req.session.data["senders"] = senders.getSenders();
   console.log(senders.getSenders())
-  
+
 });
 
 // Branching example
@@ -602,5 +602,56 @@ router.post('/v12/reports-gp/history-batch', function (req, res) {
 })
 
 
+// De-duplicate flow 1
 
+router.post("/v12/worklists-v12/review-duplicate-test-result", function (req, res) {
+var rejectAction = req.session.data['rejectAction'];
+
+if (rejectAction == 'remove') {
+  res.redirect("/v12/worklists-v12/confirm-duplicate-test-result");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result");
+}
+
+})
+
+//DE-DUP original result flow 2
+
+router.post("/v12/worklists-v12/review-duplicate-test-result-original", function (req, res) {
+var rejectAction2 = req.session.data['rejectAction2'];
+
+if (rejectAction2 == 'replace') {
+  res.redirect("/v12/worklists-v12/confirm-duplicate-test-result-original");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result-original");
+}
+
+})
+
+//DE-DUP flow 3
+
+router.post("/v12/worklists-v12/review-test-result", function (req, res) {
+var rejectAction3 = req.session.data['rejectAction3'];
+
+if (rejectAction3 == 'remove') {
+  res.redirect("/v12/worklists-v12/confirm-test-result");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-test-result");
+}
+
+})
+
+router.post("/v12/reports-gp/cancer-audit", function (req, res) {
+  res.redirect("/v12/reports-gp/cancer-audit/report");
+})
+
+router.post("/v12/reports-gp/cancer-audit/add-another", function (req, res) {
+  res.redirect("/v12/reports-gp/cancer-audit/report-2-patients");
+})
 module.exports = router;

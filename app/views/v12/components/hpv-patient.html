@@ -1,0 +1,20 @@
+
+
+
+  <h3 class="nhsuk-panel-with-label__label">{{ data.patientSummary.first_name | capitalize or 'Jane' }} {{ data.patientSummary.last_name | capitalize or 'Smith' }}
+  <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.patientSummary.nhs_number | formatNHSNumber or '123 456 7890' }}</span></h3>
+
+
+<!--
+  <tr id="detailsRow4" class="detailsRow">
+           <td colspan="3">-->
+            <div class="nhsuk-grid-row">
+              <div class="nhsuk-grid-column-full">
+
+
+
+
+              </div>
+            </div>
+          </td>
+        </tr></p>
