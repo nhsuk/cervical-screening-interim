@@ -1,0 +1,139 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+  <script type="text/javascript" src="/js/search.js"></script>
+  <script type="text/javascript" src="/js/auto.js"></script>
+  <script type="text/javascript" src="/js/action-menu.js"></script>
+  <script type="text/javascript" src="/js/sort.js"></script>
+    <script type="text/javascript" src="/js/tabs.js"></script>
+{% endblock %}
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{{ header({
+    "service": {
+      "name": "Cervical Screening Management System",
+      "longName": "false"
+    },
+    "showNav": "false",
+    "showSearch": "false"
+  })
+}}
+{% endblock %}
+
+{% block patientBanner %}
+  {% include '../components/new-patient-banner.html' %}
+{% endblock %}
+
+
+{% block content %}
+  {% if data.role != 'sampleTaker' %}
+  <nav class="nhsuk-sub-navigation">
+    <ul class="nhsuk-sub-navigation__list">
+      <li class="nhsuk-sub-navigation__item"><a href="new-patient-summary-2" class="nhsuk-sub-navigation__link" aria-current="page">Patient Summary</a></li>
+      <li class="nhsuk-sub-navigation__item"><a href="new-history-2" class="nhsuk-sub-navigation__link">Audit</a></li>
+      <li class="nhsuk-sub-navigation__item"><a href="new-gp-info-2" class="nhsuk-sub-navigation__link">GP Information</a></li>
+    </ul>
+  </nav>
+{% endif %}
+
+<div class="nhsuk-grid-row nhsuk-u-margin-top-4">
+  <div class="nhsuk-grid-column-three-quarters">
+    <h1 class="nhsuk-heading-l">Patient summary</h1>
+
+    <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-8">
+           <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Request sent to Personal Demographics Service (PDS) to add patient into the cervical screening programme.</h2>
+           <p>17 August 2021</p>
+           <p>Patient details and next test due date will be added once confirmed by PDS.</p>
+        </div>
+
+    <dl class="nhsuk-summary-list nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Next test due date:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          {% if data.role == 'csas' %}
+            Actions:
+          {% endif %}
+        </dd>
+      </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Invited date:
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+          </dd>
+        </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+            Address:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          30 Hemlock Road, York, YO31 9DG
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+    {#{% if data.role != 'sampleTaker' %}
+      {{ details({
+      "text": "View previous addresses",
+      "HTML": "
+
+      <h4>Address History</h4>
+      <table>
+      <thead>
+      <tr>
+        <th>Moved in</th>
+        <th>Address</th>
+      </tr>
+      </thead>
+      <tr>
+      <td>07 2017</td>
+      <td>20 Thornhill Street, Pudsey, LS15 6FD</td>
+      </tr>
+      <tr>
+      <td>03 2013</td>
+      <td>29 Jubilee Close, Bradford, BD19 3WE</td>
+      </tr>
+      <tr>
+      <td>01 2011</td>
+      <td>1 High Street, Bradford, BD13 5TY</td>
+      </tr>
+      </table>"
+      }) }}
+    {% endif %}#}
+
+    {% if data.role == 'sampleTaker' %}
+    <br>
+    {% include '../components/hmr101.html' %}
+
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}

@@ -37,7 +37,21 @@ NHS Cervical screening management system
           Upload a file of NHS numbers
         </p>
       </legend>
-      <p class="nhsuk-hint">Files must be in a .CSV format</p>
+      <p class="nhsuk-hint">Files must be in CSV format</p>
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+           What is CSV format?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>CSV is an excel file format. 
+            To upload a file, you need to save the file type as CSV using the drop down in excel.</p>
+        
+      
+      
+        </div>
+      </details>
       <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose file</button>
       <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> No file chosen </span> 
     </form>
