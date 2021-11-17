@@ -669,6 +669,19 @@ else {
 }
 
 })
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-reinstate", function (req, res) {
+var bypassPnl = req.session.data['bypassPnl2'];
+
+if (bypassPnl == 'yes') {
+  res.redirect("prior-notification-reinstate-ntdd");
+}
+
+else {
+  res.redirect("prior-notification-reinstate-bypass-pnl");
+}
+
+})
 module.exports = router;
 
 

@@ -42,20 +42,19 @@
         </div> -->
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Action</dt>
-          <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
+          <dd class="nhsuk-summary-list__value">Reinstate</dd>
           <dd class="nhsuk-summary-list__actions"></dd>
         </div>
 
-
-        <div class="nhsuk-summary-list__row">
+        <!-- <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Defer reason</dt>
-          <dd class="nhsuk-summary-list__value">{{ data['pnl-defer-reason'] or 'Pregnancy' }}</dd>
+          <dd class="nhsuk-summary-list__value">Administrative</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
-        </div>
+        </div> -->
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Add to prior notification list</dt>
-          <dd class="nhsuk-summary-list__value">No</dd>
+          <dd class="nhsuk-summary-list__value">Yes</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
         </div>
 
@@ -85,7 +84,7 @@
 
       </dl>
 
-      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" class="nhsuk-button nhsuk-button--ers">Submit</a>
+      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="update-Ntdd" value="true" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
       <p><a href="">Exit without saving</a></p>
 
 
@@ -95,15 +94,20 @@
       <h1 class="nhsuk-fieldset__legend--m">Review patient screening participation</h1>
 
       <dl class="nhsuk-summary-list">
-        <div class="nhsuk-summary-list__row">
+        <!-- <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Action</dt>
           <dd class="nhsuk-summary-list__value">{{ data['pnl-action'] or 'Defer' }}</dd>
+          <dd class="nhsuk-summary-list__actions"></dd>
+        </div> -->
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Action</dt>
+          <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
           <dd class="nhsuk-summary-list__actions"></dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Defer reason</dt>
-          <dd class="nhsuk-summary-list__value">{{ data['pnl-defer-reason'] or 'Pregnancy' }}</dd>
+          <dd class="nhsuk-summary-list__value">Administrative</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
         </div>
 
@@ -134,13 +138,17 @@
 
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">Bypass PNL</dt>
-            <dd class="nhsuk-summary-list__value">No</dd>
+            <dd class="nhsuk-summary-list__value">{% if data['bypassPnl2'] === 'yes' %}
+              Yes
+            {% else %}
+              No
+            {% endif %}</dd>
             <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
           </div>
         {% endif %}
       </dl>
 
-      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" class="nhsuk-button nhsuk-button--ers">Submit</a>
+      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="update-Ntdd" value="updateNtdd" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
       <p><a href="">Exit without saving</a></p>
 
 

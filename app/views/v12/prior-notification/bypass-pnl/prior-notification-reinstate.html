@@ -34,7 +34,7 @@ NHS Cervical screening management system
       <span class="nhsuk-hint">Step 2 of 3</span>
       {% endif %}
       {% if (data.role == 'csas') %}
-          <form action="prior-notification-reinstate-ntdd" method="post">
+          <form action="prior-notification-reinstate" method="post">
                   <div class="nhsuk-grid-row">
                     <div class="nhsuk-grid-column-three-quarters">
 
@@ -48,14 +48,14 @@ NHS Cervical screening management system
                         <div class="nhsuk-radios">
 
                           <div class="nhsuk-radios__item">
-                            <input class="nhsuk-radios__input" id="bypassPnl" name="bypassPnl" type="radio" value="yes">
+                            <input class="nhsuk-radios__input" id="bypassPnl2" name="bypassPnl2" type="radio" value="yes">
                             <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                               Yes, add the patient to the prior notification list with other patients due to be invited
                             </label>
                           </div>
 
                           <div class="nhsuk-radios__item">
-                            <input class="nhsuk-radios__input" id="bypassPnl" name="bypassPnl" type="radio" value="no">
+                            <input class="nhsuk-radios__input" id="bypassPnl2" name="bypassPnl2" type="radio" value="no">
                             <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                               No, invite the patient without going to a GP for review
                             </label>
