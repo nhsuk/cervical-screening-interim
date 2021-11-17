@@ -617,6 +617,20 @@ else {
 
 })
 
+
+router.post("/v12/worklists-v12/review-duplicate-test-result-2", function (req, res) {
+var rejectAction = req.session.data['rejectAction'];
+
+if (rejectAction == 'remove') {
+  res.redirect("/v12/worklists-v12/confirm-duplicate-test-result-2");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result-2");
+}
+
+})
+
 //DE-DUP original result flow 2
 
 router.post("/v12/worklists-v12/review-duplicate-test-result-original", function (req, res) {

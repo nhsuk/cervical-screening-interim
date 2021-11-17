@@ -115,6 +115,12 @@
     background-color: none;
 }
 
+.nhsuk-inset-text.nhsuk-inset-text__screening.nhsuk-inset-text__screening--background-width {
+  background-color:#fff;
+  padding: 32px;
+  max-width: 52.5em;
+}
+
 
 .nhsuk-inset-text.nhsuk-inset-text__screening.nhsuk-inset-text__screening--info {
     border-color: #005eb8;
@@ -508,6 +514,20 @@
       }
     }
     */
+
+.nhsuk-panel-with-label__label-red {
+    font-size: 24px !important;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    background-color: #d5281b;
+    color: #ffffff;
+    display: inline-block;
+    margin: 0 0 8px -32px;
+    padding: 8px 32px;
+    position: relative;
+    top: -16px;
+}
+
 
           .nhsuk-blue {
             @extend .nhsuk-button--ers;

@@ -55,31 +55,28 @@ NHS Cervical screening management system
   </div>
 </div>
 
-
-
- <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2">Checker duplicate recommendation </h1>
-
+ <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2  nhsuk-u-margin-bottom-0">Checker duplicate recommendation </h1>
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-three-quarters">
-     <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
-       <li class="nhsuk-panel"> <p><strong>Test results have duplicate slide numbers. </strong></p>
-       <p>Review both test results and choose which to use.</p>
-         <p>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</p>
-       </li>
-     </ul>
-  </div>
+       <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure nhsuk-inset-text__screening--background-width">
+         <span class="nhsuk-u-visually-hidden">Important: </span>
+         <h2 class="nhsuk-heading-s">Issues:</h2>
+         <ul>
+         <li>Test results have duplicate slide numbers</li>
+         <li>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</li>
+         </ul>
+       </div>
  </div>
-
+ </div>
 
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-one-half">
   <div class="nhsuk-panel-with-label">
 
-       {% include '../components/patient-result-duplicate-simmons-dup.html' %}
+       {% include '../components/patient-result-duplicate-simmons-dup-2.html' %}
 
-     <h2 class="nhsuk-heading-m nhsuk-u-padding-left-3 nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-3">Duplicate result</h2>
 
 
        <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-u-margin-bottom-0">
@@ -199,9 +196,8 @@ NHS Cervical screening management system
  <div class="nhsuk-grid-column-one-half">
   <div class="nhsuk-panel-with-label">
 
-    {% include '../components/patient-result-duplicate-simmons-og.html' %}
+    {% include '../components/patient-result-duplicate-simmons-og-2.html' %}
 
-    <h2 class="nhsuk-heading-m nhsuk-u-padding-left-3 nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-3">Original result</h2>
 
 
              <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-u-margin-bottom-0">
@@ -313,11 +309,6 @@ NHS Cervical screening management system
    </div>
    </div>
      </div>
-   </div>
- </div>
-
-
-
 
 
 
