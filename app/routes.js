@@ -631,6 +631,21 @@ else {
 
 })
 
+router.post("/v12/worklists-v12/confirm-duplicate-test-result-2", function (req, res) {
+var keepOriginal = req.session.data['keepOriginal'];
+
+if (keepOriginal == 'no') {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result-2");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/crm-comments");
+}
+
+})
+
+
+
 //DE-DUP original result flow 2
 
 router.post("/v12/worklists-v12/review-duplicate-test-result-original", function (req, res) {
