@@ -654,4 +654,48 @@ router.post("/v12/reports-gp/cancer-audit", function (req, res) {
 router.post("/v12/reports-gp/cancer-audit/add-another", function (req, res) {
   res.redirect("/v12/reports-gp/cancer-audit/report-2-patients");
 })
+
+//bypass-pnl
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-defer-length", function (req, res) {
+var bypassPnl = req.session.data['bypassPnl'];
+
+if (bypassPnl == 'yes') {
+  res.redirect("prior-notification-defer-ntdd");
+}
+
+else {
+  res.redirect("prior-notification-defer-bypass-pnl");
+}
+
+})
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-reinstate", function (req, res) {
+var bypassPnl = req.session.data['bypassPnl2'];
+
+if (bypassPnl == 'yes') {
+  res.redirect("prior-notification-reinstate-ntdd");
+}
+
+else {
+  res.redirect("prior-notification-reinstate-bypass-pnl");
+}
+
+})
+module.exports = router;
+
+
+
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-defer", function (req, res) {
+var pnlDeferReason = req.session.data['pnlDeferReason'];
+
+if (pnlDeferReason == 'Administrative') {
+  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-defer-length");
+}
+
+else {
+  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-defer");
+}
+
+})
 module.exports = router;

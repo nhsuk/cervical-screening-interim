@@ -1,0 +1,174 @@
+{% extends "layout-v2.html" %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+  {% include '../../components/header-3.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="prior-notification-12-defer-length">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        {% if data.role == 'csas' %}
+          Back to step 2 - Enter a CRM case number</a>
+        {% else %}
+          Back to step 1 - How long do you want to {{ "delay" if (data.role == 'csas' and data.patversion == '2') else "defer" }} the patient for?</a>
+        {% endif %}
+    </div>
+
+  <div class="nhsuk-panel-with-label">
+    {% include '../../components/pnl-patient-2.html' %}
+    {% if data.role == 'csas' %}
+      <span class="nhsuk-hint">Step 5 of 5</span>
+    {% else %}
+      <span class="nhsuk-hint">Step 3 of 3</span>
+    {% endif %}
+      {% if (data.role == 'csas') %}
+      <h1 class="nhsuk-fieldset__legend--m">Review patient screening participation</h1>
+
+      <dl class="nhsuk-summary-list">
+        <!-- <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Action</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['pnl-action'] or 'Delay' }}</dd>
+          <dd class="nhsuk-summary-list__actions"></dd>
+        </div> -->
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Action</dt>
+          <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
+          <dd class="nhsuk-summary-list__actions"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Defer reason</dt>
+          <dd class="nhsuk-summary-list__value">Administrative</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Add to prior notification list</dt>
+          <dd class="nhsuk-summary-list__value">{% if data['bypassPnl'] === 'yes' %}
+            Yes
+          {% else %}
+            No
+          {% endif %}</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
+        </div>
+
+
+          {% if data['ntdd-year'] != '' %}
+            {% set nextTestDueDate = data['ntdd-year'] + "-" + data['ntdd-month'] + "-" + data['ntdd-day'] %}
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Next test due date</dt>
+              <dd class="nhsuk-summary-list__value">{{ nextTestDueDate | returnDateFormat + ' ' + nextTestDueDate | returnTimeDiff }}</dd>
+              <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
+            </div>
+
+
+          {% endif %}
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">CRM Case Number</dt>
+            <dd class="nhsuk-summary-list__value">{{ data['crm'] or '' }}</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="patient/change-due-date/enter-action-1">Change<span class="nhsuk-u-visually-hidden"> CRM</span></a></dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Comments</dt>
+            <dd class="nhsuk-summary-list__value">{{  data['comments'] or '' }}</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="patient/change-due-date/enter-action-1">Change<span class="nhsuk-u-visually-hidden"> Comments</span></a></dd>
+          </div>
+
+      </dl>
+
+      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="update-Ntdd" value="true" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
+      <p><a href="">Exit without saving</a></p>
+
+
+
+
+      {% else %}
+      <h1 class="nhsuk-fieldset__legend--m">Review patient screening participation</h1>
+
+      <dl class="nhsuk-summary-list">
+        <!-- <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Action</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['pnl-action'] or 'Defer' }}</dd>
+          <dd class="nhsuk-summary-list__actions"></dd>
+        </div> -->
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Action</dt>
+          <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
+          <dd class="nhsuk-summary-list__actions"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Defer reason</dt>
+          <dd class="nhsuk-summary-list__value">Administrative</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
+        </div>
+
+        {% if (data['pnl-defer-reason'] == "Pregnancy") and data['edd-year'] != '' %}
+          {% set estimatedDateOfDelivery = data['edd-year'] + "-" + data['edd-month'] + "-" + data['edd-day'] %}
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Estimated date of delivery
+            </dt>
+            <dd class="nhsuk-summary-list__value">{{ estimatedDateOfDelivery | returnDateFormat + ' ' + estimatedDateOfDelivery | returnTimeDiff }}</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Estimated date of delivery</span></a></dd>
+          </div>
+        {% endif %}
+
+        {% if data['defer-length'] != '' %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">{{ "Delay" if (data.role == 'csas') else "Defer" }} length</dt>
+          <dd class="nhsuk-summary-list__value">{{ data['defer-length'] or '3 Months' }}</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Defer length</span></a></dd>
+        </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Calculated next test due date</dt>
+            <dd class="nhsuk-summary-list__value">{{ data['defer-length'] | returnDate('months', estimatedDateOfDelivery ) + ' ' +  (data['defer-length'] | returnDate('months', estimatedDateOfDelivery )) | returnTimeDiff }}</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Calculated next test due date</span></a></dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Bypass PNL</dt>
+            <dd class="nhsuk-summary-list__value">No</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
+          </div>
+        {% endif %}
+      </dl>
+
+      <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="updateNtdd" value="true" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
+      <p><a href="">Exit without saving</a></p>
+
+
+
+
+      {% endif %}
+  </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
