@@ -34,7 +34,7 @@ s{% extends "layout-v2.html" %}
       {% include '../../components/pnl-patient-2.html' %}
 
       {% if data.role == 'csas' %}
-        <span class="nhsuk-hint">Step 1 of 4</span>
+        <span class="nhsuk-hint">Step 1 of 5</span>
       {% else %}
         <span class="nhsuk-hint">Step 1 of 3</span>
       {% endif %}
@@ -112,6 +112,8 @@ s{% extends "layout-v2.html" %}
       </div>
 
        <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+
+       <p><a href="">Exit without saving</a></p>
 
       </form>
 
