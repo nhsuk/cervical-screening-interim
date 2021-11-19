@@ -54,7 +54,11 @@
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Add to prior notification list</dt>
-          <dd class="nhsuk-summary-list__value">Yes</dd>
+          <dd class="nhsuk-summary-list__value">{% if data['bypassPnl2'] === 'yes' %}
+            Yes
+          {% else %}
+            No
+          {% endif %}</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
         </div>
 
