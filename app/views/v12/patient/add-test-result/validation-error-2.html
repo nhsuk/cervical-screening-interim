@@ -1,0 +1,167 @@
+{% extends "layout-v2.html" %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+  {% include '../../components/header-3.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="add-test-result-crm">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to step 5 - Add CRM case number</a>
+    </div>
+  <div class="nhsuk-panel-with-label">
+    {% include '../../components/pnl-patient-2.html' %}
+    <span class="nhsuk-hint">Step 6 of 6</span>
+
+
+    <div class="nhsuk-error-summary nhsuk-error-summary-blue" aria-labelledby="error-summary-title" role="alert" tabindex="-1" style="width:80%">
+      <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+        This test result is more than 4 months old
+      </h2>
+      <div class="nhsuk-error-summary__body">
+        <p class="nhsuk-u-margin-bottom-0">
+          You can add this test result, but no letter will be sent.
+        </p>
+      </div>
+    </div>
+
+    <div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      Review test
+    </legend>
+
+
+     <a href="add-test-result" class="nhsuk-button nhsuk-button--ers">
+            Edit result
+         </a>
+
+    <form action="/v12/add-test-result?nhsNumber={{ data.pnl_patient.nhs_number }}&patversion=7" method="post">
+
+<dl class="nhsuk-summary-list">
+
+   <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">National code</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['national-code'] or '-'}}</dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Health Authority</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['health-authority'] or '-' }}</dd>
+  </div>
+
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Self-sample</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['self-sample'] }}</dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Source code</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['source-code'] }}</dd>
+  </div>
+
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Sender code</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['sender-code'] or '-' }} </dd>
+  </div>
+
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Slide number</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['slide-number'] }}</dd>
+  </div>
+
+  {% set nextTestDueDate = data['example-year'] + "-" + data['example-month'] + "-" + data['example-day'] %}
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Test date</dt>
+    <dd class="nhsuk-summary-list__value">{{ nextTestDueDate | returnDateFormat }}</dd>
+  </div>
+
+  {% if data ['self-sample'] == 'Yes' %}
+  {% set senderValue= 'Yes' %}
+  {% else %}
+  {% set senderValue= data['sender-code'] %}
+  {% endif %}
+
+ <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">HPV Primary</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['hpv-primary'] or 'Yes'}} </dd>
+  </div>
+
+<div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Result</dt>
+    <dd class="nhsuk-summary-list__value">({{ data['result-result'] | capitalize }}{{ data['result-infection'] | capitalize }}{{ data['result-action'] | capitalize }}) {{ data['result-result'] | returnResultText }}, {{ data['result-infection'] | returnInfectionText }}, {{ data['result-action'] | returnActionText }}</dd>
+  </div>
+
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Repeat in months</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['repeat-months'] or '36' }} months</dd>
+  </div>
+
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">Next test due date</dt>
+      <dd class="nhsuk-summary-list__value">{{ 3 | returnDate('years', nextTestDueDate) + ' ' + 3 | returnDate('years', nextTestDueDate) | returnTimeDiff }}</dd>
+    </div>
+
+ <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">CRM</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['crm'] or '123456789' }}</dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Comments</dt>
+    <dd class="nhsuk-summary-list__value">{{ data['comments'] or '' }}</dd>
+  </div>
+</dl>
+
+
+ <input type="hidden" id="actionText" name="action-text" value="{{ data['result-action'] | returnActionText }}">
+ <input type="hidden" id="infectionText" name="infection-text" value="{{ data['result-infection'] | returnInfectionText }}">
+ <input type="hidden" id="resultText" name="result-text" value="{{ data['result-result'] | returnResultText }}">
+
+{% if data.patientSummary['pnl_action'] == 'Ceased' %}
+  <div class="nhsuk-inset-text">
+       <span class="nhsuk-u-visually-hidden">Information: </span>
+       <p>Adding this test will reinstate the patient and set their next test due date.</p>
+    </div>
+{% endif %}
+
+
+
+         <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add test result
+         </button>
+
+         <p><a href="../patient-summary-7">Exit without saving</a></p>
+
+     </form>
+  </div>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
