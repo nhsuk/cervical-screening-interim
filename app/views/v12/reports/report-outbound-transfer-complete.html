@@ -1,0 +1,253 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+
+
+    {{ backLink({
+      "href": "reports",
+      "text": "Back to reports"
+    }) }}
+
+    <h1 class="nhsuk-heading-l">Outbound transfer</h1>
+
+ <div class="nhsuk-form-group">
+
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Refine search by country and date
+        </span>
+      </summary>
+
+
+    </legend>
+
+      <div class="nhsuk-details__text">
+
+     <label class="nhsuk-label nhsuk-label__strong">
+                 Which country you like to see?
+               </label>
+         <div class="nhsuk-hint" id="example-hint">
+      Select all options that are relevant to you:
+    </div>
+
+    <div class="nhsuk-checkboxes">
+
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+          Scotland
+        </label>
+      </div>
+
+       <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+          Northen Ireland
+        </label>
+      </div>
+
+      
+
+<br>
+
+<label class="nhsuk-label nhsuk-label__strong">
+  Which transfer options would you like to see?
+</label>
+<div class="nhsuk-hint" id="example-hint">
+Select all options that are relevant to you:
+</div>
+
+<div class="nhsuk-checkboxes nhsuk-u-margin-bottom-6">
+
+<div class="nhsuk-checkboxes__item">
+<input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+<label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+Transfer completed
+</label>
+</div>
+
+<div class="nhsuk-checkboxes__item">
+<input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+<label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+Transfer not complete
+</label>
+</div>
+</div>
+<label class="nhsuk-label nhsuk-label__strong">
+                  What date range would you like to view?
+               </label>
+     <!-- Minimum view 1 day.<br>
+      Maximum view is 7 days.-->
+    </div>
+    <br>
+        <form action="print-patients-due-to-be-invited" method="">
+        <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          {{ dateInput({
+            "id": "example",
+            "namePrefix": "example",
+            "fieldset": {
+              "legend": {
+                "text": "Enter a date from:",
+                "classes": "nhsuk-label--s",
+                "isPageHeading": false
+              }
+            },
+            "hint": {
+              "text": "For example, 15 3 1984"
+            },
+            "items": [
+              {
+                "name": "day",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "month",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "year",
+                "classes": "nhsuk-input--width-4"
+              }
+            ]
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          {{ dateInput({
+            "id": "example",
+            "namePrefix": "example",
+            "fieldset": {
+              "legend": {
+                "text": "Enter a date to:",
+                "classes": "nhsuk-label--s",
+                "isPageHeading": false
+              }
+            },
+            "hint": {
+              "text": "Leave blank if viewing 1 day"
+            },
+            "items": [
+              {
+                "name": "day",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "month",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "year",
+                "classes": "nhsuk-input--width-4"
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+      <br>
+
+  
+<br>
+      {{ button({
+            "text": "Search",
+            "classes": "nhsuk-button nhsuk-button--ers"
+          }) }}
+        </form>
+      </div>
+    </details>
+
+   <h2 class="nhsuk-heading-m">Outbound transfers <!--- 13 September 2021--></h2>
+
+<p>If you cannot find the patient you're looking for refine the search.</p>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption"></caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" scope="col" width="130">
+            Transfer date
+          </th>
+          <th role="columnheader" scope="col" width="160">
+            Name
+          </th>
+          <th role="columnheader" scope="col" width="160">
+           NHS number
+          </th>
+          <th role="columnheader" scope="col" width="190" >
+            New location and district
+          </th>
+     
+          <th role="columnheader" scope="col"  width="220">
+            Action
+          </th>
+          <th role="columnheader" scope="col"  width="250">
+           Status
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+         <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">10-09-21</td>
+          <td class="nhsuk-table__cell">Lucy Harper</td>
+          <td class="nhsuk-table__cell">098 987 0987</td>
+          <td class="nhsuk-table__cell">Grampian, Scotland (N)</td>
+         
+          <td class="nhsuk-table__cell"></td>
+          <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-u-margin-bottom-2">Transfer completed</span><span class="nhsuk-table__cell--hint">CRM number: CAS-12345-ABCDE</span></td>
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">11-09-21</td>
+          <td class="nhsuk-table__cell">Ella Depretis</td>
+          <td class="nhsuk-table__cell">098 102 3867</td>
+          <td class="nhsuk-table__cell">Northen Ireland</td>
+          <td class="nhsuk-table__cell"></td>
+          <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-u-margin-bottom-2">Transfer completed</span><span class="nhsuk-table__cell--hint">CRM number: CAS-12345-ABCDE</span></td>
+   
+           <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">11-09-21</td>
+          <td class="nhsuk-table__cell">Hannah Rowley</td>
+          <td class="nhsuk-table__cell">098 987 0987</td>
+          <td class="nhsuk-table__cell">Fife, Scotland (F)</td>
+          <td class="nhsuk-table__cell"><a class= "nhsuk-button nhsuk-button--ers" href="">Transfer patient</a></td>
+          <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-bottom-2">Transfer not complete</span></td>
+        </tr>
+
+             </tr>
+          <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">11-09-21</td>
+          <td class="nhsuk-table__cell">Mary Homes</td>
+          <td class="nhsuk-table__cell">098 987 0987</td>
+          <td class="nhsuk-table__cell">Lothian, Scotland (S)</td>
+          <td class="nhsuk-table__cell"><a class= "nhsuk-button nhsuk-button--ers" href="">Transfer patient</a></td>
+          <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-bottom-2">Transfer not complete</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
