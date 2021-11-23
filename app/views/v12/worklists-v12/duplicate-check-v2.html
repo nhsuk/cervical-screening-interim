@@ -55,17 +55,14 @@ NHS Cervical screening management system
   </div>
 </div>
 
- <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2  nhsuk-u-margin-bottom-0">Checker duplicate recommendation </h1>
+ <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2  nhsuk-u-margin-bottom-0">Check duplicate recommendation </h1>
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-three-quarters">
        <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure nhsuk-inset-text__screening--background-width">
          <span class="nhsuk-u-visually-hidden">Important: </span>
-         <h2 class="nhsuk-heading-s">Issues:</h2>
-         <ul>
-         <li>Test results have duplicate slide numbers</li>
-         <li>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</li>
-         </ul>
+         <h2 class="nhsuk-heading-s">Test results have duplicate slide numbers</h2>
+         <p>Duplicate slide numbers must be resolved first. If needed, any manual matching or resolution of test result data will be done after.</p>
        </div>
  </div>
  </div>
@@ -87,6 +84,8 @@ NHS Cervical screening management system
            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
              Duplicate patient details
            </legend>
+
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Not matched to patient in system</span></td>
 
            <div class="nhsuk-summary-list__row">
                <dt class="nhsuk-summary-list__key">Name </dt>
@@ -121,6 +120,9 @@ NHS Cervical screening management system
            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
              Duplicate test result details
            </legend>
+
+           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid or missing test result data</span></td>
+
 
  <div class="nhsuk-summary-list__row">
      <dt class="nhsuk-summary-list__key">National code</dt>
@@ -209,6 +211,9 @@ NHS Cervical screening management system
                    Original patient details
                  </legend>
 
+                 <td><span class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-2">Matched to patient in system</span></td>
+
+
        <div class="nhsuk-summary-list__row">
            <dt class="nhsuk-summary-list__key">Name </dt>
            <dd class="nhsuk-summary-list__value">{{ data['first_name'] or "Jane" }} {{ data['last_name'] or "Smith" }} </dd>
@@ -241,6 +246,8 @@ NHS Cervical screening management system
            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
              Original test result details
            </legend>
+
+           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid or missing test result data</span></td>
 
  <div class="nhsuk-summary-list__row">
      <dt class="nhsuk-summary-list__key">National code</dt>
@@ -324,8 +331,9 @@ NHS Cervical screening management system
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Action</dt>
-    <dd class="nhsuk-summary-list__value">Remove duplicate. The original test result will stay on the rejected list to be resolved. The duplicate will be removed and archived.</dd>
+    <dd class="nhsuk-summary-list__value"><strong>Keep original test result</strong><br>The original test result will be kept and the duplicate test result removed.</dd>
   </div>
+
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">CRM</dt>

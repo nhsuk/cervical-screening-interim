@@ -55,18 +55,15 @@ NHS Cervical screening management system
   </div>
 </div>
 
- <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Review duplicate test results  </h1>
+ <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Review duplicate test results and choose which to keep</h1>
 
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
       <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure nhsuk-inset-text__screening--background-width">
         <span class="nhsuk-u-visually-hidden">Important: </span>
-        <h2 class="nhsuk-heading-s">Issues:</h2>
-        <ul>
-        <li>Test results have duplicate slide numbers</li>
-        <li>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</li>
-        </ul>
+        <h2 class="nhsuk-heading-s">Test results have duplicate slide numbers</h2>
+        <p>Duplicate slide numbers must be resolved first. If needed, any manual matching or resolution of test result data will be done after.</p>
       </div>
 </div>
 </div>
@@ -90,6 +87,9 @@ NHS Cervical screening management system
                         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                           Duplicate patient details
                         </legend>
+
+                        <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Not matched to patient in system</span></td>
+
           <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">Name </dt>
               <dd class="nhsuk-summary-list__value">{{ data['first_name'] or "Jane" }} {{ data['last_name'] or "Smith" }} </dd>
@@ -123,6 +123,9 @@ NHS Cervical screening management system
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
             Duplicate test result details
           </legend>
+
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid or missing test result data</span></td>
+
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">National code</dt>
@@ -205,6 +208,10 @@ NHS Cervical screening management system
                   Original patient details
                 </legend>
 
+                <td><span class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-2">Matched to patient in system</span></td>
+
+
+
       <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Name </dt>
           <dd class="nhsuk-summary-list__value">{{ data['first_name'] or "Jane" }} {{ data['last_name'] or "Smith" }} </dd>
@@ -237,6 +244,9 @@ NHS Cervical screening management system
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
             Original test result details
           </legend>
+
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid or missing test result data</span></td>
+
 
 <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">National code</dt>
@@ -319,20 +329,20 @@ NHS Cervical screening management system
              <div class="nhsuk-radios__item">
                <input class="nhsuk-radios__input" id="example-1" name="rejectAction" type="radio" value="replace">
                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                 Keep duplicate
+                 Keep duplicate test result
                </label>
                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                The duplicate test result will go through manual matching and then to the rejected list to be resolved. The original will be removed and archived.
+                 The duplicate test result will be kept and the original test result will be removed and archived. 
                </div>
              </div>
 
              <div class="nhsuk-radios__item">
                <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="remove">
                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                 Keep original
+                 Keep original test result
                </label>
                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                The original test result will stay on the rejected list to be resolved. The duplicate will be removed and archived.
+                 The original test result will be kept and the duplicate test result will be removed and archived. 
                </div>
              </div>
 
@@ -342,8 +352,8 @@ NHS Cervical screening management system
                  Add CRM and comments
                </label>
                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 A new CRM and comment will be added to both results.
-               </div>
+                A new CRM and comment will be added to both results 
+              </div>
              </div>
 
            </div>
