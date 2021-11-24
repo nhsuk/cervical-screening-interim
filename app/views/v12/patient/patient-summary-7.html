@@ -68,7 +68,7 @@ NHS Cervical screening management system
     {% else %}
     {% endif %}
 
-    {% if data.patientSummary.pnl_action == 'Ceased' %}
+    <!-- {% if data.patientSummary.pnl_action == 'Ceased' %}
     {% else %}
     {% if data['bypassPnl']== 'yes' %}
     <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
@@ -95,11 +95,11 @@ NHS Cervical screening management system
     </div>
 
     {% endif %}
-    {% endif %}
+    {% endif %} -->
 
 
 
-    <!-- {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
+    {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
     {% if (data['pnl_update_msg_show'] > 1) %}
     {{ insetText({
           "HTML": pnlMsg,
@@ -112,11 +112,11 @@ NHS Cervical screening management system
           "HTML": "<p>" + data.auditMsg + "</p>",
           "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
         }) }}
-    {% endif %} -->
+    {% endif %}
 
     <!-- want to add message to say result has gone for review and will be added to patient summary. -->
 
-    <!-- {% if (data['addresult_update_msg_show'] > 1) %}
+   {% if (data['addresult_update_msg_show'] > 1) %}
     {{ insetText({
           "HTML": "<p>Test result submitted</p>",
           "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
@@ -126,7 +126,7 @@ NHS Cervical screening management system
 
     {% if data.patientSummary.pnl_action == 'Deferred' %}
     <span class="nhsuk-tag nhsuk-tag--blue"><span>{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span></span>
-    {% endif %} -->
+    {% endif %}
 
     {% if data.patientSummary.pnl_action == 'Ceased' %}
       <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
