@@ -221,6 +221,357 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
   <div class="nhsuk-grid-column-full">
 
+
+
+
+        {% if data.patientSummary.nhs_number == '9991023867' %}
+
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% if data['hpvAdded'] === 'True' %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+            {% endif %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                11-Dec-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                AHPV5884BB
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                2
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                1-Feb-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                CHPV5687AA
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                1
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        {% elif data.patientSummary.nhs_number == '9100002801' %}
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+
+        {% if data['hpvAdded'] === 'True' %}
+
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+        {% else %}
+
+
+        <div class="nhsuk-u-reading-width">
+
+          <p>The NHS Cervical Screening Management System does not contain any HPV vaccination information for this patient.</p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% else %}
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% if data['hpvAdded'] === 'True' %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+            {% endif %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                11-Dec-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                AHPV5884BB
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                2
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                1-Feb-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                CHPV5687AA
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                1
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+        {% endif %}
+
+
+
     <h2 id="testresults" class="nhsuk-heading-l">Test results</h2>
 
     {% if data.role == 'csas' %}
@@ -502,355 +853,7 @@ comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
       </div>
     </div>
 
-
-
-    {% if data.patientSummary.nhs_number == '9991023867' %}
-
-
-    <h2>HPV vaccination record</h2>
-
-    {% if data.role == 'csas' %}
-    <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
-      <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Add HPV vaccination
-      </button>
-    </form>
-    {% endif %}
-
-
-    <table role="table" class="">
-      <caption class="nhsuk-table__caption">
-        <h2>HPV vaccination record</h2>
-      </caption>
-      <thead role="rowgroup" class="nhsuk-table__head">
-        <tr role="row">
-          <th role="columnheader" class="" scope="col">
-            Date given
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Vaccine name
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Batch number
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Dose
-          </th>
-          {% if data.role == 'csas' %}
-          <th role="columnheader" class="" scope="col">
-            Amend
-          </th>
-          {% endif %}
-
-        </tr>
-      </thead>
-      <tbody class="nhsuk-table__body">
-        {% if data['hpvAdded'] === 'True' %}
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
-            {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
-            {% else %}
-            22-Oct-2021
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['vaccineName'] === 'gardasil'%}
-            Gardasil
-            {% elif data['vaccineName'] === 'other'%}
-            {{ data['other'] }}
-            {% else %}
-            Cervarix
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['batchNumber'] %}
-            {{ data['batchNumber'] }}
-            {% else %}
-            HP3PV5895H
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['dose'] %}
-            {{ data['dose'] }}
-            {% else %}
-            3
-            {% endif %}
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-            <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
-            <br>
-            <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
-          </td>
-          {% endif %}
-        </tr>
-        {% endif %}
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            11-Dec-2015
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            Cervarix
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            AHPV5884BB
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            2
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-
-          </td>
-          {% endif %}
-        </tr>
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            1-Feb-2015
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            Cervarix
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            CHPV5687AA
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            1
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-
-          </td>
-          {% endif %}
-        </tr>
-      </tbody>
-    </table>
-
-
-
-    {% elif data.patientSummary.nhs_number == '9100002801' %}
-
-    <h2>HPV vaccination record</h2>
-
-    {% if data.role == 'csas' %}
-    <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
-      <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Add HPV vaccination
-      </button>
-    </form>
-    {% endif %}
-
-
-    {% if data['hpvAdded'] === 'True' %}
-
-
-    <table role="table" class="">
-      <caption class="nhsuk-table__caption">
-        <h2>HPV vaccination record</h2>
-      </caption>
-      <thead role="rowgroup" class="nhsuk-table__head">
-        <tr role="row">
-          <th role="columnheader" class="" scope="col">
-            Date given
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Vaccine name
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Batch number
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Dose
-          </th>
-          {% if data.role == 'csas' %}
-          <th role="columnheader" class="" scope="col">
-            Amend
-          </th>
-          {% endif %}
-        </tr>
-      </thead>
-      <tbody class="nhsuk-table__body">
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
-            {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
-            {% else %}
-            22-Oct-2021
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['vaccineName'] === 'gardasil'%}
-            Gardasil
-            {% elif data['vaccineName'] === 'other'%}
-            {{ data['other'] }}
-            {% else %}
-            Cervarix
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['batchNumber'] %}
-            {{ data['batchNumber'] }}
-            {% else %}
-            HP3PV5895H
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['dose'] %}
-            {{ data['dose'] }}
-            {% else %}
-            3
-            {% endif %}
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-            <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
-            <br>
-            <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
-          </td>
-          {% endif %}
-        </tr>
-      </tbody>
-    </table>
-
-    {% else %}
-
-
-    <div class="nhsuk-u-reading-width">
-
-      <p>There is no HPV vaccination information for this patient.</p>
-
-    </div>
-
-    {% endif %}
-
-
-    {% else %}
-
-    <h2>HPV vaccination record</h2>
-
-    {% if data.role == 'csas' %}
-    <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
-      <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Add HPV vaccination
-      </button>
-    </form>
-    {% endif %}
-
-    <table role="table" class="">
-      <caption class="nhsuk-table__caption">
-        <h2>HPV vaccination record</h2>
-      </caption>
-      <thead role="rowgroup" class="nhsuk-table__head">
-        <tr role="row">
-          <th role="columnheader" class="" scope="col">
-            Date given
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Vaccine name
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Batch number
-          </th>
-          <th role="columnheader" class="" scope="col">
-            Dose
-          </th>
-          {% if data.role == 'csas' %}
-          <th role="columnheader" class="" scope="col">
-            Amend
-          </th>
-          {% endif %}
-        </tr>
-      </thead>
-      <tbody class="nhsuk-table__body">
-        {% if data['hpvAdded'] === 'True' %}
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
-            {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
-            {% else %}
-            22-Oct-2021
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['vaccineName'] === 'gardasil'%}
-            Gardasil
-            {% elif data['vaccineName'] === 'other'%}
-            {{ data['other'] }}
-            {% else %}
-            Cervarix
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['batchNumber'] %}
-            {{ data['batchNumber'] }}
-            {% else %}
-            HP3PV5895H
-            {% endif %}
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            {% if data['dose'] %}
-            {{ data['dose'] }}
-            {% else %}
-            3
-            {% endif %}
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-            <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
-            <br>
-            <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
-          </td>
-          {% endif %}
-        </tr>
-        {% endif %}
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            11-Dec-2015
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            Cervarix
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            AHPV5884BB
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            2
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-
-          </td>
-          {% endif %}
-        </tr>
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell">
-            1-Feb-2015
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            Cervarix
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            CHPV5687AA
-          </td>
-          <td role="cell" class="nhsuk-table__cell">
-            1
-          </td>
-          {% if data.role == 'csas' %}
-          <td role="cell" class="nhsuk-table__cell">
-
-          </td>
-          {% endif %}
-        </tr>
-      </tbody>
-    </table>
-
-
-
-
-    {% endif %}
-
-  </div>
+</div>
 </div>
 
 {% endblock %}
