@@ -148,8 +148,8 @@ NHS Cervical screening management system
           {% if data.patientSummary.pnl_action == 'Ceased' %}
           Actions:
           {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Radiotherapy (to the pelvic area which affects the cervix)" %}
-          <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a>
-          <!-- <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a> -->
+          <!-- <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a> -->
+          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a>
           {% elif data.patientSummary.pnl_reason == "Due to age" %}
           <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
           {% else %}
@@ -157,7 +157,7 @@ NHS Cervical screening management system
           {% endif %}
           {% else %}
           Actions:
-          <a href="../prior-notification/bypass-pnl/prior-notification-defer?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Amend or Defer</a>
+          <a href="/v12/start-prior-notifications-defer-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Amend or Defer</a>
           <a href="/v12/start-prior-notifications-cease-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Cease</a>
           {% endif %}
           {% endif %}
