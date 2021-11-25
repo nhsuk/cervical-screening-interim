@@ -50,7 +50,38 @@
 
         <div class="nhsuk-form-group">
 
+          <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+
+            <h2 class="nhsuk-heading-s">Do you want to see when the code was last used?</h2>
+
+
+
+            <div class="nhsuk-radios">
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          No, just show non GP sender report (instant download)
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+          Yes, show non GP report including when the code was last used (5 minutes to download)
+        </label>
+      </div>
+
+      <div class="nhsuk-u-padding-bottom-3"></div>
+
+
+    </div>
+          </fieldset>
+
+
   <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+
+    <h2 class="nhsuk-heading-s">Do you want to include active or inactive sender?</h2>
 
     <div class="nhsuk-hint" id="contact-hint">
       Select all options that are relevant to you.
@@ -75,6 +106,12 @@
     </div>
     </div>
   </fieldset>
+
+  <div class="nhsuk-inset-text">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+  <p>You cannot refresh the page, leave the page, or open a new tab within the system while the CSV is downloading.</p>
+</div>
+
 
   <a class="nhsuk-button" href="/images/download.pdf" download>
     Download CSV
