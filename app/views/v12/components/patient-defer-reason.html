@@ -7,14 +7,14 @@
 {% if data.role != 'csas' %}
 <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
-        <span class="nhsuk-details__summary-text">See how to defer a patient who wishes to be deferred</span>
+        <span class="nhsuk-details__summary-text">See how to defer for informed choice or discharge from colposcopy</span>
       </summary>
       <div class="nhsuk-details__text">
-        <p>To defer a patient for informed choice:</p>
+        <p>To defer a patient for informed choice or discharge from colposcopy:</p>
         <ul class="nhsuk-list">
           <li>1. Find the correct defer form in <a href="">primary care support on the NHS Cervical Screening Administration Service (CSAS) website</a>.</li>
-          <li>2. Fill in and sign the form (the patient needs to sign to defer for informed choice).</li>
-          <li>3. Submit the form using the <a href="">CSAS delay or defer online form</a>.</li>
+          <li>2. Fill in and sign the form.</li>
+          <li>3. Submit the form using the <a href="">CSAS delay or defer online form</a> or the <a href="">CSAS colposcopy discharge online form</a>.</li>
         </ul>
       </div>
     </details>
@@ -47,12 +47,6 @@
         <input class="nhsuk-radios__input" id="example-2" name="pnl-defer-reason" type="radio" value="Undergoing treatment relevant to screening" checked>
         <label class="nhsuk-label nhsuk-radios__label" for="example-2">
         Undergoing treatment relevant to screening
-        </label>
-      </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="pnl-defer-reason" type="radio" value="Discharge from colposcopy" checked>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-        Discharge from colposcopy
         </label>
       </div>
       {% if data.role == 'csas' %}
