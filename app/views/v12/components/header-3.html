@@ -1,7 +1,7 @@
 {% if data.role == 'csas' %}
 {{ header({
     "service": {
-      "name": "Cervical Screening",
+      "name": "Cervical Screening Management System",
       "longName": "false"
     },
     "showNav": "true",
@@ -12,12 +12,16 @@
         "label" : "Patient"
       },
       {
-        'url' : '/v12/worklists-v9b/worklists',
+        'url' : '/v12/worklists-v12/worklists',
         'label' : 'Results'
       },
       {
         'url'  : '/v12/reports/reports',
         'label' : 'Reports'
+      },
+      {
+        'url'  : '/v12/admin',
+        'label' : 'Admin and print'
       }
     ]
   })
@@ -25,7 +29,7 @@
 {% else %}
 {{ header({
     "service": {
-      "name": "Cervical Screening",
+      "name": "Cervical Screening Management System",
       "longName": "false"
     },
     "showNav": "true",
