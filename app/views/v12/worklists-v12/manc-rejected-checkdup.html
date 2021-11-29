@@ -118,6 +118,8 @@ NHS Cervical screening management system
 
           {% if data['acceptAction'] === 'True' %}
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Missing data</span></td>
+          {% elif data['checkedRejected'] === 'True' %}
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           {% else %}
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           {% endif %}
