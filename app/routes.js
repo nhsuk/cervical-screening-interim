@@ -661,6 +661,33 @@ else {
 
 })
 
+router.post("/v12/worklists-v12/review-duplicate-test-result-original-2", function (req, res) {
+var rejectAction2 = req.session.data['rejectAction2'];
+
+if (rejectAction2 == 'replace') {
+  res.redirect("/v12/worklists-v12/confirm-duplicate-test-result-original-2");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result-original-2");
+}
+
+})
+
+router.post("/v12/worklists-v12/confirm-duplicate-test-result-original-2", function (req, res) {
+var keepDup = req.session.data['keepDup'];
+
+if (keepDup == 'yes') {
+  res.redirect("/v12/worklists-v12/crm-comments-2");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-duplicate-test-result-original-2?first_name=Samantha&last_name=Rhodes&title=Mrs&nhs_number=345%20678%209012&address=60%20Tong%20Road,%20Shipley,%20SP5%205TH&age=31&dob=14%20April%201990");
+}
+
+})
+
+
 //DE-DUP flow 3
 
 router.post("/v12/worklists-v12/review-test-result", function (req, res) {
@@ -672,6 +699,19 @@ if (rejectAction3 == 'remove') {
 
 else {
   res.redirect("/v12/worklists-v12/review-test-result");
+}
+
+})
+
+router.post("/v12/worklists-v12/review-test-result-2", function (req, res) {
+var rejectAction3 = req.session.data['rejectAction3'];
+
+if (rejectAction3 == 'replace') {
+  res.redirect("/v12/worklists-v12/confirm-test-result-2");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/crm-comments-3");
 }
 
 })
