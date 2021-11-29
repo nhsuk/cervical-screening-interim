@@ -48,7 +48,8 @@ NHS Cervical screening management system
     </ul>
     <p>Patients not reviewed will be removed from the list after 8 weeks.</p>
     <p>
-      To cease or defer a patient:
+      You can cease them from screening or defer them if needed.
+    </br>To defer a patient for informed consent or discharge from colposcopy, or cease them for informed consent or mental capacity act:
       <ul>
        <ol>
         <li> Find the correct form to cease or defer from the NHS Cervical Screening Administration Service (CSAS) website: https://www.csas.nhs.uk/support/.</li>
@@ -57,7 +58,7 @@ NHS Cervical screening management system
       </ol>
       </ul>
     </p>
-{% if data['patients'] == null %} 
+{% if data['patients'] == null %}
 <meta http-equiv="refresh" content="2;url=/v12/admin/print-notifications/print-patients-to-review" />
   <div class="styleguide-example">
     <div class="nhsuk-loader__container">
@@ -70,17 +71,17 @@ NHS Cervical screening management system
   </div>
 {% else %}
 
-{% if data['patients'].length >= 1 %} 
+{% if data['patients'].length >= 1 %}
 
     <table id="sortable" class="nhsuk-table-clickable bna-table nhsuk-u-margin-top-0">
       <thead class="nhsuk-table__head">
         <tr class="nhsuk-table__row">
-          <th class="nhsuk-table__header" aria-sort="none" scope="col">Name</th>
-          <th class="nhsuk-table__header" aria-sort="none" scope="col">Age</th>
+          <th class="nhsuk-table__header" aria-sort="none" scope="col">Name<br>NHS number</th>
+          <th class="nhsuk-table__header" aria-sort="none" scope="col">Age<br>Date of birth</th>
           <th class="nhsuk-table__header" aria-sort="none" scope="col">Status</th>
           <th class="nhsuk-table__header" aria-sort="none" scope="col">Notification type</th>
-          <th class="nhsuk-table__header" aria-sort="none" scope="col">Last result</th>
-          <!--<th class="nhsuk-table__header" aria-sort="none" scope="col">Next test due date</th>-->
+          <th class="nhsuk-table__header" aria-sort="none" scope="col">Last result<br>Last test date</th>
+          <th class="nhsuk-table__header" aria-sort="none" scope="col">Next test due date</th>
           <th class="nhsuk-table__header" aria-sort="none" scope="col">Review by</th>
         </tr>
       </thead>
@@ -92,7 +93,7 @@ NHS Cervical screening management system
           {% set NameId =  "nameRow1" + loop.index %}
           <tr class="nhsuk-table__row">
           <td class="nhsuk-table__cell">
-          {{ patient.first_name | capitalize }} {{ patient.last_name | capitalize }} 
+          {{ patient.first_name | capitalize }} {{ patient.last_name | capitalize }}
             <span class="nhsuk-table__cell--hint">NHS No: {{ patient.nhs_number | formatNHSNumber }}</span>
           </td>
           <td class="nhsuk-table__cell">
@@ -100,22 +101,22 @@ NHS Cervical screening management system
             <span class="nhsuk-table__cell--hint">{{ patient.date_of_birth  | returnNumericDateFormat }}</span>
           </td>
           <td class="nhsuk-table__cell">
-            {% if patient.results[0] == null %} 
+            {% if patient.results[0] == null %}
               Called
             {% else %}
               {{ patient.results[0].action }}
             {% endif %}
             <span class="nhsuk-table__cell--hint">Recall</span>
           </td>
-          <td>{{ patient.ceased_type }}         
+          <td>{{ patient.ceased_type }}
               {% if (patient.ceased_type == "Abnormal Follow-up") or (patient.ceased_type == "Registered ceased") %}
                 <span class="nhsuk-table__cell--hint">New Patient</span>
               {% else %}
                 <span class="nhsuk-table__cell--hint">-</span>
               {% endif %}</td>
           <td>
-            {% if patient.results[0] == null %} 
-              {% set resultDate = "no results" %} 
+            {% if patient.results[0] == null %}
+              {% set resultDate = "no results" %}
             {% else %}
               {% set result = "(" + (patient.results[0].result_code or "-" ) + (patient.results[0].infection_code or "") + (patient.results[0].action_code or "-") + ") " + (patient.results[0].result or "-") + ", " +(patient.results[0].infection_result or "No HPV data") + ", " +(patient.results[0].action or "-") %}
               {% set resultDate = (patient.results[0].result_date | returnNumericDateFormat or "-") + " " + (patient.results[0].result_date | returnTimeDiff or "-") %}
@@ -128,12 +129,16 @@ NHS Cervical screening management system
             <span class="nhsuk-table__cell--hint">{{ resultDate }}</span>
           </td>
           <td class="nhsuk-table__cell">
-            {{ patient.next_test_due_date | returnInviteDateFormat }} 
+            19-11-2024
+            <span class="nhsuk-table__cell--hint">(3 years, 0 days)</span>
+          </td>
+          <td class="nhsuk-table__cell">
+            {{ patient.next_test_due_date | returnInviteDateFormat }}
              <span class="nhsuk-table__cell--hint">{{ ((( patient.next_test_due_date | returnInviteDate) | returnTimeDiffDays) | removeBrackets) | capitalize }} </span>
           </td>
         </tr>
         {% endfor %}
-      </tbody>   
+      </tbody>
     </table>
 
 {% else %}

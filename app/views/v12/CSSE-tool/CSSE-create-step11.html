@@ -1,0 +1,76 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<!--Add letter code script above-->
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step10">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to Step 10: Define patient details</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 11 of 12</span>
+
+    <form action="CSSE-create-step12" method="post">
+      <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="review-report">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+              Review report
+            </h1>
+          </legend>
+
+          <p class="nhsuk-body">
+            You can check the sections you have filled in and make changes
+          </p>
+
+          <ul class="nhsuk-list">
+            <li><a href="CSSE-create-step1" class="nhsuk-link">Enquiry name</a></li>
+            <li><a href="CSSE-create-step2" class="nhsuk-link">Define data type</a></li>
+            <li><a href="CSSE-create-step3" class="nhsuk-link">Define test</a></li>
+            <li><a href="CSSE-create-step4" class="nhsuk-link">Define test parameters</a></li>
+            <li><a href="CSSE-create-step5" class="nhsuk-link">Define sender details</a></li>
+            <li><a href="CSSE-create-step6" class="nhsuk-link">Define test result details</a></li>
+            <li><a href="CSSE-create-step7" class="nhsuk-link">Define participant and episode status</a></li>
+            <li><a href="CSSE-create-step8" class="nhsuk-link">Define location</a></li>
+            <li><a href="CSSE-create-step9" class="nhsuk-link">Define patient details</a></li>
+            <li><a href="CSSE-create-step10" class="nhsuk-link">Define communication details</a></li>
+          </ul>
+      
+
+        </fieldset>
+
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Save and continue
+      </button>
+    </form>
+    
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link" href="../reports/reports">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to reports</a>
+    </div>
+
+   <h2 class="nhsuk-heading-l">System enquiries tool</h2>
+
+   <p class="nhsuk-body nhsuk-u-font-weight-bold">
+     What would you like to do?
+   </p>
+
+   <a href="CSSE-create-step1" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-bottom-9">
+     Start a new enquiry
+   </a>
+   
+
+
+   <div class="nhsuk-form-group">
+    <form action="../CSSE-tool/csse-manage/csse-manage-enquiry" method="post">
+     <fieldset class="nhsuk-fieldset" aria-describedby="search-existing-query" role="group">
+       <legend class="nhsuk-fieldset__legend nhsuk-label">
+         <p class="nhsuk-body nhsuk-u-font-weight-bold">
+           Search an existing enquiry
+         </p>
+       </legend>
+
+       <label for="search-name" class="nhsuk-label">Enter enquiry name</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['#'] }}">
+
+       <label for="search-code" class="nhsuk-label">Code</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">
+
+       <div class="nhs-date-input" id="search-date">
+
+        <label for="search-date" class="nhsuk-label">Enter date created</label>
+
+         <div class="nhsuk-hint" for="search-date-hint">
+          For example, 15 3 1984
+         </div>
+
+         <div class="nhsuk-date-input__item">
+           <div class="nhsuk-form-group">
+            <label for="search-date-day" class="nhsuk-label">Day</label>
+            <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="search-date-day" name="search-date-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+           </div>
+         </div>
+
+         <div class="nhsuk-date-input__item">
+          <div class="nhsuk-form-group">
+           <label for="search-date-month" class="nhsuk-label">Month</label>
+           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="search-date-month" name="search-date-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="nhsuk-date-input__item">
+          <div class="nhsuk-form-group">
+           <label for="search-date-year" class="nhsuk-label">Year</label>
+           <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="search-date-year" name="search-date-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+
+       </div>
+
+
+
+      
+     </fieldset>
+   </div>
+
+   <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
+     Search
+   </button>
+   <form action="v12/csse-tool/csse-manage/csse-manage-enquiry" method="post"></form>
+
+    
+  </div>
+</div>
+{% endblock %}

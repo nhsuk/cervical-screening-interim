@@ -51,8 +51,12 @@
     <p>
       <span class="number-of-results">
         <h3 class="nhsuk-heading-xs">We found <b>10</b> results for patients with last name Smith, date of birth 04-June-1988</h3>
-        <p>If this isn't the patient you're looking for you can <a href="search-demographic">search  again</a>.</p>
+        <p>If you cannot find the patient you're looking for <a href="search-demographic">search again</a>. If you're trying to add someone into the cervical screening programme and cannot find them <a href="#">contact the registrations team</a>.</p>
       </span>
+
+
+
+
     </p>
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
@@ -147,7 +151,12 @@
                       <td role="gridcell"><span class="dob-results-td">04-June-1988</span></td>
                       <td role="gridcell"><span class="address-results-td">35 Quay Street, <span class="patient-pob-td">Surrey</span>,&nbsp;<span class="postcode-results-td">SA321JT
                       <td role="gridcell"><span class="nhs-no-results-td">834 469 0382</span></td>
+
+                      {% if data['ollyAdded'] === 'True' %}
+                      <td><a href="../../patient/new-patient-summary-2">View patient summary</a></td>
+                      {% else %}
                       <td><a href="../add-to-cohort-v2/confirm-identity">Add to cervical screening programme</a></td>
+                      {% endif %}
 
                     </tr>
                     <tr id="row3" class="hidden detailsRow">
