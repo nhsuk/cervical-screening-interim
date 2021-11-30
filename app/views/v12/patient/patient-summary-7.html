@@ -40,7 +40,11 @@ NHS Cervical screening management system
 
 
 {% block patientBanner %}
+{% if (data['janetFraser'] === 'checkAccepted') or (data['samanthaRhodes'] === 'checkAccepted')  %}
+{% include '../components/patient-banner-rhodes-fraser.html' %}
+{% else %}
 {% include '../components/patient-banner.html' %}
+{% endif %}
 {% endblock %}
 
 
