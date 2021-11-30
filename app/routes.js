@@ -707,11 +707,24 @@ router.post("/v12/worklists-v12/review-test-result-2", function (req, res) {
 var rejectAction3 = req.session.data['rejectAction3'];
 
 if (rejectAction3 == 'replace') {
-  res.redirect("/v12/worklists-v12/confirm-test-result-2");
+  res.redirect("/v12/worklists-v12/confirm-test-result-3");
 }
 
 else {
   res.redirect("/v12/worklists-v12/crm-comments-3");
+}
+
+})
+
+router.post("/v12/worklists-v12/confirm-test-result-3", function (req, res) {
+var keepOriginal2 = req.session.data['keepOriginal2'];
+
+if (keepOriginal2 == 'yes') {
+  res.redirect("/v12/worklists-v12/crm-comments-4");
+}
+
+else {
+  res.redirect("/v12/worklists-v12/review-test-result-2");
 }
 
 })

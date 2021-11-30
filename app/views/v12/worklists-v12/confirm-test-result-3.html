@@ -55,141 +55,14 @@ NHS Cervical screening management system
   </div>
 </div>
 
-<h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Review duplicate test results and choose which to keep</h1>
+<h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Are you sure you want to keep the original test result?</h1>
 
- <div class="nhsuk-grid-row">
-   <div class="nhsuk-grid-column-three-quarters">
-       <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure nhsuk-inset-text__screening--background-width">
-         <span class="nhsuk-u-visually-hidden">Important: </span>
-         <h2 class="nhsuk-heading-s">Test results have duplicate slide numbers</h2>
-         <p>Duplicate slide numbers must be resolved first. If needed, any manual matching or resolution of test result data will be done after.</p>
-       </div>
- </div>
- </div>
+
 
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-one-half">
- <div class="nhsuk-panel-with-label">
 
-      {% include '../components/patient-result-duplicate-fraser-dup.html' %}
-
-
-
-
-      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-u-margin-bottom-0">
-
-        <div class="nhsuk-form-group">
-          <dl class="nhsuk-summary-list">
-<div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-            Duplicate patient details
-          </legend>
-
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Not matched to patient in system</span></td>
-
-          <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">Name </dt>
-              <dd class="nhsuk-summary-list__value">{{ data['first_name'] or "Jane" }} {{ data['last_name'] or "Smith" }} </dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">Date of birth </dt>
-              <dd class="nhsuk-summary-list__value"><span class="highlight">-</span></dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">NHS number </dt>
-              <dd class="nhsuk-summary-list__value">{{ data['nhs_number'] or "123 456 7890" }}</dd>
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">Contact address </dt>
-              <dd class="nhsuk-summary-list__value">{{ data['address'] or "19 Forest Road, Bromley, BR4 7BG" }}</dd>
-            </div>
-    </dl>
-  </dl>
-
-
-
-      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
-
-        <div class="nhsuk-form-group">
-          <dl class="nhsuk-summary-list">
-<div class="nhsuk-grid-column-full">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-            Duplicate test result details
-          </legend>
-
-          <td><span class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-2">Valid test result data</span></td>
-
-<div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">National code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['national-code'] or "CHR3" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Health Authority</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['health-authority'] or "-" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Self-sample</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['self-sample'] or "No" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Source code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['source-code'] or "G" }}</dd>
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Sender code</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['sender-code'] or "A86020" }} </dd>
-  </div>
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Slide number</dt>
-    <dd class="nhsuk-summary-list__value"><span class="highlight">{{ data['slide-number'] or "21010009" }}</span></dd>
-  </div>
-
-  {% set nextTestDueDate = data['test_date'] %}
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Test date</dt>
-    <dd class="nhsuk-summary-list__value">1-June-2021</dd>
-  </div>
-
- <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">HPV Primary</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['hpv-primary'] or "Yes" }} </dd>
-  </div>
-
-<div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Result</dt>
-    <dd class="nhsuk-summary-list__value">X0A</dd>
-  </div>
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">Repeat in months</dt>
-    <dd class="nhsuk-summary-list__value">{{ data['repeat-months'] or "12" }} months</dd>
-  </div>
-
-
-    </dl>
-     {% include '../components/comments-timeline-manual-match.html' %}
-
-
-
-  <dl>
-
-
-
-
-      </dl>
-</dl>
-</div>
 </div>
 
 
@@ -317,7 +190,7 @@ NHS Cervical screening management system
     </div>
 
     <div class="nhsuk-form-group nhsuk-u-reading-width">
-         <form action="/v12/worklists-v12/review-test-result-2" method="post">
+         <form action="/v12/worklists-v12/confirm-test-result-3" method="post">
 
 <fieldset class="nhsuk-fieldset">
            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
@@ -329,27 +202,26 @@ NHS Cervical screening management system
                </div>
            </legend>
 
-           <div class="nhsuk-radios">
+           <div class="nhsuk-radios nhsuk-u-reading-width">
 
              <div class="nhsuk-radios__item">
-               <input class="nhsuk-radios__input" id="example-1" name="rejectAction3" type="radio" value="replace">
+               <input class="nhsuk-radios__input" id="keepOriginal2" name="keepOriginal2" type="radio" value="yes">
                <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                 Keep original test result
+                 Yes, I want to keep the original test result
                </label>
-               <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                The original test result will be kept and the duplicate test result will be removed and archived.
+               <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
+                 The original test result will be kept and the duplicate test result will be removed and archived. 
                </div>
              </div>
 
              <div class="nhsuk-radios__item">
-               <input class="nhsuk-radios__input" id="example-2" name="rejectAction3" type="radio" value="comment">
+               <input class="nhsuk-radios__input" id="keepOriginal2" name="keepOriginal2" type="radio" value="no">
                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                 Add CRM and comments
+                 No, I want to review both tests again
                </label>
-               <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 A new CRM and comment will be added to both results.
-               </div>
              </div>
+
+           </div>
 
            </div>
          </fieldset>
@@ -357,7 +229,7 @@ NHS Cervical screening management system
           <button class="nhsuk-button nhsuk-u-margin-top-5 nhsuk-button--ers" type="submit">Continue</button>
          </form>
 
-            </div>
+
 
 
 

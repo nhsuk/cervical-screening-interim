@@ -55,7 +55,7 @@ NHS Cervical screening management system
   </div>
 </div>
 
-<h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Review duplicate test results and choose which to keep</h1>
+<h1 class="nhsuk-heading-l nhsuk-u-padding-top-2 nhsuk-u-margin-bottom-0">Check duplicate reccomendation</h1>
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-three-quarters">
@@ -316,48 +316,54 @@ NHS Cervical screening management system
   </div>
     </div>
 
-    <div class="nhsuk-form-group nhsuk-u-reading-width">
+
          <form action="/v12/worklists-v12/review-test-result-2" method="post">
 
-<fieldset class="nhsuk-fieldset">
-           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-             <h2 class="nhsuk-fieldset__heading nhsuk-label nhsuk-label__strong nhsuk-u-margin-top-4">
-               How would you like to action this result?
-             </h2>
-             <div class="nhsuk-hint" id="example-hints-1-item-hint">
-                The action will be reviewed by a checker before being processed.
-               </div>
-           </legend>
+           <div class="nhsuk-form-group">
+<form action="/v12/worklists-v12/review-test-result-2" method="post">
+                <dl class="nhsuk-summary-list">
+                <div class="nhsuk-grid-column-two-thirds">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                  Review action chosen:
+                </legend>
 
-           <div class="nhsuk-radios">
 
-             <div class="nhsuk-radios__item">
-               <input class="nhsuk-radios__input" id="example-1" name="rejectAction3" type="radio" value="replace">
-               <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                 Keep original test result
-               </label>
-               <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                The original test result will be kept and the duplicate test result will be removed and archived.
-               </div>
-             </div>
-
-             <div class="nhsuk-radios__item">
-               <input class="nhsuk-radios__input" id="example-2" name="rejectAction3" type="radio" value="comment">
-               <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                 Add CRM and comments
-               </label>
-               <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 A new CRM and comment will be added to both results.
-               </div>
-             </div>
-
+           <div class="nhsuk-summary-list__row">
+           <dt class="nhsuk-summary-list__key">Action</dt>
+           <dd class="nhsuk-summary-list__value"><strong>Keep original test result</strong><br>The original test result will be kept and the duplicate test result removed.</dd>
            </div>
-         </fieldset>
 
-          <button class="nhsuk-button nhsuk-u-margin-top-5 nhsuk-button--ers" type="submit">Continue</button>
+
+           <div class="nhsuk-summary-list__row">
+           <dt class="nhsuk-summary-list__key">CRM</dt>
+           <dd class="nhsuk-summary-list__value">CAS-1234-ABCDE</dd>
+           </div>
+
+           <div class="nhsuk-summary-list__row">
+           <dt class="nhsuk-summary-list__key">Comments</dt>
+           <dd class="nhsuk-summary-list__value">Duplicate has more invalid data. Need to ask lab to resend. </dd>
+           </div>
+
+
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label nhsuk-label__strong nhsuk-u-padding-top-6" for="example">
+                      Comments (optional)
+                    </label>
+
+                    <textarea class="nhsuk-textarea commentBox char-textarea" id="commentsa" value="commentsa" name="commentsa" rows="5" ></textarea>
+                    <br>
+
+              </div>
+
+
+
+                           <a href="manc-rejected-checkdup?edit-test=true&acceptAction=True&checkedRejected=" class="nhsuk-button nhsuk-button--ers">
+                         Accept action</a>
+                       <a href="manc-rejected-checkdup?checkedRejected=True&acceptAction=" class="nhsuk-button nhsuk-button--ers nhsuk-button--ers_secondary">Send back to processor</a>
+
          </form>
 
-            </div>
+
 
 
 
