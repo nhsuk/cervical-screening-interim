@@ -94,7 +94,7 @@ NHS Cervical screening management system
             {% if (data['checkedRejected2'] === 'True') %}
             <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="#">Review</a></td>
             {% else %}
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-2">Check</a>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-4">Check</a>
           </td>
           {% endif %}
         </tr>
@@ -118,6 +118,8 @@ NHS Cervical screening management system
 
           {% if data['acceptAction'] === 'True' %}
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Missing data</span></td>
+          {% elif data['checkedRejected'] === 'True' %}
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           {% else %}
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           {% endif %}
@@ -164,7 +166,7 @@ NHS Cervical screening management system
             {% if data['checkedRejected3'] === 'True' %}
             <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="#">Review</a>
             {% else %}
-            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-3">Check</a>
+            <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="duplicate-check-5">Check</a>
             {% endif %}
          </td>
           <!-- <tr>

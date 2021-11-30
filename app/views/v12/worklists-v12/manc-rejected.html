@@ -98,12 +98,20 @@ NHS Cervical screening management system
         <tr>
           <td>Janet Fraser</td>
           <td>998 666 1234</td>
+          {% if (data['addedCrm'] === 'yes') %}
+          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Started</span></td>
+          {% else %}
           <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
+          {% endif %}
+          {% if (data['addedCrm'] === 'yes') %}
+          <td>Joanna Jones</td>
+          {% else %}
           <td></td>
+          {% endif %}
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
           <td>11:06 am
             <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="review-test-result?first_name=Janet&last_name=Fraser&title=Ms&nhs_number=998 666 1234&address=16 Princess Drive, Sleaford, PE21 8PR&age=41&dob=18 April 1980">Review</a>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="review-test-result-2?first_name=Janet&last_name=Fraser&title=Ms&nhs_number=998 666 1234&address=16 Princess Drive, Sleaford, PE21 8PR&age=41&dob=18 April 1980">Review</a>
          </td>
           <!-- <tr>
           <td>Janet Fraser</td>
