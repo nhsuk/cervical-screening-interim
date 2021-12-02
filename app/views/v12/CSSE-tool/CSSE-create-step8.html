@@ -43,7 +43,7 @@ NHS Cervical screening management system
     <form action="CSSE-create-step9" method="post">
       <div class="nhsuk-form-group">
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
+        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add CCG location code
@@ -63,7 +63,7 @@ NHS Cervical screening management system
 
           <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add CCG location code
-          </a>
+          </a>-->
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -90,7 +90,7 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add post code
+                Add post code for patient address
               </p>
             </legend>
 
@@ -99,7 +99,7 @@ NHS Cervical screening management system
             </ul>
 
             <label for="post-code" class="nhsuk-label">
-              Enter post code to include
+              Enter patient address post code to include
             </label>
             <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
               
