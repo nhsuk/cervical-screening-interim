@@ -13,7 +13,7 @@
 
 {% block header %}
 
-  {% include '../../components/header.html' %}
+  {% include 'v12/components/header.html' %}
 
 {% endblock %}
 
@@ -36,12 +36,12 @@
   {% endif %}
 
 <div class="nhsuk-panel-with-label">
-    {% include '../../components/hpv-patient.html' %}
+  {% include 'v12/components/hpv-patient.html' %}
 
   <h1 class="nhsuk-heading-l">Edit HPV vaccination</h1>
 
 
-    <form action="/v12/patient/add-hpv/review-hpv-vaccination?hpvEdited=True" method="post">
+    <form action="/v12/patient/hpv-options/option-4/review-hpv-vaccination?hpvEdited=True" method="post">
 
       <div class="nhsuk-form-group">
       <fieldset class="nhsuk-fieldset" aria-describedby="dateGiven-hint" role="group">
