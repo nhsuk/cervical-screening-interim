@@ -1,0 +1,874 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
+<script type="text/javascript" src="/js/tabs.js"></script>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo nhsuk-header__logo--only"><a class="nhsuk-header__link nhsuk-header__link--service " href="/v12/pds/search/search" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text"
+            d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6">
+          </path>
+          <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+        </svg>
+        <span class="nhsuk-header__service-name">
+          Cervical Screening Management System
+        </span>
+      </a>
+    </div>
+
+    <div class="nhsuk-header__logout">
+      <a class="nhsuk-header__logout--link" href="/v12/login/login?patversion=7">Log out</a>
+    </div>
+
+
+  </div>
+
+</header>
+{% endblock %}
+
+
+{% block patientBanner %}
+{% if (data['janetFraser'] === 'checkAccepted') or (data['samanthaRhodes'] === 'checkAccepted')  %}
+{% include 'v12/components/patient-banner-rhodes-fraser.html' %}
+{% else %}
+{% include 'v12/components/patient-banner.html' %}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+{% if data.role != 'sampleTaker' %}
+<nav class="nhsuk-sub-navigation no-print">
+  <ul class="nhsuk-sub-navigation__list">
+    <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link" aria-current="page">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP Information</a></li>
+  </ul>
+</nav>
+{% endif %}
+
+
+<div class="nhsuk-grid-row nhsuk-u-margin-top-4">
+  <div class="nhsuk-grid-column-three-quarters">
+    <h1 class="nhsuk-heading-l">Patient summary</h1>
+
+    {% if data['incident-text'] %}
+    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>{{ data['incident-text'] or '123456A has been logged against this patient' }}</p>
+    </div>
+    {% else %}
+    {% endif %}
+
+    <!-- {% if data.patientSummary.pnl_action == 'Ceased' %}
+    {% else %}
+    {% if data['bypassPnl']== 'yes' %}
+    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>Patient has been amended or deferred</p>
+    </div>
+
+    {% elif data['bypassPnl']== 'no' %}
+    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>Patient has been amended or deferred and they will not be added to the GP prior notification list</p>
+    </div>
+
+    {% elif data['bypassPnl2']== 'yes' %}
+    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>Patient has been reinstated</p>
+    </div>
+
+    {% elif data['bypassPnl2']== 'no' %}
+    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>Patient has been reinstated and they will not be added to the GP prior notification list</p>
+    </div>
+
+    {% endif %}
+    {% endif %} -->
+
+
+
+    {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
+    {% if (data['pnl_update_msg_show'] > 1) %}
+    {{ insetText({
+          "HTML": pnlMsg,
+          "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
+        }) }}
+    {% endif %}
+
+    {% if data['audit_msg_show'] == 1 %}
+    {{ insetText({
+          "HTML": "<p>" + data.auditMsg + "</p>",
+          "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
+        }) }}
+    {% endif %}
+
+    <!-- want to add message to say result has gone for review and will be added to patient summary. -->
+
+   {% if (data['addresult_update_msg_show'] > 1) %}
+    {{ insetText({
+          "HTML": "<p>Test result submitted</p>",
+          "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
+        }) }}
+    {% endif %}
+
+
+    {% if data.patientSummary.pnl_action == 'Deferred' %}
+    <span class="nhsuk-tag nhsuk-tag--blue"><span>{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span></span>
+    {% endif %}
+
+    {% if data.patientSummary.pnl_action == 'Ceased' %}
+      <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
+    {% endif %}
+    <dl class="nhsuk-summary-list nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Next test due date:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          -
+          {% else %}
+          {{ data.patientSummary.next_test_due_date | returnDateFormat or '20-Jan-2020' }}
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions no-print">
+          {% if data.role == 'csas' %}
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          Actions:
+          {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Radiotherapy (to the pelvic area which affects the cervix)" %}
+          <!-- <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a> -->
+          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a>
+          {% elif data.patientSummary.pnl_reason == "Due to age" %}
+          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
+          {% else %}
+          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=default">Reinstate</a>
+          {% endif %}
+          {% else %}
+          Actions:
+          <a href="/v12/start-prior-notifications-defer-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Amend or Defer</a>
+          <a href="/v12/start-prior-notifications-cease-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Cease</a>
+          {% endif %}
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Invited date:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          -
+          {% else %}
+          09-Nov-2019
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          {% if data.role == 'csas' %}
+          Actions:
+          <a href="/v12/patient/audit/resend-invite-add-comment">Resend invite</a>
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Address:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data.patientSummary.nhs_number == '9991023867' %}
+          52 HOLLY MEWS TOWNSVILLE LS20 8QF
+          {% elif data.patientSummary.nhs_number == '9100002801' %}
+          47 Ashburnham Road, Livermead, EXETER, Devon, EX2 5SE
+          {% else %}
+          {{ data['address'] or '20 Thornhill Street, Pudsey, LS15 6FD' }}
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+
+          {% if data.role == 'csas' %}
+          <span class="nhsuk-tag nhsuk-tag--red">FP69</span>
+          {% endif %}
+
+        </dd>
+      </div>
+    </dl>
+    {% if data.role == 'csas' %}
+
+    <a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="pause-patient">Pause notifications and letters</a>
+    {% endif %}
+
+    {% if data.role == 'sampleTaker' %}
+
+    {% include '../components/hmr101.html' %}
+
+    {% endif %}
+  </div>
+</div>
+
+<div class="nhsuk-grid-row nhsuk-u-margin-top-6">
+  <div class="nhsuk-grid-column-full">
+
+
+
+
+        {% if data.patientSummary.nhs_number == '9991023867' %}
+
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/hpv-options/option-3/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% if data['hpvAdded'] === 'True' %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+            {% endif %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                11-Dec-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                AHPV5884BB
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                2
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                1-Feb-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                CHPV5687AA
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                1
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        {% elif data.patientSummary.nhs_number == '9100002801' %}
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/hpv-options/option-3/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+
+        {% if data['hpvAdded'] === 'True' %}
+
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+        {% else %}
+
+
+        <div class="nhsuk-u-reading-width">
+
+          <p>The NHS Cervical Screening Management System does not contain any HPV vaccination information for this patient.</p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% else %}
+
+        <h2>HPV vaccination record</h2>
+
+        {% if data.role == 'csas' %}
+        <form action="/v12/patient/hpv-options/option-3/add-hpv-vaccination" method="get">
+          <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Add HPV vaccination
+          </button>
+        </form>
+        {% endif %}
+
+        <table role="table" class="">
+          <caption class="nhsuk-table__caption">
+            <h2>HPV vaccination record</h2>
+          </caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Date given
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Vaccine name
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Batch number
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Dose
+              </th>
+              {% if data.role == 'csas' %}
+              <th role="columnheader" class="" scope="col">
+                Amend
+              </th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            {% if data['hpvAdded'] === 'True' %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+                {% else %}
+                22-Oct-2021
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['vaccineName'] === 'gardasil'%}
+                Gardasil
+                {% elif data['vaccineName'] === 'other'%}
+                {{ data['other'] }}
+                {% else %}
+                Cervarix
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['batchNumber'] %}
+                {{ data['batchNumber'] }}
+                {% else %}
+                HP3PV5895H
+                {% endif %}
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                {% if data['dose'] %}
+                {{ data['dose'] }}
+                {% else %}
+                3
+                {% endif %}
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <br>
+                <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
+              </td>
+              {% endif %}
+            </tr>
+            {% endif %}
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                11-Dec-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                AHPV5884BB
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                2
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+            <tr role="row" class="nhsuk-table__row">
+              <td role="cell" class="nhsuk-table__cell">
+                1-Feb-2015
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                Cervarix
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                CHPV5687AA
+              </td>
+              <td role="cell" class="nhsuk-table__cell">
+                1
+              </td>
+              {% if data.role == 'csas' %}
+              <td role="cell" class="nhsuk-table__cell">
+
+              </td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+        {% endif %}
+
+
+
+    <h2 id="testresults" class="nhsuk-heading-l">Test results</h2>
+
+    {% if data.role == 'csas' %}
+    <a class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-bottom-4 no-print" href="/v12/start-adding-test
+?nhsNumber={{ data.patientSummary.nhs_number }}&
+role=csas&
+edit-review=&
+edit-test=false&
+?result_ID=&
+slide-number=&
+result-type=&
+hpv-primary=&
+edit-review=&
+action-text=&
+result-action=&
+result-infection=&
+infection-text=&
+repeat-months=&
+result-text=&
+result-result=&
+sender-code=&
+national-code=&
+source-code=&
+test_date=&
+health-authority=&
+self-sample=&
+crm=&
+comments=">Add result</a>
+    {% endif %}
+
+
+    <div class="nhsuk-scrollable-pane">
+      <div class="nhsuk-scrollable-pane__wrapper">
+        <div id="table-scroll" class="table-scroll">
+          <div class="nhsuk-table-responsive nhsuk-u-margin-top-0 table-wrap">
+            <table id="sortable" class="nhsuk-table nhsuk-table-u-margin-0 nhsuk-table-clickable main-table">
+
+              <!-- TABLE START -->
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th class="nhsuk-table__header" scope="col">Test date and health authority</th>
+                  <th class="nhsuk-table__header" scope="col">Test result</th>
+                  <!--<th class="nhsuk-table__header" scope="col">Repeat</th>-->
+                  <th class="nhsuk-table__header" scope="col">Sender and source</th>
+                  <th class="nhsuk-table__header" scope="col">Slide number and national code</th>
+                  <th class="nhsuk-table__header" scope="col">Letter status</th>
+                  {% if data.role == 'csas' %}
+                  <th class="nhsuk-table__header no-print" scope="col">Amend</th>
+                  {% endif %}
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body nhsuk-body-">
+
+                {% if data['samanthaRhodes'] === 'checkAccepted' %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    {{ result.test_date | returnDateFormat }}
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    X0A - 12 months
+                    <span class="nhsuk-table__cell--hint">Negative HPV negative routine</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    A86020
+                    <span class="nhsuk-table__cell--hint">Source: G</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    21010009
+                    <span class="nhsuk-table__cell--hint"> Nat Code: CHR3</span>
+                  </td>
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag nhsuk-tag--orange {{ letterStyle }}">Processing</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                  <td class="nhsuk-table__cell">
+                    <a href="" style="margin-left:4px; margin-right:4px;">Review</a>
+                    <a href="" style="margin-left:4px; margin-right:4px;">Delete</a>
+
+                    <br><a href="">Cancel letter</a>
+
+                  </td>
+                </tr>
+
+
+                {% endif %}
+
+                {% endif %}
+
+
+
+                {% if data['janetFraser'] === 'checkAccepted' %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    {{ result.test_date | returnDateFormat }}
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    X0A - 12 months
+                    <span class="nhsuk-table__cell--hint">Negative HPV negative routine</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    A86020
+                    <span class="nhsuk-table__cell--hint">Source: G</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    21010009
+                    <span class="nhsuk-table__cell--hint"> Nat Code: CHR3</span>
+                  </td>
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag nhsuk-tag--orange {{ letterStyle }}">Processing</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                  <td class="nhsuk-table__cell">
+                    <a href="" style="margin-left:4px; margin-right:4px;">Review</a>
+                    <a href="" style="margin-left:4px; margin-right:4px;">Delete</a>
+
+                    <br><a href="">Cancel letter</a>
+
+                  </td>
+                </tr>
+
+
+                {% endif %}
+
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+                {% for result in data.patientSummary.results %}
+                {% if result.is_deleted == false %}
+
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell fixed-side">
+                    11-Sep-2021
+                    <span class="nhsuk-table__cell--hint">Health authority: {{ result.health_authority or "-" }}</span>
+                  </td>
+                  <td class="nhsuk-table__cell">
+                    {{ result.result_code | capitalize }}{{ result.infection_code | capitalize  }}{{ result.action_code | capitalize  }} - {{ result.recall_months }} Months{% if result.hpv_primary == 'Yes' %} - HPV Primary{% endif %}
+                    {% if result.self_sample == 'Yes' %} - Self sample{% endif %}
+                    <span class="nhsuk-table__cell--hint">{{ result.result }} {{ result.infection_result }} {{ result.action }}</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    {{ result.sender_code  or "-" }}
+                    <span class="nhsuk-table__cell--hint">Source: {{ result.source_code  or "-" }}</span>
+                  </td>
+
+                  <td class="nhsuk-table__cell">
+                    {{ result.slide_number  or "-" }}
+                    <span class="nhsuk-table__cell--hint"> Nat Code: {{ result.sending_lab  or "-" }}</span>
+                  </td>
+
+                  {% if result.letter_status == "Processing" %}
+                  {% set letterStyle = "nhsuk-tag--orange" %}
+                  {% elif result.letter_status == "Cancelled" %}
+                  {% set letterStyle = "nhsuk-tag--red" %}
+                  {% else %}
+                  {% set letterStyle = "nhsuk-tag--green" %}
+                  {% endif %}
+
+
+
+                  <td class="nhsuk-table__cell">
+                    <span class="nhsuk-tag {{ letterStyle }}">{{ result.letter_status }}</span>
+                  </td>
+
+                  {% if data.role == 'csas' %}
+
+                  <td class="nhsuk-table__cell">
+                    <a href="/v12/patient/add-test-result/add-test-result-edit-3?
+result_ID={{ result.result_ID }}&
+nhsNumber={{ data.patientSummary.nhs_number }}&
+slide-number={{ result.slide_number or '' }}&
+result-type={{ result['result-type'] or '' }}&
+hpv-primary={{ result['hpv-primary'] or 'No' }}&
+edit-review=true&
+action-text={{ result.action or '' }}&
+letter_status={{ result.letter_status or '' }}&
+result-action={{ result.action_code or '' }}&
+result_blocked={{ data.result_blocked or result.result_blocked }}&
+result-infection={{ result.infection_code or '' }}&
+infection-text={{ result.infection_result or '' }}&
+repeat-months={{ result.recall_months or '' }}&
+result-text={{ result.result or '' }}&
+result-result={{ result.result_code or '' }}&
+sender-code={{ result.sender_code or '' }}&
+national-code={{ result.sending_lab or '' }}&
+source-code={{ result.source_code or '' }}&
+test_date={{ result.test_date or '' }}&
+health-authority={{ result.health_authority or '' }}&
+self-sample={{ result.self_sample or 'No' }}&
+crm={{ result.crm or '' }}&
+comments={{ result.comments or '' }}" style="margin-left:4px; margin-right:4px;">Review</a>
+                    <a href="/v12/patient/add-test-result/add-test-result-remove?
+result_ID={{ result.result_ID }}&
+nhsNumber={{ data.patientSummary.nhs_number }}&
+slide-number={{ result.slide_number or '' }}&
+result-type={{ result['result-type'] or '' }}&
+hpv-primary={{ result['hpv-primary'] or 'No' }}&
+edit-review=true&
+action-text={{ result.action or '' }}&
+result-action={{ result.action_code }}&
+result-infection={{ result.infection_code or '' }}&
+infection-text={{ result.infection_result or '' }}&
+letter_status={{ result.letter_status or '' }}&
+repeat-months={{ result.recall_months or '' }}&
+result-text={{ result.result or '' }}&
+result-result={{ result.result_code or '' }}&
+sender-code={{ result.sender_code or '' }}&
+national-code={{ result.sending_lab or '' }}&
+source-code={{ result.source_code or '' }}&
+test_date={{ result.test_date or '' }}&
+health-authority={{ result.health_authority or '' }}&
+self-sample={{ result.self_sample or 'No' }}&
+crm={{ result.crm or '' }}&
+comments={{ result.comments or '' }}" style="margin-left:4px; margin-right:4px;">Delete</a>
+
+
+                    {% if result.letter_status == "Processing" %}
+                    {% set letterLinkText = "Cancel letter" %}
+                    {% set letterLink = "amend-notification/choose-reason-to-amend-notification" %}
+                    {% elif result.letter_status == "Cancelled" %}
+                    {% set letterLinkText = "Resend letter" %}
+                    {% set letterLink = "/v12/patient/audit/resend-result-add-comment" %}
+                    {% else %}
+                    {% set letterLinkText = "" %}
+                    {% endif %}
+                    <br><a href="{{ letterLink }}?
+nhsNumber={{ data.patientSummary.nhs_number }}&
+result_blocked={{ data.result_blocked or result.result_blocked }}&
+result_ID={{ result.result_ID }}&
+slide-number={{ result.slide_number or '' }}&
+action-text={{ result.action or '' }}&
+result-action={{ result.action_code or '' }}&
+result-infection={{ result.infection_code or '' }}&
+infection-text={{ result.infection_result or '' }}&
+result-text={{ result.result or '' }}&
+result-result={{ result.result_code or '' }}&
+sender-code={{ result.sender_code or '' }}&
+test_date={{ result.test_date or '' }}&
+crm={{ result.crm or '' }}&
+comments={{ result.comments or '' }}">{{ letterLinkText }}</a>
+
+                  </td>
+                </tr>
+                {% endif %}
+
+                {% endif %}
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12 no-print">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
