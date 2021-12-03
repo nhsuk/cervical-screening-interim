@@ -15,7 +15,7 @@
 
 {% block header %}
 
-  {% include '../../components/header.html' %}
+{% include 'v12/components/header.html' %}
 
 {% endblock %}
 
@@ -34,12 +34,12 @@
   {% endif %}
 
 <div class="nhsuk-panel-with-label">
-    {% include '../../components/hpv-patient.html' %}
+  {% include 'v12/components/hpv-patient.html' %}
 
   <h1 class="nhsuk-heading-l">Check HPV vaccination before deleting</h1>
 
 
-  <form action="/v12/patient/patient-summary-7?hpvRemoved=True&hpvAdded=" method="post"> <input type="hidden" name="hideDetails" value="true">
+  <form action="/v12/patient/hpv-options/option-4/patient-summary?hpvRemoved=True&hpvAdded=" method="post"> <input type="hidden" name="hideDetails" value="true">
 
       <dl class="nhsuk-summary-list">
 
@@ -134,7 +134,7 @@
 
 
 
-      {% include '../../components/comments-timeline-hpv.html' %}
+      {% include 'v12/components/comments-timeline-hpv.html' %}
 
           <div class="nhsuk-form-group">
             <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
