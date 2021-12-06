@@ -1,0 +1,179 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    {{ backLink({
+      "href": "reports",
+      "text": "Back to reports"
+    }) }}
+
+    <h1 class="nhsuk-heading-l">Reports - Lab files receieved</h1>
+
+<p>Download CSV reports to show patients who are paused waiting the resolution of a test result.</p>
+
+<p>
+  You can download reports to view:
+  </p>
+
+  <ul>
+    <li>
+      all paused patients in the NHS Cervical Screening Management System
+      </li>
+      <li>
+        by individual lab
+        </li>
+        <li>
+          by patients who were manually paused by CSAS
+          </li>
+    </ul>
+
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">
+      </caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+         <th role="columnheader" scope="col">
+            Laboratory
+          </th>
+          <th role="columnheader" scope="col">
+            Number of paused patients
+          </th>
+          <th role="columnheader" scope="col">
+          Download CSV
+          </th>
+
+        </tr>
+      </thead>
+
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">All
+          <span class="nhsuk-table__cell--hint">All labs</span>
+        </td>
+          <td class="nhsuk-table__cell">2366</td>
+          <td class="nhsuk-table__cell "><a href="/images/patients_all.csv" download>Download CSV</a>
+           </td>
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Bristol
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">375</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Berkshire
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">88</td>
+
+            <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+             </td>
+
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Derby
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">489</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+
+
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Gateshead
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">222</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+
+
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">London
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">877</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+         </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Manchester
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">216</td>
+          <td class="nhsuk-table__cell "><a href="/images/manchester_paused.csv" download>Download CSV</a>
+           </td>
+
+
+     </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Norwich
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">50</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+
+         </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Wolverhampton
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">26</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+   </tr>
+        <tr role="row" class="nhsuk-table__row">
+         <td class="nhsuk-table__cell">Manually paused
+          <span class="nhsuk-table__cell--hint">12345</span>
+         </td>
+          <td class="nhsuk-table__cell">23</td>
+          <td class="nhsuk-table__cell "><a href="">Download CSV</a>
+           </td>
+
+ </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
