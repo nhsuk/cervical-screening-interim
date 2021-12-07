@@ -32,14 +32,38 @@ NHS Cervical screening management system
 
    <h2 class="nhsuk-heading-l">System enquiries tool</h2>
 
-   <p class="nhsuk-body nhsuk-u-font-weight-bold">
+   <p class="nhsuk-body nhsuk-u-margin-bottom-6">
      What would you like to do?
    </p>
 
-   <a href="CSSE-create-step1" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-bottom-9">
-     Start a new enquiry
-   </a>
    
+   <fieldset class="nhsuk-fieldset" aria-describedby="build-new-enquiry" role="group">
+     <legend class="nhsuk-fieldset__legend nhsuk-label">
+       <p class="nhsuk-body nhsuk-u-font-weight-bold">
+         Build a new enquiry
+       </p>
+     </legend>
+
+     <div class="nhsuk-body nhsuk-hint">
+      The data used to generate a report is updated once a week on Wednesdays at 12:00pm.
+     </div>
+ 
+    <div class="nhsuk-body nhsuk-hint">
+      It was last updated on <span class="nhsuk-u-font-weight-bold">01 December 2021 </span>
+    </div>
+
+    <a href="CSSE-create-step1" class="nhsuk-button nhsuk-button--ers">
+      Start a new enquiry
+    </a>
+
+
+    <div class="nhsuk-body nhsuk-u-margin-bottom-9">
+      <p>
+        <a href="CSSE-home.html" class="nhsuk-link">You have saved enquiries in draft</a>
+      </p>
+     </div>
+
+   </fieldset>
 
 
    <div class="nhsuk-form-group">
@@ -54,8 +78,8 @@ NHS Cervical screening management system
        <label for="search-name" class="nhsuk-label">Enter enquiry name</label>
        <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['#'] }}">
 
-       <label for="search-code" class="nhsuk-label">Code</label>
-       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">
+       <!--<label for="search-code" class="nhsuk-label">Code</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">-->
 
        <div class="nhs-date-input" id="search-date">
 

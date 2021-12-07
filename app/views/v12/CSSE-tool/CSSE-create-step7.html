@@ -101,7 +101,7 @@ NHS Cervical screening management system
               
           </fieldset>
         
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="previous-participant-status">
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="previous-participant-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-4">
                 Do you want to include previous participant status?
@@ -128,7 +128,7 @@ NHS Cervical screening management system
                     </legend>
         
                     <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                      Previously known as recall type
+                      Previously known as prior recall type
                     </div>
 
                     <p class="nhsuk-body nhsuk-u-margin-bottom-4">
@@ -203,7 +203,7 @@ NHS Cervical screening management system
 
         
               
-          </fieldset>  
+          </fieldset>--> 
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="current-episode-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -213,8 +213,9 @@ NHS Cervical screening management system
             </legend>
 
             <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-              Includes CSMS episode status and NHAIS recall status
+              Previously known as recall status
             </div>
+            <!--Includes CSMS episode status and NHAIS recall status-->
 
             <p class="nhsuk-body nhsuk-u-margin-bottom-4">
               Select all options that are relevant to you
@@ -224,39 +225,39 @@ NHS Cervical screening management system
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-not-due" id="current-not-due" value="Not due yet (CSMS)">
                 <label for="current-not-due" class="nhsuk-label nhsuk-checkboxes__label">
-                  Not due yet (CSMS)
+                  Not due yet
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-waiting-invite" id="current-waiting-invite" value="Waiting to be sent invite (CSMS)">
                 <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
-                  Waiting to be sent invite (CSMS)
+                  Waiting to be sent invite
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-invited" id="current-invited" value="Invited (CSMS)">
                 <label for="current-invited" class="nhsuk-label nhsuk-checkboxes__label">
-                  Invited (CSMS)
+                  Invited
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-reminded" id="current-reminded" value="Reminded (CSMS)">
                 <label for="current-reminded" class="nhsuk-label nhsuk-checkboxes__label">
-                  Reminded (CSMS)
+                  Reminded
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-nonresponder" id="current-nonresponder" value="Non responder (CSMS)">
                 <label for="current-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
-                  Non responder (CSMS)
+                  Non responder
                 </label>
               </div>
 
-              <div class="nhsuk-checkboxes__item">
+              <!--<div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-no-action" id="current-no-action" value="No action (NHAIS)">
                 <label for="current-no-action" class="nhsuk-label nhsuk-checkboxes__label">
                   No action (NHAIS)
@@ -324,15 +325,15 @@ NHS Cervical screening management system
                 <label for="current-ceased" class="nhsuk-label nhsuk-checkboxes__label">
                   Ceased or cancelled (NHAIS)
                 </label>
-              </div>
+              </div>-->
               
 
             </div>
         
               
           </fieldset>
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="previous-episode-status">
+          
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="previous-episode-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-4">
                 Do you want to include previous participant status?
@@ -359,8 +360,9 @@ NHS Cervical screening management system
                     </legend>
         
                     <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                      Includes CSMS episode status and NHAIS recall status
+                      Previously known as prior recall status
                     </div>
+                    //Includes CSMS episode status and NHAIS recall status
         
                     <p class="nhsuk-body nhsuk-u-margin-bottom-4">
                       Select all options that are relevant to you
@@ -371,35 +373,35 @@ NHS Cervical screening management system
                       <div class="nhsuk-checkboxes__item">
                         <input type="checkbox" class="nhsuk-checkboxes__input" name="prev-not-due" id="prev-not-due" value="Not due yet (CSMS)">
                         <label for="prev-not-due" class="nhsuk-label nhsuk-checkboxes__label">
-                          Not due yet (CSMS)
+                          Not due yet
                         </label>
                       </div>
         
                       <div class="nhsuk-checkboxes__item">
                         <input type="checkbox" class="nhsuk-checkboxes__input" name="prev-waiting-invite" id="prev-waiting-invite" value="Waiting to be sent invite (CSMS)">
                         <label for="prev-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
-                          Waiting to be sent invite (CSMS)
+                          Waiting to be sent invite
                         </label>
                       </div>
         
                       <div class="nhsuk-checkboxes__item">
                         <input type="checkbox" class="nhsuk-checkboxes__input" name="prev-invited" id="prev-invited" value="Invited (CSMS)">
                         <label for="prev-invited" class="nhsuk-label nhsuk-checkboxes__label">
-                          Invited (CSMS)
+                          Invited
                         </label>
                       </div>
         
                       <div class="nhsuk-checkboxes__item">
                         <input type="checkbox" class="nhsuk-checkboxes__input" name="prev-reminded" id="prev-reminded" value="Reminded (CSMS)">
                         <label for="prev-reminded" class="nhsuk-label nhsuk-checkboxes__label">
-                          Reminded (CSMS)
+                          Reminded
                         </label>
                       </div>
         
                       <div class="nhsuk-checkboxes__item">
                         <input type="checkbox" class="nhsuk-checkboxes__input" name="prev-nonresponder" id="prev-nonresponder" value="Non responder (CSMS)">
                         <label for="prev-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
-                          Non responder (CSMS)
+                          Non responder
                         </label>
                       </div>
         
@@ -499,7 +501,7 @@ NHS Cervical screening management system
 
         
               
-          </fieldset>
+          </fieldset>-->
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
