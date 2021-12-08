@@ -1,0 +1,96 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+        {{ backLink({
+          "href": "/v12/reports/accumulated-deferrals/choose-ccg",
+          "text": "Go back"
+        }) }}
+
+
+
+      {% set ccgName %}
+        {% if data['enterCCGName'] %}
+           {{ data['enterCCGName'] }}
+      {% else %}
+          NHS Hampshire, Southampton and Isle of Wight CCG (D9Y0V)
+        {% endif %}
+      {% endset %}
+
+
+         <h1 class="nhsuk-heading-l">
+           <span class="nhsuk-caption-m">
+                  Accumulated deferrals report
+                <span class="nhsuk-u-visually-hidden"> - </span>
+              </span>
+              Report for {{ ccgName }}
+         </h1>
+
+
+         <dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key" style="width: 40%; padding-right: 40px;">
+      Number of participants who have been deferred on 2 consecutive occasions without an opportunity to attend for a period of 3 years (36 months) or more
+
+    </dt>
+    <dd class="nhsuk-summary-list__value" style="width: 10%;">
+        20
+      </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="/images/acc-def-3.csv">
+        Download CSV<span class="nhsuk-u-visually-hidden"> name</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key" style="width: 40%; padding-right: 40px;">
+      Number of participants who have been deferred on 3 consecutive occasions without an opportunity to attend
+    </dt>
+    <dd class="nhsuk-summary-list__value" style="width: 10%;">
+      37
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="/images/acc-def-4.csv">
+        Download CSV<span class="nhsuk-u-visually-hidden"> date of birth</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+
+</dl>
+
+
+  </div>
+</div>
+{% endblock %}

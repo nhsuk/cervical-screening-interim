@@ -764,7 +764,6 @@ else {
 }
 
 })
-module.exports = router;
 
 
 
@@ -780,4 +779,21 @@ else {
 }
 
 })
+
+
+// accumulated deferrals reports
+router.post("/v12/reports/accumulated-deferrals/choose-ccg", function (req, res) {
+var chooseCCG = req.session.data['chooseCCG'];
+
+if (chooseCCG == 'allCCGs') {
+  res.redirect("/v12/reports/accumulated-deferrals/main-report-all");
+}
+
+else {
+  res.redirect("/v12/reports/accumulated-deferrals/main-report-individual");
+}
+
+})
+
+
 module.exports = router;
