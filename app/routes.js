@@ -796,4 +796,21 @@ else {
 })
 
 
+
+// PNL responses report
+router.post("/v12/reports/pnl-responses/all-individual", function (req, res) {
+var allIndividual = req.session.data['allIndividual'];
+
+if (allIndividual == 'allGPs') {
+  res.redirect("/v12/reports/pnl-responses/enter-date");
+}
+
+else {
+  res.redirect("/v12/reports/pnl-responses/enter-gp-practices");
+}
+
+})
+
+
+
 module.exports = router;

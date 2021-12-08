@@ -1,0 +1,77 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-list.js"></script>
+
+
+
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+        {{ backLink({
+          "href": "/v12/reports/pnl-responses/all-individual",
+          "text": "Go back"
+        }) }}
+
+
+    <div class="nhsuk-form-group">
+
+      <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            <span class="nhsuk-caption-m">
+                   Prior Notifications List (PNL) Responses report
+                 <span class="nhsuk-u-visually-hidden"> - </span>
+               </span>
+            Add GP practices
+          </h1>
+        </legend>
+
+        <div class="nhsuk-hint" id="contact-hint">
+          You can add up to 8 GP practices
+        </div>
+
+
+          <ul id ="numbersList" class="nhsuk-list">
+
+          </ul>
+
+
+
+
+
+        <label class="nhsuk-label" for="example">
+          Enter GP practice ODS code
+        </label>
+        <input class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="nhs-num-txt" name="nhs-num-list" type="text" value="{{ data['nhs-num-list'] }}">
+      </fieldset>
+
+        <a class="nhsuk-link nhsuk-u-margin-bottom-4" id="add-list-link" style="text-decoration: underline; font-size: 19px;">Add another GP practice</a>
+
+
+
+    </div>
+
+   <a class="nhsuk-button nhsuk-button--ers" href="/v12/reports/pnl-responses/enter-date">Continue</a>
+
+  </div>
+</div>
+{% endblock %}
