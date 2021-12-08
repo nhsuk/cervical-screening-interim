@@ -160,7 +160,7 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      What previous participant status would you like to include?
+                      What participant status would you like to include?
                     </p>
                   </legend>
       
@@ -224,7 +224,7 @@ NHS Cervical screening management system
             </div>
 
             <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" aria-controls="expand-invitation" aria-expnded="false" checked>
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" aria-controls="expand-invitation" aria-expnded="false">
               <label for="comms-invitation" class="nhsuk-label nhsuk-radios__label">
                 Invitation
               </label>
@@ -282,7 +282,7 @@ NHS Cervical screening management system
             </div>
 
             <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" aria-controls="expand-results" aria-expnded="false" checked>
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" aria-controls="expand-results" aria-expnded="false">
               <label for="comms-results" class="nhsuk-label nhsuk-radios__label">
                 Results
               </label>
@@ -355,7 +355,7 @@ NHS Cervical screening management system
             Enter letter code to include
           </label>
           <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
-            This will be dependant on notification produced option selected above.
+            Letter codes should relate to the notification type selected.
           </div>
           <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
             
