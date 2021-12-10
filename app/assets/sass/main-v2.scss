@@ -18,6 +18,8 @@
 @import "components/small-checkboxes"; // taken from scra
 @import "components/autocomplete"; // testing out the add test result page / had to create a custom component as autocomplete is used on the search
 @import "components/messaging"; //
+@import "components/screening-pagination"; //
+
 
 .nhsuk-inset-text--danger {
      border-left-color: red;
@@ -100,4 +102,24 @@
 
 .nhsuk-error-summary-blue {
   border: 4px solid #005eb8;
+}
+
+.screening-pagination {
+ list-style-type: none;
+  padding-left: 0;
+}
+
+.screening-pagination-item {
+  display: inline-block;
+  font-weight: 400;
+  margin-right: 20px;
+}
+
+.screeing-pagination-current {
+  text-decoration: none;
+  color: #212B32;
+}
+
+.screening-pagination-showing {
+  float: right;
 }

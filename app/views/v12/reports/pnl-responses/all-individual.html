@@ -28,7 +28,7 @@ NHS Cervical screening management system
     }) }}
 
 
-    <form action="/v12/reports/accumulated-deferrals/choose-ccg" method="post">
+    <form action="/v12/reports/pnl-responses/all-individual" method="post">
 
     <div class="nhsuk-form-group">
 
@@ -36,41 +36,29 @@ NHS Cervical screening management system
        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
          <h1 class="nhsuk-fieldset__heading">
            <span class="nhsuk-caption-m">
-                  Accumulated deferrals report
+                  Prior Notifications List (PNL) Responses report
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
-        How do you want to view accumulated deferrals?
+        Do you want to see responses for all GP practices or an individual GP practice?
          </h1>
        </legend>
 
        <div class="nhsuk-radios">
 
          <div class="nhsuk-radios__item">
-           <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="allCCGs">
+           <input class="nhsuk-radios__input" id="allIndividual" name="allIndividual" type="radio" value="allGPs">
            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-             View accumulated deferrals from all clinical commissioning groups (CCGs)
+             All GP practices
            </label>
          </div>
 
-         <div class="nhsuk-radios nhsuk-radios--conditional">
+         <div class="nhsuk-radios__item">
+           <input class="nhsuk-radios__input" id="allIndividual" name="allIndividual" type="radio" value="individualGPs">
+           <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+             An individual GP practice
+           </label>
+         </div>
 
-           <div class="nhsuk-radios__item">
-             <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="individualCCG" aria-controls="conditional-contact-1" aria-expanded="false">
-             <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-               View accumulated deferrals from an individual CCG
-             </label>
-           </div>
-
-           <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
-
-             <div class="nhsuk-form-group">
-               <label class="nhsuk-label" for="email">
-                 Enter CCG code
-               </label>
-               <input class="nhsuk-input nhsuk-u-width-two-thirds" id="enterCCGName" name="enterCCGName" type="text">
-             </div>
-
-           </div>
 
        </div>
      </fieldset>
