@@ -1,0 +1,182 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Back to Reports"
+    }) }}
+
+
+    <form action="/v12/reports/pnl-responses/all-individual" method="post">
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+        <span class="nhsuk-caption-m">
+               Prior Notifications List (PNL) Responses report
+             <span class="nhsuk-u-visually-hidden"> - </span>
+           </span>
+     Prior Notifications List (PNL) Responses report for date from  to date to
+      </h1>
+
+      <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-3" type="submit">
+        Download CSV
+      </button>
+  </form>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">
+        </caption>
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+           <th role="columnheader" scope="col">
+              GP practice name <br />and code
+            </th>
+            <th role="columnheader" scope="col">
+              Total number of participants<br /> added to PNL
+            </th>
+            <th role="columnheader" scope="col">
+            Total number of participants <br />invited (system actioned)
+            </th>
+            <th role="columnheader" scope="col">
+            Total percentage of participants invited
+            </th>
+            <th role="columnheader" scope="col">
+            Total number of participants responded to (user actioned) - deferred
+            </th>
+            <th role="columnheader" scope="col">
+            Total percentage of participants responded to (user actioned) - deferred
+            </th>
+            <th role="columnheader" scope="col">
+            Total number of participants responded to (user actioned) - ceased
+            </th>
+            <th role="columnheader" scope="col">
+            Total percentage of participants responded to (user actioned) - ceased
+            </th>
+            <th role="columnheader" scope="col">
+            Defer reason
+            </th>
+            <th role="columnheader" scope="col">
+            Date from
+            </th>
+            <th role="columnheader" scope="col">
+            Date to
+            </th>
+            <th role="columnheader" scope="col">
+            Practices
+            </th>
+
+          </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">1234
+            <span class="nhsuk-table__cell--hint">1234</span>
+          </td>
+            <td class="nhsuk-table__cell">1,000</td>
+            <td class="nhsuk-table__cell ">800</td>
+               <td class="nhsuk-table__cell">80%</td>
+                 <td class="nhsuk-table__cell">150</td>
+                   <td class="nhsuk-table__cell">15%</td>
+                     <td class="nhsuk-table__cell">50</td>
+                       <td class="nhsuk-table__cell">5%</td>
+                         <td class="nhsuk-table__cell">Pregnancy</td>
+                           <td class="nhsuk-table__cell">15-09-2021</td>
+                             <td class="nhsuk-table__cell">2366</td>
+                               <td class="nhsuk-table__cell">2366</td>
+
+
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">1234
+            <span class="nhsuk-table__cell--hint">1234</span>
+          </td>
+            <td class="nhsuk-table__cell">1,000</td>
+            <td class="nhsuk-table__cell ">800</td>
+               <td class="nhsuk-table__cell">80%</td>
+                 <td class="nhsuk-table__cell">150</td>
+                   <td class="nhsuk-table__cell">15%</td>
+                     <td class="nhsuk-table__cell">50</td>
+                       <td class="nhsuk-table__cell">5%</td>
+                         <td class="nhsuk-table__cell">Pregnancy</td>
+                           <td class="nhsuk-table__cell">15-09-2021</td>
+                             <td class="nhsuk-table__cell">2366</td>
+                               <td class="nhsuk-table__cell">2366</td>
+
+
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">1234
+            <span class="nhsuk-table__cell--hint">1234</span>
+          </td>
+            <td class="nhsuk-table__cell">1,000</td>
+            <td class="nhsuk-table__cell ">800</td>
+               <td class="nhsuk-table__cell">80%</td>
+                 <td class="nhsuk-table__cell">150</td>
+                   <td class="nhsuk-table__cell">15%</td>
+                     <td class="nhsuk-table__cell">50</td>
+                       <td class="nhsuk-table__cell">5%</td>
+                         <td class="nhsuk-table__cell">Colposcopy</td>
+                           <td class="nhsuk-table__cell">15-09-2021</td>
+                             <td class="nhsuk-table__cell">2366</td>
+                               <td class="nhsuk-table__cell">2366</td>
+
+
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">1234
+            <span class="nhsuk-table__cell--hint">1234</span>
+          </td>
+            <td class="nhsuk-table__cell">1,000</td>
+            <td class="nhsuk-table__cell ">800</td>
+               <td class="nhsuk-table__cell">80%</td>
+                 <td class="nhsuk-table__cell">150</td>
+                   <td class="nhsuk-table__cell">15%</td>
+                     <td class="nhsuk-table__cell">50</td>
+                       <td class="nhsuk-table__cell">5%</td>
+                         <td class="nhsuk-table__cell">Pregnancy</td>
+                           <td class="nhsuk-table__cell">15-09-2021</td>
+                             <td class="nhsuk-table__cell">2366</td>
+                               <td class="nhsuk-table__cell">2366</td>
+
+
+          </tr>
+
+
+
+
+
+
+        </tbody>
+      </table>
+
+
+
+   </div>
+
+
+  </div>
+</div>
+{% endblock %}
