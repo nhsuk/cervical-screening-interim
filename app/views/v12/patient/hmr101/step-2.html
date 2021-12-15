@@ -12,7 +12,7 @@ NHS Cervical screening management system
 {% block header %}
 {{ header({
     "service": {
-      "name": "Cervical Screening",
+      "name": "Cervical Screening Management System",
       "longName": "false"
     },
     "showNav": "false",
@@ -20,6 +20,7 @@ NHS Cervical screening management system
   })
 }}
 {% endblock %}
+
 
 {% block patientBanner %}
   {% include '../../components/patient-banner.html' %}
@@ -97,25 +98,25 @@ NHS Cervical screening management system
                   <div class="nhsuk-radios__item">
                     <input class="nhsuk-radios__input" id="patient-ill" name="cancel-reason" type="radio">
                     <label class="nhsuk-label nhsuk-radios__label nhsuk-radios__label--s" for="patient-ill">
-                      GP practice or primary care
+                      GP Practice/Primacy Care
                     </label>
                   </div>
                   <div class="nhsuk-radios__item">
                     <input class="nhsuk-radios__input" id="patient-holiday" name="cancel-reason" type="radio">
                     <label class="nhsuk-label nhsuk-radios__label" for="patient-holiday">
-                     Community clinic
+                     Community Clinic
                     </label>
                   </div>
                   <div class="nhsuk-radios__item">
                       <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
                       <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
-                       Sexual health service
+                       Sexual Health Services
                       </label>
                     </div>
                   <div class="nhsuk-radios__item">
                       <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
                       <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
-                       NHS hospital
+                       NHS Hospital
                       </label>
                     </div>
                 </div>
@@ -126,7 +127,14 @@ NHS Cervical screening management system
         <div class="nhsuk-grid-column-one-third">
           <form name="radio-buttons">
               <div class="multiple-choice--hod nhsuk-radios">
-                  <div class="nhsuk-radios__item">
+
+                <div class="nhsuk-radios__item">
+                    <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
+                    <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
+                     NHS Colposcopy
+                    </label>
+                  </div>
+                <div class="nhsuk-radios__item">
                     <input class="nhsuk-radios__input" id="patient-ill" name="cancel-reason" type="radio">
                     <label class="nhsuk-label nhsuk-radios__label nhsuk-radios__label--s" for="patient-ill">
                       Defence Medical Services
@@ -136,16 +144,11 @@ NHS Cervical screening management system
                   <div class="nhsuk-radios__item">
                       <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
                       <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
-                       Consultant
-                      </label>
-                    </div>
-
-                  <div class="nhsuk-radios__item">
-                      <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
-                      <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
                        Other
                       </label>
                     </div>
+
+
                 </div>
 
 
@@ -179,12 +182,6 @@ NHS Cervical screening management system
                       Routine recall
                     </label>
                   </div>
-                  <div class="nhsuk-radios__item">
-                      <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
-                      <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
-                       Previous abnormal test
-                      </label>
-                    </div>
                   <div class="nhsuk-radios__item">
                       <input class="nhsuk-radios__input" id="patient-private" name="cancel-reason" type="radio">
                       <label class="nhsuk-label nhsuk-radios__label" for="patient-private">
