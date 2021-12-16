@@ -1,0 +1,91 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Back to Reports"
+    }) }}
+
+
+    <form action="/v12/reports/lab-file-report/choose-date" method="post">
+
+    <div class="nhsuk-form-group">
+
+     <fieldset class="nhsuk-fieldset">
+       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+         <h1 class="nhsuk-fieldset__heading">
+           <span class="nhsuk-caption-m">
+                  Lab files received
+                <span class="nhsuk-u-visually-hidden"> - </span>
+              </span>
+        Choose how you want to filter reports by
+         </h1>
+       </legend>
+
+       <div class="nhsuk-radios">
+
+         <div class="nhsuk-radios__item">
+           <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="allCCGs">
+           <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+            View all labs and areas
+           </label>
+         </div>
+
+         <div class="nhsuk-radios nhsuk-radios--conditional">
+
+           <div class="nhsuk-radios__item">
+             <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="individualCCG" aria-controls="conditional-contact-1" aria-expanded="false">
+             <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+               Filter by national code or area code
+             </label>
+           </div>
+
+           <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
+
+             <div class="nhsuk-form-group">
+               <label class="nhsuk-label nhsuk-label__strong" for="email">
+                 Enter national code or area code
+               </label>
+               <div class="nhsuk-hint" id="contact-hint">
+  Also known as lab code. For example, T34KH
+</div>
+               <input class="nhsuk-input nhsuk-u-width-two-thirds" id="enterCCGName" name="enterCCGName" type="text">
+             </div>
+
+           </div>
+            
+
+       </div>
+     </fieldset>
+
+   </div>
+
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">
+      Continue
+    </button>
+</form>
+
+  </div>
+</div>
+{% endblock %}
