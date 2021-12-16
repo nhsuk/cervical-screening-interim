@@ -13,7 +13,7 @@ NHS Cervical screening management system
 {% block header %}
 {{ header({
     "service": {
-      "name": "Cervical Screening",
+      "name": "Cervical Screening Management System",
       "longName": "false"
     },
     "showNav": "false",
@@ -21,6 +21,7 @@ NHS Cervical screening management system
   })
 }}
 {% endblock %}
+
 
 {% block patientBanner %}
   {% include '../../components/patient-banner.html' %}
@@ -38,7 +39,7 @@ NHS Cervical screening management system
   <fieldset class="nhsuk-fieldset">
     <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
       <h1 class="nhsuk-fieldset__heading">
-        Confirm the address to send the result to is correct
+      Choose which address to send the result letter to
       </h1>
     </legend>
 
@@ -59,14 +60,14 @@ NHS Cervical screening management system
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-1" name="confirmAddress" type="radio" value="yes">
         <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-          Yes, the address is correct
+         Send result letter to this address
         </label>
       </div>
 
       <div class="nhsuk-radios__item">
         <input class="nhsuk-radios__input" id="example-2" name="confirmAddress" type="radio" value="no">
         <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-          No, the address is not correct
+          Send result letter to a different address
         </label>
       </div>
 

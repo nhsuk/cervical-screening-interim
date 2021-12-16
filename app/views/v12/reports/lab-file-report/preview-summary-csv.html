@@ -26,15 +26,17 @@
 </div>
 
 
-  <h1 id="" class="nhsuk-heading-l">Lab file summary - London - File 1 <br>15-September-2021</h1>
- 
-    <p>Download CSVs once the results from the file have been actioned.</p>   
+  <h1 id="" class="nhsuk-heading-l">Summary for File1_Salf received on 6-Dec-2021</h1>
 
- <a class ="nhsuk-button--ers" href="/images/summary.csv" download>Download summary CSV</a> <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/pid.csv" download>Download Personal identifiable data CSV</a>  <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/lab.csv" download>Download lab CSV</a>
-       
-   <br>    
+
+
+ <a class ="nhsuk-button--ers" href="/images/summary.csv" download>Download summary CSV</a> 
+ <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/lab.csv" download>Download full file outcomes CSV</a>
+  <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/lab.csv" download>Download outstanding rejections for lab CSV</a>
+
+   <br>
    <h2 class="nhsuk-heading-m">Automatic summary report</h2>
-  
+
 
 
    <div class="nhsuk-grid-row">
@@ -44,13 +46,16 @@
       <thead role="rowgroup" class="nhsuk-table__head">
         <tr role="row">
          <th role="columnheader" scope="col" width="200">
-            Lab code
+            National code
           </th>
           <th role="columnheader" scope="col" width="200">
-            Date and time
+            Area
           </th>
           <th role="columnheader" scope="col" width="200">
             File name
+          </th>
+          <th role="columnheader" scope="col" width="200">
+            Date and time received
           </th>
           <th role="columnheader" scope="col" width="200">
           Total results received
@@ -59,43 +64,44 @@
            Total results automatic matched
           </th>
           <th role="columnheader" scope="col" width="200">
-           Total partial hits
+           Total partial matches
           </th>
-          <th role="columnheader" scope="col" width="200">
-           Total non hits
-          </th>
+
           <th role="columnheader" scope="col" width="200">
            Total error rejections
           </th><th role="columnheader" scope="col" width="200">
            Total policy rejections
           </th>
           </th><th role="columnheader" scope="col" width="200">
-           Automatic QA check
+           File valid
           </th>
         </tr>
       </thead>
-      
+
       <tbody class="nhsuk-table__body">
         <tr role="row" class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">12345</td>
-          <td class="nhsuk-table__cell ">16-09-2021
-           <span class="nhsuk-table__cell--hint">11:30:10</span></td>
+        <td class="nhsuk-table__cell">MC19J</td>
+
+
+           <td class="nhsuk-table__cell">Salford</td>
            <td class="nhsuk-table__cell">File 1</td>
-           <td class="nhsuk-table__cell">8000</td>
-            <td class="nhsuk-table__cell ">5600
-           <span class="nhsuk-table__cell--hint">70%</span></td>
-          <td class="nhsuk-table__cell ">2340</td>
-           <td class="nhsuk-table__cell ">33</td>
-            <td class="nhsuk-table__cell ">12</td>
-             <td class="nhsuk-table__cell ">15</td>
-              <td class="nhsuk-table__cell ">CORRECT</td>
-         
+           <td class="nhsuk-table__cell ">16-09-2021
+            <span class="nhsuk-table__cell--hint">11:30:10</span></td>
+            <td class="nhsuk-table__cell ">145</td>
+
+          <td class="nhsuk-table__cell ">130
+           <span class="nhsuk-table__cell--hint">90%</span></td>
+           <td class="nhsuk-table__cell ">3</td>
+            <td class="nhsuk-table__cell ">2</td>
+             <td class="nhsuk-table__cell ">1</td>
+              <td class="nhsuk-table__cell ">Yes</td>
+
       </tbody>
     </table>
   </div>
 </div>
 
-<br>    
+<br>
    <h2 class="nhsuk-heading-m">Manual summary report</h2>
   <p>Data on the manual summary table may change until the file is completed.</p>
 
@@ -109,16 +115,16 @@
             Total results to process
           </th>
           <th role="columnheader" scope="col" width="200">
-            To process outstanding 
+            To process outstanding
           </th>
           <th role="columnheader" scope="col" width="200">
-            To query outstanding 
+            To query outstanding
           </th>
           <th role="columnheader" scope="col" width="200">
-         To check outstanding 
+         To check outstanding
           </th>
           <th role="columnheader" scope="col" width="200">
-           Rejected outstanding 
+           Rejected outstanding
           </th>
           <th role="columnheader" scope="col" width="200">
            Total checked manual matches
@@ -133,21 +139,21 @@
           </th>
         </tr>
       </thead>
-      
+
       <tbody class="nhsuk-table__body">
         <tr role="row" class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">2400</td>
+        <td class="nhsuk-table__cell">8</td>
+          <td class="nhsuk-table__cell ">3</td>
+           <td class="nhsuk-table__cell">2</td>
+           <td class="nhsuk-table__cell">1</td>
           <td class="nhsuk-table__cell ">0</td>
-           <td class="nhsuk-table__cell">3</td>
-           <td class="nhsuk-table__cell">0</td>
-          <td class="nhsuk-table__cell ">6</td>
-          <td class="nhsuk-table__cell ">2368
-           <span class="nhsuk-table__cell--hint">29.6%</span></td>
-           <td class="nhsuk-table__cell ">11</td>
-            <td class="nhsuk-table__cell ">7</td>
-             <td class="nhsuk-table__cell ">5</td>
-          
-         
+          <td class="nhsuk-table__cell ">3
+           <span class="nhsuk-table__cell--hint">97%</span></td>
+           <td class="nhsuk-table__cell ">1</td>
+            <td class="nhsuk-table__cell ">1</td>
+             <td class="nhsuk-table__cell ">2</td>
+
+
       </tbody>
     </table>
   </div>

@@ -14,7 +14,7 @@ NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-{% include '../components/header.html' %}
+{% include '../../components/header.html' %}
 {% endblock %}
 
 
@@ -29,47 +29,48 @@ NHS Cervical screening management system
 
     <h1 class="nhsuk-heading-l">Outbound transfers</h1>
     <div class="nhsuk-panel-with-label">
-    {% include '../components/report-transfer-patient.html' %}
-    <span class="nhsuk-hint">Step 1 of 2</span> 
+    {% include '../../components/report-transfer-patient.html' %}
+    <span class="nhsuk-hint">Step 3 of 3</span> 
    
   
-    <form action="report-outbound-crm" method="post">
+    <form action="report-outbound-confirm" method="post">
 
   <div class="nhsuk-form-group">
 
     <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
         <h1 class="nhsuk-fieldset__heading">
-          Confirm transfer to devolved nation
+        Enter CRM case number
         </h1>
         
       </legend>
 
-      <p>To transfer the patient you need to manually send their <a href="">subject access print</a> to their new location. It includes their demographic details, screening history and HPV vaccination record.</p>
-     
-      <div class="nhsuk-checkboxes">
-
-        <div class="nhsuk-checkboxes__item">
-          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-            I confirm I have manually transferred this patient to their new location
-          </label>
-        </div>
-
-        
+      <div class="nhsuk-hint" id="example-hint">
+        For example, CAS-12345-ABCDE
       </div>
+    
+      <input class="nhsuk-input nhsuk-input--width-20" id="example" name="example" type="text" >
+
     </fieldset>
 
   </div>
-
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="example">
+      Comments (optional)
+    </label>
+    <div class="nhsuk-hint" id="example-hint">
+      Do not include clinical information at this point.
+    </div>
+    <textarea class="nhsuk-textarea" id="example" name="example" rows="4" aria-describedby="example-hint"></textarea>
+  </div>
   <button class="nhsuk-button nhsuk-button--ers" type="submit">Continue</button>
 
 </form>
 
-    </form>
+    
   </div>
+  <p><a class="nhsuk-link" href="report-outbound-transfer">Exit without saving</a></p>
 </div>
-
 </div>
 
 

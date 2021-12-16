@@ -1,0 +1,240 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/accumulated-deferrals/choose-ccg",
+      "text": "Go back"
+    }) }}
+
+
+
+         <h1 class="nhsuk-heading-l">
+           <span class="nhsuk-caption-m">
+                  Accumulated deferrals report
+                <span class="nhsuk-u-visually-hidden"> - </span>
+              </span>
+        Accumulated deferrals for all clinical commissioning groups
+         </h1>
+
+         <form action="/images/acc-def-1.csv" method="get">
+           <button class="nhsuk-button nhsuk-button--ers" type="submit">
+             Download full report CSV
+           </button>
+         </form>
+
+         <table role="table" class="nhsuk-table-responsive">
+           <caption class="nhsuk-table__caption">Accumulated deferrals for all clinical commissioning groups</caption>
+           <thead role="rowgroup" class="nhsuk-table__head">
+             <tr role="row">
+               <th role="columnheader" class="" scope="col">
+                 Clinical commissioning group name (code)
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Number of patients deferred 2 consecutive times (within 36 months or more)
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Number of patients deferred 3 consecutive times
+               </th>
+             </tr>
+           </thead>
+           <tbody class="nhsuk-table__body">
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Knowsley CCG (01J)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Leeds CCG (15F)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Leicester City CCG (04C)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+              NHS Lincolnshire CCG (71E)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                 NHS Liverpool CCG (99A)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Manchester CCG (14L)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+             NHS Mid Essex CCG (06Q)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Morecambe Bay CCG (01K)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Newcastle Gateshead CCG (13T)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Norfolk and Waveney CCG (26A)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS North Central London CCG (93C)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS North Cumbria CCG (01H)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+
+
+           </tbody>
+         </table>
+
+         <nav role="navigation" aria-label="Pagination">
+           <ul class="screening-pagination">
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p3">
+                 <span><< Previous</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p3">
+                 <span>3</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p4">
+                 <span>4</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item" aria-current="page">
+               <span class="screeing-pagination-current">
+                 5</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p6">
+                 <span>6</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p7">
+                 <span>Next >></span>
+               </a>
+             </li>
+             <p class="screening-pagination-showing">Showing 49 to 60 of 106 CCGs</p>
+           </ul>
+         </nav>
+
+
+
+
+  </div>
+</div>
+{% endblock %}

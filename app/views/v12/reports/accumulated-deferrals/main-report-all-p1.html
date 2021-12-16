@@ -1,0 +1,230 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/accumulated-deferrals/choose-ccg",
+      "text": "Go back"
+    }) }}
+
+
+
+         <h1 class="nhsuk-heading-l">
+           <span class="nhsuk-caption-m">
+                  Accumulated deferrals report
+                <span class="nhsuk-u-visually-hidden"> - </span>
+              </span>
+        Accumulated deferrals for all clinical commissioning groups
+         </h1>
+
+         <form action="/images/acc-def-1.csv" method="get">
+           <button class="nhsuk-button nhsuk-button--ers" type="submit">
+             Download full report CSV
+           </button>
+         </form>
+
+         <table role="table" class="nhsuk-table-responsive">
+           <caption class="nhsuk-table__caption">Accumulated deferrals for all clinical commissioning groups</caption>
+           <thead role="rowgroup" class="nhsuk-table__head">
+             <tr role="row">
+               <th role="columnheader" class="" scope="col">
+                 Clinical commissioning group name (code)
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Number of patients deferred 2 consecutive times (within 36 months or more)
+               </th>
+               <th role="columnheader" class="" scope="col">
+                 Number of patients deferred 3 consecutive times
+               </th>
+             </tr>
+           </thead>
+           <tbody class="nhsuk-table__body">
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Barnsley CCG (02P)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Basildon and Brentwood CCG (99E)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Bassetlaw CCG (02Q)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Bath and North East Somerset, Swindon and Wiltshire CCG (92G)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                  NHS Bedfordshire, Luton and Milton Keynes CCG (M1J4Y)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Berkshire West CCG (15A)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Birmingham and Solihull CCG (15E)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Blackburn with Darwen CCG (00Q)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Black Country and West Birmingham CCG (D2P2L)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Blackpool CCG (00R)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Bolton CCG (00T)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+             <tr role="row" class="nhsuk-table__row">
+               <td role="cell" class="nhsuk-table__cell">
+                NHS Bradford District and Craven CCG (36J)
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                20
+               </td>
+               <td role="cell" class="nhsuk-table__cell">
+                 15
+               </td>
+             </tr>
+
+
+           </tbody>
+         </table>
+
+         <nav role="navigation" aria-label="Pagination">
+           <ul class="screening-pagination">
+             <li class="screening-pagination-item" aria-current="page">
+               <span class="screeing-pagination-current">
+                 1</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p2">
+                 <span>2</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p3">
+                 <span>3</span>
+               </a>
+             </li>
+             <li class="screening-pagination-item">
+               <a href="/v12/reports/accumulated-deferrals/main-report-all-p4">
+                 <span>Next >></span>
+               </a>
+             </li>
+             <p class="screening-pagination-showing">Showing 12 of 106 CCGs</p>
+           </ul>
+         </nav>
+
+
+
+
+  </div>
+</div>
+{% endblock %}

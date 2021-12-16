@@ -28,7 +28,7 @@ NHS Cervical screening management system
     }) }}
 
 
-    <form action="/v12/reports/accumulated-deferrals/choose-ccg" method="post">
+    <form action="/v12/reports/lab-file-report/choose-date" method="post">
 
     <div class="nhsuk-form-group">
 
@@ -36,10 +36,10 @@ NHS Cervical screening management system
        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
          <h1 class="nhsuk-fieldset__heading">
            <span class="nhsuk-caption-m">
-                  Accumulated deferrals report
+                  Lab files received
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
-        How do you want to view accumulated deferrals?
+        Choose how you want to filter reports by
          </h1>
        </legend>
 
@@ -48,7 +48,7 @@ NHS Cervical screening management system
          <div class="nhsuk-radios__item">
            <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="allCCGs">
            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-             View accumulated deferrals from all clinical commissioning groups (CCGs)
+            View all labs and areas
            </label>
          </div>
 
@@ -57,20 +57,24 @@ NHS Cervical screening management system
            <div class="nhsuk-radios__item">
              <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="individualCCG" aria-controls="conditional-contact-1" aria-expanded="false">
              <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-               View accumulated deferrals from an individual CCG
+               Filter by national code or area code
              </label>
            </div>
 
            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
 
              <div class="nhsuk-form-group">
-               <label class="nhsuk-label" for="email">
-                 Enter CCG code
+               <label class="nhsuk-label nhsuk-label__strong" for="email">
+                 Enter national code or area code
                </label>
+               <div class="nhsuk-hint" id="contact-hint">
+  Also known as lab code. For example, T34KH
+</div>
                <input class="nhsuk-input nhsuk-u-width-two-thirds" id="enterCCGName" name="enterCCGName" type="text">
              </div>
 
            </div>
+            
 
        </div>
      </fieldset>
