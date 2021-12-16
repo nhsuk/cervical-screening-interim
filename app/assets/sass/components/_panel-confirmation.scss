@@ -1,10 +1,12 @@
 // Panel - confirmation
 .nhsuk-panel--confirmation {
   margin-top: 0;
+  background-color: #005EB8 !important; 
 
   @include mq($from: desktop) {
     padding-bottom: nhsuk-spacing(8);
     padding-top: nhsuk-spacing(8);
+  
   }
 }
 
