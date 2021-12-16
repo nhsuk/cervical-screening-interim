@@ -29,33 +29,42 @@ NHS Cervical screening management system
 
 
     <form action="/v12/reports/pnl-responses/all-individual" method="post">
+ <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+        <span class="nhsuk-caption-m">
+               Prior Notifications List (PNL) Responses report
+             <span class="nhsuk-u-visually-hidden"> - </span>
+           </span>
+     Choose how to view prior notification list responses
+      </h1>
+
+      <p>
+        The prior notification list (PNL) shows all the patients in a GP practice who are due to be invited for screening and need reviewing.
+        </p>
+
 
     <div class="nhsuk-form-group">
 
      <fieldset class="nhsuk-fieldset">
-       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-         <h1 class="nhsuk-fieldset__heading">
-           <span class="nhsuk-caption-m">
-                  Prior Notifications List (PNL) Responses report
-                <span class="nhsuk-u-visually-hidden"> - </span>
-              </span>
-        Do you want to see responses for all GP practices or an individual GP practice?
-         </h1>
+       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+         <h3 class="nhsuk-u-margin-bottom-1">
+        How would you like to view the GP practice responses to the PNL?
+         </h3>
        </legend>
-
        <div class="nhsuk-radios">
 
          <div class="nhsuk-radios__item">
            <input class="nhsuk-radios__input" id="allIndividual" name="allIndividual" type="radio" value="allGPs">
            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-             All GP practices
+
+             View responses from all GP practices
+             
            </label>
          </div>
 
          <div class="nhsuk-radios__item">
            <input class="nhsuk-radios__input" id="allIndividual" name="allIndividual" type="radio" value="individualGPs">
            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-             An individual GP practice
+View responses from up to 9 individual GP practices
            </label>
          </div>
 
@@ -64,8 +73,7 @@ NHS Cervical screening management system
      </fieldset>
 
    </div>
-
-    <button class="nhsuk-button nhsuk-button--ers" type="submit">
+ <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-3" type="submit">
       Continue
     </button>
 </form>

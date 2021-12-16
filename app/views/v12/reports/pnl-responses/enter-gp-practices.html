@@ -41,12 +41,12 @@ NHS Cervical screening management system
                    Prior Notifications List (PNL) Responses report
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>
-            Add GP practices
+Enter GP practices to include in the report
           </h1>
         </legend>
 
         <div class="nhsuk-hint" id="contact-hint">
-          You can add up to 8 GP practices
+You can add up to 9 GP practices
         </div>
 
 
@@ -61,16 +61,18 @@ NHS Cervical screening management system
         <label class="nhsuk-label" for="example">
           Enter GP practice ODS code
         </label>
+<div class="nhsuk-hint" id="contact-hint">
+          For example, G1234567
+        </div>
         <input class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="nhs-num-txt" name="nhs-num-list" type="text" value="{{ data['nhs-num-list'] }}">
       </fieldset>
 
-        <a class="nhsuk-link nhsuk-u-margin-bottom-4" id="add-list-link" style="text-decoration: underline; font-size: 19px;">Add another GP practice</a>
+        <a class="nhsuk-link nhsuk-u-margin-bottom-4" id="add-list-link" style="text-decoration: underline; font-size: 19px;">Add another GP practice ODS code</a>
 
 
 
     </div>
-
-   <a class="nhsuk-button nhsuk-button--ers" href="/v12/reports/pnl-responses/enter-date">Continue</a>
+<a class="nhsuk-button nhsuk-button--ers" href="/v12/reports/pnl-responses/refine-report">Continue</a>
 
   </div>
 </div>
