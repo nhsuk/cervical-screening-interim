@@ -1,0 +1,5 @@
+Prior notification list (PNL) responses report 16-11-2021 to 16-12-2021
+GP name and ODS code,Number of patients added to PNL,Number of patients invited by system,Percentage of patients invited by system,Number of patients invited from PNL by user,Percentage of patients invited from PNL by user,Number of patients deferred from PNL by user,Percentage of patients deferred from PNL by user,Number of patients ceased from PNL by user,Percentage of patients ceased from PNL by user,Number deferred due to pregnancy,Number deferred due to recent test,Number deferred due to under care of colposcopy,Number deferred due to treatment relevant to screening
+B86044,1000,800,80%,150,15%,50,10%,,-,350,400,100,150
+A123456,850,600,75%,100,10%,100,7.5%,50,4%,356,57,345,145
+D583743,1100,900,80%,60,5%,30,2%,230,12%,234,754,156,56
