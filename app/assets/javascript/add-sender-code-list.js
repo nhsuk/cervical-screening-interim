@@ -17,9 +17,14 @@ senderCodeButton.addEventListener('click', addNumberTolist);
 //Function to save the nhs number and spit it back out above
 function addNumberTolist() {
   var number = senderCodeinput.value; // get value of whats inside the box
-  senderCodes.push(number) //adds it to the array
-  senderCodelist.innerHTML+="<li><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' data-nhsnumber='"+number+"'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+  var senderCodelength = senderCodes.push(number) //adds it to the array
+  senderCodelist.innerHTML+="<li id='sender-code-"+senderCodelength+"' name='sender-code-data' value='{{ data['sender-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+senderCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
   senderCodeinput.value="" // clears the box for the next input
   
+}
+
+function  removeNumberFromList(id) {
+  var senderCodeElement = document.getElementById('sender-code-'+id);
+  senderCodeElement.parentNode.removeChild(senderCodeElement);
 }
 

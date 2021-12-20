@@ -50,7 +50,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-tests" value="Has tests" aria-controls="expand-test-criteria" aria-expnded="false">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-tests" value="Has tests" {{ checked("test-criteria", "Has tests") }} aria-controls="expand-test-criteria" aria-expnded="false">
                 <label for="has-tests" class="nhsuk-label nhsuk-checkboxes__label">
                   Has tests
                 </label>
@@ -68,22 +68,22 @@ NHS Cervical screening management system
                     <div class="nhsuk-radios">
                 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="yes-patient-data" name="patient-data" type="radio" value="Yes" aria-describedby="yes-patient-data">
-                        <label class="nhsuk-label nhsuk-radios__label" for="yes-patient-data">
+                        <input class="nhsuk-radios__input" id="test-to-include-all" name="test-to-include" type="radio" value="All tests" {{ checked("test-to-include", "All tests") }} aria-describedby="test-to-include-all">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-all">
                           All tests
                         </label>
                       </div>
                 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No" aria-describedby="no-patient-data-hint">
-                        <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
+                        <input class="nhsuk-radios__input" id="test-to-include-recent" name="test-to-include" type="radio" value="Most recent test only" {{ checked("test-to-include", "Most recent test only") }} aria-describedby="test-to-include-recent">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-recent">
                           Most recent test only
                         </label>
                       </div>
 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No" aria-describedby="no-patient-data-hint">
-                        <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
+                        <input class="nhsuk-radios__input" id="test-to-include-first" name="test-to-include" type="radio" value="First test only" {{ checked("test-to-include", "First test only") }} aria-describedby="test-to-include-first">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-first">
                           First test only
                         </label>
                       </div>
@@ -94,7 +94,7 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-no-tests" value="Does not have tests">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-no-tests" value="Does not have tests" {{ checked("test-criteria", "Does not have tests") }}>
                 <label for="has-no-test" class="nhsuk-label nhsuk-checkboxes__label">
                   Does not have tests
                 </label>

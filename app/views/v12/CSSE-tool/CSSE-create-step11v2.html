@@ -37,33 +37,6 @@ NHS Cervical screening management system
     <form action="CSSE-create-step12" method="post">
       <div class="nhsuk-form-group">
 
-        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="review-report">
-          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-              Review report
-            </h1>
-          </legend>
-
-          <p class="nhsuk-body">
-            You can check the sections you have filled in and make changes
-          </p>
-
-          <ul class="nhsuk-list">
-            <li><a href="CSSE-create-step1" class="nhsuk-link">Enquiry name</a></li>
-            <li><a href="CSSE-create-step2" class="nhsuk-link">Define data type</a></li>
-            <li><a href="CSSE-create-step3" class="nhsuk-link">Define test</a></li>
-            <li><a href="CSSE-create-step4" class="nhsuk-link">Define test parameters</a></li>
-            <li><a href="CSSE-create-step5" class="nhsuk-link">Define sender details</a></li>
-            <li><a href="CSSE-create-step6" class="nhsuk-link">Define test result details</a></li>
-            <li><a href="CSSE-create-step7" class="nhsuk-link">Define participant and episode status</a></li>
-            <li><a href="CSSE-create-step8" class="nhsuk-link">Define location</a></li>
-            <li><a href="CSSE-create-step9" class="nhsuk-link">Define patient details</a></li>
-            <li><a href="CSSE-create-step10" class="nhsuk-link">Define communication details</a></li>
-          </ul>
-      
-
-        </fieldset>-->
-
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="review-report">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
@@ -79,7 +52,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="enquiry-name">
 
             <h2 class="nhsuk-heading-m">
-              Step 1: Enquiry name
+              Enquiry name
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -87,12 +60,12 @@ NHS Cervical screening management system
                 Name
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['create-name'] }}
+                Name the user provided
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step1">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -106,7 +79,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-data-type">
 
             <h2 class="nhsuk-heading-m">
-              Step 2: Define data type
+              Define data type
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -114,12 +87,12 @@ NHS Cervical screening management system
                 Include patient data
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['patient-data'] }}
+                Yes, include patient data
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step2">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> include patient data</span>
                 </a>
           
@@ -132,12 +105,12 @@ NHS Cervical screening management system
                 Include test data
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['test-data'] }}
+                Yes, include test data
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step2">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> include test data</span>
                 </a>
           
@@ -151,7 +124,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-test">
 
             <h2 class="nhsuk-heading-m">
-              Step 3: Define test
+              Define test
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -159,19 +132,12 @@ NHS Cervical screening management system
                 Test criteria
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['test-criteria'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>No criteria set</li>
-              {% endfor %}
-                <li>{{ data['test-to-include'] }}</li>
-                </ul>
+                Has test - first test only <br>Does not have test
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step3">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -186,7 +152,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-test-parameters">
 
             <h2 class="nhsuk-heading-m">
-              Step 4: Define test parameters
+              Define test parameters
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -194,19 +160,12 @@ NHS Cervical screening management system
                 Result type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['result-type'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-
+                Self-sample results<br>Not self-sample results
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step4">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -219,14 +178,7 @@ NHS Cervical screening management system
                 HPV primary status
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['hpv-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-
+                HPV primary<br>Not HPV primary
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -245,7 +197,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-sender-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 5: Define sender details
+              Define sender details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -253,19 +205,12 @@ NHS Cervical screening management system
                 National code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['national-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>60234, 61558</li>
-              {% endfor %}
-                </ul>
-                {{ data['national-code-data'] }}
+                61234, 61244
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step5">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -278,19 +223,12 @@ NHS Cervical screening management system
                 Source code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['source-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>H, X, N</li>
-              {% endfor %}
-                </ul>
-                {{ data['source-code-data'] }}
+                H, X, N
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step5">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -303,19 +241,12 @@ NHS Cervical screening management system
                 Sender code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['sender-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>A86020, A8640</li>
-              {% endfor %}
-                </ul>
-                {{ data['sender-code-data'] }}
+                A86020, A8640
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step5">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -328,14 +259,7 @@ NHS Cervical screening management system
                 Source type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['source-type-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>1, 4, 7</li>
-              {% endfor %}
-                </ul>
-                {{ data['source-type-data'] }}
+                1, 4, 7
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -354,7 +278,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-test-result-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 6: Define test result details
+              Define test result details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -362,16 +286,12 @@ NHS Cervical screening management system
                 Date type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                <li>{{ data['date-type']}}</li>
-                <li>{{ data['from-test-taken-date-day'] }}{{ data['from-prev-noti-date-day'] }}{{ data['from-prev-invi-date-day'] }}{{ data['from-test-inp-date-day'] }}-{{ data['from-test-taken-date-month'] }}{{ data['from-prev-noti-date-month'] }}{{ data['from-prev-invi-date-month'] }}{{ data['from-test-inp-date-month'] }}-{{ data['from-test-taken-date-year'] }}{{ data['from-prev-noti-date-year'] }}{{ data['from-prev-invi-date-year'] }}{{ data['from-test-inp-date-year'] }} - {{ data['to-test-taken-date-day'] }}{{ data['to-prev-noti-date-day'] }}{{ data['to-prev-invi-date-day'] }}{{ data['to-test-inp-date-day'] }}-{{ data['to-test-taken-date-month'] }}{{ data['to-prev-noti-date-month'] }}{{ data['to-prev-invi-date-month'] }}{{ data['to-test-inp-date-month'] }}-{{ data['to-test-taken-date-year'] }}{{ data['to-prev-noti-date-year'] }}{{ data['to-prev-invi-date-year'] }}{{ data['to-test-inp-date-year'] }}</li>
-                <li></li>
-                </ul>
+                Test taken date<br>15 March 2021 - 16 September 2021
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -384,15 +304,12 @@ NHS Cervical screening management system
                 Slide number range
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  <li>{{ data['slide-num-year'] }} {{ data['slide-num-num'] }} - {{ data['slide-num-year-to'] }} {{ data['slide-num-num-to'] }}</li>
-                  <li></li>
-                  </ul>
+                18 0100011 - 19 0100011
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -405,19 +322,12 @@ NHS Cervical screening management system
                 Result code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['result-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>X0A, X</li>
-              {% endfor %}
-                </ul>
-                {{ data['result-code-data'] }}
+                X0A, X
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -431,7 +341,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-recall-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 7: Define recall details
+              Define recall details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -439,19 +349,12 @@ NHS Cervical screening management system
                 Participant status
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['current-participant-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-
+                Called, Routine, Suspended
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step7">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -464,19 +367,12 @@ NHS Cervical screening management system
                 Episode status
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['current-episode-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-
+                Invited, Reminded, Non responder
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step7">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -490,7 +386,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-location-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 8: Define location details
+              Define location details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -498,19 +394,12 @@ NHS Cervical screening management system
                 GP practice code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['gp-practice-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>A1000000, A110100</li>
-              {% endfor %}
-                </ul>
-                {{ data['gp-code-data'] }}
+                A1000000, A110100
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step8">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -523,19 +412,12 @@ NHS Cervical screening management system
                 Patient post code
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['post-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>LS1, LS25</li>
-              {% endfor %}
-                </ul>
-                {{ data['post-code-data'] }}
+                LS1, LS25
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step8">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -549,7 +431,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-patient-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 9: Define patient details
+              Define patient details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -557,65 +439,30 @@ NHS Cervical screening management system
                 Registration status
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['patient-reg'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
+                Active<br>Inactive
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step9">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
               </dd>
           
             </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Cervix status
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['cervix-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step9">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
                 Data type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  <li>{{ data['patient-date-type'] }} {{ data['registered-date-from-day'] }}{{ data['deducted-date-from-day'] }}-{{ data['registered-date-from-month'] }}{{ data['deducted-date-from-month'] }}-{{ data['registered-date-from-year'] }}{{ data['deducted-date-from-year'] }} - {{ data['registered-date-to-day'] }}{{ data['deducted-date-to-day'] }}-{{ data['registered-date-to-month'] }}{{ data['deducted-date-to-month'] }}-{{ data['registered-date-to-year'] }}{{ data['deducted-date-to-year'] }}</li>
-                  <li></li>
-                  </ul>
+                Registered date<br>17 March 2021 - 10 September 2021
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step9">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -628,7 +475,7 @@ NHS Cervical screening management system
                 Age range
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['age-from-input'] }} - {{ data['age-to-input'] }}
+                25 - 57
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -646,15 +493,12 @@ NHS Cervical screening management system
                 Date type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  <li>{{ data['recall-date-type'] }} {{ data['next-test-date-from-day'] }}{{ data['last-noti-date-from-day'] }}{{ data['last-invi-date-from-day'] }}-{{ data['next-test-date-from-month'] }}{{ data['last-noti-date-from-month'] }}{{ data['last-invi-date-from-month'] }}-{{ data['next-test-date-from-year'] }}{{ data['last-noti-date-from-year'] }}{{ data['last-invi-date-from-year'] }} - {{ data['next-test-date-to-day'] }}{{ data['last-noti-date-to-day'] }}{{ data['last-invi-date-to-day'] }}-{{ data['next-test-date-to-month'] }}{{ data['last-noti-date-to-month'] }}{{ data['last-invi-date-to-month'] }}-{{ data['next-test-date-to-year'] }}{{ data['last-noti-date-to-year'] }}{{ data['last-invi-date-to-year'] }}</li>
-                  <li></li>
-                  </ul>
+                Next test due date<br>19 March 2008 - 10 November 201
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step9">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> name</span>
                 </a>
           
@@ -669,40 +513,15 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-communication-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 10: Define communication details
+              Define communication details
             </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Notification type
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  <li>{{ data['comms-notification-type'] }}:</li>
-                  {% for item in data['comms-recall-type'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>No criteria set</li>
-                  {% endfor %}
-                </ul>
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step10">
-                  Change<span class="nhsuk-u-visually-hidden"> notification type</span>
-                </a>
-          
-              </dd>
-          
-            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
                 Notification date range
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['comms-noti-date-from-day'] }}-{{ data['comms-noti-date-from-month'] }}-{{ data['comms-noti-date-from-year'] }} - {{ data['comms-noti-date-to-day'] }}-{{ data['comms-noti-date-to-month'] }}-{{ data['comms-noti-date-to-year'] }}
+                02 April 2021 - 10 November 2021
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -717,22 +536,33 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Letter code
+                Notification type
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['letter-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>1QR, 0QS</li>
-              {% endfor %}
-                </ul>
-                {{ data['letter-code-data'] }}
+                Prior notifications list - Called, Routine,
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step10">
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> notification type</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Letter code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+               1QR, 0QS
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> letter code</span>
                 </a>
           
