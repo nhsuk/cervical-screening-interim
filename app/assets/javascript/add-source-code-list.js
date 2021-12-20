@@ -17,9 +17,14 @@ sourceCodeButton.addEventListener('click', addNumberTolist);
 //Function to save the nhs number and spit it back out above
 function addNumberTolist() {
   var number = sourceCodeinput.value; // get value of whats inside the box
-  sourceCodes.push(number) //adds it to the array
-  sourceCodelist.innerHTML+="<li><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' data-nhsnumber='"+number+"'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+  var sourceCodelength = sourceCodes.push(number) //adds it to the array
+  sourceCodelist.innerHTML+="<li id='source-code-"+sourceCodelength+"' name='source-code-data' value='{{ data['source-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+sourceCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
   sourceCodeinput.value="" // clears the box for the next input
   
+}
+
+function  removeNumberFromList(id) {
+  var sourceCodeElement = document.getElementById('source-code-'+id);
+  sourceCodeElement.parentNode.removeChild(sourceCodeElement);
 }
 

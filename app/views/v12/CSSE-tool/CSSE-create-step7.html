@@ -55,42 +55,42 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-called" id="current-called" value="Called">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-called" value="Called" {{ checked("current-participant-status", "Called") }}>
                 <label for="current-called" class="nhsuk-label nhsuk-checkboxes__label">
                   Called
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-routine" id="current-routine" value="Routine">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-routine" value="Routine" {{ checked("current-participant-status", "Routine") }}>
                 <label for="current-routine" class="nhsuk-label nhsuk-checkboxes__label">
                   Routine
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-suspended" id="current-suspended" value="Suspended">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-suspended" value="Suspended" {{ checked("current-participant-status", "Suspended") }}>
                 <label for="current-suspended" class="nhsuk-label nhsuk-checkboxes__label">
                   Suspended
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-repeat-advised" id="current-repeat-advised" value="Repeat advised">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-repeat-advised" value="Repeat advised" {{ checked("current-participant-status", "Repeat advised") }}>
                 <label for="current-repeat-advised" class="nhsuk-label nhsuk-checkboxes__label">
                   Repeat advised
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-inadequate" id="current-inadequate" value="Inadequate">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-inadequate" value="Inadequate" {{ checked("current-participant-status", "Inadequate") }}>
                 <label for="current-inadequate" class="nhsuk-label nhsuk-checkboxes__label">
                   Inadequate
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-routine" id="current-routine" value="Routine">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-cancelled" value="Cancelled" {{ checked("current-participant-status", "Cancelled") }}>
                 <label for="current-routine" class="nhsuk-label nhsuk-checkboxes__label">
                   Cancelled
                 </label>
@@ -223,35 +223,35 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-not-due" id="current-not-due" value="Not due yet (CSMS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-not-due" value="Not due yet" {{ checked("current-episode-status", "Not due yet") }}>
                 <label for="current-not-due" class="nhsuk-label nhsuk-checkboxes__label">
                   Not due yet
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-waiting-invite" id="current-waiting-invite" value="Waiting to be sent invite (CSMS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="Waiting to be sent invite" {{ checked("current-episode-status", "Waiting to be sent invite") }}>
                 <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
                   Waiting to be sent invite
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-invited" id="current-invited" value="Invited (CSMS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-invited" value="Invited" {{ checked("current-episode-status", "Invited") }}>
                 <label for="current-invited" class="nhsuk-label nhsuk-checkboxes__label">
                   Invited
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-reminded" id="current-reminded" value="Reminded (CSMS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-reminded" value="Reminded" {{ checked("current-episode-status", "Reminded") }}>
                 <label for="current-reminded" class="nhsuk-label nhsuk-checkboxes__label">
                   Reminded
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-nonresponder" id="current-nonresponder" value="Non responder (CSMS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-nonresponder" value="Non responder" {{ checked("current-episode-status", "Non responder") }}>
                 <label for="current-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
                   Non responder
                 </label>

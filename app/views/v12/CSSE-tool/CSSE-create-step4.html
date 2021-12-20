@@ -50,7 +50,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="self-sample" value="Self-sample results">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="self-sample" value="Self-sample results" {{ checked("result-type", "Self-sample results") }}>
                 <label for="self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Self-sample results
                 </label>
@@ -58,7 +58,7 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="not-self-sample" value="Not self-sample results">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="not-self-sample" value="Not self-sample results" {{ checked("result-type", "Not self-sample results") }}>
                 <label for="not-self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Not self-sample results
                 </label>
@@ -82,7 +82,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="hpv-primary" value="HPV primary">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="hpv-primary" value="HPV primary" {{ checked("hpv-status", "HPV primary") }}>
                 <label for="hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   HPV primary
                 </label>
@@ -90,7 +90,7 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="not-hpv-primary" value="Not HPV primary">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="not-hpv-primary" value="Not HPV primary" {{ checked("hpv-status", "Not HPV primary") }}>
                 <label for="not-hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   Not HPV primary
                 </label>

@@ -51,16 +51,16 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="active" id="active" value="Active">
-                <label for="active" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Active" {{ checked("patient-reg", "Active") }}>
+                <label for="patient-reg" class="nhsuk-label nhsuk-checkboxes__label">
                   Active
                 </label>
               </div>
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="deducted" id="deducted" value="Deductive">
-                <label for="deducted" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Deducted" {{ checked("patient-reg", "Deducted") }}>
+                <label for="patient-reg" class="nhsuk-label nhsuk-checkboxes__label">
                   Deducted
                 </label>
               </div>
@@ -83,7 +83,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="has-cervix" id="has-cervix" value="Patient has cervix">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="cervix-status" id="has-cervix" value="Patient has cervix" {{ checked("cervix-status", "Patient has cervix") }}>
                 <label for="has-cervix" class="nhsuk-label nhsuk-checkboxes__label">
                   Patient has cervix
                 </label>
@@ -91,8 +91,8 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="no-cervix" id="no-cervix" value="Patient doesn't have cervix">
-                <label for="not-hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="cervix-status" id="no-cervix" value="Patient doesn't have cervix" {{ checked("cervix-status", "Patient doesn't have cervix") }}>
+                <label for="no-cervix" class="nhsuk-label nhsuk-checkboxes__label">
                   Patient doesn't have cervix
                 </label>
               </div>
@@ -221,7 +221,14 @@ NHS Cervical screening management system
               </div>-->
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="registered-date" value="Registered date" aria-controls="expand-registered-date" aria-expnded="false">
+                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="none" value="None" checked aria-controls="expand-registered-date" aria-expnded="false">
+                <label for="none" class="nhsuk-label nhsuk-radios__label">
+                  None
+                </label>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="registered-date" value="Registered date" {{ checked("patient-date-type", "Registered date") }} aria-controls="expand-registered-date" aria-expnded="false">
                 <label for="registered-date" class="nhsuk-label nhsuk-radios__label">
                   Registered date
                 </label>
@@ -254,7 +261,7 @@ NHS Cervical screening management system
                               <label for="registered-date-from-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-from-day" name="registered-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-from-day" name="registered-date-from-day" type="text" value="{{ data['registered-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -263,7 +270,7 @@ NHS Cervical screening management system
                              <label for="registered-date-from-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-from-month" name="registered-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-from-month" name="registered-date-from-month" type="text" value="{{ data['registered-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -272,7 +279,7 @@ NHS Cervical screening management system
                              <label for="registered-date-from-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="registered-date-from-year" name="registered-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="registered-date-from-year" name="registered-date-from-year" type="text" value="{{ data['registered-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -296,7 +303,7 @@ NHS Cervical screening management system
                               <label for="registered-date-to-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-to-day" name="registered-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-to-day" name="registered-date-to-day" type="text" value="{{ data['registered-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -305,7 +312,7 @@ NHS Cervical screening management system
                              <label for="registered-date-to-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-to-month" name="registered-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="registered-date-to-month" name="registered-date-to-month" type="text" value="{{ data['registered-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -314,7 +321,7 @@ NHS Cervical screening management system
                              <label for="registered-date-to-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="registered-date-to-year" name="registered-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="registered-date-to-year" name="registered-date-to-year" type="text" value="{{ data['registered-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -330,7 +337,7 @@ NHS Cervical screening management system
               </div>
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="deducted-date" value="Deducted date" aria-controls="expand-deducted-date" aria-expnded="false">
+                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="deducted-date" value="Deducted date" {{ checked("patient-date-type", "Deducted date") }} aria-controls="expand-deducted-date" aria-expnded="false">
                 <label for="deducted-date" class="nhsuk-label nhsuk-radios__label">
                   Deducted date
                 </label>
@@ -363,7 +370,7 @@ NHS Cervical screening management system
                               <label for="deducted-date-from-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-from-day" name="deducted-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-from-day" name="deducted-date-from-day" type="text" value="{{ data['deducted-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -372,7 +379,7 @@ NHS Cervical screening management system
                              <label for="deducted-date-from-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-from-month" name="deducted-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-from-month" name="deducted-date-from-month" type="text" value="{{ data['deducted-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -381,7 +388,7 @@ NHS Cervical screening management system
                              <label for="deducted-date-from-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="deducted-date-from-year" name="deducted-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="deducted-date-from-year" name="deducted-date-from-year" type="text" value="{{ data['deducted-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -405,7 +412,7 @@ NHS Cervical screening management system
                               <label for="deducted-date-to-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-to-day" name="deducted-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-to-day" name="deducted-date-to-day" type="text" value="{{ data['deducted-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -414,7 +421,7 @@ NHS Cervical screening management system
                              <label for="deducted-date-to-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-to-month" name="deducted-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="deducted-date-to-month" name="deducted-date-to-month" type="text" value="{{ data['deducted-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -423,7 +430,7 @@ NHS Cervical screening management system
                              <label for="deducted-date-to-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="deducted-date-to-year" name="deducted-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="deducted-date-to-year" name="deducted-date-to-year" type="text" value="{{ data['deducted-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -443,7 +450,7 @@ NHS Cervical screening management system
               
           </fieldset>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="age-range">
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="age-range">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Do you want to search by an age range?
@@ -540,6 +547,68 @@ NHS Cervical screening management system
   
             </div>
               
+          </fieldset>-->
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body">
+                What age range would like to include?
+              </p>
+            </legend>
+
+            <div class="nhsuk-grid-row">
+
+              <div class="nhsuk-grid-column-one-third">
+                <div class="nhs-date-input" id="age-from">
+
+                  <label for="age-from" class="nhsuk-label nhsuk-label__strong">
+                    Enter age from
+                  </label>
+          
+                   <div class="nhsuk-hint" for="age-from">
+                    For example, 25
+                   </div>
+          
+                   <div class="nhsuk-date-input__item">
+                     <div class="nhsuk-form-group">
+                      <label for="age-from-input" class="nhsuk-label">
+                        
+                      </label>
+                      <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="age-from-input" name="age-from-input" type="text" value="{{ data['age-from-input'] }}" pattern="[0-9]*" inputmode="numeric">
+                     </div>
+                   </div>
+          
+                 </div>
+              </div>
+
+              <div class="nhsuk-grid-column-one-third">
+
+                <div class="nhs-date-input" id="age-to">
+
+                  <label for="age-to" class="nhsuk-label nhsuk-label__strong">
+                    Enter age to
+                  </label>
+          
+                   <div class="nhsuk-hint" for="age-to">
+                    Leave blank to search for 1 age
+                   </div>
+          
+                   <div class="nhsuk-date-input__item">
+                     <div class="nhsuk-form-group">
+                      <label for="age-to-input" class="nhsuk-label">
+                        
+                      </label>
+                      <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="age-to-input" name="age-to-input" type="text" value="{{ data['age-to-input'] }}" pattern="[0-9]*" inputmode="numeric">
+                     </div>
+                   </div>
+          
+                 </div>
+              </div>
+
+
+            </div>
+        
+
           </fieldset>
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="recall-date-type">
@@ -552,7 +621,14 @@ NHS Cervical screening management system
             <div class="nhsuk-radios nhsuk-radios--conditional">
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="next-test-date" value="Next test due date" aria-controls="expand-next-test-date" aria-expnded="false">
+                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="none" value="None" checked aria-controls="expand-test-taken-date" aria-expnded="false">
+                <label for="none" class="nhsuk-label nhsuk-radios__label">
+                  None
+                </label>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="next-test-date" value="Next test due date" {{ checked("recall-date-type", "Next test due date") }} aria-controls="expand-next-test-date" aria-expnded="false">
                 <label for="next-test-date" class="nhsuk-label nhsuk-radios__label">
                   Next test due date
                 </label>
@@ -585,7 +661,7 @@ NHS Cervical screening management system
                               <label for="next-test-date-from-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-from-day" name="next-test-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-from-day" name="next-test-date-from-day" type="text" value="{{ data['next-test-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -594,7 +670,7 @@ NHS Cervical screening management system
                              <label for="next-test-date-from-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-from-month" name="next-test-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-from-month" name="next-test-date-from-month" type="text" value="{{ data['next-test-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -603,7 +679,7 @@ NHS Cervical screening management system
                              <label for="next-test-date-from-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="next-test-date-from-year" name="next-test-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="next-test-date-from-year" name="next-test-date-from-year" type="text" value="{{ data['next-test-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -627,7 +703,7 @@ NHS Cervical screening management system
                               <label for="next-test-date-to-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-to-day" name="next-test-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-to-day" name="next-test-date-to-day" type="text" value="{{ data['next-test-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -636,7 +712,7 @@ NHS Cervical screening management system
                              <label for="next-test-date-to-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-to-month" name="next-test-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="next-test-date-to-month" name="next-test-date-to-month" type="text" value="{{ data['next-test-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -645,7 +721,7 @@ NHS Cervical screening management system
                              <label for="next-test-date-to-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="next-test-date-to-year" name="next-test-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="next-test-date-to-year" name="next-test-date-to-year" type="text" value="{{ data['next-test-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -661,7 +737,7 @@ NHS Cervical screening management system
               </div>
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="last-noti-date" value="Last notification sent date" aria-controls="expand-last-noti-date" aria-expnded="false">
+                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="last-noti-date" value="Last notification sent date" {{ checked("recall-date-type", "Last notification sent date") }} aria-controls="expand-last-noti-date" aria-expnded="false">
                 <label for="last-noti-date" class="nhsuk-label nhsuk-radios__label">
                   Last notification sent date
                 </label>
@@ -694,7 +770,7 @@ NHS Cervical screening management system
                               <label for="last-noti-date-from-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-from-day" name="last-noti-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-from-day" name="last-noti-date-from-day" type="text" value="{{ data['last-noti-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -703,7 +779,7 @@ NHS Cervical screening management system
                              <label for="last-noti-date-from-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-from-month" name="last-noti-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-from-month" name="last-noti-date-from-month" type="text" value="{{ data['last-noti-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -712,7 +788,7 @@ NHS Cervical screening management system
                              <label for="last-noti-date-from-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-noti-date-from-year" name="last-noti-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-noti-date-from-year" name="last-noti-date-from-year" type="text" value="{{ data['last-noti-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -736,7 +812,7 @@ NHS Cervical screening management system
                               <label for="last-noti-date-to-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-to-day" name="last-noti-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-to-day" name="last-noti-date-to-day" type="text" value="{{ data['last-noti-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -745,7 +821,7 @@ NHS Cervical screening management system
                              <label for="last-noti-date-to-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-to-month" name="last-noti-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-noti-date-to-month" name="last-noti-date-to-month" type="text" value="{{ data['last-noti-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -754,7 +830,7 @@ NHS Cervical screening management system
                              <label for="last-noti-date-to-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-noti-date-to-year" name="last-noti-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-noti-date-to-year" name="last-noti-date-to-year" type="text" value="{{ data['last-noti-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -770,7 +846,7 @@ NHS Cervical screening management system
               </div>
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="last-invi-date" value="Last invitation sent date" aria-controls="expand-last-invi-date" aria-expnded="false">
+                <input type="radio" class="nhsuk-radios__input" name="recall-date-type" id="last-invi-date" value="Last invitation sent date" {{ checked("recall-date-type", "Last invitation sent date") }} aria-controls="expand-last-invi-date" aria-expnded="false">
                 <label for="last-invi-date" class="nhsuk-label nhsuk-radios__label">
                   Last invitation sent date
                 </label>
@@ -803,7 +879,7 @@ NHS Cervical screening management system
                               <label for="last-invi-date-from-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-from-day" name="last-invi-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-from-day" name="last-invi-date-from-day" type="text" value="{{ data['last-invi-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -812,7 +888,7 @@ NHS Cervical screening management system
                              <label for="last-invi-date-from-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-from-month" name="last-invi-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-from-month" name="last-invi-date-from-month" type="text" value="{{ data['last-invi-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -821,7 +897,7 @@ NHS Cervical screening management system
                              <label for="last-invi-date-from-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-invi-date-from-year" name="last-invi-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-invi-date-from-year" name="last-invi-date-from-year" type="text" value="{{ data['last-invi-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -845,7 +921,7 @@ NHS Cervical screening management system
                               <label for="last-invi-date-to-day" class="nhsuk-label">
                                 Day
                               </label>
-                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-to-day" name="last-invi-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                              <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-to-day" name="last-invi-date-to-day" type="text" value="{{ data['last-invi-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
                              </div>
                            </div>
                   
@@ -854,7 +930,7 @@ NHS Cervical screening management system
                              <label for="last-invi-date-to-month" class="nhsuk-label">
                               Month
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-to-month" name="last-invi-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="last-invi-date-to-month" name="last-invi-date-to-month" type="text" value="{{ data['last-invi-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   
@@ -863,7 +939,7 @@ NHS Cervical screening management system
                              <label for="last-invi-date-to-year" class="nhsuk-label">
                               Year
                              </label>
-                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-invi-date-to-year" name="last-invi-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                             <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="last-invi-date-to-year" name="last-invi-date-to-year" type="text" value="{{ data['last-invi-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
                             </div>
                           </div>
                   

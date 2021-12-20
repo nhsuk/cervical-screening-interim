@@ -40,103 +40,6 @@ NHS Cervical screening management system
     <form action="CSSE-create-step11" method="post">
       <div class="nhsuk-form-group">
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
-          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <p class="nhsuk-body">
-              Add notification period date range
-            </p>
-          </legend>
-
-          <div class="nhsuk-grid-row">
-
-            <div class="nhsuk-grid-column-one-half">
-              <div class="nhs-date-input" id="comms-noti-date-from">
-
-                <label for="comms-noti-date-from" class="nhsuk-label nhsuk-label__strong">
-                  Enter date from
-                </label>
-        
-                 <div class="nhsuk-hint" for="comms-noti-date-from">
-                  For example, 15 3 1998
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                   <div class="nhsuk-form-group">
-                    <label for="comms-noti-date-from-day" class="nhsuk-label">
-                      Day
-                    </label>
-                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-day" name="comms-noti-date-from-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                   </div>
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-from-month" class="nhsuk-label">
-                    Month
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-month" name="comms-noti-date-from-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                  </div>
-                </div>
-        
-                <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-from-year" class="nhsuk-label">
-                    Year
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-year" name="comms-noti-date-from-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                  </div>
-                </div>
-        
-               </div>
-            </div>
-
-            <div class="nhsuk-grid-column-one-half">
-
-              <div class="nhs-date-input" id="comms-noti-date-to">
-
-                <label for="comms-noti-date-to" class="nhsuk-label nhsuk-label__strong">
-                  Enter date to
-                </label>
-        
-                 <div class="nhsuk-hint" for="comms-noti-date-to">
-                  Leave blank to search for 1 day
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                   <div class="nhsuk-form-group">
-                    <label for="comms-noti-date-to-day" class="nhsuk-label">
-                      Day
-                    </label>
-                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-day" name="comms-noti-date-to-day" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                   </div>
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-to-month" class="nhsuk-label">
-                    Month
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-month" name="comms-noti-date-to-month" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                  </div>
-                </div>
-        
-                <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-to-year" class="nhsuk-label">
-                    Year
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-year" name="comms-noti-date-to-year" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
-                  </div>
-                </div>
-        
-               </div>
-            </div>
-
-
-          </div>
-      
-
-        </fieldset>
 
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-notification-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -148,7 +51,14 @@ NHS Cervical screening management system
           <div class="nhsuk-radios nhsuk-radios--conditional">
             
             <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" aria-controls="expand-prior-noti-list" aria-expnded="false">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="none" value="None" checked aria-controls="expand-notification-list" aria-expnded="false">
+              <label for="none" class="nhsuk-label nhsuk-radios__label">
+                None
+              </label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" {{ checked("comms-notification-type", "Prior notification list") }} aria-controls="expand-prior-noti-list" aria-expnded="false">
               <label for="comms-prior-noti-list" class="nhsuk-label nhsuk-radios__label">
                 Prior notification list
               </label>
@@ -174,42 +84,42 @@ NHS Cervical screening management system
       
                   <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-called" id="comms-called" value="Called">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-called" value="Called" {{ checked("comms-recall-type", "Called") }}>
                       <label for="comms-called" class="nhsuk-label nhsuk-checkboxes__label">
                         Called
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-routine" id="comms-routine" value="Routine">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-routine" value="Routine" {{ checked("comms-recall-type", "Routine") }}>
                       <label for="comms-routine" class="nhsuk-label nhsuk-checkboxes__label">
                         Routine
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-suspended" id="comms-suspended" value="Suspended">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-suspended" value="Suspended" {{ checked("comms-recall-type", "Suspended") }}>
                       <label for="comms-suspended" class="nhsuk-label nhsuk-checkboxes__label">
                         Suspended
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-repeat-advised" id="comms-repeat-advised" value="Repeat advised">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-repeat-advised" value="Repeat advised" {{ checked("comms-recall-type", "Repeat advised") }}>
                       <label for="comms-repeat-advised" class="nhsuk-label nhsuk-checkboxes__label">
                         Repeat advised
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-inadequate" id="comms-inadequate" value="Inadequate">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-inadequate" value="Inadequate" {{ checked("comms-recall-type", "Inadequate") }}>
                       <label for="comms-inadequate" class="nhsuk-label nhsuk-checkboxes__label">
                         Inadequate
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-cancelled" id="comms-cancelled" value="Cancelled">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-cancelled" value="Cancelled" {{ checked("comms-recall-type", "Cancelled") }}>
                       <label for="comms-cancelled" class="nhsuk-label nhsuk-checkboxes__label">
                         Cancelled
                       </label>
@@ -224,7 +134,7 @@ NHS Cervical screening management system
             </div>
 
             <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" aria-controls="expand-invitation" aria-expnded="false">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" {{ checked("comms-notification-type", "Invitation") }} aria-controls="expand-invitation" aria-expnded="false">
               <label for="comms-invitation" class="nhsuk-label nhsuk-radios__label">
                 Invitation
               </label>
@@ -246,28 +156,28 @@ NHS Cervical screening management system
       
                   <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-invitation" id="comms-invitation" value="Invitation">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-invitation" value="Invitation" {{ checked("comms-recall-type", "Invitation") }}>
                       <label for="comms-invitation" class="nhsuk-label nhsuk-checkboxes__label">
                         Invitation
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-reminder" id="comms-reminder" value="Reminder">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-reminder" value="Reminder" {{ checked("comms-recall-type", "Reminder") }}>
                       <label for="comms-reminder" class="nhsuk-label nhsuk-checkboxes__label">
                         Reminder
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-nonresponder" id="comms-nonresponder" value="Non responder">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-nonresponder" value="Non responder" {{ checked("comms-recall-type", "Non responder") }}>
                       <label for="comms-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
                         Non responder
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-district-list" id="comms-district-list" value="District list">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-district-list" value="District list" {{ checked("comms-recall-type", "District list") }}>
                       <label for="comms-district-list" class="nhsuk-label nhsuk-checkboxes__label">
                         District list
                       </label>
@@ -282,7 +192,7 @@ NHS Cervical screening management system
             </div>
 
             <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" aria-controls="expand-results" aria-expnded="false">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" {{ checked("comms-notification-type", "Results") }} aria-controls="expand-results" aria-expnded="false">
               <label for="comms-results" class="nhsuk-label nhsuk-radios__label">
                 Results
               </label>
@@ -304,21 +214,21 @@ NHS Cervical screening management system
       
                   <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-result-only" id="comms-result-only" value="Results only">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-only" value="Results only" {{ checked("comms-recall-type", "Results only") }}>
                       <label for="comms-result-only" class="nhsuk-label nhsuk-checkboxes__label">
                         Results only
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-results-recall" id="comms-results-recall" value="Results with recall">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-results-recall" value="Results with recall" {{ checked("comms-recall-type", "Results with recall") }}>
                       <label for="comms-results-recall" class="nhsuk-label nhsuk-checkboxes__label">
                         Results with recall
                       </label>
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-result-print" id="comms-result-print" value="Result print summary">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-print" value="Result print summary" {{ checked("comms-recall-type", "Result print summary") }}>
                       <label for="comms-result-print" class="nhsuk-label nhsuk-checkboxes__label">
                         Result print summary
                       </label>
@@ -340,6 +250,104 @@ NHS Cervical screening management system
             
         </fieldset>
 
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body">
+              Add notification period date range
+            </p>
+          </legend>
+
+          <div class="nhsuk-grid-row">
+
+            <div class="nhsuk-grid-column-one-half">
+              <div class="nhs-date-input" id="comms-noti-date-from">
+
+                <label for="comms-noti-date-from" class="nhsuk-label nhsuk-label__strong">
+                  Enter date from
+                </label>
+        
+                 <div class="nhsuk-hint" for="comms-noti-date-from">
+                  For example, 15 3 1998
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                   <div class="nhsuk-form-group">
+                    <label for="comms-noti-date-from-day" class="nhsuk-label">
+                      Day
+                    </label>
+                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-day" name="comms-noti-date-from-day" type="text" value="{{ data['comms-noti-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
+                   </div>
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-from-month" class="nhsuk-label">
+                    Month
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-month" name="comms-noti-date-from-month" type="text" value="{{ data['comms-noti-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+                <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-from-year" class="nhsuk-label">
+                    Year
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-year" name="comms-noti-date-from-year" type="text" value="{{ data['comms-noti-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+               </div>
+            </div>
+
+            <div class="nhsuk-grid-column-one-half">
+
+              <div class="nhs-date-input" id="comms-noti-date-to">
+
+                <label for="comms-noti-date-to" class="nhsuk-label nhsuk-label__strong">
+                  Enter date to
+                </label>
+        
+                 <div class="nhsuk-hint" for="comms-noti-date-to">
+                  Leave blank to search for 1 day
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                   <div class="nhsuk-form-group">
+                    <label for="comms-noti-date-to-day" class="nhsuk-label">
+                      Day
+                    </label>
+                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-day" name="comms-noti-date-to-day" type="text" value="{{ data['comms-noti-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
+                   </div>
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-to-month" class="nhsuk-label">
+                    Month
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-month" name="comms-noti-date-to-month" type="text" value="{{ data['comms-noti-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+                <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-to-year" class="nhsuk-label">
+                    Year
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-year" name="comms-noti-date-to-year" type="text" value="{{ data['comms-noti-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+               </div>
+            </div>
+
+
+          </div>
+      
+
+        </fieldset>
+
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="letter-code">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body nhsuk-u-margin-bottom-0">
@@ -357,7 +365,7 @@ NHS Cervical screening management system
           <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
             Letter codes should relate to the notification type selected.
           </div>
-          <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+          <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['letter-code'] }}">
             
         </fieldset>
 
