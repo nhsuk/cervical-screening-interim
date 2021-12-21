@@ -30,7 +30,7 @@ NHS Cervical screening management system
         Go back to duplicate enquiry</a>
     </div>
 
-    <form action="../CSSE-create-step2" method="post">
+    <form action="csse-duplicate-review" method="post">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset" aria-describedby="create-new-enquiry-name" role="group">
           <legend class="nhsuk-fieldset__legend nhsuk-label">
@@ -41,7 +41,7 @@ NHS Cervical screening management system
           </legend>
    
           <label for="create-name" class="nhsuk-label nhsuk-label__strong">Enter a new enquiry name</label>
-          <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="create-name" name="create-name" type="text" value="{{ data['create-name'] }}">
+          <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="create-name" name="duplicate-create-name" type="text" value="{{ data['duplicate-create-name'] }}">
    
          
         </fieldset>

@@ -33,7 +33,7 @@ NHS Cervical screening management system
    <h2 class="nhsuk-heading-l">Enquiry search results</h2>
 
    <p class="nhsuk-body nhsuk-u-font-weight-bold">
-    We found 3 results for enquiries named {{ data['search-name'] }} on {{ data['search-date-day'] }}-{{ data['search-date-month'] }}-{{ data['search-date-year'] }}
+    We found 3 results for {% if data['search-date-day'] %}enquiries named {{ data['search-name'] }} on {{ data['search-date-day'] }}-{{ data['search-date-month'] }}-{{ data['search-date-year'] }}{% else %}most recently created enquiries{% endif %}
    </p>
 
    <p>If this is not the report you are looking for, <a href="../CSSE-home">search again</a>.</p>
@@ -60,19 +60,29 @@ NHS Cervical screening management system
       </tr>
     </thead>
     <tbody class="nhsuk-table__body">
+
       <tr role="row" class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">{{ data['search-date-day'] }}-{{ data['search-date-month'] }}-{{ data['search-date-year'] }}</td>
-        <td class="nhsuk-table__cell ">{{ data['search-name'] }}</td>
+        <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}08{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}01{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2022{% endif %}</td>
+        <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}HPV primary in south{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-duplicate-enquiry">Duplicate enquiry</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View enquiry details</a></td>
         <!--<td class="nhsuk-table__cell"><a href="csse-remove-enquiry">Remove</a></td>-->
 
       </tr>
+
       <tr role="row" class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">{{ data['search-date-day'] }}-{{ data['search-date-month'] }}-{{ data['search-date-year'] }}</td>
-        <td class="nhsuk-table__cell ">{{ data['search-name'] }}</td>
+        <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}19{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}12{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2021{% endif %}</td>
+        <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}Ceased participants total{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-duplicate-enquiry">Duplicate enquiry</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View enquiry details</a></td>
+        <!--<td class="nhsuk-table__cell"><a href="csse-remove-enquiry">Remove</a></td>-->
+      </tr>
+
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}22{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}11{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2021{% endif %}</td>
+        <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}No results total{% endif %}</td>
+        <td class="nhsuk-table__cell"><a href="">Download report</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View enquiry details</a></td>
         <!--<td class="nhsuk-table__cell"><a href="csse-remove-enquiry">Remove</a></td>-->
       </tr>
 

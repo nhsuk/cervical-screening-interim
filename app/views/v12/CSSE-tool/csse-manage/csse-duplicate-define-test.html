@@ -1,0 +1,118 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link" href="../csse-manage/csse-duplicate-enquiry">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to duplicate enquiry</a>
+    </div>
+
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 3 of 12</span>
+    <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+        Define test criteria
+    </h1>
+
+    <form action="csse-duplicate-review" method="post">
+
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-criteria">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Which test criteria would you like to include?
+              </p>
+            </legend>
+
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="checkbox-hint">
+              Select all options that are relevant to you
+            </div>
+
+            <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-test-criteria" id="has-tests" value="Has tests" {{ checked("duplicate-test-criteria", "Has tests") }} aria-controls="expand-test-criteria" aria-expnded="false">
+                <label for="has-tests" class="nhsuk-label nhsuk-checkboxes__label">
+                  Has tests
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="expand-test-criteria">
+                <div class="nhsuk-form-group">
+                  <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+                    <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                      <p class="nhsuk-body">
+                        Which tests would you like to include?
+                      </p>
+                    </legend>
+                
+                    <div class="nhsuk-radios">
+                
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="test-to-include-all" name="duplicate-test-to-include" type="radio" value="All tests" {{ checked("duplicate-test-to-include", "All tests") }} aria-describedby="test-to-include-all">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-all">
+                          All tests
+                        </label>
+                      </div>
+                
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="test-to-include-recent" name="duplicate-test-to-include" type="radio" value="Most recent test only" {{ checked("duplicate-test-to-include", "Most recent test only") }} aria-describedby="test-to-include-recent">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-recent">
+                          Most recent test only
+                        </label>
+                      </div>
+
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="test-to-include-first" name="duplicate-test-to-include" type="radio" value="First test only" {{ checked("duplicate-test-to-include", "First test only") }} aria-describedby="test-to-include-first">
+                        <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-first">
+                          First test only
+                        </label>
+                      </div>
+                
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-test-criteria" id="has-no-tests" value="Does not have tests" {{ checked("duplicate-test-criteria", "Does not have tests") }}>
+                <label for="has-no-test" class="nhsuk-label nhsuk-checkboxes__label">
+                  Does not have tests
+                </label>
+              </div>
+
+            </div>
+        
+              
+          </fieldset>
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Save and continue
+      </button>
+    </form>
+   
+    
+  </div>
+</div>
+{% endblock %}
