@@ -23,26 +23,26 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-two-thirds">
 
     {{ backLink({
-      "href": "reports",
-      "text": "Back to reports"
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
     }) }}
 
-    <h1 class="nhsuk-heading-l">Outbound transfers</h1>
+    <h1 class="nhsuk-heading-l">Outbound transfer report</h1>
     <div class="nhsuk-panel-with-label">
     {% include '../../components/report-transfer-patient.html' %}
-   
-   
-  
+
+
+
     <form action="report-outbound-transfer-complete" method="post">
 
       <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
         <li class="nhsuk-panel"> <p>Transfer for Ella Depetris confirmed </p></li>
-               
+
       </ul>
 
       <button class="nhsuk-button nhsuk-button--ers" type="submit">Back to transfer list</button>
   </div>
- 
+
 
 </form>
 

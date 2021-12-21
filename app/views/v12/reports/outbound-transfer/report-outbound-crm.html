@@ -21,18 +21,17 @@ NHS Cervical screening management system
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-
     {{ backLink({
-      "href": "reports",
-      "text": "Back to reports"
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
     }) }}
 
-    <h1 class="nhsuk-heading-l">Outbound transfers</h1>
+    <h1 class="nhsuk-heading-l">Outbound transfer report</h1>
     <div class="nhsuk-panel-with-label">
     {% include '../../components/report-transfer-patient.html' %}
-    <span class="nhsuk-hint">Step 3 of 3</span> 
-   
-  
+    <span class="nhsuk-hint">Step 3 of 3</span>
+
+
     <form action="report-outbound-confirm" method="post">
 
   <div class="nhsuk-form-group">
@@ -42,13 +41,13 @@ NHS Cervical screening management system
         <h1 class="nhsuk-fieldset__heading">
         Enter CRM case number
         </h1>
-        
+
       </legend>
 
       <div class="nhsuk-hint" id="example-hint">
         For example, CAS-12345-ABCDE
       </div>
-    
+
       <input class="nhsuk-input nhsuk-input--width-20" id="example" name="example" type="text" >
 
     </fieldset>
@@ -67,7 +66,7 @@ NHS Cervical screening management system
 
 </form>
 
-    
+
   </div>
   <p><a class="nhsuk-link" href="report-outbound-transfer">Exit without saving</a></p>
 </div>

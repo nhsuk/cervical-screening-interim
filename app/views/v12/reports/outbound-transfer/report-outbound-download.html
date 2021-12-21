@@ -23,16 +23,16 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-two-thirds">
 
     {{ backLink({
-      "href": "reports",
-      "text": "Back to reports"
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
     }) }}
 
-    <h1 class="nhsuk-heading-l">Outbound transfers</h1>
+    <h1 class="nhsuk-heading-l">Outbound transfer report</h1>
     <div class="nhsuk-panel-with-label">
     {% include '../../components/report-transfer-patient.html' %}
-    <span class="nhsuk-hint">Step 1 of 3</span> 
-   
-  
+    <span class="nhsuk-hint">Step 1 of 3</span>
+
+
     <form action="report-outbound-transferred" method="post">
 
   <div class="nhsuk-form-group">
@@ -40,17 +40,17 @@ NHS Cervical screening management system
     <h2 class="nhsuk-heading-m">
           Download the patient’s details to transfer
         </h2>
-        
-     
+
+
 
       <p>To transfer the patient you need to manually send their screening history and HPV vaccination record to their new location. This is sometimes called the subject access print.</p>
       <p>Download and check the patient's subject access print before manually sending.</p>
 
       <p><a href="">Download the subject access print for Ella Depetris</a></p>
 
-     
-   
-  
+
+
+
 
   </div>
 
@@ -58,7 +58,7 @@ NHS Cervical screening management system
 
 </form>
 
-   
+
   </div>
   <p><a class="nhsuk-link" href="report-outbound-transfer">Exit without saving</a></p>
 </div>

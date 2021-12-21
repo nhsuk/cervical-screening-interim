@@ -1,0 +1,86 @@
+// ==========================================================================
+// COMPONENTS / #PANEL-LINK
+// ==========================================================================
+
+.panel-link {
+  font-size: 1em;
+  list-style: none;
+  margin-bottom: 1em;
+  padding-left: 0;
+  @media (max-width: 48.0525em) {
+    margin: 0 -1em 1em;
+  }
+}
+
+  .panel-link__item {
+    border-bottom: 1px $color_nhsuk-grey-4 solid;
+    border-top: 1px $color_nhsuk-grey-4 solid;
+    margin-bottom: 4px;
+    padding: 0;
+  }
+
+  .panel-link__link {
+    @media (max-width: 640px) {
+      padding: 8px 40px 8px 16px;
+    }
+    background-color: $color_nhsuk-white;
+    background-image: url(../images/icon_arrow_left.svg);
+    background-position: right 1em center;
+    background-repeat: no-repeat;
+    color: $color_nhsuk-blue;
+    display: block;
+    padding: 16px 40px 16px 16px;
+    text-decoration: none;
+
+
+    &:focus {
+      background-color: #ffffff;
+      box-shadow: none;
+      color: #212b32;
+      outline: 4px solid transparent;
+      text-decoration: none;
+    }
+
+    &:focus h2 {
+      background-color: #ffeb3b!important;
+    box-shadow: 0 -2px #ffeb3b,0 4px #212b32!important;
+    color: #212b32!important;
+    outline: 4px solid transparent!important;
+    text-decoration: none!important;
+    outline-color: transparent!important;
+    border-bottom: 4px #212b32;
+    width: max-content;
+    max-width: 100%!important;
+    }
+
+    &:hover {
+
+    }
+
+    &:hover h2 {
+      color: #7c2855;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $color_nhsuk-blue;
+    }
+
+    .panel-link__heading {
+      margin: 0;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    .panel-link__content {
+      color: $color_nhsuk-black;
+      margin-bottom: 0;
+      padding: 4px 0px 4px 0px;
+    }
+
+    .panel-link__content-nom-pharm {
+      padding-bottom: 0px;
+      padding-top: 0px;
+    }
+
+  }

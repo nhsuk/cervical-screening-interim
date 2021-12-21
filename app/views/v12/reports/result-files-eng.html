@@ -4,12 +4,8 @@
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
 <style type="text/css" media="screen">
-  .nhsuk-header__navigation-item:nth-child(5) {
+  .nhsuk-header__navigation-item:nth-child(4) {
     border-bottom: 4px solid #d8dde0;
-  }
-
-  .nhsuk-button, .nhsuk-button--ers, .dropdown .dropbtn, .nhsuk-button--ers_secondary, .nhsuk-button--ers_reverse, .nhsuk-button--ers_reverse:hover, .nhsuk-button--ers_reverse:focus, .nhsuk-button--ers_reject, .nhsuk-blue, .nhsuk-right  {
-    margin-bottom: 0;
   }
 </style>
 {% endblock %}
@@ -26,21 +22,21 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
     {{ backLink({
-      "href": "index",
-      "text": "Back to Admin"
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
     }) }}
 
     <h1 class="nhsuk-heading-l">Confirmation reports</h1>
 
-     
+
                  <span class="nhsuk-u-visually-hidden">Information: </span>
                  <p>View daily reports here.
                  <p>For PDF reports, contact the <a href="">service administration team</a>.</p>
-                
+
 
         <div class="nhsuk-form-group">
          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
-     
+
           <div class="nhsuk-fieldset__heading nhsuk-label nhsuk-label__strong nhsuk-u-margin-top-4">
             Enter the date you want to view:</div>
           <div class="nhsuk-hint" id="example-hint">
@@ -73,17 +69,17 @@ NHS Cervical screening management system
                       </div>
                     </div>
                   </div>
-      
+
                 <br>
 
                       {{ button({
                         "text": "Search",
                         "classes": "nhsuk-button nhsuk-button--ers"
                       }) }}
-      
+
       </fieldset>
 
-     
+
 
 
          <div class="nhsuk-inset-text">
@@ -91,7 +87,7 @@ NHS Cervical screening management system
                  <p>The full set of reports for today’s date will only be available after 7.00pm.</p>
                 </div>
 
-    
+
 
 
     {{ table({
@@ -118,7 +114,7 @@ NHS Cervical screening management system
           {
             text: "CSAS_ScreeningLetters_DataProcessingReport_13072021_11.txt "
           },
-         
+
           {
             html: '<a href="">Download txt</a>'
           }
@@ -130,7 +126,7 @@ NHS Cervical screening management system
           {
             text: "CSAS_EU-WEST-2_CP_Nor_13072021_11.txt"
           },
-         
+
           {
             html: '<a href="">Download txt</a>'
           }
@@ -142,7 +138,7 @@ NHS Cervical screening management system
           {
             text: "CSAS_EU-WEST-2_RP_13072021_11.txt"
           },
-         
+
           {
             html: '<a href="">Download txt</a>'
           }
@@ -154,13 +150,13 @@ NHS Cervical screening management system
           {
             text: "CSAS_ScreeningLetters_ErrorReport_13072021_11.txt"
           },
-         
+
           {
             html: '<a href="">Download txt</a>'
           }
         ]
-          
-        
+
+
       ]
 }) }}
 

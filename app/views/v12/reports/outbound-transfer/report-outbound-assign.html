@@ -23,21 +23,20 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-two-thirds">
 
     {{ backLink({
-      "href": "reports",
-      "text": "Back to reports"
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
     }) }}
+    <h1 class="nhsuk-heading-l">Outbound transfer report</h1>
 
-    <h1 class="nhsuk-heading-l">Outbound transfers</h1>
-  
- 
-   
-  
+
+
+
     <form action="report-outbound-download" method="post">
-      <div class="nhsuk-card nhsuk-panel--confirmation nhsuk-u-margin-top-0" style="background-color: #005EB8; color: #fff;"> 
+      <div class="nhsuk-card nhsuk-panel--confirmation nhsuk-u-margin-top-0" style="background-color: #005EB8; color: #fff;">
         <div class="nhsuk-card__content">
           <!-- Change the page title here -->
           <h2 class="nhsuk-heading-m">This patient is not currently being transferred by any other users.</h2>
-  
+
           <p class=" nhsuk-u-margin-bottom-4">If you choose to continue, your name will be recorded against the patient transfer. </p>
 
           <div class="nhsuk-form-group">
@@ -48,9 +47,9 @@ NHS Cervical screening management system
                   Do you want to continue transferring this patient?
                 </h1>
               </legend>
-          
+
               <div class="nhsuk-radios">
-          
+
                 <div class="nhsuk-radios__item nhsuk-u-padding-bottom-2">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
@@ -58,7 +57,7 @@ NHS Cervical screening management system
                   </label>
                   <span class="nhsuk-hint" style="color: #fff; margin-left:12px">This will record your name against this patient transfer</span>
                 </div>
-          
+
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-2">
@@ -66,17 +65,17 @@ NHS Cervical screening management system
                   </label>
                   <span class="nhsuk-hint" style="color: #fff; margin-left:12px"> Any other user can select this patient to transfer</span>
                 </div>
-          
+
               </div>
             </fieldset>
-          
+
           </div>
           <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-4" style="color: #212b32;" type="submit">Continue</button>
-          
+
         </div>
-  
+
       </div>
-  
+
 <p><a class="nhsuk-link" href="report-outbound-transfer">Exit without saving</a></p>
     </form>
   </div>
