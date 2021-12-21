@@ -20,22 +20,88 @@ NHS Cervical screening management system
 
 {% block content %}
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-three-quarters">
+  <div class="nhsuk-grid-column-two-thirds">
 
     <h1 class="nhsuk-heading-l">Reports</h1>
-    <p><a href="result-files-eng">Confirmation reports</a></p>
-    <p><a href="report-letters-sent">Letters sent</a></p>
-  <p><a href="../reports/outbound-transfer/report-outbound-transfer">Outbound transfer report</a></p>
-  <p><a href="../reports/lab-file-report/filter-reports">Lab files received</a></p>
-    <p><a href="../reports/report-demographic">Demographic report</a></p>
+    <!-- <p><a href="result-files-eng">Confirmation reports</a></p>
+    <p><a href="report-letters-sent">Letters sent report</a></p>
+    <p><a href="../reports/outbound-transfer/report-outbound-transfer">Outbound transfer report</a></p>
+    <p><a href="../reports/lab-file-report/filter-reports">Lab files received report</a></p>
+    <p><a href="../reports/report-demographic">Demographic changes report</a></p>
     <p><a href="../CSSE-tool/CSSE-home">System enquiries tool (CSSE)</a></p>
     <p><a href="non-gp-sender-report">Non-GP sender report</a></p>
-    <p><a href="patient-paused">Paused patients</a></p>
-    <p><a href="../reports/accumulated-deferrals/choose-ccg">Accumulated deferrals</a></p>
-<p><a href="../reports/pnl-responses/all-individual">Prior Notifications List (PNL) Responses report</a></p>
+    <p><a href="patient-paused">Paused patients report</a></p>
+    <p><a href="../reports/accumulated-deferrals/choose-ccg">Accumulated deferrals report</a></p>
+    <p><a href="../reports/pnl-responses/all-individual">Prior notifications list (PNL) responses report</a></p> -->
 
-    <h2 class="nhsuk-heading-m">Patterns</h2>
-    <p><a href="report-patterns">Report patterns</a></p>
+
+    <ul class="panel-link">
+
+
+      <li class="panel-link__item">
+        <a class="panel-link__link" href="/result-files-eng">
+          <h2 class="panel-link__heading nhsuk-heading-s">Confirmation reports</h2>
+        </a>
+      </li>
+
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="/report-letters-sent">
+            <h2 class="panel-link__heading nhsuk-heading-s">Letters sent report</h2>
+          </a>
+        </li>
+
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../reports/outbound-transfer/report-outbound-transfer">
+            <h2 class="panel-link__heading nhsuk-heading-s">Outbound transfer report</h2>
+          </a>
+        </li>
+
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../reports/lab-file-report/filter-reports">
+            <h2 class="panel-link__heading nhsuk-heading-s">Lab files received report</h2>
+          </a>
+        </li>
+
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../reports/report-demographic">
+            <h2 class="panel-link__heading nhsuk-heading-s">Demographic changes report</h2>
+          </a>
+        </li>
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../CSSE-tool/CSSE-home">
+            <h2 class="panel-link__heading nhsuk-heading-s">System enquiries tool (CSSE)</h2>
+          </a>
+        </li>
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="non-gp-sender-report">
+            <h2 class="panel-link__heading nhsuk-heading-s">Non-GP sender report</h2>
+          </a>
+        </li>
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="patient-paused">
+            <h2 class="panel-link__heading nhsuk-heading-s">Paused patients report</h2>
+          </a>
+        </li>
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../reports/accumulated-deferrals/choose-ccg">
+            <h2 class="panel-link__heading nhsuk-heading-s">Accumulated deferrals report</h2>
+          </a>
+        </li>
+        <li class="panel-link__item">
+          <a class="panel-link__link" href="../reports/pnl-responses/all-individual">
+            <h2 class="panel-link__heading nhsuk-heading-s">Prior notifications list (PNL) responses report</h2>
+          </a>
+        </li>
+
+    </ul>
+
+
+
+
+
+
+    <!-- <h2 class="nhsuk-heading-m">Patterns</h2>
+    <p><a href="report-patterns">Report patterns</a></p> -->
   </div>
 </div>
 {% endblock %}
