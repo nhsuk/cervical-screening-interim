@@ -70,7 +70,7 @@ NHS Cervical screening management system
  <div class="nhsuk-form-group">
 
 
-    <details class="nhsuk-details">
+    <details class="nhsuk-details" open>
       <summary class="nhsuk-details__summary">
         <span class="nhsuk-details__summary-text">
           Refine by demographic and date
@@ -91,7 +91,7 @@ NHS Cervical screening management system
     <div class="nhsuk-checkboxes">
 
       <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="changeSee" name="changeSee" type="checkbox" value="genderChange">
+        <input class="nhsuk-checkboxes__input" id="changeSee" name="changeSee" type="checkbox" value="genderChange" checked>
         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
           Gender changes
         </label>
@@ -142,11 +142,13 @@ NHS Cervical screening management system
             "items": [
               {
                 "name": "month",
-                "classes": "nhsuk-input--width-2"
+                "classes": "nhsuk-input--width-2",
+                "value": "09"
               },
               {
                 "name": "year",
-                "classes": "nhsuk-input--width-4"
+                "classes": "nhsuk-input--width-4",
+                "value": "2021"
               }
             ]
           }) }}
@@ -168,11 +170,13 @@ NHS Cervical screening management system
             "items": [
               {
                 "name": "month",
-                "classes": "nhsuk-input--width-2"
+                "classes": "nhsuk-input--width-2",
+                "value": "12"
               },
               {
                 "name": "year",
-                "classes": "nhsuk-input--width-4"
+                "classes": "nhsuk-input--width-4",
+                "value": "2021"
               }
             ]
           }) }}
@@ -221,7 +225,7 @@ NHS Cervical screening management system
 
 
 
-   <h2 class="nhsuk-heading-m">Showing latest reports</h2>
+   <h2 class="nhsuk-heading-m">Showing reports from Sept-2021 and Dec-2021</h2>
 
     <table class="nhsuk-table">
       <caption class="nhsuk-table__caption">10 Sep 2021 - Files sent to CIC</caption>
@@ -255,7 +259,7 @@ NHS Cervical screening management system
 
              <tr role="row" class="nhsuk-table__row">
           <td class="nhsuk-table__cell">Dec-2021</td>
-          <td class="nhsuk-table__cell ">Date of birth</a></td>
+          <td class="nhsuk-table__cell ">Gender change</a></td>
           <td class="nhsuk-table__cell">J Smith<span class="nhsuk-table__cell--hint">10-Dec-2021</span></td>
            <td class="nhsuk-table__cell"><a href="preview-dob-change-report">View report</a><br>
           <a href="preview-gender-change-report">Download CSV</a></td>
@@ -264,7 +268,7 @@ NHS Cervical screening management system
 
              <tr role="row" class="nhsuk-table__row">
           <td class="nhsuk-table__cell">Dec-2021</td>
-          <td class="nhsuk-table__cell ">Incorrectly ceased due to age</a></td>
+          <td class="nhsuk-table__cell ">Gender change</a></td>
           <td class="nhsuk-table__cell">J Smith<span class="nhsuk-table__cell--hint">10-Dec-2021</span></td>
             <td class="nhsuk-table__cell"><a href="preview-age-change-report">View report</a><br>
           <a href="preview-gender-change-report">Download CSV</a></td>
@@ -274,7 +278,7 @@ NHS Cervical screening management system
 
                 <tr role="row" class="nhsuk-table__row">
              <td class="nhsuk-table__cell">Dec-2021</td>
-             <td class="nhsuk-table__cell ">NHS number changes</a></td>
+             <td class="nhsuk-table__cell ">Gender change</a></td>
              <td class="nhsuk-table__cell">J Smith<span class="nhsuk-table__cell--hint">10-Dec-2021</span></td>
               <td class="nhsuk-table__cell"><a href="preview-nhsno-change-report">View report</a><br>
              <a href="preview-gender-change-report">Download CSV</a></td>

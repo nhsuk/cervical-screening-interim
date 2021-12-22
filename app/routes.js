@@ -811,6 +811,21 @@ else {
 
 })
 
+// Demographic changes report
+
+router.post("/v12/reports/report-demographic", function (req, res) {
+var changeSee = req.session.data['changeSee'];
+
+if (changeSee == 'genderChange') {
+  res.redirect("/v12/reports/report-demographic-gender-selected");
+}
+
+else {
+  res.redirect("/v12/reports/report-demographic");
+}
+
+})
+
 
 
 module.exports = router;
