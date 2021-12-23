@@ -25,19 +25,19 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step6">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step5">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 6: Define test criteria</a>
+        Go back to Step 5: Define sender details</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 7 of 10</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 6 of 12</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
         Define test result details
     </h1>
 
-    <form action="CSSE-create-step8" method="post">
+    <form action="CSSE-create-step7" method="post">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="date-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">

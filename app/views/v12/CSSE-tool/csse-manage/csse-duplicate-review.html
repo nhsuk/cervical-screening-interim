@@ -32,7 +32,7 @@ NHS Cervical screening management system
         Go back to search results</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 11 of 12</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 9 of 10</span>
 
     <form action="csse-duplicate-file-output" method="post">
       <div class="nhsuk-form-group">
@@ -87,7 +87,7 @@ NHS Cervical screening management system
                 Name
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {% if data['duplicate-create-name'] %}{{ data['duplicate-create-name'] }}{% else %}HPV data report{% endif %}
+                {% if data['edit-create-name'] %}{{ data['duplicate-create-name'] }}{% else %}HPV data report{% endif %}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -103,402 +103,36 @@ NHS Cervical screening management system
           
           </dl>
 
-          <dl class="nhsuk-summary-list" id="define-data-type">
-
-            <h2 class="nhsuk-heading-m">
-              Step 2: Define data type
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Include patient data
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {% if data['duplicate-patient-data'] %}{{ data['duplicate-patient-data'] }}{% else %}Yes, include patient data{% endif %}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="csse-duplicate-define-data">
-                  Change<span class="nhsuk-u-visually-hidden"> include patient data</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Include test data
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {% if data['duplicate-test-data'] %}{{ data['duplicate-test-data'] }}{% else %}Yes, include test data{% endif %}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="csse-duplicate-define-data">
-                  Change<span class="nhsuk-u-visually-hidden"> include test data</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-          
-          
-          </dl>
-
-          <dl class="nhsuk-summary-list" id="define-test">
-
-            <h2 class="nhsuk-heading-m">
-              Step 3: Define test
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Test criteria
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['duplicate-test-criteria'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>Has test: First test only</li>
-                <li>Does not have test</li>
-              {% endfor %}
-                <li>{{ data['duplicate-test-to-include'] }}</li>
-                </ul>
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="csse-duplicate-define-test">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-          
-          
-          </dl>
-
-          <dl class="nhsuk-summary-list" id="define-test-parameters">
-
-            <h2 class="nhsuk-heading-m">
-              Step 4: Define test parameters
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Result type
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['result-type'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>Self-sample results</li>
-                    <li>Not self-sample results</li>
-                  {% endfor %}
-                </ul>
-
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                HPV primary status
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['hpv-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>HPV primary</li>
-                    <li>Not HPV primary</li>
-                  {% endfor %}
-                </ul>
-
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-          
-          
-          </dl>
-
-          <dl class="nhsuk-summary-list" id="define-sender-details">
-
-            <h2 class="nhsuk-heading-m">
-              Step 5: Define sender details
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                National code
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['national-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>60234, 61558</li>
-              {% endfor %}
-                </ul>
-                {{ data['national-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Source code
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['source-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>H, X, N</li>
-              {% endfor %}
-                </ul>
-                {{ data['source-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Sender code
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['sender-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>A86020, A8640</li>
-              {% endfor %}
-                </ul>
-                {{ data['sender-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Source type
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['source-type-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>1, 4, 7</li>
-              {% endfor %}
-                </ul>
-                {{ data['source-type-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-          
-          
-          </dl>
-
-          <dl class="nhsuk-summary-list" id="define-test-result-details">
-
-            <h2 class="nhsuk-heading-m">
-              Step 6: Define test result details
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Date type
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                <li>{{ data['date-type']}}Test taken date</li>
-                <li>15{{ data['from-test-taken-date-day'] }}{{ data['from-prev-noti-date-day'] }}{{ data['from-prev-invi-date-day'] }}{{ data['from-test-inp-date-day'] }}-03{{ data['from-test-taken-date-month'] }}{{ data['from-prev-noti-date-month'] }}{{ data['from-prev-invi-date-month'] }}{{ data['from-test-inp-date-month'] }}-2021{{ data['from-test-taken-date-year'] }}{{ data['from-prev-noti-date-year'] }}{{ data['from-prev-invi-date-year'] }}{{ data['from-test-inp-date-year'] }} - 16{{ data['to-test-taken-date-day'] }}{{ data['to-prev-noti-date-day'] }}{{ data['to-prev-invi-date-day'] }}{{ data['to-test-inp-date-day'] }}-09{{ data['to-test-taken-date-month'] }}{{ data['to-prev-noti-date-month'] }}{{ data['to-prev-invi-date-month'] }}{{ data['to-test-inp-date-month'] }}-2021{{ data['to-test-taken-date-year'] }}{{ data['to-prev-noti-date-year'] }}{{ data['to-prev-invi-date-year'] }}{{ data['to-test-inp-date-year'] }}</li>
-                <li></li>
-                </ul>
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Slide number range
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  <li>18{{ data['slide-num-year'] }} 0100011{{ data['slide-num-num'] }} - 19{{ data['slide-num-year-to'] }} 0100011{{ data['slide-num-num-to'] }}</li>
-                  <li></li>
-                  </ul>
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Result code
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['result-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>X0A, X</li>
-              {% endfor %}
-                </ul>
-                {{ data['result-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-          
-          
-          </dl>
-
-          <dl class="nhsuk-summary-list" id="define-recall-details">
-
-            <h2 class="nhsuk-heading-m">
-              Step 7: Define participant and episode status details
-            </h2>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Participant status
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['current-participant-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>Called</li>
-                    <li>Routine</li>
-                    <li>Suspended</li>
-                  {% endfor %}
-                </ul>
-
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Episode status
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['current-episode-status'] %}
-                    <li>{{ item }}</li>
-                  {% else %}
-                    <li>Invited</li>
-                    <li>Reminded</li>
-                    <li>Non responder</li>
-                  {% endfor %}
-                </ul>
-
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-          
-          
-          </dl>
-
           <dl class="nhsuk-summary-list" id="define-location-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 8: Define location details
+              Step 2: Define location details
             </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Area code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['post-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>BAA, BIR</li>
+              {% endfor %}
+                </ul>
+                {{ data['post-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -524,31 +158,6 @@ NHS Cervical screening management system
               </dd>
           
             </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Patient post code
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['post-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>LS1, LS25</li>
-              {% endfor %}
-                </ul>
-                {{ data['post-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
           
           
           </dl>
@@ -556,7 +165,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-patient-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 9: Define patient details
+              Step 3: Define patient details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -671,6 +280,87 @@ NHS Cervical screening management system
           
             </div>
 
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Include patient data
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {% if data['edit-patient-data'] %}{{ data['edit-patient-data'] }}{% else %}Yes, include patient data{% endif %}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> include patient data</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+          
+          
+          </dl>
+
+          <dl class="nhsuk-summary-list" id="define-recall-details">
+
+            <h2 class="nhsuk-heading-m">
+              Step 4: Define participant and episode status details
+            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Participant status
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['current-participant-status'] %}
+                    <li>{{ item }}</li>
+                  {% else %}
+                    <li>Called</li>
+                    <li>Routine</li>
+                    <li>Suspended</li>
+                  {% endfor %}
+                </ul>
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Episode status
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['current-episode-status'] %}
+                    <li>{{ item }}</li>
+                  {% else %}
+                    <li>Invited</li>
+                    <li>Reminded</li>
+                    <li>Non responder</li>
+                  {% endfor %}
+                </ul>
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
           
           
           </dl>
@@ -678,7 +368,7 @@ NHS Cervical screening management system
           <dl class="nhsuk-summary-list" id="define-communication-details">
 
             <h2 class="nhsuk-heading-m">
-              Step 10: Define communication details
+              Step 5: Define communication details
             </h2>
 
             <div class="nhsuk-summary-list__row">
@@ -700,7 +390,7 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step10">
+                <a href="#">
                   Change<span class="nhsuk-u-visually-hidden"> notification type</span>
                 </a>
           
@@ -755,6 +445,282 @@ NHS Cervical screening management system
           
           </dl>
 
+
+          <dl class="nhsuk-summary-list" id="define-test">
+
+            <h2 class="nhsuk-heading-m">
+              Step 6: Define test criteria
+            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Test criteria
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['duplicate-test-criteria'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>Has test: First test only</li>
+                <li>Does not have test</li>
+              {% endfor %}
+                <li>{{ data['duplicate-test-to-include'] }}</li>
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="csse-duplicate-define-test">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Result type
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['duplicate-result-type'] %}
+                    <li>{{ item }}</li>
+                  {% else %}
+                    <li>Self-sample results</li>
+                    <li>Not self-sample results</li>
+                  {% endfor %}
+                </ul>
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="csse-duplicate-define-test">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                HPV primary status
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['duplicate-hpv-status'] %}
+                    <li>{{ item }}</li>
+                  {% else %}
+                    <li>HPV primary</li>
+                    <li>Not HPV primary</li>
+                  {% endfor %}
+                </ul>
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="csse-duplicate-define-test">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+          
+          
+          </dl>
+
+          <dl class="nhsuk-summary-list" id="define-test-result-details">
+
+            <h2 class="nhsuk-heading-m">
+              Step 7: Define test result details
+            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date type
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                <li>{{ data['date-type']}}Test taken date</li>
+                <li>15{{ data['from-test-taken-date-day'] }}{{ data['from-prev-noti-date-day'] }}{{ data['from-prev-invi-date-day'] }}{{ data['from-test-inp-date-day'] }}-03{{ data['from-test-taken-date-month'] }}{{ data['from-prev-noti-date-month'] }}{{ data['from-prev-invi-date-month'] }}{{ data['from-test-inp-date-month'] }}-2021{{ data['from-test-taken-date-year'] }}{{ data['from-prev-noti-date-year'] }}{{ data['from-prev-invi-date-year'] }}{{ data['from-test-inp-date-year'] }} - 16{{ data['to-test-taken-date-day'] }}{{ data['to-prev-noti-date-day'] }}{{ data['to-prev-invi-date-day'] }}{{ data['to-test-inp-date-day'] }}-09{{ data['to-test-taken-date-month'] }}{{ data['to-prev-noti-date-month'] }}{{ data['to-prev-invi-date-month'] }}{{ data['to-test-inp-date-month'] }}-2021{{ data['to-test-taken-date-year'] }}{{ data['to-prev-noti-date-year'] }}{{ data['to-prev-invi-date-year'] }}{{ data['to-test-inp-date-year'] }}</li>
+                <li></li>
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Slide number range
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>18{{ data['slide-num-year'] }} 0100011{{ data['slide-num-num'] }} - 19{{ data['slide-num-year-to'] }} 0100011{{ data['slide-num-num-to'] }}</li>
+                  <li></li>
+                  </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Result code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['result-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>X0A, X</li>
+              {% endfor %}
+                </ul>
+                {{ data['result-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+          
+          </dl>
+
+
+          <dl class="nhsuk-summary-list" id="define-sender-details">
+
+            <h2 class="nhsuk-heading-m">
+              Step 8: Define sender details
+            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                National code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['national-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>60234, 61558</li>
+              {% endfor %}
+                </ul>
+                {{ data['national-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Source code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['source-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>H, X, N</li>
+              {% endfor %}
+                </ul>
+                {{ data['source-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Sender code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['sender-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>A86020, A8640</li>
+              {% endfor %}
+                </ul>
+                {{ data['sender-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Source type
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['source-type-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>1, 4, 7</li>
+              {% endfor %}
+                </ul>
+                {{ data['source-type-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+          
+          </dl>
+
       
 
         </fieldset>
@@ -763,9 +729,9 @@ NHS Cervical screening management system
       </div>
 
       <span>
-        <!--<a class="nhsuk-button  nhsuk-button--secondary nhsuk-button--ers nhsuk-u-margin-right-6" href="csse-duplicate-enquiry">
+        <a class="nhsuk-button  nhsuk-button--secondary nhsuk-button--ers nhsuk-u-margin-right-6" href="csse-duplicate-enquiry">
           Duplicate
-        </a>-->
+        </a>
 
         <button class="nhsuk-button nhsuk-button--ers" type="submit">
           Save and continue

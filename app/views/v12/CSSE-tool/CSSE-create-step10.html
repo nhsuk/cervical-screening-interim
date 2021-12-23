@@ -29,357 +29,614 @@ NHS Cervical screening management system
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 9: Define patient details</a>
+        Go back to Step 9: Review report</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 10 of 12</span>
-    <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define communication data
-    </h1>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 10 of 10</span>
 
-    <form action="CSSE-create-step11" method="post">
+    <form action="" method="post">
       <div class="nhsuk-form-group">
 
-
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-notification-type">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="file-output">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <p class="nhsuk-body nhsuk-u-margin-bottom-4">
-              What type of notification do you want to include?
-            </p>
+            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+              File format
+            </h1>
           </legend>
 
-          <div class="nhsuk-radios nhsuk-radios--conditional">
-            
-            <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="none" value="None" checked aria-controls="" aria-expnded="false">
-              <label for="none" class="nhsuk-label nhsuk-radios__label">
-                None
-              </label>
-            </div>
-            
-            <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" {{ checked("comms-notification-type", "Prior notification list") }} aria-controls="expand-prior-noti-list" aria-expnded="false">
-              <label for="comms-prior-noti-list" class="nhsuk-label nhsuk-radios__label">
-                Prior notification list
-              </label>
-            </div>
+          <p class="nhsuk-body">
+            Choose which fields you want to include from the output file for <strong>{% if data['create-name'] %}{{ data['create-name'] }}.csv{% else %}HPV data report.csv{% endif %}</strong>
+          </p>
 
-            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-prior-noti-list">
-              <div class="nhsuk-form-group">
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Patient data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
 
-                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
-                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      What participant status would you like to include?
-                    </p>
-                  </legend>
-      
-                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                    Previously known as recall type. Select all options that are relevant to you
-                  </div>
-
-                  <!--<p class="nhsuk-body nhsuk-u-margin-bottom-4">
-                    Select all options that are relevant to you
-                  </p>-->
-      
-                  <div class="nhsuk-checkboxes">
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-called" value="Called" {{ checked("comms-recall-type", "Called") }}>
-                      <label for="comms-called" class="nhsuk-label nhsuk-checkboxes__label">
-                        Called
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-routine" value="Routine" {{ checked("comms-recall-type", "Routine") }}>
-                      <label for="comms-routine" class="nhsuk-label nhsuk-checkboxes__label">
-                        Routine
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-suspended" value="Suspended" {{ checked("comms-recall-type", "Suspended") }}>
-                      <label for="comms-suspended" class="nhsuk-label nhsuk-checkboxes__label">
-                        Suspended
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-repeat-advised" value="Repeat advised" {{ checked("comms-recall-type", "Repeat advised") }}>
-                      <label for="comms-repeat-advised" class="nhsuk-label nhsuk-checkboxes__label">
-                        Repeat advised
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-inadequate" value="Inadequate" {{ checked("comms-recall-type", "Inadequate") }}>
-                      <label for="comms-inadequate" class="nhsuk-label nhsuk-checkboxes__label">
-                        Inadequate
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-cancelled" value="Cancelled" {{ checked("comms-recall-type", "Cancelled") }}>
-                      <label for="comms-cancelled" class="nhsuk-label nhsuk-checkboxes__label">
-                        Cancelled
-                      </label>
-                    </div>
-      
-                  </div>
-              
-                    
-                </fieldset>
-
-              </div>
-            </div>
-
-            <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" {{ checked("comms-notification-type", "Invitation") }} aria-controls="expand-invitation" aria-expnded="false">
-              <label for="comms-invitation" class="nhsuk-label nhsuk-radios__label">
-                Invitation
-              </label>
-            </div>
-
-            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-invitation">
-              <div class="nhsuk-form-group">
-
-                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-invitation">
-                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      Which invitation notification type do you want to include?
-                    </p>
-                  </legend>
-      
-                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                    Select all options that are relevant to you
-                  </div>
-      
-                  <div class="nhsuk-checkboxes">
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-invitation" value="Invitation" {{ checked("comms-recall-type", "Invitation") }}>
-                      <label for="comms-invitation" class="nhsuk-label nhsuk-checkboxes__label">
-                        Invitation
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-reminder" value="Reminder" {{ checked("comms-recall-type", "Reminder") }}>
-                      <label for="comms-reminder" class="nhsuk-label nhsuk-checkboxes__label">
-                        Reminder
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-nonresponder" value="Non responder" {{ checked("comms-recall-type", "Non responder") }}>
-                      <label for="comms-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
-                        Non responder
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-district-list" value="District list" {{ checked("comms-recall-type", "District list") }}>
-                      <label for="comms-district-list" class="nhsuk-label nhsuk-checkboxes__label">
-                        District list
-                      </label>
-                    </div>
-      
-                  </div>
-              
-                    
-                </fieldset>
-
-              </div>
-            </div>
-
-            <div class="nhsuk-radios__item">
-              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" {{ checked("comms-notification-type", "Results") }} aria-controls="expand-results" aria-expnded="false">
-              <label for="comms-results" class="nhsuk-label nhsuk-radios__label">
-                Results
-              </label>
-            </div>
-
-            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-results">
-              <div class="nhsuk-form-group">
-
-                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
-                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      What result notification type do you want to include?
-                    </p>
-                  </legend>
-      
-                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                    Select all options that are relevant to you
-                  </div>
-      
-                  <div class="nhsuk-checkboxes">
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-only" value="Results only" {{ checked("comms-recall-type", "Results only") }}>
-                      <label for="comms-result-only" class="nhsuk-label nhsuk-checkboxes__label">
-                        Results only
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-results-recall" value="Results with recall" {{ checked("comms-recall-type", "Results with recall") }}>
-                      <label for="comms-results-recall" class="nhsuk-label nhsuk-checkboxes__label">
-                        Results with recall
-                      </label>
-                    </div>
-      
-                    <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-print" value="Result print summary" {{ checked("comms-recall-type", "Result print summary") }}>
-                      <label for="comms-result-print" class="nhsuk-label nhsuk-checkboxes__label">
-                        Result print summary
-                      </label>
-                    </div>
-      
-                  </div>
-              
-                    
-                </fieldset>
-
-              </div>
-            </div>
-
-
-          </div>
-
-
-      
-            
-        </fieldset>
-
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
-          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <p class="nhsuk-body">
-              Add notification period date range
-            </p>
-          </legend>
-
-          <div class="nhsuk-grid-row">
-
-            <div class="nhsuk-grid-column-one-half">
-              <div class="nhs-date-input" id="comms-noti-date-from">
-
-                <label for="comms-noti-date-from" class="nhsuk-label nhsuk-label__strong">
-                  Enter date from
-                </label>
-        
-                 <div class="nhsuk-hint" for="comms-noti-date-from">
-                  For example, 15 3 1998
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                   <div class="nhsuk-form-group">
-                    <label for="comms-noti-date-from-day" class="nhsuk-label">
-                      Day
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="patient-data-fields">
+                <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                  <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                    Which patient data do you want to include?
+                  </p>
+                </legend>
+    
+                <div class="nhsuk-checkboxes">
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="all-patient-data" id="all-patient-data" value="All patient fields" data-select-all>
+                    <label for="all-patient-data" class="nhsuk-label nhsuk-checkboxes__label">
+                      Select all
                     </label>
-                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-day" name="comms-noti-date-from-day" type="text" value="{{ data['comms-noti-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
-                   </div>
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-from-month" class="nhsuk-label">
-                    Month
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-month" name="comms-noti-date-from-month" type="text" value="{{ data['comms-noti-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
                   </div>
-                </div>
-        
-                <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-from-year" class="nhsuk-label">
-                    Year
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-year" name="comms-noti-date-from-year" type="text" value="{{ data['comms-noti-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
-                  </div>
-                </div>
-        
-               </div>
-            </div>
-
-            <div class="nhsuk-grid-column-one-half">
-
-              <div class="nhs-date-input" id="comms-noti-date-to">
-
-                <label for="comms-noti-date-to" class="nhsuk-label nhsuk-label__strong">
-                  Enter date to
-                </label>
-        
-                 <div class="nhsuk-hint" for="comms-noti-date-to">
-                  Leave blank to search for 1 day
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                   <div class="nhsuk-form-group">
-                    <label for="comms-noti-date-to-day" class="nhsuk-label">
-                      Day
+    
+    
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-nhs-num" id="patient-nhs-num" value="NHS number">
+                    <label for="patient-nhs-num" class="nhsuk-label nhsuk-checkboxes__label">
+                      NHS number
                     </label>
-                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-day" name="comms-noti-date-to-day" type="text" value="{{ data['comms-noti-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
-                   </div>
-                 </div>
-        
-                 <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-to-month" class="nhsuk-label">
-                    Month
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-month" name="comms-noti-date-to-month" type="text" value="{{ data['comms-noti-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
                   </div>
-                </div>
-        
-                <div class="nhsuk-date-input__item">
-                  <div class="nhsuk-form-group">
-                   <label for="comms-noti-date-to-year" class="nhsuk-label">
-                    Year
-                   </label>
-                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-year" name="comms-noti-date-to-year" type="text" value="{{ data['comms-noti-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-title" id="patient-title" value="Title">
+                    <label for="patient-title" class="nhsuk-label nhsuk-checkboxes__label">
+                      Title
+                    </label>
                   </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-surname" id="patient-surname" value="Surname">
+                    <label for="patient-surname" class="nhsuk-label nhsuk-checkboxes__label">
+                      Surname
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-forenames" id="patient-forenames" value="Forenames">
+                    <label for="patient-forenames" class="nhsuk-label nhsuk-checkboxes__label">
+                      Forenames
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-dob" id="patient-dob" value="Date of birth">
+                    <label for="patient-dob" class="nhsuk-label nhsuk-checkboxes__label">
+                      Date of birth
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-age" id="patient-age" value="Age">
+                    <label for="patient-age" class="nhsuk-label nhsuk-checkboxes__label">
+                      Age
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg-status" id="patient-reg-status" value="Registration status">
+                    <label for="patient-reg-status" class="nhsuk-label nhsuk-checkboxes__label">
+                      Registration status
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-date-reg" id="patient-date-reg" value="Date registered">
+                    <label for="patient-date-reg" class="nhsuk-label nhsuk-checkboxes__label">
+                      Registered date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-deduction-date" id="patient-deduction-date" value="Deduction date">
+                    <label for="patient-deduction-date" class="nhsuk-label nhsuk-checkboxes__label">
+                      Date removed
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-address" id="patient-address" value="Address">
+                    <label for="patient-address" class="nhsuk-label nhsuk-checkboxes__label">
+                      Address
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-house-name" id="patient-house-name" value="House name">
+                    <label for="patient-house-name" class="nhsuk-label nhsuk-checkboxes__label">
+                      House name
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-house-num-str" id="patient-house-num-str" value="Number/Street">
+                    <label for="patient-house-num-str" class="nhsuk-label nhsuk-checkboxes__label">
+                      Number/Street
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-locality" id="patient-locality" value="Locality">
+                    <label for="patient-locality" class="nhsuk-label nhsuk-checkboxes__label">
+                      Locality
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-town" id="patient-town" value="Town/City">
+                    <label for="patient-town" class="nhsuk-label nhsuk-checkboxes__label">
+                      Town/City
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-county" id="patient-county" value="County">
+                    <label for="patient-county" class="nhsuk-label nhsuk-checkboxes__label">
+                      County
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-postcode" id="patient-postcode" value="Postcode">
+                    <label for="patient-postcode" class="nhsuk-label nhsuk-checkboxes__label">
+                      Postcode
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-notes" id="patient-notes" value="Notes from NB">
+                    <label for="patient-notes" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notes from NB
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-free-test" id="patient-free-test" value="Free test from NB">
+                    <label for="patient-free-test" class="nhsuk-label nhsuk-checkboxes__label">
+                      Free test from NB
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-gp-cease" id="patient-gp-cease" value="GP recommend cease or deferral reason">
+                    <label for="patient-gp-cease" class="nhsuk-label nhsuk-checkboxes__label">
+                      GP recommend cease or deferral reason
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-notif-date" id="patient-notif-date" value="Deductive">
+                    <label for="patient-notif-date" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notification date(s)
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-notif-job" id="patient-notif-job" value="Notification job(s)">
+                    <label for="patient-notif-job" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notification job(s)
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-notif-type" id="patient-notif-type" value="Notification type(s)">
+                    <label for="patient-notif-type" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notification type(s)
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-invi-code" id="patient-invi-code" value="Invitation code">
+                    <label for="patient-invi-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      Invitation code
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-notif-info" id="patient-notif-info" value="Notification additional info">
+                    <label for="patient-notif-info" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notification additional info
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-deduc-code" id="patient-deduc-code" value="Deduction code">
+                    <label for="patient-deduc-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      Deduction code
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-deduc-code" id="patient-deduc-code" value="Deduction code">
+                    <label for="patient-deduc-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      PDS removal reason
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-pco" id="patient-pco" value="New PCO code">
+                    <label for="patient-pco" class="nhsuk-label nhsuk-checkboxes__label">
+                      New PCO code
+                    </label>
+                  </div>-->
+    
                 </div>
-        
-               </div>
+            
+                  
+              </fieldset>
+          
             </div>
+          </details>
 
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Practice data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
 
-          </div>
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="practice-data-fields">
+                <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                  <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                    Which practice data do you want to include?
+                  </p>
+                </legend>
+    
+                <div class="nhsuk-checkboxes">
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-all" id="practice-all" value="All practice fields" data-select-all>
+                    <label for="practice-all" class="nhsuk-label nhsuk-checkboxes__label">
+                      Select all
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-pco" id="practice-pco" value="PCO code">
+                    <label for="practice-pco" class="nhsuk-label nhsuk-checkboxes__label">
+                      PCO code
+                    </label>
+                  </div>-->
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-national-code" id="practice-national-code" value="National practice code">
+                    <label for="practice-national-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      National practice code
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="gp-practice-code" id="gp-practice-code" value="GP practice code">
+                    <label for="gp-practice-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      GP practice code
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-gp-code" id="practice-gp-code" value="National GP code">
+                    <label for="practice-gp-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      National GP code
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-name" id="practice-name" value="Practice name">
+                    <label for="practice-name" class="nhsuk-label nhsuk-checkboxes__label">
+                      Practice name
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="gp-postcode" id="gp-postcode" value="Post code">
+                    <label for="gp-postcode" class="nhsuk-label nhsuk-checkboxes__label">
+                      Post code
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-local-code" id="practice-local-code" value="Local GP code (Cipher only)">
+                    <label for="practice-local-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      Local GP code (Cipher only)
+                    </label>
+                  </div>-->
+    
+                </div>
+            
+                  
+              </fieldset>
+          
+            </div>
+          </details>
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Participant and episode data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="recall-data-fields">
+                <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                  <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                    Which participant and episode data do you want to include?
+                  </p>
+                </legend>
+    
+                <div class="nhsuk-checkboxes">
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-all" id="recall-all" value="Select all" data-select-all>
+                    <label for="recall-all" class="nhsuk-label nhsuk-checkboxes__label">
+                      Select all
+                    </label>
+                  </div>
+    
+    
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-f" id="recall-date-f" value="Recall date">
+                    <label for="recall-date-f" class="nhsuk-label nhsuk-checkboxes__label">
+                      Recall date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-type-f" id="recall-date-type-f" value="Recall type (Participant status)">
+                    <label for="recall-date-type-f" class="nhsuk-label nhsuk-checkboxes__label">
+                      Participant status
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-date-status-f" id="recall-date-status-f" value="Recall status (Episode status)">
+                    <label for="recall-date-status-f" class="nhsuk-label nhsuk-checkboxes__label">
+                      Episode status
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-invitation-date" id="recall-invitation-date" value="Invitation date">
+                    <label for="recall-invitation-date" class="nhsuk-label nhsuk-checkboxes__label">
+                      Invitation date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-noti-date-f" id="recall-noti-date-f" value="Notification date">
+                    <label for="recall-noti-date-f" class="nhsuk-label nhsuk-checkboxes__label">
+                      Notification date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-num-test" id="recall-num-test" value="Total number of test">
+                    <label for="recall-num-test" class="nhsuk-label nhsuk-checkboxes__label">
+                      Total number of tests
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-num-test-sel" id="recall-num-test-sel" value="Number of test selected">
+                    <label for="recall-num-test-sel" class="nhsuk-label nhsuk-checkboxes__label">
+                      Number of test selected
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-fnr" id="recall-fnr" value="FNR count">
+                    <label for="recall-fnr" class="nhsuk-label nhsuk-checkboxes__label">
+                      Non responders status
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-reason-cease" id="recall-reason-cease" value="Reason for ceasing">
+                    <label for="recall-reason-cease" class="nhsuk-label nhsuk-checkboxes__label">
+                      Reason for ceasing (including withdrawal of consent)
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-wihdraw-consent" id="recall-wihdraw-consent" value="Withdrawal consent held">
+                    <label for="recall-wihdraw-consent" class="nhsuk-label nhsuk-checkboxes__label">
+                      Withdrawal consent held
+                    </label>
+                  </div>-->
+    
+                </div>
+            
+                  
+              </fieldset>
+          
+            </div>
+          </details>
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Test data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+
+              <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-data-fields">
+                <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                  <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                    Which test data do you want to include?
+                  </p>
+                </legend>
+    
+                <div class="nhsuk-checkboxes">
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-all-f" id="test-all-f" value="Select all test fields" data-select-all>
+                    <label for="test-all-f" class="nhsuk-label nhsuk-checkboxes__label">
+                      Select all
+                    </label>
+                  </div>
+    
+    
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-dot" id="test-dot" value="Date of test">
+                    <label for="test-dot" class="nhsuk-label nhsuk-checkboxes__label">
+                      Date of test
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-prt" id="test-prt" value="Prior recall type">
+                    <label for="test-prt" class="nhsuk-label nhsuk-checkboxes__label">
+                      Prior recall type
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-nlc" id="test-nlc" value="National lab code">
+                    <label for="test-nlc" class="nhsuk-label nhsuk-checkboxes__label">
+                      National lab code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-sn" id="test-sn" value="Slide number">
+                    <label for="test-sn" class="nhsuk-label nhsuk-checkboxes__label">
+                      Slide number
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-pnd" id="test-pnd" value="Prior notification date">
+                    <label for="test-pnd" class="nhsuk-label nhsuk-checkboxes__label">
+                      Prior notification date
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-prs" id="test-prs" value="Prior recall status">
+                    <label for="test-prs" class="nhsuk-label nhsuk-checkboxes__label">
+                      Prior recall status
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-hpv-code" id="test-hpv-code" value="HPV code">
+                    <label for="test-hpv-code" class="nhsuk-label nhsuk-checkboxes__label">
+                      HPV code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-pid" id="test-pid" value="Prior invitation date">
+                    <label for="test-pid" class="nhsuk-label nhsuk-checkboxes__label">
+                      Prior invitation date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-rc" id="test-rc" value="Result code">
+                    <label for="test-rc" class="nhsuk-label nhsuk-checkboxes__label">
+                      Result code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-sc" id="test-sc" value="Sender code">
+                    <label for="test-sc" class="nhsuk-label nhsuk-checkboxes__label">
+                      Sender code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-tid" id="test-tid" value="Test input date">
+                    <label for="test-tid" class="nhsuk-label nhsuk-checkboxes__label">
+                      Test input date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-ac" id="test-ac" value="Action code">
+                    <label for="test-ac" class="nhsuk-label nhsuk-checkboxes__label">
+                      Action code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-soc" id="test-soc" value="Source code">
+                    <label for="test-soc" class="nhsuk-label nhsuk-checkboxes__label">
+                      Source code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-st" id="test-st" value="Source type">
+                    <label for="test-st" class="nhsuk-label nhsuk-checkboxes__label">
+                      Source type
+                    </label>
+                  </div>
+
+                  <!--<div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-tcom" id="test-tcom" value="Test results comments">
+                    <label for="test-tcom" class="nhsuk-label nhsuk-checkboxes__label">
+                      Test results comments
+                    </label>
+                  </div>-->
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-repm" id="test-repm" value="Repeat months">
+                    <label for="test-repm" class="nhsuk-label nhsuk-checkboxes__label">
+                      Repeat months
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-hpti" id="test-hpti" value="HPV primary test indicator">
+                    <label for="test-hpti" class="nhsuk-label nhsuk-checkboxes__label">
+                      HPV primary test indicator
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-spco" id="test-spco" value="Screening PCO">
+                    <label for="test-spco" class="nhsuk-label nhsuk-checkboxes__label">
+                      Screening PCO
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-ddate" id="test-ddate" value="Anticipated delivery date">
+                    <label for="test-ddate" class="nhsuk-label nhsuk-checkboxes__label">
+                      Anticipated delivery date
+                    </label>
+                  </div>
+    
+                </div>
+            
+                  
+              </fieldset>
+          
+            </div>
+          </details>
       
 
         </fieldset>
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="letter-code">
-          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-              Add letter code
-            </p>
-          </legend>
-
-          <ul class="nhsuk-list" id="letter-code-list">
-
-          </ul>
-
-          <label for="letter-code" class="nhsuk-label">
-            Enter letter code to include
-          </label>
-          <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
-            Letter codes should relate to the notification type selected.
-          </div>
-          <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['letter-code'] }}">
-            
-        </fieldset>
-
-        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-          Add letter code
-        </a>
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Save and continue
+        Download
       </button>
-    </form>
-   
 
+      <div class="nhsuk-body">
+        <p>
+          <a href="CSSE-home" class="nhsuk-link">Return to system enquiries tool</a>
+        </p>
+      </div>
+
+      
+    </form>
     
   </div>
 </div>

@@ -23,19 +23,19 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step2">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step8">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 2: Define location details</a>
+        Go back to Step 8: Define location details</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 3 of 10</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 9 of 12</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
         Define patient details
     </h1>
 
-    <form action="CSSE-create-step4" method="post">
+    <form action="CSSE-create-step10" method="post">
       <div class="nhsuk-form-group">
 
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="registration-status">
@@ -957,32 +957,6 @@ NHS Cervical screening management system
   
             </div>
               
-          </fieldset>
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
-            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body">
-                Do you want to include patient data in the enquiry report?
-              </p>
-            </legend>
-        
-            <div class="nhsuk-radios">
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="yes-patient-data" name="patient-data" type="radio" value="Yes, include patient data" checked {{ checked("patient-data", "Yes, include patient data") }} aria-describedby="yes-patient-data">
-                <label class="nhsuk-label nhsuk-radios__label" for="yes-patient-data">
-                  Yes, include patient data
-                </label>
-              </div>
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No, do not include patient data" {{ checked("patient-data", "No, do not include patient data") }} aria-describedby="no-patient-data-hint">
-                <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
-                  No, do not include patient data
-                </label>
-              </div>
-        
-            </div>
           </fieldset>
 
       </div>
