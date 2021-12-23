@@ -39,7 +39,7 @@ NHS Cervical screening management system
    
    <fieldset class="nhsuk-fieldset" aria-describedby="build-new-enquiry" role="group">
      <legend class="nhsuk-fieldset__legend nhsuk-label">
-       <p class="nhsuk-body nhsuk-u-font-weight-bold">
+       <p class="nhsuk-heading-m">
          Build a new enquiry
        </p>
      </legend>
@@ -57,16 +57,39 @@ NHS Cervical screening management system
     </a>
 
 
-    <div class="nhsuk-body nhsuk-u-margin-bottom-9">
+    <div class="nhsuk-body nhsuk-u-margin-bottom-7">
       <p>
-        <a href="CSSE-home.html" class="nhsuk-link">You have saved enquiries in draft</a>
+        <a href="CSSE-home.html" name="draft-enquiry" class="nhsuk-link"></a>
       </p>
      </div>
 
    </fieldset>
 
+   <fieldset class="nhsuk-fieldset" aria-describedby="build-new-enquiry" role="group">
+    <legend class="nhsuk-fieldset__legend nhsuk-label">
+      <h3 class="nhsuk-heading-m">
+        Search for an existing enquiry
+      </h3>
+    </legend>
 
-   <div class="nhsuk-form-group">
+    <p class="nhsuk-body">
+     Find the most recently created enquiries with their details.
+    </p>
+
+   <div class="nhsuk-body nhsuk-hint">
+    Download report outputs, change or duplicate to reuse enquiry parameters.
+   </div>
+
+   <a href="../CSSE-tool/csse-manage/csse-manage-enquiry" class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers">
+     Search
+   </a>
+
+
+
+  </fieldset>
+
+
+   <!--<div class="nhsuk-form-group">
     <form action="../CSSE-tool/csse-manage/csse-manage-enquiry" method="post">
      <fieldset class="nhsuk-fieldset" aria-describedby="search-existing-query" role="group">
        <legend class="nhsuk-fieldset__legend nhsuk-label">
@@ -76,10 +99,10 @@ NHS Cervical screening management system
        </legend>
 
        <label for="search-name" class="nhsuk-label">Enter enquiry name</label>
-       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['#'] }}" placeholder="Search by name">
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['#'] }}">
 
-       <!--<label for="search-code" class="nhsuk-label">Code</label>
-       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">-->
+       <label for="search-code" class="nhsuk-label">Code</label>
+       <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-code" name="search-code" type="text" value="{{ data['#'] }}">
 
        <div class="nhs-date-input" id="search-date">
 
@@ -111,19 +134,16 @@ NHS Cervical screening management system
         </div>
 
        </div>
-
-
-
-      
+     
      </fieldset>
-   </div>
 
-   <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
-     Search
-   </button>
-   <form action="v12/csse-tool/csse-manage/csse-manage-enquiry" method="post"></form>
+     <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
+      Search
+    </button>
+
+    </form>
 
     
-  </div>
+  </div>-->
 </div>
 {% endblock %}

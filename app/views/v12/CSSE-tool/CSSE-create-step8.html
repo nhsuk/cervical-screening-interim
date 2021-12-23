@@ -65,6 +65,28 @@ NHS Cervical screening management system
             Add CCG location code
           </a>-->
 
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add area code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="post-code-list">
+
+            </ul>
+
+            <label for="post-code" class="nhsuk-label">
+              Enter area code to include
+            </label>
+            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['post-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add area code
+          </a>
+
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
@@ -87,27 +109,6 @@ NHS Cervical screening management system
             Add GP practice code
           </a>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
-            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add post code for patient address
-              </p>
-            </legend>
-
-            <ul class="nhsuk-list" id="post-code-list">
-
-            </ul>
-
-            <label for="post-code" class="nhsuk-label">
-              Enter patient address post code to include
-            </label>
-            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['post-code'] }}">
-              
-          </fieldset>
-
-          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-            Add post code
-          </a>
           
 
       </div>
