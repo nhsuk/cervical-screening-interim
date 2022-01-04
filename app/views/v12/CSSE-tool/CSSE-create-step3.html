@@ -959,37 +959,17 @@ NHS Cervical screening management system
               
           </fieldset>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
-            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body">
-                Do you want to include patient data in the enquiry report?
-              </p>
-            </legend>
-        
-            <div class="nhsuk-radios">
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="yes-patient-data" name="patient-data" type="radio" value="Yes, include patient data" checked {{ checked("patient-data", "Yes, include patient data") }} aria-describedby="yes-patient-data">
-                <label class="nhsuk-label nhsuk-radios__label" for="yes-patient-data">
-                  Yes, include patient data
-                </label>
-              </div>
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No, do not include patient data" {{ checked("patient-data", "No, do not include patient data") }} aria-describedby="no-patient-data-hint">
-                <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
-                  No, do not include patient data
-                </label>
-              </div>
-        
-            </div>
-          </fieldset>
-
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
         Save and continue
       </button>
     </form>
+
+    <div class="nhsuk-body">
+      <p>
+        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
+      </p>
+    </div>
    
 
     

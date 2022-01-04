@@ -278,24 +278,6 @@ NHS Cervical screening management system
           
             </div>
 
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Include patient data
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                {% if data['patient-data'] %}{{ data['patient-data'] }}{% else %}Yes, include patient data{% endif %}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> include patient data</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
           
           
           </dl>
@@ -721,10 +703,16 @@ NHS Cervical screening management system
         </a>-->
 
         <button class="nhsuk-button nhsuk-button--ers" type="submit">
-          Save and continue
+          Submit and continue
         </button>
       </span>
     </form>
+
+    <div class="nhsuk-body">
+      <p>
+        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
+      </p>
+    </div>
     
   </div>
 </div>
