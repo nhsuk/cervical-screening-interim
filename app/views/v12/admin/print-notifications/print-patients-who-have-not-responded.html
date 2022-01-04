@@ -106,7 +106,7 @@ NHS Cervical screening management system
               {% set resultDate = (patient.results[0].result_date | returnNumericDateFormat or "-") + " " + (patient.results[0].result_date | returnTimeDiff or "-") %}
             {% endif %}
             {% if patient.results[0] != null %}
-              {{ result }}
+              {{ result }}, Repeat in 36 months
             {% else %}
               no results
             {% endif %}
