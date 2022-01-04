@@ -36,13 +36,13 @@
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters nhsuk-u-margin-bottom-4">
-  <h2 class="nhsuk-heading-m">Patients due to be invited</h2>
-  <p>Listed patients need reviewing as they are due to be invited for screening. If you take no action, they will be invited for screening on their next test due date.</p>
+  <h2 class="nhsuk-heading-m">Prior notification list of patients due to be invited</h2>
+  <p>Patients listed on the prior notification list need to be reviewed as they are due to be invited for cervical screening. If you take no action, they will be invited for screening on their next test due date.</p>
   <!--<p><a href="prior-notification-12-forms">Find out how to action patients because of <strong>mental capacity</strong> or <strong>patient choice</strong>? (opens in new window)</a></p>-->
   </div>
 </div>
 
-{% if data['patients'] == null %} 
+{% if data['patients'] == null %}
 <meta http-equiv="refresh" content="2;url=/v12/get-prior-notifications-12" />
   <div class="styleguide-example">
     <div class="nhsuk-loader__container">
@@ -55,7 +55,7 @@
   </div>
 {% else %}
 
-{% if data['patients'].length >= 1 %} 
+{% if data['patients'].length >= 1 %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
     <table id="sortable" class="nhsuk-table-clickable bna-table nhsuk-u-margin-top-0">
@@ -89,7 +89,7 @@
           {% set NameId =  "nameRow1" + loop.index %}
           <tr class="nhsuk-table__row">
           <td class="nhsuk-table__cell">
-          {{ patient.first_name | capitalize }} {{ patient.last_name | capitalize }} 
+          {{ patient.first_name | capitalize }} {{ patient.last_name | capitalize }}
             <span class="nhsuk-table__cell--hint">NHS No: {{ patient.nhs_number | formatNHSNumber }}</span>
           </td>
           <td class="nhsuk-table__cell">
@@ -97,7 +97,7 @@
             <span class="nhsuk-table__cell--hint">{{ patient.date_of_birth  | returnDateFormat }}</span>
           </td>
           <td class="nhsuk-table__cell">
-            {% if patient.results[0] == null %} 
+            {% if patient.results[0] == null %}
               Called
             {% else %}
               {{ patient.results[0].action }}
@@ -105,7 +105,7 @@
             <span class="nhsuk-table__cell--hint">Recall</span>
           </td>
           <td class="nhsuk-table__cell">
-            {{ patient.next_test_due_date | returnInviteDateFormat }} 
+            {{ patient.next_test_due_date | returnInviteDateFormat }}
              <span class="nhsuk-table__cell--hint">{{ ((( patient.next_test_due_date | returnInviteDate) | returnTimeDiffDays) | removeBrackets) | capitalize }} </span>
           </td>
           <td>
@@ -127,7 +127,7 @@
           </td>
         </tr>
         {% endfor %}
-      </tbody>   
+      </tbody>
     </table>
   </div>
 </div>
