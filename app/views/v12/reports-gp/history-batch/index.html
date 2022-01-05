@@ -28,45 +28,55 @@ NHS Cervical screening management system
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Reports</a>
+        Go back to reports</a>
     </div>
 
 
 
 
     <form action="/v12/reports-gp/history-batch" method="post">
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            <span class="nhsuk-caption-m">
+                  History batch download report
+                 <span class="nhsuk-u-visually-hidden"> - </span>
+               </span>
+            Choose how to select patients to include in the report
+          </h1>
+        </legend>
 
-      {% call fieldset({
-        legend: {
-          text: "Choose how to select patients to include in the report",
-          classes: "nhsuk-fieldset__legend--l",
-          isPageHeading: true
-        }
-      }) %}
 
-      {{ radios({
-        "idPrefix": "choose-method",
-        "name": "choose-method",
-        "items": [
-          {
-            "value": "Yes",
-            "text": "Manually add NHS numbers"
-          },
-          {
-            "value": "No",
-            "text": "Upload a file of NHS numbers"
-          }
-        ]
-      }) }}
+      <div class="nhsuk-form-group">
 
-      {% endcall %}
+        <div class="nhsuk-radios">
 
-      {{ button({
-        "text": "Continue"
-      }) }}
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="choose-method-1" name="choose-method" type="radio" value="Yes">
+            <label class="nhsuk-label nhsuk-radios__label" for="choose-method-1">
+              Manually add NHS numbers
+            </label>
+          </div>
 
+
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="choose-method-2" name="choose-method" type="radio" value="No">
+            <label class="nhsuk-label nhsuk-radios__label" for="choose-method-2">
+              Upload a file of NHS numbers
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+
+            </fieldset>
+
+            <button class="nhsuk-button nhsuk-button--ers" type="submit">
+              Continue
+            </button>
     </form>
-    
+
   </div>
 </div>
 {% endblock %}

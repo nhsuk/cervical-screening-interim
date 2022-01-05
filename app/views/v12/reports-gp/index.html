@@ -19,15 +19,39 @@ NHS Cervical screening management system
 
 
 {% block content %}
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-three-quarters">
-<h1 class="nhsuk-heading-l">Reports</h1>
-   
 
-    
-    <p><a href="/v12/reports-gp/history-batch">Screening history batch download report</a></p>
-    <p><a href="/v12/reports-gp/cancer-audit">Cancer audit report</a></p>
-    
-  </div>
-</div>
+
+
+    <div class="nhsuk-width-container-fluid">
+      <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+        <div class="nhsuk-grid-row">
+          <h1 class="nhsuk-heading-l">Reports</h1>
+
+          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
+            <ul class="panel-link">
+
+
+              <li class="panel-link__item">
+                <a class="panel-link__link" href="/v12/reports-gp/history-batch">
+                  <h2 class="panel-link__heading nhsuk-heading-s">History batch download report</h2>
+                </a>
+              </li>
+              </ul>
+                        </div>
+          <div class="nhsuk-grid-column-one-half">
+            <ul class="panel-link">
+              <li class="panel-link__item">
+                <a class="panel-link__link" href="/v12/reports-gp/cancer-audit">
+                  <h2 class="panel-link__heading nhsuk-heading-s">Cancer audit report</h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+
+
 {% endblock %}

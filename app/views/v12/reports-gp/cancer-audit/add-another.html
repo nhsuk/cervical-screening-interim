@@ -12,7 +12,7 @@
 {% block pageTitle %}
 NHS Cervical screening management system
 {% endblock %}
- 
+
 {% block header %}
 {% include '../../components/header.html' %}
 {% endblock %}
@@ -27,25 +27,30 @@ NHS Cervical screening management system
       </svg>
       Go back</a>
   </div>
-   
+
 
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
-  <h1 class="nhsuk-heading-l">Add a patient</h1>
-     
+  <h1 class="nhsuk-heading-l">
+    <span class="nhsuk-caption-m">
+          Cancer audit report
+         <span class="nhsuk-u-visually-hidden"> - </span>
+       </span>
+       Add a patient</h1>
+
   <div class="nhsuk-form-group">
       <form action="/v12/reports-gp/cancer-audit/report-2-patients" method="post">
       <label class="nhsuk-label" for="example">
         NHS number
       </label>
       <input class="nhsuk-input nhsuk-input--width-10" id="example" name="nhs-num2" type="text">
-   
+
       <fieldset class="nhsuk-fieldset nhsuk-u-margin-top-4" aria-describedby="example-hint" role="group">
         <label class="nhsuk-label nhsuk-u-margin-bottom-3" for="example">
        Date of diagnosis
       </label>
-      
-    
+
+
         <div class="nhsuk-date-input" id="example">
           <div class="nhsuk-date-input__item">
             <div class="nhsuk-form-group">
@@ -74,16 +79,16 @@ NHS Cervical screening management system
         </div>
       </fieldset>
 
-      <button class="nhsuk-button nhsuk-u-margin-top-6" type="submit">
+      <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-6" type="submit">
         Submit
       </button>
     </form>
-    
+
     </div>
-      
+
     </div>
   </div>
-  
+
   </div>
 </div>
 {% endblock %}
