@@ -29,62 +29,85 @@ NHS Cervical screening management system
 
     <form action="/v12/reports/lab-file-report/choose-date" method="post">
 
-    <div class="nhsuk-form-group">
+      <form>
 
-     <fieldset class="nhsuk-fieldset">
-       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-         <h1 class="nhsuk-fieldset__heading">
-           <span class="nhsuk-caption-m">
-                  Lab files received report
-                <span class="nhsuk-u-visually-hidden"> - </span>
-              </span>
-        Choose how you want to filter reports by
-         </h1>
-       </legend>
+        <div class="nhsuk-form-group">
+      <span class="nhsuk-hint">Lab files received</span>
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Choose how you want to filter reports by
+              </h1>
+            </legend>
+    
+            <form>
 
-       <div class="nhsuk-radios">
+                  <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+            
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-1">
+                    Area
+                      </label>
+                    </div>
+            
+                    <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-1">
+            
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="email">
+                          Area code
+                        </label>
+                        <span class="nhsuk-hint">Also known as NHAIS cipher or NHAIS box. For example, BD or LNA</span>
+                        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+                      </div>
+            
+                    </div>
+            
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
+                       Lab
+                      </label>
+                    </div>
+            
+                    <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+            
+                      <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="phone">
+                          National code
+                        </label>
+                        <span class="nhsuk-hint">Also known as lab code. For example T34KH</span>
+                        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
+                      </div>
+            
+                    </div>
+            <p> or</p>
+                    <div class="nhsuk-checkboxes__item">
+                      <input class="nhsuk-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
+                      <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
+                        View all files for all labs and areas
+                      </label>
+                    </div>
+            
+                    
+            
+                  </div>
+                </fieldset>
+            
+              </div>
+        
+              <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                Continue
+              </button>
+        </div>
+    
+      </form>
 
-         <div class="nhsuk-radios__item">
-           <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="allCCGs">
-           <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-            View all labs and areas
-           </label>
-         </div>
-
-         <div class="nhsuk-radios nhsuk-radios--conditional">
-
-           <div class="nhsuk-radios__item">
-             <input class="nhsuk-radios__input" id="chooseCCG" name="chooseCCG" type="radio" value="individualCCG" aria-controls="conditional-contact-1" aria-expanded="false">
-             <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-               Filter by national code or area code
-             </label>
-           </div>
-
-           <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
-
-             <div class="nhsuk-form-group">
-               <label class="nhsuk-label nhsuk-label__strong" for="email">
-                 Enter national code or area code
-               </label>
-               <div class="nhsuk-hint" id="contact-hint">
-  Also known as lab code. For example, T34KH
-</div>
-               <input class="nhsuk-input nhsuk-u-width-two-thirds" id="enterCCGName" name="enterCCGName" type="text">
-             </div>
-
-           </div>
 
 
-       </div>
-     </fieldset>
-
-   </div>
-
-    <button class="nhsuk-button nhsuk-button--ers" type="submit">
-      Continue
-    </button>
-</form>
 
   </div>
 </div>
 {% endblock %}
+  
+
