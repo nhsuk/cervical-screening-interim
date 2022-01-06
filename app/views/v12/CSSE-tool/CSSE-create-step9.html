@@ -225,7 +225,7 @@ NHS Cervical screening management system
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
                   <li>{{ data['patient-date-type'] }}</li>
-                  <li>{{ data['registered-date-from-day'] }}{{ data['deducted-date-from-day'] }}-{{ data['registered-date-from-month'] }}{{ data['deducted-date-from-month'] }}-{{ data['registered-date-from-year'] }}{{ data['deducted-date-from-year'] }} - {{ data['registered-date-to-day'] }}{{ data['deducted-date-to-day'] }}-{{ data['registered-date-to-month'] }}{{ data['deducted-date-to-month'] }}-{{ data['registered-date-to-year'] }}{{ data['deducted-date-to-year'] }}</li>
+                  <li>{{ data['registered-date-from-day'] }}{{ data['deducted-date-from-day'] }}-<span class="dateMonth">{{ data['registered-date-from-month'] }}{{ data['deducted-date-from-month'] }}</span>-{{ data['registered-date-from-year'] }}{{ data['deducted-date-from-year'] }} - {{ data['registered-date-to-day'] }}{{ data['deducted-date-to-day'] }}-<span class="dateMonth">{{ data['registered-date-to-month'] }}{{ data['deducted-date-to-month'] }}</span>-{{ data['registered-date-to-year'] }}{{ data['deducted-date-to-year'] }}</li>
                   </ul>
               </dd>
           
@@ -264,7 +264,7 @@ NHS Cervical screening management system
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
                   <li>{{ data['recall-date-type'] }}</li>
-                  <li>{{ data['next-test-date-from-day'] }}{{ data['last-noti-date-from-day'] }}{{ data['last-invi-date-from-day'] }}-{{ data['next-test-date-from-month'] }}{{ data['last-noti-date-from-month'] }}{{ data['last-invi-date-from-month'] }}-{{ data['next-test-date-from-year'] }}{{ data['last-noti-date-from-year'] }}{{ data['last-invi-date-from-year'] }} - {{ data['next-test-date-to-day'] }}{{ data['last-noti-date-to-day'] }}{{ data['last-invi-date-to-day'] }}-{{ data['next-test-date-to-month'] }}{{ data['last-noti-date-to-month'] }}{{ data['last-invi-date-to-month'] }}-{{ data['next-test-date-to-year'] }}{{ data['last-noti-date-to-year'] }}{{ data['last-invi-date-to-year'] }}</li>
+                  <li>{{ data['next-test-date-from-day'] }}{{ data['last-noti-date-from-day'] }}{{ data['last-invi-date-from-day'] }}-<span class="dateMonth">{{ data['next-test-date-from-month'] }}{{ data['last-noti-date-from-month'] }}{{ data['last-invi-date-from-month'] }}</span>-{{ data['next-test-date-from-year'] }}{{ data['last-noti-date-from-year'] }}{{ data['last-invi-date-from-year'] }} - {{ data['next-test-date-to-day'] }}{{ data['last-noti-date-to-day'] }}{{ data['last-invi-date-to-day'] }}-<span class="dateMonth">{{ data['next-test-date-to-month'] }}{{ data['last-noti-date-to-month'] }}{{ data['last-invi-date-to-month'] }}</span>-{{ data['next-test-date-to-year'] }}{{ data['last-noti-date-to-year'] }}{{ data['last-invi-date-to-year'] }}</li>
                   </ul>
               </dd>
           
@@ -377,7 +377,7 @@ NHS Cervical screening management system
                 Notification date range
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {{ data['comms-noti-date-from-day'] }}-{{ data['comms-noti-date-from-month'] }}-{{ data['comms-noti-date-from-year'] }} - {{ data['comms-noti-date-to-day'] }}-{{ data['comms-noti-date-to-month'] }}-{{ data['comms-noti-date-to-year'] }}
+                {{ data['comms-noti-date-from-day'] }}-<span class="dateMonth">{{ data['comms-noti-date-from-month'] }}</span>-{{ data['comms-noti-date-from-year'] }} - {{ data['comms-noti-date-to-day'] }}-<span class="dateMonth">{{ data['comms-noti-date-to-month'] }}</span>-{{ data['comms-noti-date-to-year'] }}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -518,7 +518,7 @@ NHS Cervical screening management system
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
                 <li>{{ data['date-type']}}</li>
-                <li>{{ data['from-test-taken-date-day'] }}{{ data['from-prev-noti-date-day'] }}{{ data['from-prev-invi-date-day'] }}{{ data['from-test-inp-date-day'] }}-{{ data['from-test-taken-date-month'] }}{{ data['from-prev-noti-date-month'] }}{{ data['from-prev-invi-date-month'] }}{{ data['from-test-inp-date-month'] }}-{{ data['from-test-taken-date-year'] }}{{ data['from-prev-noti-date-year'] }}{{ data['from-prev-invi-date-year'] }}{{ data['from-test-inp-date-year'] }} - {{ data['to-test-taken-date-day'] }}{{ data['to-prev-noti-date-day'] }}{{ data['to-prev-invi-date-day'] }}{{ data['to-test-inp-date-day'] }}-{{ data['to-test-taken-date-month'] }}{{ data['to-prev-noti-date-month'] }}{{ data['to-prev-invi-date-month'] }}{{ data['to-test-inp-date-month'] }}-{{ data['to-test-taken-date-year'] }}{{ data['to-prev-noti-date-year'] }}{{ data['to-prev-invi-date-year'] }}{{ data['to-test-inp-date-year'] }}</li>
+                <li>{{ data['from-test-taken-date-day'] }}{{ data['from-prev-noti-date-day'] }}{{ data['from-prev-invi-date-day'] }}{{ data['from-test-inp-date-day'] }}-<span class="dateMonth">{{ data['from-test-taken-date-month'] }}{{ data['from-prev-noti-date-month'] }}{{ data['from-prev-invi-date-month'] }}{{ data['from-test-inp-date-month'] }}</span>-{{ data['from-test-taken-date-year'] }}{{ data['from-prev-noti-date-year'] }}{{ data['from-prev-invi-date-year'] }}{{ data['from-test-inp-date-year'] }} - {{ data['to-test-taken-date-day'] }}{{ data['to-prev-noti-date-day'] }}{{ data['to-prev-invi-date-day'] }}{{ data['to-test-inp-date-day'] }}-<span class="dateMonth">{{ data['to-test-taken-date-month'] }}{{ data['to-prev-noti-date-month'] }}{{ data['to-prev-invi-date-month'] }}{{ data['to-test-inp-date-month'] }}</span>-{{ data['to-test-taken-date-year'] }}{{ data['to-prev-noti-date-year'] }}{{ data['to-prev-invi-date-year'] }}{{ data['to-test-inp-date-year'] }}</li>
                 <li></li>
                 </ul>
               </dd>
@@ -716,4 +716,55 @@ NHS Cervical screening management system
     
   </div>
 </div>
+
+
+<script>
+
+// Select the relevant variables by their class name
+  var dateMonthElements = document.querySelectorAll('.dateMonth');
+
+// A loop to check every variable with the class name
+  for (var i=0; i<dateMonthElements.length; i++) {
+    var dateMonthElement = dateMonthElements[i];
+    
+    // A series of if statements to change the date from number to words
+      if (dateMonthElement.innerText.includes('01')) {
+     dateMonthElement.innerText = "Jan";
+   }
+   else if (dateMonthElement.innerText.includes('02')) {
+     dateMonthElement.innerText = "Feb";
+   }
+   else if (dateMonthElement.innerText.includes('03')) {
+     dateMonthElement.innerText = "Mar";
+   }
+   else if (dateMonthElement.innerText.includes('04')) {
+     dateMonthElement.innerText = "Apr";
+   }
+   else if (dateMonthElement.innerText.includes('05')) {
+     dateMonthElement.innerText = "May";
+   }
+   else if (dateMonthElement.innerText.includes('06')) {
+     dateMonthElement.innerText = "Jun";
+   }
+   else if (dateMonthElement.innerText.includes('07')) {
+     dateMonthElement.innerText = "Jul";
+   }
+   else if (dateMonthElement.innerText.includes('08')) {
+     dateMonthElement.innerText = "Aug";
+   }
+   else if (dateMonthElement.innerText.includes('09')) {
+     dateMonthElement.innerText = "Sep";
+   }
+   else if (dateMonthElement.innerText.includes('10')) {
+     dateMonthElement.innerText = "Oct";
+   }
+   else if (dateMonthElement.innerText.includes('11')) {
+     dateMonthElement.innerText = "Nov";
+   }
+   else if (dateMonthElement.innerText.includes('12')) {
+     dateMonthElement.innerText = "Dec";
+   }
+    
+  }
+</script>
 {% endblock %}
