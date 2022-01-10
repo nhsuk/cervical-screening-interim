@@ -33,9 +33,8 @@
 
 
 
- <a class ="nhsuk-button--ers" href="/images/summary.csv" download>Download summary CSV</a>
- <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/lab.csv" download>Download full file outcomes CSV</a>
-  <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/lab.csv" download>Download unresolved file outcomes CSV</a>
+ <a class ="nhsuk-button--ers" href="/images/full.csv" download>Download full file outcomes Excel</a>
+  <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" href="/images/unresolved.csv" download>Download unresolved file outcomes CSV</a>
 
    <br>
    <h2 class="nhsuk-heading-m">Automatic summary report</h2>
@@ -64,8 +63,11 @@
           Total results received
           </th>
           <th role="columnheader" scope="col" width="200">
-           Total results automatic matched
+           Total automatic matches
           </th>
+          <th role="columnheader" scope="col" width="200">
+            Total non hits
+           </th>
           <th role="columnheader" scope="col" width="200">
            Total partial matches
           </th>
@@ -75,9 +77,7 @@
           </th><th role="columnheader" scope="col" width="200">
            Total policy rejections
           </th>
-          </th><th role="columnheader" scope="col" width="200">
-           File valid
-          </th>
+          
         </tr>
       </thead>
 
@@ -94,10 +94,11 @@
 
           <td class="nhsuk-table__cell ">130
            <span class="nhsuk-table__cell--hint">90%</span></td>
+           <td class="nhsuk-table__cell ">6</td>
            <td class="nhsuk-table__cell ">3</td>
             <td class="nhsuk-table__cell ">2</td>
              <td class="nhsuk-table__cell ">1</td>
-              <td class="nhsuk-table__cell ">Yes</td>
+             
 
       </tbody>
     </table>
@@ -106,8 +107,8 @@
 
 <br>
    <h2 class="nhsuk-heading-m">Manual summary report</h2>
-  <p>Data in the manual summary report will change until the file is complete. </p>
-  <p>The reports are ready to download once there are no outstanding results left in to process and to check.</p>
+  <p>Data in the manual summary report will change until manual matching on the file is finished. </p>
+  <p>Manual matching is finished once there are no outstanding results left in to process and to check.</p>
 
    <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
