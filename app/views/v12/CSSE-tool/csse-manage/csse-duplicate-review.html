@@ -87,7 +87,7 @@ NHS Cervical screening management system
                 Name
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {% if data['edit-create-name'] %}{{ data['duplicate-create-name'] }}{% else %}HPV data report{% endif %}
+                {% if data['duplicate-create-name'] %}{{ data['duplicate-create-name'] }}{% else %}HPV data report{% endif %}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -715,10 +715,6 @@ NHS Cervical screening management system
         <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-right-6" type="submit">
           Submit and continue
         </button>
-
-        <a class="nhsuk-button  nhsuk-button--secondary nhsuk-button--ers" href="csse-duplicate-enquiry">
-          Duplicate
-        </a>
       </span>
 
     </form>
