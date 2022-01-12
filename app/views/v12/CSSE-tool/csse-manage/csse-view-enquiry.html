@@ -609,7 +609,8 @@ NHS Cervical screening management system
                   {% for item in data['national-code-list'] %}
                 <li>{{ item }}</li>
               {% else %}
-                <li>60234, 61558</li>
+                <li>60234</li>
+                <li>61558</li>
               {% endfor %}
                 </ul>
                 {{ data['national-code-data'] }}
@@ -634,10 +635,39 @@ NHS Cervical screening management system
                   {% for item in data['source-code-list'] %}
                 <li>{{ item }}</li>
               {% else %}
-                <li>H, X, N</li>
+                <li>H</li>
+                <li>X</li>
+                <li>N</li>
               {% endfor %}
                 </ul>
                 {{ data['source-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Source type
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['source-type-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>1</li>
+                <li>4</li>
+                <li>7</li>
+              {% endfor %}
+                </ul>
+                {{ data['source-type-data'] }}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -660,34 +690,10 @@ NHS Cervical screening management system
                 <li>{{ item }}</li>
               {% else %}
                 <li>A86020, A8640</li>
+                <li></li>
               {% endfor %}
                 </ul>
                 {{ data['sender-code-data'] }}
-              </dd>
-          
-              <dd class="nhsuk-summary-list__actions">
-          
-                <a href="#">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
-              </dd>
-          
-            </div>
-
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">
-                Source type
-              </dt>
-              <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['source-type-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>1, 4, 7</li>
-              {% endfor %}
-                </ul>
-                {{ data['source-type-data'] }}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
@@ -716,7 +722,7 @@ NHS Cervical screening management system
         </button>
 
         <a class="nhsuk-button  nhsuk-button--secondary nhsuk-button--ers" href="csse-duplicate-enquiry">
-          Duplicate
+         Save as new enquiry
         </a>
       </span>
 

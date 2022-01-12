@@ -32,7 +32,7 @@ NHS Cervical screening management system
     
     <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 4 of 10</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define participant and episode status details
+        Define recall details
     </h1>
 
     <form action="CSSE-create-step5" method="post">
@@ -41,7 +41,7 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="current-participant-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                What current participant status would you like to include?
+                What current participant status do you want to include?
               </p>
             </legend>
 
@@ -216,7 +216,7 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="current-episode-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                What current episode status would you like to include?
+                What current episode status do you want to include?
               </p>
             </legend>
 
@@ -246,9 +246,9 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="Waiting to be sent invite" checked {{ checked("current-episode-status", "Waiting to be sent invite") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="On prior notification list of patients due to be invited" checked {{ checked("current-episode-status", "On prior notification list of patients due to be invited") }}>
                 <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
-                  Waiting to be sent invite
+                  On prior notification list of patients due to be invited
                 </label>
               </div>
 
@@ -270,6 +270,12 @@ NHS Cervical screening management system
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-nonresponder" value="Non responder" checked {{ checked("current-episode-status", "Non responder") }}>
                 <label for="current-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
                   Non responder
+                </label>
+              </div>
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-pause" value="Pause patient notifications" checked {{ checked("current-episode-status", "Pause patient notifications") }}>
+                <label for="current-pause" class="nhsuk-label nhsuk-checkboxes__label">
+                  Pause patient notifications (while result being resolved)
                 </label>
               </div>
 

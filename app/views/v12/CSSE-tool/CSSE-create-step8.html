@@ -37,13 +37,101 @@ NHS Cervical screening management system
     
     <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 8 of 10</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define sender details
+        Define lab and sender details
     </h1>
 
     <form action="CSSE-create-step9" method="post">
       <div class="nhsuk-form-group">
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="national-code">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="national-code">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+              What national code would you like to include?
+            </p>
+          </legend>
+
+          <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+            Select all options that are relevant to you
+          </div>
+
+          <div class="nhsuk-checkboxes">
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-select-all" value="Select all" checked {{ checked("national-code", "Select all") }} data-select-all>
+              <label for="national-code-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                Select all
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-all" value="61025" checked {{ checked("national-code", "61025") }}>
+              <label for="national-code-all" class="nhsuk-label nhsuk-checkboxes__label">
+                61025 - London
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-berkshire" value="61270" checked {{ checked("national-code", "61270") }}>
+              <label for="national-code-berkshire" class="nhsuk-label nhsuk-checkboxes__label">
+                61270 - Berkshire
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-wolverhampton" value="61740" checked {{ checked("national-code", "61740") }}>
+              <label for="national-code-wolverhampton" class="nhsuk-label nhsuk-checkboxes__label">
+                61740 - Wolverhampton
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-gateshead" value="60080" checked {{ checked("national-code", "60080") }}>
+              <label for="national-code-gateshead" class="nhsuk-label nhsuk-checkboxes__label">
+                60080 - Gateshead
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-norwich" checked value="60540" {{ checked("national-code", "60540") }}>
+              <label for="national-code-norwich" class="nhsuk-label nhsuk-checkboxes__label">
+                60540 - Norwich
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-manchester" value="62010" checked {{ checked("national-code", "62010") }}>
+              <label for="national-code-manchester" class="nhsuk-label nhsuk-checkboxes__label">
+                62010 - Manchester
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-bristol" value="61590" checked {{ checked("national-code", "61590") }}>
+              <label for="national-code-bristol" class="nhsuk-label nhsuk-checkboxes__label">
+                61590 - Bristol
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-derby" value="60370" checked {{ checked("national-code", "60370") }}>
+              <label for="national-code-derby" class="nhsuk-label nhsuk-checkboxes__label">
+                60370 - Derby
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-isleofman" value="61910" checked {{ checked("national-code", "61910") }}>
+              <label for="national-code-isleofman" class="nhsuk-label nhsuk-checkboxes__label">
+                61910 - Isle of Man
+              </label>
+            </div>
+
+          </div>
+      
+            
+        </fieldset>
+
+        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="national-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add national code
@@ -66,9 +154,63 @@ NHS Cervical screening management system
 
           <a id="add-national-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add national code
-          </a>
+          </a>-->
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-code">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="source-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                What source code do you want to include?
+              </p>
+            </legend>
+
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+              Select all options that are relevant to you
+            </div>
+
+            <div class="nhsuk-checkboxes">
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-select-all" value="Select all" checked {{ checked("source-code", "Select all") }} data-select-all>
+                <label for="source-code-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                  Select all
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-h" value="H" checked {{ checked("source-code", "H") }}>
+                <label for="source-code-h" class="nhsuk-label nhsuk-checkboxes__label">
+                  H - Hospital and clinics
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-x" value="X" checked {{ checked("source-code", "X") }}>
+                <label for="source-code-x" class="nhsuk-label nhsuk-checkboxes__label">
+                  X - Hospitals and clinics with unknown sender code
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-g" value="G" checked {{ checked("source-code", "G") }}>
+                <label for="source-code-g" class="nhsuk-label nhsuk-checkboxes__label">
+                  G - GP
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-n" value="N" checked {{ checked("source-code", "N") }}>
+                <label for="source-code-n" class="nhsuk-label nhsuk-checkboxes__label">
+                  N - GP with unknown sender code
+                </label>
+              </div>
+
+
+            </div>
+        
+              
+          </fieldset>
+          
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add source code
@@ -91,8 +233,83 @@ NHS Cervical screening management system
 
           <a id="add-source-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add source code
-          </a>
+          </a>-->
 
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="source-type">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                What source type do you want to include?
+              </p>
+            </legend>
+
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+              Select all options that are relevant to you
+            </div>
+
+            <div class="nhsuk-checkboxes">
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-select-all" value="Select all" checked {{ checked("source-type", "Select all") }} data-select-all>
+                <label for="source-type-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                  Select all
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-1" value="1" checked {{ checked("source-type", "1") }}>
+                <label for="source-type-1" class="nhsuk-label nhsuk-checkboxes__label">
+                  1 - GP practice or primary care
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-2" value="2" checked {{ checked("source-type", "2") }}>
+                <label for="source-type-2" class="nhsuk-label nhsuk-checkboxes__label">
+                  2 - Community clinic
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-3" value="3" checked {{ checked("source-type", "3") }}>
+                <label for="source-type-3" class="nhsuk-label nhsuk-checkboxes__label">
+                  3 - Sexual health service
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-4" value="4" checked {{ checked("source-type", "4") }}>
+                <label for="source-type-4" class="nhsuk-label nhsuk-checkboxes__label">
+                  4 - NHS hosptial
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-5" value="5" checked {{ checked("source-type", "5") }}>
+                <label for="source-type-5" class="nhsuk-label nhsuk-checkboxes__label">
+                  5 - Defense medical services
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-6" value="6" checked {{ checked("source-type", "6") }}>
+                <label for="source-type-6" class="nhsuk-label nhsuk-checkboxes__label">
+                  6 - Other
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-7" value="7" checked {{ checked("source-type", "7") }}>
+                <label for="source-type-7" class="nhsuk-label nhsuk-checkboxes__label">
+                  7 - NHS colpolscopy
+                </label>
+              </div>
+
+
+            </div>
+        
+              
+          </fieldset>
+          
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="sender-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
@@ -114,11 +331,13 @@ NHS Cervical screening management system
               
           </fieldset>
 
+          
+
           <a id="add-sender-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add sender code
           </a>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-type">
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-type">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Add source type
@@ -141,7 +360,7 @@ NHS Cervical screening management system
 
           <a id="add-source-type" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
             Add source type
-          </a>
+          </a>-->
 
           
 
