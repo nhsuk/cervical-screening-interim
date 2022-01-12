@@ -29,12 +29,12 @@ NHS Cervical screening management system
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 4: Define participant and episode status details</a>
+        Go back to Step 4: Define recall details</a>
     </div>
     
     <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 5 of 10</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define communication data
+        Define communication details
     </h1>
 
     <form action="CSSE-create-step6" method="post">
@@ -44,7 +44,7 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-notification-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body nhsuk-u-margin-bottom-4">
-              What type of notification do you want to include?
+              What type of notification do you want to refine by?
             </p>
           </legend>
 
@@ -60,7 +60,7 @@ NHS Cervical screening management system
             <div class="nhsuk-radios__item">
               <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" {{ checked("comms-notification-type", "Prior notification list") }} aria-controls="expand-prior-noti-list" aria-expnded="false">
               <label for="comms-prior-noti-list" class="nhsuk-label nhsuk-radios__label">
-                Prior notification list
+                Prior notification list (PNL) of patients due to be invited
               </label>
             </div>
 
@@ -70,12 +70,12 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      What participant status would you like to include?
+                      Which PNL notification type do you want to include?
                     </p>
                   </legend>
       
                   <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                    Previously known as recall type. Select all options that are relevant to you
+                    Select all options that are relevant to you
                   </div>
 
                   <!--<p class="nhsuk-body nhsuk-u-margin-bottom-4">
@@ -253,7 +253,7 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body">
-              Add notification period date range
+              What date range do you want to include for the notifiction?
             </p>
           </legend>
 
