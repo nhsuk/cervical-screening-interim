@@ -826,6 +826,20 @@ else {
 
 })
 
-
+// csse duplicate errors
+router.post('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name', function (req, res) {
+  let duplicateCreateName = req.body.duplicateCreateName;
+  if (duplicateCreateName) {
+    res.redirect('/v12/csse-tool/csse-manage/csse-duplicate-review?duplicateCreateNameError=')
+  } else {
+    var errorURL = "";
+    if (duplicateCreateName) {
+      errorURL += "duplicateCreateNameError="
+    } else {
+       errorURL += "duplicateCreateNameError=True"
+    }
+    res.redirect('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name?' + errorURL )
+  }
+});
 
 module.exports = router;
