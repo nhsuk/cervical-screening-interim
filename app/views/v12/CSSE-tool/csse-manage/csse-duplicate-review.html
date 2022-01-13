@@ -87,7 +87,11 @@ NHS Cervical screening management system
                 Name
               </dt>
               <dd class="nhsuk-summary-list__value">
-                {% if data['duplicate-create-name'] %}{{ data['duplicate-create-name'] }}{% else %}HPV data report{% endif %}
+                {% if data['duplicateCreateName'] %}
+                {{ data['duplicateCreateName'] }}
+                {% else %}
+                HPV data report
+                {% endif %}
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
