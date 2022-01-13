@@ -5,6 +5,7 @@
 
 //Define empty array where NHS numbers will live when entered
 var gpCode = []
+
 //Define variables and helps the html talk to the javascript
 var gpCodeinput = document.getElementById('gp-practice-code-input')
 var gpCodelist = document.getElementById('gp-practice-code-list')

@@ -3,7 +3,11 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
 <script type="text/javascript" src="/js/add-result-code-list.js"></script>
+<script type="text/javascript" src="/js/autocomplete-result.js"></script>
+
 <!--Add JS script for list builder above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -37,7 +41,7 @@ NHS Cervical screening management system
         Define test result details
     </h1>
 
-    <form action="CSSE-create-step8" method="post">
+    <form action="CSSE-create-step8" method="post" autocomplete="off">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="date-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -609,6 +613,7 @@ NHS Cervical screening management system
                 </label>
                 <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
                </div>
+               
              </div>
     
              <div class="nhsuk-date-input__item">

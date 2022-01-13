@@ -598,8 +598,8 @@ NHS Cervical screening management system
                   {% for item in data['national-code'] %}
                 <li>{{ item }}</li>
               {% else %}
-                <li>60234</li>
-                <li>61558</li>
+                <li>Berkshire (61270)</li>
+                <li>Derby (60370)</li>
               {% endfor %}
                 </ul>
                 {{ data['national-code-data'] }}
@@ -624,9 +624,9 @@ NHS Cervical screening management system
                   {% for item in data['source-code'] %}
                 <li>{{ item }}</li>
               {% else %}
-                <li>H</li>
-                <li>X</li>
-                <li>N</li>
+                <li>Hospitals and clinics (H)</li>
+                <li>Hospitals and clinics with unknown sender code (X)</li>
+                <li>GP with unknown sender code (N)</li>
               {% endfor %}
                 </ul>
                 {{ data['source-code-data'] }}
@@ -651,9 +651,9 @@ NHS Cervical screening management system
                   {% for item in data['source-type-list'] %}
                 <li>{{ item }}</li>
               {% else %}
-                <li>1</li>
-                <li>4</li>
-                <li>7</li>
+                <li>GP practice or primary care (1)</li>
+                <li>NHS hospital (4)</li>
+                <li>NHS colposcopy (7)</li>
               {% endfor %}
                 </ul>
                 {{ data['source-type-data'] }}
