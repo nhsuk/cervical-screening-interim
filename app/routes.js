@@ -826,6 +826,21 @@ else {
 
 })
 
+//Crm and comments
+
+router.post("/v12/patients/additional-info", function (req, res) {
+var changeSee = req.session.data['crm'];
+
+if (changeSee == 'crmComments') {
+  res.redirect("/v12/reports/report-demographic-gender-selected");
+}
+
+else {
+  res.redirect("/v12/patient/additional-info-crm");
+}
+
+})
+
 
 
 module.exports = router;
