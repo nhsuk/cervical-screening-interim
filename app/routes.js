@@ -827,5 +827,22 @@ else {
 })
 
 
+// consecutive defer
+
+router.post("/v12/prior-notification/prior-notification-12-defer-confirm", function (req, res) {
+var pnlCease = req.session.data['pnlCease'];
+
+if (pnlCease == 'yes') {
+  res.redirect("/v12/prior-notification/prior-notification-12-defer-length");
+}
+
+else {
+  res.redirect("/v12/patient/patient-summary-7");
+}
+
+})
+
+
+
 
 module.exports = router;
