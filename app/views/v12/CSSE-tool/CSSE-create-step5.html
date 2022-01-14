@@ -4,6 +4,65 @@
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
 <script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
+<script>
+  function customSuggest (query, syncResults) {
+            var results = [
+    { code: 'X0A', result: 'No cytology result, HPV negative, routine recall', recall: '36/60', allowableRecall: 'none' },
+    { code: 'X0R', result: 'No cytology result, HPV negative, early recall –12 or 36 months', recall: '36', allowableRecall: '12' },
+    { code: 'X0S', result: 'No cytology result, HPV negative, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: 'XUR', result: 'No cytology result, HPV not available, early recall –3 months', recall: '3', allowableRecall: 'none' },
+    { code: 'XUS', result: 'No cytology result, HPV not available, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: 'X9S', result: 'No cytology result, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '19R', result: 'Inadequate cytology, HPV positive, early recall –3 months', recall: '12', allowableRecall: 'none' },
+    { code: '19S', result: 'Inadequate cytology, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '39S', result: 'Low grade dyskaryosis, HPV positive, refer for colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '49S', result: 'High-grade dyskaryosis (severe), HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '59S', result: 'High-grade dyskaryosis invasive squamous carcinoma, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '69S', result: 'Glandular neoplasia of endocervical type, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '79S', result: 'High-grade dyskaryosis (moderate), HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '89S', result: 'Borderline squamous, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '99S', result: 'Borderline endocervical, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '09R', result: 'Glandular neoplasia (non-cervical), HPV positive, early recall –12 or 36 months', recall: '12', allowableRecall: '36' },
+    { code: '29R', result: 'Normal cytology, HPV positive, early recall –12 or 36 months', recall: '12', allowableRecall: '36' },
+    { code: '09S', result: 'Glandular neoplasia (non-cervical), HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' },
+    { code: '29S', result: 'Normal cytology, HPV positive, refer colposcopy', recall: '12', allowableRecall: 'none' }
+  ]
+          syncResults(query
+            ? results.filter(function (result) {
+                var resultContains = result.code.toLowerCase().indexOf(query.toLowerCase()) !== -1
+                var endonymContains = result.result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+                return resultContains || endonymContains
+              })
+            : []
+          )
+        }
+  
+        function inputValueTemplate (result) {
+          return result && result.result + '-' + result.code
+        }
+  
+        function suggestionTemplate (result) {
+          return result && '<strong>' + result.result + '</strong>' +
+            ' (' + result.code + '</span>)'
+        }
+  
+        element = document.querySelector('#my-autocomplete-container')
+        id = 'autocomplete-customTemplates'
+        accessibleAutocomplete({
+          element: element,
+          id: id,
+          name: 'result',
+          source: customSuggest,
+          templates: {
+            inputValue: inputValueTemplate,
+            suggestion: suggestionTemplate
+          }
+        })
+      
+  
+  </script>
 <!--Add letter code script above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -348,28 +407,26 @@ NHS Cervical screening management system
 
         </fieldset>
 
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="letter-code">
+        <fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-              Add letter code
-            </p>
+           Add letter code
           </legend>
+    
+    
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="codecomplete">
+                  <span id="" class="nhsuk-hint" style="">
+                    Enter codes or full description
+                  </span>  
+                  <ul id="letter-code-list">
 
-          <ul class="nhsuk-list" id="letter-code-list">
-
-          </ul>
-
-          <label for="letter-code" class="nhsuk-label">
-            Enter letter code to include
-          </label>
-          <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
-            Letter codes should relate to the notification type selected.
-          </div>
-          <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['letter-code'] }}">
-            
+                  </ul>
+                <div id="my-autocomplete-container" class="codecomplete"></div>
+              </div>
         </fieldset>
+        <div style="padding: 20px;"></div>
 
-        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9 nhsuk-margin-top-4">
           Add letter code
         </a>
 
@@ -386,7 +443,12 @@ NHS Cervical screening management system
     </div>
    
 
-    
+ 
   </div>
 </div>
 {% endblock %}
+
+
+
+
+
