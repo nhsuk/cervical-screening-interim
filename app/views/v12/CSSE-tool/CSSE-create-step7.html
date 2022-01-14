@@ -611,25 +611,25 @@ NHS Cervical screening management system
                 <label for="result-code-result" class="nhsuk-label">
                   Result
                 </label>
-                <input list="result-code-result-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                <input list="result-code-result-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}">
                </div>
                <datalist id="result-code-result-items">
-                 <option value="">?Glandular noeplasia (non-cervical)</option>
-                 <option value="">Inadequate cytology</option>
-                 <option value="">Negative/normal cytology</option>
-                 <option value="">Low-grade dyskaryosis</option>
-                 <option value="">High-grade dyskaryosis - severe (HPV tested and not)</option>
-                 <option value="">High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)</option>
-                 <option value="">?Glandular neoplasia of endocervical type (HPV tested and not)</option>
-                 <option value="">High-grade dyskaryosis - moderate (HPV tested and not)</option>
-                 <option value="">Borderline squamous</option>
-                 <option value="">Borderline endocervical</option>
-                 <option value="">Borderline change in squamous cells (HPV tested)</option>
-                 <option value="">Borderline change in endocervical cells (HPV tested)</option>
-                 <option value="">?Glandular neoplasia - non cervical (HPV tested)</option>
-                 <option value="">Low grade dyskaryosis (HPV tested)</option>
-                 <option value="">Negative (HPV tested)</option>
-                 <option value="">No cytology result</option>
+                 <option value="0">?Glandular noeplasia (non-cervical)</option>
+                 <option value="1">Inadequate cytology</option>
+                 <option value="2">Negative/normal cytology</option>
+                 <option value="3">Low-grade dyskaryosis</option>
+                 <option value="4">High-grade dyskaryosis - severe (HPV tested and not)</option>
+                 <option value="5">High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)</option>
+                 <option value="6">?Glandular neoplasia of endocervical type (HPV tested and not)</option>
+                 <option value="7">High-grade dyskaryosis - moderate (HPV tested and not)</option>
+                 <option value="8">Borderline squamous</option>
+                 <option value="9">Borderline endocervical</option>
+                 <option value="B">Borderline change in squamous cells (HPV tested)</option>
+                 <option value="E">Borderline change in endocervical cells (HPV tested)</option>
+                 <option value="G">?Glandular neoplasia - non cervical (HPV tested)</option>
+                 <option value="M">Low grade dyskaryosis (HPV tested)</option>
+                 <option value="N">Negative (HPV tested)</option>
+                 <option value="X">No cytology result</option>
                </datalist>
                
              </div>
