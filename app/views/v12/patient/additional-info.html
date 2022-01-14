@@ -47,10 +47,11 @@ NHS Cervical screening management system
 
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
   <div class="nhsuk-grid-column-full">
+    <form action="additional-info?display=True" method="post">
+
     <h1 class="nhsuk-heading-l">Enter CRM case number</h1>
 
     <div class="nhsuk-form-group">
-      <form action="additional-info" method="post">
       <h1 class="nhsuk-label-wrapper">
         <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
           Enter CRM case number
@@ -59,7 +60,7 @@ NHS Cervical screening management system
       <span class="nhsuk-hint" id="example-hint">
         For example, CAS-12345-ABCDE.
       </span>
-      <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off" value="{{ data.crm }}">
+      <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off">
     </div>
     <div class="nhsuk-form-group">
 
@@ -76,7 +77,6 @@ NHS Cervical screening management system
     </div>
     <br>
     <button class="nhsuk-button nhsuk-button--ers" type="post" >Save entry</button>
-    </form>
     </div>
     </div>
 
@@ -100,30 +100,35 @@ NHS Cervical screening management system
           </th>
         </tr>
       </thead>
+      {% if data['display'] === 'True' %}
       <tbody class="nhsuk-table__body">
 
         <tr role="row" class="nhsuk-table__row">
           <td role="cell" class="nhsuk-table__cell" >
-
+            14 January 2022
           </td>
           <td>
-
+            {{ data.crm }}
             </td>
             <td>
-
+              {{ data['crmComments'] }}
               </td>
               <td>
-
+                Alison Jones
                 </td>
 
         </tr>
       </tbody>
+      {% else %}
+      {% endif %}
+
     </table>
 
 
     <!-- <p><a href="manc-rejected">Exit without saving</a></p> -->
 
     </fieldset>
+  </form>
 
 
   </div>
