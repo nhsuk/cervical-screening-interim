@@ -611,8 +611,26 @@ NHS Cervical screening management system
                 <label for="result-code-result" class="nhsuk-label">
                   Result
                 </label>
-                <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+                <input list="result-code-result-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
                </div>
+               <datalist id="result-code-result-items">
+                 <option value="">?Glandular noeplasia (non-cervical)</option>
+                 <option value="">Inadequate cytology</option>
+                 <option value="">Negative/normal cytology</option>
+                 <option value="">Low-grade dyskaryosis</option>
+                 <option value="">High-grade dyskaryosis - severe (HPV tested and not)</option>
+                 <option value="">High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)</option>
+                 <option value="">?Glandular neoplasia of endocervical type (HPV tested and not)</option>
+                 <option value="">High-grade dyskaryosis - moderate (HPV tested and not)</option>
+                 <option value="">Borderline squamous</option>
+                 <option value="">Borderline endocervical</option>
+                 <option value="">Borderline change in squamous cells (HPV tested)</option>
+                 <option value="">Borderline change in endocervical cells (HPV tested)</option>
+                 <option value="">?Glandular neoplasia - non cervical (HPV tested)</option>
+                 <option value="">Low grade dyskaryosis (HPV tested)</option>
+                 <option value="">Negative (HPV tested)</option>
+                 <option value="">No cytology result</option>
+               </datalist>
                
              </div>
     
@@ -621,8 +639,14 @@ NHS Cervical screening management system
                <label for="result-code-hpv" class="nhsuk-label">
                 HPV
                </label>
-               <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-hpv" name="result-code-hpv" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+               <input list="result-code-hpv-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-hpv" name="result-code-hpv" type="text" value="{{ data['#'] }}">
               </div>
+              <datalist id="result-code-hpv-items">
+                <option value="0">HPV negative</option>
+                <option value="9">HPV positive</option>
+                <option value="U">HPV not available</option>
+                <option value="Q">No HPV test due to recent HPV positive result</option>
+              </datalist>
             </div>
     
             <div class="nhsuk-date-input__item">
@@ -630,7 +654,13 @@ NHS Cervical screening management system
                <label for="result-code-action" class="nhsuk-label">
                 Action
                </label>
-               <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-action" name="result-code-action" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
+               <input list="result-code-action-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-action" name="result-code-action" type="text" value="{{ data['#'] }}">
+               <datalist id="result-code-action-items">
+                 <option value="A">Routine recall</option>
+                 <option value="H">No change to recall</option>
+                 <option value="R">Early recall</option>
+                 <option value="S">Refer to colposcopy</option>
+               </datalist>
               </div>
             </div>
     

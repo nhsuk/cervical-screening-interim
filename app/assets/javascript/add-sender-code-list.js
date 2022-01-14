@@ -18,7 +18,7 @@ senderCodeButton.addEventListener('click', addNumberTolist);
 function addNumberTolist() {
   var number = senderCodeinput.value; // get value of whats inside the box
   var senderCodelength = senderCodes.push(number) //adds it to the array
-  senderCodelist.innerHTML+="<li id='sender-code-"+senderCodelength+"' name='sender-code-data' value='{{ data['sender-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+senderCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+  senderCodelist.innerHTML+="<li id='sender-code-"+senderCodelength+"'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+senderCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
   senderCodeinput.value="" // clears the box for the next input
   
 }
