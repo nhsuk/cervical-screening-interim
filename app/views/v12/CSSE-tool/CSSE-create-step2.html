@@ -3,6 +3,11 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-ccg-code-list.js"></script>
+<script type="text/javascript" src="/js/add-gp-practice-code-list.js"></script>
+<script type="text/javascript" src="/js/add-post-code-list.js"></script>
+
+<!--Add Javascript for 'add list input here'-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
     border-bottom: 4px solid #d8dde0;
@@ -27,75 +32,442 @@ NHS Cervical screening management system
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 1: Create enquiry name</a>
+        Go back to Step 1: Create a new enquiry</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 2 of 12</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 2 of 10</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define data type
+        Define location details
     </h1>
 
     <form action="CSSE-create-step3" method="post">
       <div class="nhsuk-form-group">
-        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+
+        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body">
-                Do you want to include patient data in the enquiry report?
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add CCG location code
               </p>
             </legend>
-        
-            <div class="nhsuk-radios">
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="yes-patient-data" name="patient-data" type="radio" value="Yes" aria-describedby="yes-patient-data">
-                <label class="nhsuk-label nhsuk-radios__label" for="yes-patient-data">
-                  Yes, include patient data
-                </label>
-              </div>
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="no-patient-data" name="patient-data" type="radio" value="No" aria-describedby="no-patient-data-hint">
-                <label class="nhsuk-label nhsuk-radios__label" for="no-patient-data">
-                  No, do not include patient data
-                </label>
-              </div>
-        
-            </div>
+
+            <ul class="nhsuk-list" id="ccg-code-list">
+
+            </ul>
+
+            <label for="ccg-code" class="nhsuk-label">
+              Enter CCG location code to include
+            </label>
+            <input id="ccg-code-input" name="ccg-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+              
           </fieldset>
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+          <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add CCG location code
+          </a>-->
+
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body">
-                Do you want to include test data in the enquiry report?
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add Area code
               </p>
             </legend>
-        
-            <div class="nhsuk-radios">
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="yes-test-data" name="test-data" type="radio" value="Yes" aria-describedby="yes-test-data">
-                <label class="nhsuk-label nhsuk-radios__label" for="yes-test-data">
-                  Yes, include test data
-                </label>
-                <div class="nhsuk-hint nhsuk-radios__hint" id="yes-test-data-hint">
-                  You will be able to set test data parameters
-                </div>
-              </div>
-        
-              <div class="nhsuk-radios__item">
-                <input class="nhsuk-radios__input" id="no-test-data" name="test-data" type="radio" value="No" aria-describedby="no-test-data-hint">
-                <label class="nhsuk-label nhsuk-radios__label" for="no-test-data">
-                  No, do not include test data
-                </label>
-              </div>
-        
+
+            <ul class="nhsuk-list" id="post-code-list">
+
+            </ul>
+
+            <label for="post-code" class="nhsuk-label">
+              Enter Area code to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              Also known as NHAIS cipher or NHAIS box.
             </div>
+            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['post-code'] }}">
+              
           </fieldset>
+
+          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers">
+            Add Area code
+          </a>
+
+          <details class="nhsuk-details nhsuk-u-margin-bottom-9">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                What is an Area code?
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>Area code, also known as NHAIS cipher or NHAIS box, is a 2 to 3 letter code relating to a geographical location. For example, BE or LNR.</p>
+
+              <span>
+                <div class="nhsuk-grid-row">
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code B - C
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li><strong>BAA</strong> - Barnsley</li>
+                          <li><strong>BD</strong> - Bedfordshire</li>
+                          <li><strong>BE</strong> - Berkshire</li>
+                          <li><strong>BIK</strong> - Wirral</li>
+                          <li><strong>BIR</strong> - Birmingham</li>
+                          <li><strong>BRA</strong> - Bradford</li>
+                          <li><strong>BRS</strong> - Avon</li>
+                          <li><strong>BU</strong> - Buckinghamshire</li>
+                          <li><strong>CB</strong> - Cambridgeshire</li>
+                          <li><strong>CH</strong> - Chesire</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code C - E
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>COV - Coventry</li>
+                          <li>CR - Cornwall</li>
+                          <li>CU - Cumbria</li>
+                          <li>DCR - Doncaster</li>
+                          <li>DE - Derby</li>
+                          <li>DN - Devon</li>
+                          <li>DO - Dorset</li>
+                          <li>DR - Durham</li>
+                          <li>DUD - Dudley</li>
+                          <li>EX - Essex</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code G - L
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>GAT - Gatehead</li>
+                          <li>GG - Gloucestershire</li>
+                          <li>GMK - Tameside and Oldham</li>
+                          <li>HT - Hertfordshire</li>
+                          <li>KT - Kent</li>
+                          <li>KHU - East Yorkshire</li>
+                          <li>LA - Lancashire</li>
+                          <li>LD - Leicestershire</li>
+                          <li>LDS - Leeds</li>
+                          <li>LIP - Liverpool</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code L - L
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>LL - Lincoln</li>
+                          <li>LNA - East London and City</li>
+                          <li>LNB - Redbridge and Waltham Forest</li>
+                          <li>LNC - Barking and Havering</li>
+                          <li>LND - Camden and Islington</li>
+                          <li>LNE - Enfield and Harringey</li>
+                          <li>LNH - Barnet</li>
+                          <li>LNJ - Kesington, Chelsea and Westminster</li>
+                          <li>LNK - Hillingdon</li>
+                          <li>LNL - Brent and Harrow</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+                </div>
+
+                <div class="nhsuk-grid-row">
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code L - N
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>LNM - Ealing, Hammersmith and Houslow</li>
+                          <li>LNN - Kingston and Richmond</li>
+                          <li>LNP - Merton, Sutton and Wadsworth</li>
+                          <li>LNR - Croydon</li>
+                          <li>LNS - Lambeth, Southwark and Lewisham</li>
+                          <li>LNT - Bromley</li>
+                          <li>LNW - Bexley and Greenwich</li>
+                          <li>MAN - Manchester</li>
+                          <li>MID - Teeside</li>
+                          <li>NEW - Newcaslte</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code N - S
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>NF - Norfolk</li>
+                          <li>NN - Nottinghamshire</li>
+                          <li>NO - Northampton</li>
+                          <li>NR - Northumberland</li>
+                          <li>OX - Oxfordshire</li>
+                          <li>ROC - Rochdale</li>
+                          <li>ROT - Rotherham</li>
+                          <li>SA - Shropshire</li>
+                          <li>SLF - Salford</li>
+                          <li>SM - Somerset</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code S - T
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>SO - Hampshire</li>
+                          <li>SOP - Sefton</li>
+                          <li>SPT - Stockport</li>
+                          <li>ST - Staffordshire</li>
+                          <li>STL - St Helen's and Knowsley</li>
+                          <li>SU - Suffolk</li>
+                          <li>SUN - Sunderland</li>
+                          <li>SY - Surrey</li>
+                          <li>TE - East Sussex</li>
+                          <li>TW - West Sussex</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="nhsuk-grid-column-one-quarter">
+                    <details class="nhsuk-details nhsuk-expander">
+                      <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                          Area code W - Y
+                        </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                        <ul class="nhsuk-list nhsuk-body-s">
+                          <li>WA - Warwickshire</li>
+                          <li>WAK - Wakefield</li>
+                          <li>WAL - Walsall</li>
+                          <li>WBH - Sandwell</li>
+                          <li>WIG - Wigan and Bolton</li>
+                          <li>WL - Wiltshire</li>
+                          <li>WMF - Solihull</li>
+                          <li>WOM - Wolverhampton</li>
+                          <li>WR - Worcestershire</li>
+                          <li>YN - North Yorkshire</li>
+                          <li>YW - Kirklees</li>
+                        </ul>
+ 
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </span>
+
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li><strong>BAA</strong> - Barnsley</li>
+                    <li><strong>BD</strong> - Bedfordshire</li>
+                    <li><strong>BE</strong> - Berkshire</li>
+                    <li><strong>BIK</strong> - Wirral</li>
+                    <li><strong>BIR</strong> - Birmingham</li>
+                    <li><strong>BRA</strong> - Bradford</li>
+                    <li><strong>BRS</strong> - Avon</li>
+                    <li><strong>BU</strong> - Buckinghamshire</li>
+                    <li><strong>CB</strong> - Cambridgeshire</li>
+                    <li><strong>CH</strong> - Chesire</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>COV - Coventry</li>
+                    <li>CR - Cornwall</li>
+                    <li>CU - Cumbria</li>
+                    <li>DCR - Doncaster</li>
+                    <li>DE - Derby</li>
+                    <li>DN - Devon</li>
+                    <li>DO - Dorset</li>
+                    <li>DR - Durham</li>
+                    <li>DUD - Dudley</li>
+                    <li>EX - Essex</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>GAT - Gatehead</li>
+                    <li>GG - Gloucestershire</li>
+                    <li>GMK - Tameside and Oldham</li>
+                    <li>HT - Hertfordshire</li>
+                    <li>KT - Kent</li>
+                    <li>KHU - East Yorkshire</li>
+                    <li>LA - Lancashire</li>
+                    <li>LD - Leicestershire</li>
+                    <li>LDS - Leeds</li>
+                    <li>LIP - Liverpool</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>LL - Lincoln</li>
+                    <li>LNA - East London and City</li>
+                    <li>LNB - Redbridge and Waltham Forest</li>
+                    <li>LNC - Barking and Havering</li>
+                    <li>LND - Camden and Islington</li>
+                    <li>LNE - Enfield and Harringey</li>
+                    <li>LNH - Barnet</li>
+                    <li>LNJ - Kesington, Chelsea and Westminster</li>
+                    <li>LNK - Hillingdon</li>
+                    <li>LNL - Brent and Harrow</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>LNM - Ealing, Hammersmith and Houslow</li>
+                    <li>LNN - Kingston and Richmond</li>
+                    <li>LNP - Merton, Sutton and Wadsworth</li>
+                    <li>LNR - Croydon</li>
+                    <li>LNS - Lambeth, Southwark and Lewisham</li>
+                    <li>LNT - Bromley</li>
+                    <li>LNW - Bexley and Greenwich</li>
+                    <li>MAN - Manchester</li>
+                    <li>MID - Teeside</li>
+                    <li>NEW - Newcaslte</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>NF - Norfolk</li>
+                    <li>NN - Nottinghamshire</li>
+                    <li>NO - Northampton</li>
+                    <li>NR - Northumberland</li>
+                    <li>OX - Oxfordshire</li>
+                    <li>ROC - Rochdale</li>
+                    <li>ROT - Rotherham</li>
+                    <li>SA - Shropshire</li>
+                    <li>SLF - Salford</li>
+                    <li>SM - Somerset</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>SO - Hampshire</li>
+                    <li>SOP - Sefton</li>
+                    <li>SPT - Stockport</li>
+                    <li>ST - Staffordshire</li>
+                    <li>STL - St Helen's and Knowsley</li>
+                    <li>SU - Suffolk</li>
+                    <li>SUN - Sunderland</li>
+                    <li>SY - Surrey</li>
+                    <li>TE - East Sussex</li>
+                    <li>TW - West Sussex</li>
+                  </ul>
+                </div>
+
+                <div class="nhsuk-grid-column-one-quarter">
+                  <ul class="nhsuk-list nhsuk-body-s">
+                    <li>WA - Warwickshire</li>
+                    <li>WAK - Wakefield</li>
+                    <li>WAL - Walsall</li>
+                    <li>WBH - Sandwell</li>
+                    <li>WIG - Wigan and Bolton</li>
+                    <li>WL - Wiltshire</li>
+                    <li>WMF - Solihull</li>
+                    <li>WOM - Wolverhampton</li>
+                    <li>WR - Worcestershire</li>
+                    <li>YN - North Yorkshire</li>
+                    <li>YW - Kirklees</li>
+                  </ul>
+                </div>
+
+              </div>
+          
+            </div>
+          </details>-->
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add GP practice code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="gp-practice-code-list">
+
+            </ul>
+
+            <label for="gp-practice-code" class="nhsuk-label">
+              Enter GP practice code to include
+            </label>
+            <input id="gp-practice-code-input" name="gp-practice-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['gp-practice-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-gp-practice-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add GP practice code
+          </a>
+
+          
+
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Save and continue
+        Continue
       </button>
     </form>
+
+    <div class="nhsuk-body">
+      <p>
+        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
+      </p>
+    </div>
    
 
     

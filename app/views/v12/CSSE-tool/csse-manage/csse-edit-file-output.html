@@ -3,8 +3,6 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
-<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
-<!--Add letter code script above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
     border-bottom: 4px solid #d8dde0;
@@ -16,7 +14,7 @@ NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-{% include '../components/header.html' %}
+{% include '../../components/header.html' %}
 {% endblock %}
 
 
@@ -25,16 +23,17 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step11">
+      <a class="nhsuk-back-link__link" href="../csse-manage/csse-view-enquiry">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 11: Review report</a>
+        Go back to view report details</a>
     </div>
-    
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 12 of 12</span>
+
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 10 of 10</span>
 
     <form action="" method="post">
+
       <div class="nhsuk-form-group">
 
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="file-output">
@@ -45,7 +44,7 @@ NHS Cervical screening management system
           </legend>
 
           <p class="nhsuk-body">
-            Choose which fields you want to include from the output file for <strong>{% if data['create-name'] %}{{ data['create-name'] }}.csv{% else %}HPV data report{% endif %}</strong>
+            Choose which fields you want to include from the output file for <strong>{% if data['edit-create-name'] %}{{ data['edit-create-name'] }}.csv{% else %}HPV data report.csv{% endif %}</strong>
           </p>
 
           <details class="nhsuk-details">
@@ -66,7 +65,7 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="all-patient-data" id="all-patient-data" value="All patient fields" data-select-all>
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="all-patient-data" id="all-patient-data" value="All patient fields">
                     <label for="all-patient-data" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
@@ -288,7 +287,7 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-all" id="practice-all" value="All practice fields" data-select-all>
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="practice-all" id="practice-all" value="All practice fields">
                     <label for="practice-all" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
@@ -369,7 +368,7 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-all" id="recall-all" value="Select all" data-select-all>
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-all" id="recall-all" value="Select all">
                     <label for="recall-all" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
@@ -428,7 +427,7 @@ NHS Cervical screening management system
                   <div class="nhsuk-checkboxes__item">
                     <input type="checkbox" class="nhsuk-checkboxes__input" name="recall-fnr" id="recall-fnr" value="FNR count">
                     <label for="recall-fnr" class="nhsuk-label nhsuk-checkboxes__label">
-                      Non responders status
+                      Non responder status
                     </label>
                   </div>
 
@@ -472,7 +471,7 @@ NHS Cervical screening management system
                 <div class="nhsuk-checkboxes">
                   
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-all-f" id="test-all-f" value="Select all test fields" data-select-all>
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-all-f" id="test-all-f" value="Select all test fields">
                     <label for="test-all-f" class="nhsuk-label nhsuk-checkboxes__label">
                       Select all
                     </label>
@@ -628,15 +627,9 @@ NHS Cervical screening management system
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
         Download
       </button>
-
-      <div class="nhsuk-body">
-        <p>
-          <a href="CSSE-home" class="nhsuk-link">Return to system enquiries tool</a>
-        </p>
-      </div>
-
-      
+      <p><a href="../csse-manage/csse-manage-enquiry">Return to search results</a></p>
     </form>
+   
     
   </div>
 </div>

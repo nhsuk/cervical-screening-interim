@@ -4,94 +4,6 @@
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
 <script type="text/javascript" src="/js/add-letter-code-list.js"></script>
-<script type="text/javascript" src="/js/action-menu.js"></script>
-<script type="text/javascript" src="/js/sort.js"></script>
-<script>
-  function customSuggest (query, syncResults) {
-            var results = [
-    { code: 'PA1', result: 'HPV Primary screening invitation', recall: 'Invitation letter' },
-    { code: 'PA2', result: 'HPV Primary screening reminder', recall: 'Invitation letter'},
-    { code: 'PA3', result: 'HPV Primary screening invitation (participant not registered with GP', recall: 'Invitation letter' },
-    { code: 'PA4', result: 'HPV Primary screening reminder (participant not registered with GP', recall: 'Invitation letter' },
-    { code: 'PX0A', result: 'HPV negative result with no cytology', recall: 'Normal result letter' },
-    { code: 'PX0C', result: 'HPV negative result and ceased for age', recall: 'Normal result letter' },
-    { code: 'PX0R', result: 'HPV negative result with early recall (12 or 36 months)', recall: 'Normal result letter' },
-    { code: 'PX0S', result: 'HPV negative result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'PXUS', result: 'Inadequate HPV result (no cytology) with referral to colposcopy', recall: 'Abnormal result letter'},
-    { code: 'PXUR', result: 'Inadequate HPV result (no cytology)', recall: 'Normal result letter'},
-    { code: 'PX9S', result: 'HPV positive result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P09R', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)', recall: 'Normal result letter' },
-    { code: 'P09S', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P19R', result: 'HPV positive and inadequate cytology result with early recall (3 months)', recall: 'Normal result letter' },
-    { code: 'P19S', result: 'HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P39S', result: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P49S', result: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P59S', result: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P69S', result: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P79S', result: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P89S', result: 'HPV positive and borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P99S', result: 'HPV positive and borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P29R', result: 'HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
-    { code: 'P29S', result: 'HPV positive and cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'CXNC', result: 'Ceasing due to no cervix', recall: 'Ceasing letter'},
-    { code: 'CUA', result: 'Automatic ceasing due to age after non-response', recall: 'Ceasing letter'},
-    { code: 'CIC', result: 'Ceasing due to informed consent at participant request', recall: 'Ceasing letter'},
-    { code: 'CMC', result: 'Ceasing due to Mental Capacity Act at request of third party', recall: 'Ceasing letter'},
-    { code: 'CXAN', result: 'Manual ceasing due to age', recall: 'Ceasing letter'},
-    { code: 'K-0A', result: 'Negative self sample', recall: 'Normal result letter'},
-    { code: 'K-9R', result: 'Positive self sample', recall: 'Abnormal result letter'},
-    { code: 'K1UH', result: 'First inadequate self sample', recall: '1st inadequate result letter'},
-    { code: 'K2UH', result: 'Second inadequate self sample', recall: '2nd inadequate result letter'},
-    { code: 'K-0C', result: 'Ceased self sample', recall: 'Ceasing letter'},
-    { code: 'P0QS', result: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall', recall: 'Normal result letter'},
-    { code: 'P1QR', result: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter'},
-    { code: 'P1QS', result: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P2QR', result: 'Old code: HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
-    { code: 'P3QS', result: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P4QS', result: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P5QS', result: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P6QS', result: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P7QS', result: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P8QS', result: 'Old code: Borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P9QS', result: 'Old code: Borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P2QS', result: 'Old code: Cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
-
-
-  ]
-          syncResults(query
-            ? results.filter(function (result) {
-                var resultContains = result.code.toLowerCase().indexOf(query.toLowerCase()) !== -1
-                var endonymContains = result.result.toLowerCase().indexOf(query.toLowerCase()) !== -1
-                return resultContains || endonymContains
-              })
-            : []
-          )
-        }
-  
-        function inputValueTemplate (result) {
-          return result && result.result + '-' + result.code
-        }
-  
-        function suggestionTemplate (result) {
-          return result && '<strong>' + result.result + '</strong>' +
-            ' (' + result.code + '</span>)'
-        }
-  
-        element = document.querySelector('#my-autocomplete-container')
-        id = 'autocomplete-customTemplates'
-        accessibleAutocomplete({
-          element: element,
-          id: id,
-          name: 'result',
-          source: customSuggest,
-          templates: {
-            inputValue: inputValueTemplate,
-            suggestion: suggestionTemplate
-          }
-        })
-      
-  
-  </script>
 <!--Add letter code script above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -113,26 +25,26 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step4">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step9">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 4: Define recall details</a>
+        Go back to Step 9: Define patient details</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 5 of 10</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 10 of 12</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define communication details
+        Define communication data
     </h1>
 
-    <form action="CSSE-create-step6" method="post">
+    <form action="CSSE-create-step11" method="post">
       <div class="nhsuk-form-group">
 
 
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-notification-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body nhsuk-u-margin-bottom-4">
-              What type of notification do you want to refine by?
+              What type of notification do you want to include?
             </p>
           </legend>
 
@@ -148,7 +60,7 @@ NHS Cervical screening management system
             <div class="nhsuk-radios__item">
               <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" {{ checked("comms-notification-type", "Prior notification list") }} aria-controls="expand-prior-noti-list" aria-expnded="false">
               <label for="comms-prior-noti-list" class="nhsuk-label nhsuk-radios__label">
-                Prior notification list (PNL) of patients due to be invited
+                Prior notification list
               </label>
             </div>
 
@@ -158,12 +70,12 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                      Which PNL notification type do you want to include?
+                      What participant status would you like to include?
                     </p>
                   </legend>
       
                   <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-                    Select all options that are relevant to you
+                    Previously known as recall type. Select all options that are relevant to you
                   </div>
 
                   <!--<p class="nhsuk-body nhsuk-u-margin-bottom-4">
@@ -341,7 +253,7 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body">
-              What date range do you want to include for the notifiction?
+              Add notification period date range
             </p>
           </legend>
 
@@ -436,48 +348,39 @@ NHS Cervical screening management system
 
         </fieldset>
 
-        <fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="letter-code">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-           Add letter code
+            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+              Add letter code
+            </p>
           </legend>
-    
-    
-              <div class="nhsuk-form-group">
-                <label class="nhsuk-label nhsuk-date-input__label" for="codecomplete">
-                  <span id="" class="nhsuk-hint" style="">
-                    Enter codes or full description
-                  </span>  
-                  <ul id="letter-code-list">
 
-                  </ul>
-                <div id="my-autocomplete-container" class="codecomplete"></div>
-              </div>
+          <ul class="nhsuk-list" id="letter-code-list">
+
+          </ul>
+
+          <label for="letter-code" class="nhsuk-label">
+            Enter letter code to include
+          </label>
+          <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+            Letter codes should relate to the notification type selected.
+          </div>
+          <input id="letter-code-input" name="letter-code" type="text" class="nhsuk-input nhsuk-input--width-4 nhsuk-u-margin-bottom-0" value="{{ data['letter-code'] }}">
+            
         </fieldset>
-        <div style="padding: 20px;"></div>
 
-        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9 nhsuk-margin-top-4">
+        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
           Add letter code
         </a>
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Continue
+        Save and continue
       </button>
     </form>
-
-    <div class="nhsuk-body">
-      <p>
-        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
-      </p>
-    </div>
    
 
- 
+    
   </div>
 </div>
 {% endblock %}
-
-
-
-
-

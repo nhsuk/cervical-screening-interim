@@ -3,8 +3,6 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
-<script type="text/javascript" src="/js/action-menu.js"></script>
-<script type="text/javascript" src="/js/sort.js"></script>
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
     border-bottom: 4px solid #d8dde0;
@@ -16,7 +14,7 @@ NHS Cervical screening management system
 {% endblock %}
 
 {% block header %}
-{% include '../components/header.html' %}
+{% include '../../components/header.html' %}
 {% endblock %}
 
 
@@ -25,24 +23,25 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step5">
+      <a class="nhsuk-back-link__link" href="../csse-manage/csse-duplicate-enquiry">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 5: Define communication details</a>
+        Go back to duplicate enquiry</a>
     </div>
-    
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 6 of 10</span>
+
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 3 of 12</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define test type
+        Define test criteria
     </h1>
 
-    <form action="CSSE-create-step7" method="post">
+    <form action="csse-duplicate-review" method="post">
+
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="test-criteria">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Do you want to include patients who have tests?
+                Which test criteria would you like to include?
               </p>
             </legend>
 
@@ -52,9 +51,9 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-tests" value="Has tests" {{ checked("test-criteria", "Have tests") }} aria-controls="expand-test-criteria" aria-expnded="false">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-test-criteria" id="has-tests" value="Has tests" {{ checked("duplicate-test-criteria", "Has tests") }} aria-controls="expand-test-criteria" aria-expnded="false">
                 <label for="has-tests" class="nhsuk-label nhsuk-checkboxes__label">
-                  Have tests
+                  Has tests
                 </label>
               </div>
 
@@ -63,28 +62,28 @@ NHS Cervical screening management system
                   <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                     <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                       <p class="nhsuk-body">
-                        Which tests do you want to include?
+                        Which tests would you like to include?
                       </p>
                     </legend>
                 
                     <div class="nhsuk-radios">
                 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="test-to-include-all" name="test-to-include" type="radio" value="All tests" {{ checked("test-to-include", "All tests") }} aria-describedby="test-to-include-all">
+                        <input class="nhsuk-radios__input" id="test-to-include-all" name="duplicate-test-to-include" type="radio" value="All tests" {{ checked("duplicate-test-to-include", "All tests") }} aria-describedby="test-to-include-all">
                         <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-all">
                           All tests
                         </label>
                       </div>
                 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="test-to-include-recent" name="test-to-include" type="radio" value="Most recent test only" {{ checked("test-to-include", "Most recent test only") }} aria-describedby="test-to-include-recent">
+                        <input class="nhsuk-radios__input" id="test-to-include-recent" name="duplicate-test-to-include" type="radio" value="Most recent test only" {{ checked("duplicate-test-to-include", "Most recent test only") }} aria-describedby="test-to-include-recent">
                         <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-recent">
                           Most recent test only
                         </label>
                       </div>
 
                       <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="test-to-include-first" name="test-to-include" type="radio" value="First test only" {{ checked("test-to-include", "First test only") }} aria-describedby="test-to-include-first">
+                        <input class="nhsuk-radios__input" id="test-to-include-first" name="duplicate-test-to-include" type="radio" value="First test only" {{ checked("duplicate-test-to-include", "First test only") }} aria-describedby="test-to-include-first">
                         <label class="nhsuk-label nhsuk-radios__label" for="test-to-include-first">
                           First test only
                         </label>
@@ -96,9 +95,9 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="test-criteria" id="has-no-tests" value="Does not have tests" {{ checked("test-criteria", "Does not have tests") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-test-criteria" id="has-no-tests" value="Does not have tests" {{ checked("duplicate-test-criteria", "Does not have tests") }}>
                 <label for="has-no-test" class="nhsuk-label nhsuk-checkboxes__label">
-                  Do not have tests
+                  Does not have tests
                 </label>
               </div>
 
@@ -110,7 +109,7 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="result-type">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Do you want to include self-sample test results?
+                What result type would you like to include?
               </p>
             </legend>
 
@@ -120,7 +119,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="self-sample" value="Self-sample results" checked {{ checked("result-type", "Self-sample results") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-result-type" id="self-sample" value="Self-sample results" checked {{ checked("duplicate-result-type", "Self-sample results") }}>
                 <label for="self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Self-sample results
                 </label>
@@ -128,7 +127,7 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="result-type" id="not-self-sample" value="Not self-sample results" checked {{ checked("result-type", "Not self-sample results") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-result-type" id="not-self-sample" value="Not self-sample results" checked {{ checked("duplicate-result-type", "Not self-sample results") }}>
                 <label for="not-self-sample" class="nhsuk-label nhsuk-checkboxes__label">
                   Not self-sample results
                 </label>
@@ -142,7 +141,7 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="result-type">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Do you want to include primary HPV results?
+                What HPV primary status would you like to see?
               </p>
             </legend>
 
@@ -152,7 +151,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="hpv-primary" value="HPV primary" checked {{ checked("hpv-status", "HPV primary") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-hpv-status" id="hpv-primary" value="HPV primary" checked {{ checked("duplicate-hpv-status", "HPV primary") }}>
                 <label for="hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   HPV primary
                 </label>
@@ -160,7 +159,7 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="hpv-status" id="not-hpv-primary" value="Not HPV primary" checked {{ checked("hpv-status", "Not HPV primary") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="duplicate-hpv-status" id="not-hpv-primary" value="Not HPV primary" checked {{ checked("duplicate-hpv-status", "Not HPV primary") }}>
                 <label for="not-hpv-primary" class="nhsuk-label nhsuk-checkboxes__label">
                   Not HPV primary
                 </label>
@@ -173,17 +172,10 @@ NHS Cervical screening management system
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Continue
+        Save and review
       </button>
     </form>
-
-    <div class="nhsuk-body">
-      <p>
-        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
-      </p>
-    </div>
    
-
     
   </div>
 </div>

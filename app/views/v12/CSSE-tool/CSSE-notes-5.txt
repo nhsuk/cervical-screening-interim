@@ -1,0 +1,158 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-national-code-list.js"></script>
+<script type="text/javascript" src="/js/add-source-code-list.js"></script>
+<script type="text/javascript" src="/js/add-sender-code-list.js"></script>
+<script type="text/javascript" src="/js/add-source-type-list.js"></script>
+<!--Add Javascript for 'add list input here'-->
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step4">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to Step 4: Define test parameters</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 5 of 12</span>
+    <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+        Define sender details
+    </h1>
+
+    <form action="CSSE-create-step6" method="post">
+      <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="national-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add national code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="national-code-list">
+
+            </ul>
+
+            <label for="national-code" class="nhsuk-label">
+              Enter national code to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              Also known as lab code. 5 digits, for example 61234
+            </div>
+            <input id="national-code-input" name="national-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['national-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-national-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add national code
+          </a>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add source code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="source-code-list">
+
+            </ul>
+
+            <label for="source-code" class="nhsuk-label">
+              Enter source code to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              For example, H, X, G or N
+            </div>
+            <input id="source-code-input" name="source-code" type="text" class="nhsuk-input nhsuk-input--width-2 nhsuk-u-margin-bottom-0" value="{{ data['source-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-source-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add source code
+          </a>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="sender-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add sender code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="sender-code-list">
+
+            </ul>
+
+            <label for="sender-code" class="nhsuk-label">
+              Enter sender code to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              Also known practice code, non GP sender code or GNC number. For example, A86020
+            </div>
+            <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-sender-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add sender code
+          </a>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-type">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add source type
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="source-type-list">
+
+            </ul>
+
+            <label for="source-type" class="nhsuk-label">
+              Enter source type to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              For example, 1, 2 or 3
+            </div>
+            <input id="source-type-input" name="source-type" type="text" class="nhsuk-input nhsuk-input--width-2 nhsuk-u-margin-bottom-0" value="{{ data['source-type'] }}">
+              
+          </fieldset>
+
+          <a id="add-source-type" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add source type
+          </a>
+
+          
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Save and continue
+      </button>
+    </form>
+   
+
+    
+  </div>
+</div>
+{% endblock %}

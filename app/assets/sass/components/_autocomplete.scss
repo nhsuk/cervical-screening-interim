@@ -19,7 +19,7 @@
     font-size: 17px;
     line-height: 1.5;
     -webkit-appearance: none;
-    border: 2px solid;
+    border: 2px solid #4c6272;
     border-radius: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -44,7 +44,7 @@
   
   .autocomplete__input--focused {
     outline-offset: 0;
-    outline: 3px solid #ffbf47;
+    outline: 3px solid #ffeb3b;
   }
   
   .autocomplete__input--show-all-values {
@@ -64,7 +64,7 @@
   
   .autocomplete__menu {
     background-color: #fff;
-    border: 2px solid #0b0c0c;
+    border: 4px solid #0b0c0c;
     border-top: 0;
     color: #34384b;
     margin: 0;
@@ -156,10 +156,10 @@
   
   .autocomplete__input {
     &:focus {
-      box-shadow: 0 0 0 4px #ffb81C;
+      box-shadow: 0 0 0 4px 	#ffeb3b;
       outline: 4px solid transparent;
       outline-offset: 4px;
-      border: 2px solid black;
+      border: 4px solid black;
     }
   }
   

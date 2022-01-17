@@ -3,10 +3,10 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
-<script type="text/javascript" src="/js/add-ccg-code-list.js"></script>
-<script type="text/javascript" src="/js/add-gp-practice-code-list.js"></script>
-<script type="text/javascript" src="/js/add-post-code-list.js"></script>
-
+<script type="text/javascript" src="/js/add-national-code-list.js"></script>
+<script type="text/javascript" src="/js/add-source-code-list.js"></script>
+<script type="text/javascript" src="/js/add-sender-code-list.js"></script>
+<script type="text/javascript" src="/js/add-source-type-list.js"></script>
 <!--Add Javascript for 'add list input here'-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -32,89 +32,349 @@ NHS Cervical screening management system
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 7: Define participant and episodes status details</a>
+        Go back to Step 7: Define test result details</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 8 of 12</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 8 of 10</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-        Define location details
+        Define lab and sender details
     </h1>
 
     <form action="CSSE-create-step9" method="post">
       <div class="nhsuk-form-group">
 
-        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="national-code">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+              What lab do you want to include?
+            </p>
+          </legend>
+
+          <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+            Select all lab names or national codes that are relevant to you
+          </div>
+
+          <div class="nhsuk-checkboxes">
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-select-all" value="" checked {{ checked("national-code", "") }} data-select-all>
+              <label for="national-code-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                Select all
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-all" value="London (61025)" checked {{ checked("national-code", "London (61025)") }}>
+              <label for="national-code-all" class="nhsuk-label nhsuk-checkboxes__label">
+                London (61025)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-berkshire" value="Berkshire (61270)" checked {{ checked("national-code", "Berkshire (61270)") }}>
+              <label for="national-code-berkshire" class="nhsuk-label nhsuk-checkboxes__label">
+                Berkshire (61270)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-wolverhampton" value="Wolverhampton (61740)" checked {{ checked("national-code", "Wolverhampton (61740)") }}>
+              <label for="national-code-wolverhampton" class="nhsuk-label nhsuk-checkboxes__label">
+                Wolverhampton (61740)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-gateshead" value="Gateshead (60080)" checked {{ checked("national-code", "Gateshead (60080)") }}>
+              <label for="national-code-gateshead" class="nhsuk-label nhsuk-checkboxes__label">
+                Gateshead (60080)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-norwich" checked value="Norwich (60540)" {{ checked("national-code", "Norwich (60540)") }}>
+              <label for="national-code-norwich" class="nhsuk-label nhsuk-checkboxes__label">
+                Norwich (60540)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-manchester" value="Manchester (62010)" checked {{ checked("national-code", "Manchester (62010)") }}>
+              <label for="national-code-manchester" class="nhsuk-label nhsuk-checkboxes__label">
+                Manchester (62010)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-bristol" value="Bristol (61590)" checked {{ checked("national-code", "Bristol (61590)") }}>
+              <label for="national-code-bristol" class="nhsuk-label nhsuk-checkboxes__label">
+                Bristol (61590)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-derby" value="Derby (60370)" checked {{ checked("national-code", "Derby (60370)") }}>
+              <label for="national-code-derby" class="nhsuk-label nhsuk-checkboxes__label">
+                Derby (60370)
+              </label>
+            </div>
+
+            <div class="nhsuk-checkboxes__item">
+              <input type="checkbox" class="nhsuk-checkboxes__input" name="national-code" id="national-code-isleofman" value="Isle of Man (61910)" checked {{ checked("national-code", "Isle of Man (61910)") }}>
+              <label for="national-code-isleofman" class="nhsuk-label nhsuk-checkboxes__label">
+                Isle of Man (61910)
+              </label>
+            </div>
+
+          </div>
+      
+            
+        </fieldset>
+
+        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="national-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add CCG location code
+                Add national code
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="ccg-code-list">
+            <ul class="nhsuk-list" id="national-code-list">
 
             </ul>
 
-            <label for="ccg-code" class="nhsuk-label">
-              Enter CCG location code to include
+            <label for="national-code" class="nhsuk-label">
+              Enter national code to include
             </label>
-            <input id="ccg-code-input" name="ccg-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              Also known as lab code. 5 digits, for example 61234
+            </div>
+            <input id="national-code-input" name="national-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['national-code'] }}">
               
           </fieldset>
 
-          <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-            Add CCG location code
+          <a id="add-national-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add national code
           </a>-->
 
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="source-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add GP practice code
+                What source code do you want to include?
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="gp-practice-code-list">
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+              Select all sources or source codes that are relevant to you
+            </div>
 
-            </ul>
+            <div class="nhsuk-checkboxes">
 
-            <label for="gp-practice-code" class="nhsuk-label">
-              Enter GP practice code to include
-            </label>
-            <input id="gp-practice-code-input" name="gp-practice-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-select-all" value="" checked {{ checked("source-code", "") }} data-select-all>
+                <label for="source-code-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                  Select all
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-h" value="Hospital and clinics (H)" checked {{ checked("source-code", "Hospital and clinics (H)") }}>
+                <label for="source-code-h" class="nhsuk-label nhsuk-checkboxes__label">
+                  Hospital and clinics (H)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-x" value="Hospitals and clinics with unknown sender code (X)" checked {{ checked("source-code", "Hospitals and clinics with unknown sender code (X)") }}>
+                <label for="source-code-x" class="nhsuk-label nhsuk-checkboxes__label">
+                  Hospitals and clinics with unknown sender code (X)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-g" value="GP (G)" checked {{ checked("source-code", "GP (G)") }}>
+                <label for="source-code-g" class="nhsuk-label nhsuk-checkboxes__label">
+                  GP (G)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-code" id="source-code-n" value="GP with unknown sender code (N)" checked {{ checked("source-code", "GP with unknown sender code (N)") }}>
+                <label for="source-code-n" class="nhsuk-label nhsuk-checkboxes__label">
+                  GP with unknown sender code (N)
+                </label>
+              </div>
+
+
+            </div>
+        
               
           </fieldset>
-
-          <a id="add-gp-practice-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-            Add GP practice code
-          </a>
-
-          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
+          
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add post code for patient address
+                Add source code
               </p>
             </legend>
 
-            <ul class="nhsuk-list" id="post-code-list">
+            <ul class="nhsuk-list" id="source-code-list">
 
             </ul>
 
-            <label for="post-code" class="nhsuk-label">
-              Enter patient address post code to include
+            <label for="source-code" class="nhsuk-label">
+              Enter source code to include
             </label>
-            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              For example, H, X, G or N
+            </div>
+            <input id="source-code-input" name="source-code" type="text" class="nhsuk-input nhsuk-input--width-2 nhsuk-u-margin-bottom-0" value="{{ data['source-code'] }}">
               
           </fieldset>
 
-          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-            Add post code
+          <a id="add-source-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add source code
+          </a>-->
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="source-type">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                What source type do you want to include?
+              </p>
+            </legend>
+
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+              Select all source types that are relevant to you
+            </div>
+
+            <div class="nhsuk-checkboxes">
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-select-all" value="" checked {{ checked("source-type", "") }} data-select-all>
+                <label for="source-type-select-all" class="nhsuk-label nhsuk-checkboxes__label">
+                  Select all
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-gp" value="GP practice or primary care (1)" checked {{ checked("source-type", "GP practice or primary care (1)") }}>
+                <label for="source-type-gp" class="nhsuk-label nhsuk-checkboxes__label">
+                  GP practice or primary care (1)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-clinic" value="Community clinic (2)" checked {{ checked("source-type", "Community clinic (2)") }}>
+                <label for="source-type-clinic" class="nhsuk-label nhsuk-checkboxes__label">
+                  Community clinic (2)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-sexhealth" value="Sexual health service (3)" checked {{ checked("source-type", "Sexual health service (3)") }}>
+                <label for="source-type-sexhealth" class="nhsuk-label nhsuk-checkboxes__label">
+                  Sexual health service (3)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-hospital" value="NHS hosptial (4)" checked {{ checked("source-type", "NHS hosptial (4)") }}>
+                <label for="source-type-hospital" class="nhsuk-label nhsuk-checkboxes__label">
+                  NHS hosptial (4)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-defensemed" value="Defense medical services (5)" checked {{ checked("source-type", "Defense medical services (5)") }}>
+                <label for="source-type-defensemed" class="nhsuk-label nhsuk-checkboxes__label">
+                  Defense medical services (5)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-other" value="Other (6)" checked {{ checked("source-type", "Other (6)") }}>
+                <label for="source-type-other" class="nhsuk-label nhsuk-checkboxes__label">
+                  Other (6)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="source-type" id="source-type-colp" value="NHS colpolscopy (7)" checked {{ checked("source-type", "NHS colpolscopy (7)") }}>
+                <label for="source-type-colp" class="nhsuk-label nhsuk-checkboxes__label">
+                  NHS colpolscopy (7)
+                </label>
+              </div>
+
+
+            </div>
+        
+              
+          </fieldset>
+          
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="sender-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add sender code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="sender-code-list">
+
+            </ul>
+
+            <label for="sender-code" class="nhsuk-label">
+              Enter sender code to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              Also known practice code, non GP sender code or GNC number. For example, A86020
+            </div>
+            <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}">
+              
+          </fieldset>
+
+          
+
+          <a id="add-sender-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add sender code
           </a>
+
+          <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="source-type">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add source type
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="source-type-list">
+
+            </ul>
+
+            <label for="source-type" class="nhsuk-label">
+              Enter source type to include
+            </label>
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+              For example, 1, 2 or 3
+            </div>
+            <input id="source-type-input" name="source-type" type="text" class="nhsuk-input nhsuk-input--width-2 nhsuk-u-margin-bottom-0" value="{{ data['source-type'] }}">
+              
+          </fieldset>
+
+          <a id="add-source-type" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add source type
+          </a>-->
+
           
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Save and continue
+        Continue
       </button>
     </form>
+
+    <div class="nhsuk-body">
+      <p>
+        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
+      </p>
+    </div>
    
 
     
