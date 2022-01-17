@@ -55,14 +55,14 @@ NHS Cervical screening management system
 </div>
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
-    <h1 class="nhsuk-heading-l">Print patients due to be invited for {{ data['gp-code'] or 'A123456' }}</h1>
+    <h1 class="nhsuk-heading-l">Print prior notification list of patients due to be invited for {{ data['gp-code'] or 'A123456' }}</h1>
     <p class="nhsuk-heading-xs">Last viewed by: Jane Smith<br>
     <p class="nhsuk-heading-xs">Last viewed date: 12-Jun-2021<br>
     <p class="nhsuk-heading-xs">Address: 122  Farburn Terrace, CA10 0WP</p>
     <p>The list can be printed or downloaded by saving as a PDF.</p>
     <p class="no-print"><a onclick="window.print(); " class="nhsuk-button nhsuk-button--ers">Print or download</a></p>
 
-    <p>Use this list to review the patients at your GP surgery who are due to be invited for cervical screening.</p>
+    <p>Use this prior notification list to review the patients at your GP surgery who are due to be invited for cervical screening.</p>
     <p>You can cease them from screening or defer their invitation if needed. </p>
 
       <p>
@@ -134,7 +134,7 @@ NHS Cervical screening management system
               {% set resultDate = (patient.results[0].result_date | returnNumericDateFormat or "-") + " " + (patient.results[0].result_date | returnTimeDiff or "-") %}
             {% endif %}
             {% if patient.results[0] != null %}
-              {{ result }}
+              {{ result }}, Repeat in 36 months
             {% else %}
               no results
             {% endif %}

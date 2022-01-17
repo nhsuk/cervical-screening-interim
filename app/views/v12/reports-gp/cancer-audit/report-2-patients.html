@@ -12,7 +12,7 @@
 {% block pageTitle %}
 NHS Cervical screening management system
 {% endblock %}
- 
+
 {% block header %}
 {% include '../../components/header.html' %}
 {% endblock %}
@@ -25,13 +25,17 @@ NHS Cervical screening management system
     <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
     </svg>
-    Go back</a>
+    Go back to reports</a>
 </div>
 
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
-  <h1 class="nhsuk-heading-l">Cancer audit report</h1>
-  <h2 class="nhsuk-heading-m">You have added 2 patients to the report</h2>
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m">
+              Cancer audit report
+             <span class="nhsuk-u-visually-hidden"> - </span>
+           </span>
+           You have added 2 patients to the report</h1>
 
   <table role="table" class="nhsuk-table-responsive">
     <caption class="nhsuk-table__caption">History batch download report</caption>
@@ -57,19 +61,19 @@ NHS Cervical screening management system
         <td class="nhsuk-table__cell ">Kristin Shulze</td>
         <td class="nhsuk-table__cell">{{ data['date-day'] }}-{{ data['date-month'] }}-{{ data['date-year'] }}</td>
         <td class="nhsuk-table__cell">123456/2021/1</td>
-      
+
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td class="nhsuk-table__cell">{{ data['nhs-num2'] }}</td>
         <td class="nhsuk-table__cell ">Alma Akbar</td>
         <td class="nhsuk-table__cell">{{ data['date-day2'] }}-{{ data['date-month2'] }}-{{ data['date-year2'] }}</td>
         <td class="nhsuk-table__cell">454789/2021/1</td>
-      
+
       </tr>
-     
+
     </tbody>
 
- 
+
   </table>
   <a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-top-6" href="add-another">
     Add another patient
@@ -78,13 +82,13 @@ NHS Cervical screening management system
   <a class="nhsuk-button nhsuk-button--ers" href="/images/cancer-audit.csv" download>
        Download report
       </a>
-   
-    
+
+
     </div>
-      
+
     </div>
   </div>
-  
+
   </div>
 </div>
 {% endblock %}
