@@ -52,11 +52,7 @@ NHS Cervical screening management system
     <h1 class="nhsuk-heading-l">Enter CRM case number</h1>
 
     <div class="nhsuk-form-group">
-      <h1 class="nhsuk-label-wrapper">
-        <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
-          Enter CRM case number
-        </label>
-      </h1>
+
       <span class="nhsuk-hint" id="example-hint">
         For example, CAS-12345-ABCDE.
       </span>
@@ -66,9 +62,11 @@ NHS Cervical screening management system
 
     <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
-      <label class="nhsuk-label" for="example">
-        Comments
-      </label>
+      <h1 class="nhsuk-label-wrapper">
+        <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
+          Comments
+        </label>
+      </h1>
           <span class="nhsuk-hint" id="example-hint"> Do not include clinical information at this point.</span>
 
       <textarea class="nhsuk-textarea"  name="crmComments" rows="4" value="{{ data['crmComments'] }}" aria-describedby="example-hint" autocomplete="off"></textarea>
@@ -87,16 +85,16 @@ NHS Cervical screening management system
       <thead role="rowgroup" class="nhsuk-table__head">
         <tr role="row">
           <th role="columnheader" class="" scope="col">
-            Date of entry
+            Date and time added
           </th>
           <th role="columnheader" class="" scope="col">
             CRM case number
           </th>
           <th role="columnheader" class="" scope="col">
-            CRM comments
+            Comments
           </th>
           <th role="columnheader" class="" scope="col">
-            Entry created by
+            Added by
           </th>
         </tr>
       </thead>
