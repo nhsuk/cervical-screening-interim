@@ -1,26 +1,4 @@
 File 1 for Manchester (61234) area BAA received on 15/09/2021 at 11.30.10,,,,,,,,,
-Automatic rejections (errors),,,,,,,,,
-Slide no,Surname,Forename(s),Date of birth,NHS Number,Test Date,Result and action ,HPV,Address,Rejection reason
-12345,Jones,Fliss,12-Dec-94,123451,18-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-12346,Jones,Fliss,13-Dec-94,123452,19-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-12347,Jones,Fliss,14-Dec-94,123453,20-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-12348,Jones,Fliss,15-Dec-94,123454,21-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-12349,Jones,Fliss,16-Dec-94,123455,22-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-12350,Jones,Fliss,17-Dec-94,123456,23-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Invalid data
-,,,,,,,,,
-Automatic rejections (policy),,,,,,,,,
-Slide no,Surname,Forename(s),Date of birth,NHS Number,Test Date,Result,HPV,Address,Rejection reason
-12345,Jones,Fliss,12-Dec-94,123451,18-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Older than 4 months 
-12346,Jones,Fliss,13-Dec-94,123452,19-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,3rd HPV positive result:Colposcopy required 
-12347,Jones,Fliss,14-Dec-94,123453,20-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,2nd inadequate result: Colposcopy required 
-12348,Jones,Fliss,15-Dec-94,123454,21-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Ceased 
-,,,,,,,,,
-To query outstanding,,,,,,,,,
-Slide no,Surname,Forename(s),Date of birth,NHS Number,Test Date,Result,HPV,Address,Manual match status
-12345,Jones,Fliss,12-Dec-94,123451,18-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Non-match
-12346,Jones,Fliss,13-Dec-94,123452,19-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Non-match
-12347,Jones,Fliss,14-Dec-94,123453,20-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,Non-match
-12348,Jones,Fliss,15-Dec-94,123454,21-Oct-21,XA,0,123 Green Road Liverpool L21 2FF,No system match 
 ,,,,,,,,,
 Rejections outstanding,,,,,,,,,
 Slide no,Surname,Forename(s),Date of birth,NHS Number,Test Date,Result,HPV,Address,Rejection error message
