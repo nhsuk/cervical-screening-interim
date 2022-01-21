@@ -1,0 +1,160 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back</a>
+    </div>
+
+  <h1  class="nhsuk-heading-l">
+      <span class="nhsuk-caption-m">
+        Accumulated deferrals report
+           <span class="nhsuk-u-visually-hidden"> - </span>
+         </span>
+      Add date range you want to include in the report
+    </h1>
+
+    <div class="nhsuk-u-reading-width">
+      <p>The data on accumulated deferrals is updated once a week on Fridays. It was last refreshed on 14 January 2022 at midnight.</p>
+
+        </div>
+      </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+
+      <div class="nhsuk-grid-column-one-third">
+
+        {% if data['chooseCCG'] === 'allCCGs' %}
+          <form action="/v12/reports/accumulated-deferrals/main-report-all-p1" method="post">
+        {% elif data['chooseCCG'] === 'individualCCG' %}
+          <form action="/v12/reports/accumulated-deferrals/main-report-individual" method="post">
+        {% endif %}
+
+   <div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+    <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+      <h2 class="nhsuk-fieldset__heading">
+Enter date from
+      </h2>
+    </legend>
+    <div class="nhsuk-hint" id="example-hint">
+      For example, 15 3 1984
+    </div>
+
+    <div class="nhsuk-date-input" id="accDefDateGiven1">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-day" name="accDefDateGiven1-day" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-month" name="accDefDateGiven1-month" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven1-year" name="accDefDateGiven1-year" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+
+</div>
+</div>
+
+<div class="nhsuk-grid-column-one-third">
+
+<div class="nhsuk-form-group">
+<fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+ <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+   <h2 class="nhsuk-fieldset__heading">
+Enter date to
+   </h2>
+ </legend>
+
+ <div class="nhsuk-hint" id="example-hint">
+   Leave blank to view 1 day
+ </div>
+
+ <div class="nhsuk-date-input" id="accDefDateGiven2">
+   <div class="nhsuk-date-input__item">
+     <div class="nhsuk-form-group">
+       <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-day">
+         Day
+       </label>
+       <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-day" name="accDefDateGiven2-day" type="text" pattern="[0-9]*" inputmode="numeric">
+     </div>
+   </div>
+   <div class="nhsuk-date-input__item">
+     <div class="nhsuk-form-group">
+       <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-month">
+         Month
+       </label>
+       <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-month" name="accDefDateGiven2-month" type="text" pattern="[0-9]*" inputmode="numeric">
+     </div>
+   </div>
+   <div class="nhsuk-date-input__item">
+     <div class="nhsuk-form-group">
+       <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-year">
+         Year
+       </label>
+       <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven2-year" name="accDefDateGiven2-year" type="text" pattern="[0-9]*" inputmode="numeric">
+     </div>
+   </div>
+ </div>
+</fieldset>
+
+</div>
+</div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-third">
+
+
+
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">
+      Continue
+    </button>
+</form>
+
+  </div>
+  </div>
+</div>
+{% endblock %}

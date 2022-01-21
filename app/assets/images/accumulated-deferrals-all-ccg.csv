@@ -1,49 +1,7 @@
-Clinical commissioning group name (code),	Number of patients deferred 2 consecutive times (within 36 months or more),	Number of patients deferred 3 consecutive times
-NHS Barnsley CCG (02P),	20,	15
-NHS Basildon and Brentwood CCG (99E),	20,	15
-NHS Bassetlaw CCG (02Q),	20,	15
-NHS Bath and North East Somerset Swindon and Wiltshire CCG (92G),	20,	15
-NHS Bedfordshire Luton and Milton Keynes CCG (M1J4Y),	20,	15
-NHS Berkshire West CCG (15A),	20,	15
-NHS Birmingham and Solihull CCG (15E), 20,	15
-NHS Blackburn with Darwen CCG (00Q),	20,	15
-NHS Black Country and West Birmingham CCG (D2P2L),	20,	15
-NHS Blackpool CCG (00R),	20,	15
-NHS Bolton CCG (00T),	20,	15
-NHS Bradford District and Craven CCG (36J),	20,	15
-NHS Brighton and Hove CCG (09D),	20,	15
-NHS Bristol North Somerset and South Gloucestershire CCG (15C),	20,	15
-NHS Buckinghamshire CCG (14Y),	20,	15
-NHS Bury CCG (00V),	20,	15
-NHS Calderdale CCG (02T),	20,	15
-NHS Cambridgeshire and Peterborough CCG (06H), 20,	15
-NHS Cannock Chase CCG (04Y),	20,	15
-NHS Castle Point and Rochford CCG (99F), 20,	15
-NHS Cheshire CCG (27D),	20,	15
-NHS Chorley and South Ribble CCG (00X),	20,	15
-NHS County Durham CCG (84H), 20, 15
-NHS Coventry and Warwickshire CCG (B2M3M), 20, 15
-NHS Derby and Derbyshire CCG (15M), 20, 15
-NHS Devon CCG (15N), 20, 15
-NHS Doncaster CCG (02X), 20, 15
-NHS Dorset CCG (11J), 20, 15
-NHS East and North Hertfordshire CCG (06K),	20,	15
-NHS East Lancashire CCG (01A), 20, 15
-NHS East Leicestershire and Rutland CCG (03W), 20, 15
-NHS East Riding of Yorkshire CCG (02Y),	20,	15
-NHS East Staffordshire CCG (05D),	20,	15
-NHS East Sussex CCG (97R), 20, 15
-NHS Frimley CCG (D4U1Y), 20, 15
-NHS Fylde and Wyre CCG (02M),	20,	15
-NHS Gloucestershire CCG (11M), 20, 15
-NHS Greater Preston CCG (01E), 20, 15
-NHS Halton CCG (01F),	20,	15
-NHS Hampshire Southampton and Isle of Wight CCG (D9Y0V), 20, 15
-NHS Herefordshire and Worcestershire CCG (18C),	20,	15
-NHS Herts Valleys CCG (06N), 20, 15
-NHS Heywood Middleton and Rochdale CCG (01D),	20,	15
-NHS Hull CCG (03F), 20, 15
-NHS Ipswich and East Suffolk CCG (06L),	20,	15
-NHS Kent and Medway CCG (91Q), 20, 15
-NHS Kernow CCG (11N),	20,	15
-NHS Kirklees CCG (X2C4Y),	20,	15
+CCG,GP Practice,NHS Number,Name,DoB,No. of Cons. Deferrals,No. of Months Deferred,Last Test Date,Last Test Result,Deferral,Method of Deferral,Defer Date,Months Deferred,Reason,Previous NTDD,New NTDD,Who updated the deferral?,CRM Number
+1234,A12334,111 222 3333,Amber Jones,05/01/1991,3,18,05/01/2018,X0A,1,Ad-hoc,12/03/2021,3,Choice,05/01/2021,05/04/2021,GP Practice,12345
+1234,A12334,111 222 3333,Amber Jones,05/01/1991,3,18,05/01/2018,X0A,2,Ad-hoc,12/06/2021,6,Choice,05/04/2021,05/09/2021,CSAS Jackie Smith,12346
+1234,A12334,111 222 3333,Amber Jones,05/01/1991,3,18,05/01/2018,X0A,3,PNL,12/12/2021,9,Pregnancy,05/09/2021,05/03/2022,GP Practice,12347
+5678,B12345,222 333 4444,Jane Smith,10/10/1991,3,18,10/02/2018,X0A,1,Ad-hoc,22/03/2021,3,Choice,15/01/2021,15/04/2021,GP Practice,12348
+5678,B12345,222 333 4444,Jane Smith,10/10/1991,3,18,05/01/2018,X0A,2,Ad-hoc,22/06/2021,6,Choice,15/04/2021,15/09/2021,CSAS Jackie Smith,12349
+5678,B12345,222 333 4444,Jane Smith,10/10/1991,3,18,05/01/2018,X0A,3,PNL,22/12/2021,9,Pregnancy,15/09/2021,15/03/2022,GP Practice,12341

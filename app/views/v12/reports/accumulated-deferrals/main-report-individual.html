@@ -44,9 +44,19 @@ NHS Cervical screening management system
                   Accumulated deferrals report
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
-              Accumulated deferrals for {{ ccgName }}
+              Accumulated deferrals for {{ ccgName }} between
+              <!-- {% if (data['accDefDateGiven1-day']) and (data['accDefDateGiven1-month']) and (data['accDefDateGiven1-year']) %}
+                {{ data['accDefDateGiven1-day'] }}-{{ data['accDefDateGiven1-month'] }}-{{ data['accDefDateGiven1-year'] }}
+              {% else %} -->
+                20 December 2021
+              <!-- {% endif %} -->
+              and
+              <!-- {% if (data['accDefDateGiven2-day']) and (data['accDefDateGiven2-month']) and (data['accDefDateGiven2-year']) %}
+                {{ data['accDefDateGiven2-day'] }}-{{ data['accDefDateGiven2-month'] }}-{{ data['accDefDateGiven2-year'] }}
+              {% else %} -->
+                20 January 2022
+              <!-- {% endif %} -->
          </h1>
-
 
                   <form action="/images/accumulated-deferrals-individual-ccg.csv" method="get">
                     <button class="nhsuk-button nhsuk-button--ers" type="submit">
