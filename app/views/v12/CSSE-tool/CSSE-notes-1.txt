@@ -40,21 +40,21 @@ NHS Cervical screening management system
    <fieldset class="nhsuk-fieldset" aria-describedby="build-new-enquiry" role="group">
      <legend class="nhsuk-fieldset__legend nhsuk-label">
        <h3 class="nhsuk-heading-m">
-         Create a new enquiry
+         Build a new enquiry
        </h3>
      </legend>
 
 
 
-  <ul class="nhsuk-list">
-      <li>Use this to create a new custom enquiry by setting parameters in 10 steps.</li>
+  <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>Build a custom report by setting parameters in 10 steps.</li>
       <li>   <p class="nhsuk-body-s">
-         The data used to create new enquiries is updated daily and was last refreshed <span class="nhsuk-u-font-weight-bold">12:00am 24 January 2022.</span>
+        NOTE: The data used to generate a report is updated daily and was last refreshed <span class="nhsuk-u-font-weight-bold">12:00am 24 December 2021.</span>
        </p></li>
   </ul>
 
     <a href="CSSE-create-step1" class="nhsuk-button nhsuk-button--ers">
-      Create new enquiry
+      Start a new enquiry
     </a>
 
 
@@ -69,23 +69,20 @@ NHS Cervical screening management system
    <fieldset class="nhsuk-fieldset" aria-describedby="build-new-enquiry" role="group">
     <legend class="nhsuk-fieldset__legend nhsuk-label">
       <h3 class="nhsuk-heading-m">
-        View an existing enquiry
+        Search for an existing enquiry
       </h3>
     </legend>
 
-    <p class="nhsuk-body">
-      Use this to view or search for existing enquiries. You can:
-    </p>
+ 
 
-    <ul class="nhsuk-list nhsuk-list--bullet">
-      <li>Download an existing enquiry report.</li>
-      <li>Edit an existing enquiry and re-run it.</li>
-      <li>Copy the details of an existing enquiry and save as a new version.</li>
+  <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>Find existing enquiries and see their details.</li>
+      <li>Download their report outputs or reuse their parameters.</li>
   </ul>
 
-  <a href="../CSSE-tool/csse-manage/csse-manage-enquiry" class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers">
-    View an existing enquiry
-  </a>
+   <a href="../CSSE-tool/csse-manage/csse-manage-enquiry" class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers">
+     Search for an enquiry
+   </a>
 
 
 

@@ -1,0 +1,130 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{{ header({
+    "service": {
+      "name": "Cervical Screening",
+      "longName": "false"
+    },
+    "showNav": "false",
+    "showSearch": "false"
+  })
+}}
+{% endblock %}
+
+{% block patientBanner %}
+  {% include '../components/patient-banner.html' %}
+{% endblock %}
+
+{% block content %}
+
+<nav class="nhsuk-sub-navigation">
+  <ul class="nhsuk-sub-navigation__list">
+    <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link" aria-current="page">Additional Information</a></li>
+
+  </ul>
+</nav>
+
+{% set address %}
+  <p>{{ data.gpinfo.address_line_1 or 'IVESON APPROACH' }}</p>
+  <p>{{ data.gpinfo.address_line_3 or 'LEEDS' }}</p>
+  <p>{{ data.gpinfo.address_line_4 or 'WEST YORKSHIRE' }}</p>
+  <p>{{ data.gpinfo.address_line_5 or 'ENGLAND' }}</p>
+  <p>{{ data.gpinfo.postcode or 'LS16 6FR' }}</p>
+{% endset %}
+
+<div class="nhsuk-grid-row nhsuk-u-margin-top-4">
+  <div class="nhsuk-grid-column-full">
+    <h1 class="nhsuk-heading-l">Enter CRM case number</h1>
+
+    <div class="nhsuk-form-group">
+      <h1 class="nhsuk-label-wrapper">
+        <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
+          Enter CRM case number
+        </label>
+      </h1>
+      <span class="nhsuk-hint" id="example-hint">
+        For example, CAS-12345-ABCDE.
+      </span>
+      <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off" value="{{ data.crm }}">
+    </div>
+    <div class="nhsuk-form-group">
+
+    <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <label class="nhsuk-label" for="example">
+        Comments
+      </label>
+          <span class="nhsuk-hint" id="example-hint"> Do not include clinical information at this point.</span>
+
+      <textarea class="nhsuk-textarea"  name="crmComments" rows="4" value="{{ data['crmComments'] }}" aria-describedby="example-hint" autocomplete="off"></textarea>
+    </div>
+    </div>
+    </div>
+    <br>
+    <button class="nhsuk-button nhsuk-button--ers" type="post" >Save entry</button>
+    </form>
+    </div>
+    </div>
+
+    <table role="table" class="">
+      <caption class="nhsuk-table__caption">
+        <h2>CRM History</h2>
+      </caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">
+            Date of entry
+          </th>
+          <th role="columnheader" class="" scope="col">
+            CRM case number
+          </th>
+          <th role="columnheader" class="" scope="col">
+            CRM comments
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Entry created by
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell" >
+            
+          </td>
+          <td>
+
+            </td>
+            <td>
+
+              </td>
+              <td>
+
+                </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <p><a href="manc-rejected">Exit without saving</a></p> -->
+
+    </fieldset>
+
+
+  </div>
+</div>
+{% endblock %}

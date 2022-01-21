@@ -3,11 +3,7 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
-<script type="text/javascript" src="/js/action-menu.js"></script>
-<script type="text/javascript" src="/js/sort.js"></script>
 <script type="text/javascript" src="/js/add-result-code-list.js"></script>
-<script type="text/javascript" src="/js/autocomplete-result.js"></script>
-
 <!--Add JS script for list builder above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -29,24 +25,24 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step6">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step5">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 6: Define test criteria</a>
+        Go back to Step 5: Define sender details</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 7 of 10</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 6 of 12</span>
     <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
         Define test result details
     </h1>
 
-    <form action="CSSE-create-step8" method="post" autocomplete="off">
+    <form action="CSSE-create-step7" method="post">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="date-type">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-              Which date do you want to refine by?
+              What date type would you like to include?
             </p>
           </legend>
 
@@ -71,7 +67,7 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body">
-                      What date range do you want to include?
+                      What date range would you like to include?
                     </p>
                   </legend>
 
@@ -180,7 +176,7 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body">
-                      What date range do you want to include?
+                      What date range would you like to include?
                     </p>
                   </legend>
 
@@ -289,7 +285,7 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body">
-                      What date range do you want to include?
+                      What date range would you like to include?
                     </p>
                   </legend>
 
@@ -398,7 +394,7 @@ NHS Cervical screening management system
                 <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                   <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
                     <p class="nhsuk-body">
-                      What date range do you want to include?
+                      What date range would you like to include?
                     </p>
                   </legend>
 
@@ -503,11 +499,8 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="slide-number">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-              What slide number range do you want to include?
+              What slide number range would you like to include?
             </p>
-            <div class="nhsuk-hint" for="slide-number">
-              Leave number blank if you only know the year
-             </div>
           </legend>
 
           <div class="nhsuk-grid-row">
@@ -611,27 +604,8 @@ NHS Cervical screening management system
                 <label for="result-code-result" class="nhsuk-label">
                   Result
                 </label>
-                <input list="result-code-result-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}">
+                <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
                </div>
-               <datalist id="result-code-result-items">
-                 <option value="0">?Glandular noeplasia (non-cervical)</option>
-                 <option value="1">Inadequate cytology</option>
-                 <option value="2">Negative/normal cytology</option>
-                 <option value="3">Low-grade dyskaryosis</option>
-                 <option value="4">High-grade dyskaryosis - severe (HPV tested and not)</option>
-                 <option value="5">High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)</option>
-                 <option value="6">?Glandular neoplasia of endocervical type (HPV tested and not)</option>
-                 <option value="7">High-grade dyskaryosis - moderate (HPV tested and not)</option>
-                 <option value="8">Borderline squamous</option>
-                 <option value="9">Borderline endocervical</option>
-                 <option value="B">Borderline change in squamous cells (HPV tested)</option>
-                 <option value="E">Borderline change in endocervical cells (HPV tested)</option>
-                 <option value="G">?Glandular neoplasia - non cervical (HPV tested)</option>
-                 <option value="M">Low grade dyskaryosis (HPV tested)</option>
-                 <option value="N">Negative (HPV tested)</option>
-                 <option value="X">No cytology result</option>
-               </datalist>
-               
              </div>
     
              <div class="nhsuk-date-input__item">
@@ -639,14 +613,8 @@ NHS Cervical screening management system
                <label for="result-code-hpv" class="nhsuk-label">
                 HPV
                </label>
-               <input list="result-code-hpv-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-hpv" name="result-code-hpv" type="text" value="{{ data['#'] }}">
+               <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-hpv" name="result-code-hpv" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
               </div>
-              <datalist id="result-code-hpv-items">
-                <option value="0">HPV negative</option>
-                <option value="9">HPV positive</option>
-                <option value="U">HPV not available</option>
-                <option value="Q">No HPV test due to recent HPV positive result</option>
-              </datalist>
             </div>
     
             <div class="nhsuk-date-input__item">
@@ -654,13 +622,7 @@ NHS Cervical screening management system
                <label for="result-code-action" class="nhsuk-label">
                 Action
                </label>
-               <input list="result-code-action-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-action" name="result-code-action" type="text" value="{{ data['#'] }}">
-               <datalist id="result-code-action-items">
-                 <option value="A">Routine recall</option>
-                 <option value="H">No change to recall</option>
-                 <option value="R">Early recall</option>
-                 <option value="S">Refer to colposcopy</option>
-               </datalist>
+               <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-action" name="result-code-action" type="text" value="{{ data['#'] }}" pattern="[0-9]*" inputmode="numeric">
               </div>
             </div>
     
@@ -678,15 +640,9 @@ NHS Cervical screening management system
 
       </div>
       <button class="nhsuk-button nhsuk-button--ers" type="submit">
-        Continue
+        Save and continue
       </button>
     </form>
-
-    <div class="nhsuk-body">
-      <p>
-        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
-      </p>
-    </div>
    
 
     

@@ -17,7 +17,7 @@ nationalCodeButton.addEventListener('click', addNumberTolist);
 function addNumberTolist() {
   var number = nationalCodeinput.value; // get value of whats inside the box
   var nationalCodelength = nationalCodes.push(number) //adds it to the array
-  nationalCodelist.innerHTML+="<li id='national-code-"+nationalCodelength+"'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+nationalCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+  nationalCodelist.innerHTML+="<li id='national-code-"+nationalCodelength+"' name='national-code-data' value='{{ data['national-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+nationalCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
   nationalCodeinput.value="" // clears the box for the next input
   
 }

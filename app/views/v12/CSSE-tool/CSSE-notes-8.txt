@@ -1,0 +1,124 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-ccg-code-list.js"></script>
+<script type="text/javascript" src="/js/add-gp-practice-code-list.js"></script>
+<script type="text/javascript" src="/js/add-post-code-list.js"></script>
+
+<!--Add Javascript for 'add list input here'-->
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step7">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to Step 7: Define participant and episodes status details</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 8 of 12</span>
+    <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+        Define location details
+    </h1>
+
+    <form action="CSSE-create-step9" method="post">
+      <div class="nhsuk-form-group">
+
+        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add CCG location code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="ccg-code-list">
+
+            </ul>
+
+            <label for="ccg-code" class="nhsuk-label">
+              Enter CCG location code to include
+            </label>
+            <input id="ccg-code-input" name="ccg-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
+              
+          </fieldset>
+
+          <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add CCG location code
+          </a>-->
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add area code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="post-code-list">
+
+            </ul>
+
+            <label for="post-code" class="nhsuk-label">
+              Enter area code to include
+            </label>
+            <input id="post-code-input" name="post-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['post-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-post-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add area code
+          </a>
+
+          <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="gp-practice-code">
+            <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                Add GP practice code
+              </p>
+            </legend>
+
+            <ul class="nhsuk-list" id="gp-practice-code-list">
+
+            </ul>
+
+            <label for="gp-practice-code" class="nhsuk-label">
+              Enter GP practice code to include
+            </label>
+            <input id="gp-practice-code-input" name="gp-practice-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['gp-practice-code'] }}">
+              
+          </fieldset>
+
+          <a id="add-gp-practice-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
+            Add GP practice code
+          </a>
+
+          
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Save and continue
+      </button>
+    </form>
+   
+
+    
+  </div>
+</div>
+{% endblock %}
