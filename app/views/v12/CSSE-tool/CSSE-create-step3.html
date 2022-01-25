@@ -51,21 +51,18 @@ NHS Cervical screening management system
 
             <div class="nhsuk-checkboxes">
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Active" checked {{ checked("patient-reg", "Active") }}>
-                <label for="patient-reg" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg-active" value="Active"{{ checked("patient-reg", "Active") }} checked>
+                <label for="patient-reg-active" class="nhsuk-label nhsuk-checkboxes__label">
                   Active
                 </label>
               </div>
-
-
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Deducted" checked {{ checked("patient-reg", "Deducted") }}>
-                <label for="patient-reg" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg-deducted" value="Deducted"{{ checked("patient-reg", "Deducted") }} checked>
+                <label for="patient-reg-deducted" class="nhsuk-label nhsuk-checkboxes__label">
                   Deducted
                 </label>
               </div>
-
-            </div>
+            </div> 
         
               
           </fieldset>
