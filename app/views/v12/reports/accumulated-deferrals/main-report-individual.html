@@ -30,32 +30,13 @@ NHS Cervical screening management system
 
 
 
-      {% set ccgName %}
-        {% if data['enterCCGName'] %}
-           {{ data['enterCCGName'] }}
-      {% else %}
-           NHS Hampshire, Southampton and Isle of Wight clinical commissioning group (D9OV)
-        {% endif %}
-      {% endset %}
-
 
          <h1 class="nhsuk-heading-l">
            <span class="nhsuk-caption-m">
                   Accumulated deferrals report
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
-              Accumulated deferrals for {{ ccgName }} between
-              <!-- {% if (data['accDefDateGiven1-day']) and (data['accDefDateGiven1-month']) and (data['accDefDateGiven1-year']) %}
-                {{ data['accDefDateGiven1-day'] }}-{{ data['accDefDateGiven1-month'] }}-{{ data['accDefDateGiven1-year'] }}
-              {% else %} -->
-                20 December 2021
-              <!-- {% endif %} -->
-              and
-              <!-- {% if (data['accDefDateGiven2-day']) and (data['accDefDateGiven2-month']) and (data['accDefDateGiven2-year']) %}
-                {{ data['accDefDateGiven2-day'] }}-{{ data['accDefDateGiven2-month'] }}-{{ data['accDefDateGiven2-year'] }}
-              {% else %} -->
-                20 January 2022
-              <!-- {% endif %} -->
+              Accumulated deferrals for NHS Hampshire, Southampton and Isle of Wight clinical commissioning group (D9OV) between 20 December 2021 and 20 January 2022
          </h1>
 
                   <form action="/images/accumulated-deferrals-individual-ccg-2.csv" method="get">
