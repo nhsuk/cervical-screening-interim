@@ -188,7 +188,27 @@ NHS Cervical screening management system
           <a href="/v12/patient/audit/resend-invite-add-comment">Resend invite</a>
           {% endif %}
         </dd>
+
       </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Recall status
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          Second letter
+          {% else %}
+          Second letter 
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          {% if data.role == 'csas' %}
+          Actions:
+          <a href="/v12/patient/audit/resend-invite-add-comment">Change recall status</a>
+          {% endif %}
+        </dd>
+      </div>
+
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
