@@ -7,6 +7,16 @@
 <script type="text/javascript" src="/js/add-source-code-list.js"></script>
 <script type="text/javascript" src="/js/add-sender-code-list.js"></script>
 <script type="text/javascript" src="/js/add-source-type-list.js"></script>
+<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
+<script>
+  const senderCodeData = [
+    {
+      code: '0',
+      name: 'No sender',
+    },
+  ];
+  createSuggestionDropdown(senderCodeData, 'sender-code-input');
+</script>
 <!--Add Javascript for 'add list input here'-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -327,7 +337,8 @@ NHS Cervical screening management system
             <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
               Also known practice code, non GP sender code or GNC number. For example, A86020
             </div>
-            <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}">
+            <!-- <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}"> -->
+            <div id="sender-code-input"></div>
               
           </fieldset>
 
