@@ -38,3 +38,12 @@
   },
   "devDependencies": {}
 }
+
+{
+  "name": "myapp",
+  "description": "a really cool app",
+  "version": "10.15.0",
+  "engines": {
+    "node": "14.x"
+  }
+}
