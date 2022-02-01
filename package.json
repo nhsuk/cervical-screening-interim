@@ -36,8 +36,5 @@
     "nunjucks": "^3.2.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {
-    "version": "10.15.0",
-
-  }
+  "devDependencies": {}
 }
