@@ -36,14 +36,8 @@
     "nunjucks": "^3.2.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {}
-}
+  "devDependencies": {
+    "version": "10.15.0",
 
-{
-  "name": "myapp",
-  "description": "a really cool app",
-  "version": "10.15.0",
-  "engines": {
-    "node": "14.x"
   }
 }
