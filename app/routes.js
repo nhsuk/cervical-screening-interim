@@ -861,5 +861,25 @@ router.post('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name', function (
   }
 });
 
+//sms branching
+
+router.post('/v12/reports/sms-download/answer', function (req, res) {
+
+  // Make a variable and give it the value from 'reportDate'
+  var reportDate = req.session.data['reportDate']
+
+
+  // Check whether the variable matches a condition
+  if (reportDate == "range"){
+    // Send user to next page
+    res.redirect('/v12/reports/sms-download/report-range')
+  }
+  else {
+    // Send user to ineligible page
+    res.redirect('/v12/reports/sms-download/report-today')
+  }
+
+})
+
 
 module.exports = router;
