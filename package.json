@@ -36,5 +36,8 @@
     "nunjucks": "^3.2.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+  "node": "16.13.2"
+}
 }
