@@ -12,8 +12,8 @@
     "watch": "gulp"
   },
   "engines": {
-  "node": "10.15.x"
-},
+    "node": "10.15.x"
+  },
   "author": "https://github.com/nhsuk/",
   "license": "MIT",
   "dependencies": {
