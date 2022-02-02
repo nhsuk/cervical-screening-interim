@@ -11,6 +11,9 @@
     "prewatch": "gulp build",
     "watch": "gulp"
   },
+  "engines": {
+  "node": "10.15.x"
+},
   "author": "https://github.com/nhsuk/",
   "license": "MIT",
   "dependencies": {
@@ -36,8 +39,5 @@
     "nunjucks": "^3.2.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
-  "engines": {
-  "node": "16.13.2"
-}
+  "devDependencies": {}
 }
