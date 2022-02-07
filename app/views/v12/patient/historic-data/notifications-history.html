@@ -67,9 +67,18 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
 
 
+
     <div class="nhsuk-width-container-fluid">
       <main class="nhsuk-main-wrapper" style="padding-top: 24px;" id="maincontent" role="main">
         <div class="nhsuk-grid-row">
+
+          <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="historic-data">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back to historic data</a>
+</div>
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'lds' %}
@@ -80,40 +89,152 @@ NHS Cervical screening management system
                 Wakefield (WAK)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Historic Data
+               </span>Notifications history
              </h1>
 
-          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
-            <ul class="panel-link">
+<h2 class="nhsuk-heading-m">Audit of notifications</h2>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Audit of notifications start date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      2-Jan-2016
+    </dd>
 
 
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="cytology-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Cytology Screening History</h2>
-                </a>
-              </li>
 
-                <li class="panel-link__item">
-                  <a class="panel-link__link" href="demographics-history">
-                    <h2 class="panel-link__heading nhsuk-heading-s">Demographics History</h2>
-                  </a>
-                </li>
-              </ul>
-                        </div>
-          <div class="nhsuk-grid-column-one-half">
-            <ul class="panel-link">
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="notifications-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Notifications History</h2>
-                </a>
-              </li>
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Interchange, letters and lab files history</h2>
-                </a>
-              </li>
+  </div>
 
-            </ul>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Date notification was sent to patient or GP  
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      2-Jan-2016
+    </dd>
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Type of notification (APL)
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      RP
+    </dd>
+
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Notification description
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Letter</p>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Type/Reason
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>RS</p>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Code Cor Marker Description
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>PA1</p>
+
+    </dd>
+
+  </div>
+
+
+</dl>
+
+<h2 class="nhsuk-heading-m">PNL notifications which have been sent to the GP</h2>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Date PNL was sent to GP  
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      2-Jan-2016
+    </dd>
+
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Type of notification (APL)
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      RG
+    </dd>
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Recall type
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      L
+    </dd>
+
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Recall status
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>G</p>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      PNL type
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Open Exeter</p>
+
+    </dd>
+
+  </div>
+
+
+  </div>
+
+
+</dl>
+
+
+
           </div>
         </div>
 
