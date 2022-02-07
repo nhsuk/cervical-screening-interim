@@ -67,9 +67,18 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
 
 
+
     <div class="nhsuk-width-container-fluid">
       <main class="nhsuk-main-wrapper" style="padding-top: 24px;" id="maincontent" role="main">
         <div class="nhsuk-grid-row">
+
+          <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="cytology-history">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back to cytology screening history</a>
+</div>
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'lds' %}
@@ -80,40 +89,53 @@ NHS Cervical screening management system
                 Wakefield (WAK)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Historic Data
+               </span>Audit of next test due date changes
              </h1>
 
-          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
-            <ul class="panel-link">
 
 
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="cytology-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Cytology screening history</h2>
-                </a>
-              </li>
+             <table class="nhsuk-table">
+               <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+               <thead role="rowgroup" class="nhsuk-table__head">
+                 <tr role="row">
+                   <th role="columnheader" class="" scope="col">
+                     Date of change
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Previous Next test due date
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Reason
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Category
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Changed by
+                   </th>
+                   <th role="columnheader" class="" scope="col">
+                     Ceasing health authority
+                   </th>
 
-                <li class="panel-link__item">
-                  <a class="panel-link__link" href="demographics-history">
-                    <h2 class="panel-link__heading nhsuk-heading-s">Demographics history</h2>
-                  </a>
-                </li>
-              </ul>
-                        </div>
-          <div class="nhsuk-grid-column-one-half">
-            <ul class="panel-link">
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="notifications-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Notifications history</h2>
-                </a>
-              </li>
-              <!-- <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Interchange, letters and lab files history</h2>
-                </a>
-              </li> -->
+                 </tr>
+               </thead>
+               <tbody class="nhsuk-table__body">
+                 <tr role="row" class="nhsuk-table__row">
+                   <td class="nhsuk-table__cell">15-May-2006</td>
+                   <td class="nhsuk-table__cell">17-Feb-2008</td>
+                   <td class="nhsuk-table__cell">-</td>
+                   <td class="nhsuk-table__cell">-</td>
+                   <td class="nhsuk-table__cell">-</td>
+                   <td class="nhsuk-table__cell">-</td>
 
-            </ul>
+                 </tr>
+
+
+               </tbody>
+             </table>
+
+
+
           </div>
         </div>
 
