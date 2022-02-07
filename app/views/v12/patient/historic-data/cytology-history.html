@@ -70,6 +70,15 @@ NHS Cervical screening management system
     <div class="nhsuk-width-container-fluid">
       <main class="nhsuk-main-wrapper" style="padding-top: 24px;" id="maincontent" role="main">
         <div class="nhsuk-grid-row">
+
+          <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="historic-data">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back to historic data</a>
+</div>
+
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'lds' %}
@@ -83,37 +92,304 @@ NHS Cervical screening management system
                </span>Cytology Screening History
              </h1>
 
-          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
-            <ul class="panel-link">
+<h2 class="nhsuk-heading-m">Cytology details</h2>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Next test due
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      15-May-2018
+    </dd>
 
 
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Patient cytology tests and details</h2>
-                </a>
-              </li>
 
-                <li class="panel-link__item">
-                  <a class="panel-link__link" href="#">
-                    <h2 class="panel-link__heading nhsuk-heading-s">Audit of cytology changes</h2>
-                  </a>
-                </li>
-              </ul>
-                        </div>
-          <div class="nhsuk-grid-column-one-half">
-            <ul class="panel-link">
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">HPV vaccination details</h2>
-                </a>
-              </li>
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Patient NB notes details</h2>
-                </a>
-              </li>
+  </div>
 
-            </ul>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Notification date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      22-Dec-2017
+    </dd>
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Recall status
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      L - Receipt Logged
+    </dd>
+
+
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Recall type
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>S - Suspended</p>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Invited date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>22-Dec-2017</p>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Prior Notification List Date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>22-Dec-2017</p>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      N.B. line in full
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      GP Recommended Action
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Delayed</p>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    GP Free text
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Delay the patient</p>
+
+    </dd>
+
+  </div>
+
+</dl>
+
+<h2 class="nhsuk-heading-m">Cytology test summary</h2>
+
+<table class="nhsuk-table">
+  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Test number
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Test date
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Infection
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Action
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Repeat months
+      </th>
+      <th role="columnheader" class="" scope="col">
+        HPV primary
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Test details
+      </th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">123456</td>
+      <td class="nhsuk-table__cell">2-Feb-2022</td>
+      <td class="nhsuk-table__cell">XOR</td>
+      <td class="nhsuk-table__cell">9</td>
+      <td class="nhsuk-table__cell">A</td>
+      <td class="nhsuk-table__cell"> N</td>
+      <td class="nhsuk-table__cell"><a href="test-details">View</a></td>
+
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">123456</td>
+      <td class="nhsuk-table__cell">2-Feb-2022</td>
+      <td class="nhsuk-table__cell">XOR</td>
+      <td class="nhsuk-table__cell">9</td>
+      <td class="nhsuk-table__cell">A</td>
+      <td class="nhsuk-table__cell"> N</td>
+      <td class="nhsuk-table__cell"><a href="">View</a></td>
+
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">123456</td>
+      <td class="nhsuk-table__cell">2-Feb-2022</td>
+      <td class="nhsuk-table__cell">XOR</td>
+      <td class="nhsuk-table__cell">9</td>
+      <td class="nhsuk-table__cell">A</td>
+      <td class="nhsuk-table__cell"> N</td>
+      <td class="nhsuk-table__cell"><a href="">View</a></td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">Audit of changese to cytology and tests</h2>
+
+<table class="nhsuk-table">
+  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Date of change
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Change event
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Previous value
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Category
+      </th>
+      <th role="columnheader" class="" scope="col">
+        User ID
+      </th>
+
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">15-May-2006</td>
+      <td class="nhsuk-table__cell">Logged</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+
+    </tr>
+
+
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">Audit of changes to next test due date</h2>
+
+<table class="nhsuk-table">
+  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Date of change
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Previous Next test due date
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Reason
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Category
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Changed by
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Ceasing health authority
+      </th>
+
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">15-May-2006</td>
+      <td class="nhsuk-table__cell">17-Feb-2008</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+
+    </tr>
+
+
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">HPV vaccination details</h2>
+
+<table class="nhsuk-table">
+
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Immunisation date
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Type
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Batch number
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Dose
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Date and time
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Org code
+      </th>
+      <th role="columnheader" class="" scope="col">
+        User ID
+      </th>
+      <th role="columnheader" class="" scope="col">
+        Total doses given
+      </th>
+
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">15-May-2006</td>
+      <td class="nhsuk-table__cell">17-Feb-2008</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+      <td class="nhsuk-table__cell">-</td>
+
+    </tr>
+
+
+  </tbody>
+</table>
+
+
           </div>
         </div>
 
