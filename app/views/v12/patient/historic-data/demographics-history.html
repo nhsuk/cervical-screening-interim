@@ -79,7 +79,10 @@ NHS Cervical screening management system
     </svg>
     Back to historic data</a>
 </div>
-          <h1 class="nhsuk-heading-l">
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+              <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'lds' %}
                 Leeds (LDS)
@@ -89,83 +92,41 @@ NHS Cervical screening management system
                 Wakefield (WAK)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Demographics history
+               </span>Demographic history between 20 December 2000 and 02 February 2006 in Wakefield NHAIS area
              </h1>
-
-<h2 class="nhsuk-heading-m">Patient identity details</h2>
-
-<h3 class="nhsuk-heading-s">Patient names</h3>
-
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Forename
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Surname
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Title
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Previous name
-      </th>
-
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">Tanya</td>
-      <td class="nhsuk-table__cell">Parr</td>
-      <td class="nhsuk-table__cell">Mrs</td>
-      <td class="nhsuk-table__cell">Smith</td>
+           </div>
+         </div>
 
 
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">Tanya</td>
-      <td class="nhsuk-table__cell">Parr</td>
-      <td class="nhsuk-table__cell">Miss</td>
-      <td class="nhsuk-table__cell">Lawrence</td>
+<h2 class="nhsuk-heading-m">Most recent demographic details </h2>
 
+<h3 class="nhsuk-heading-s">Patient details</h3>
 
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">Tanya</td>
-      <td class="nhsuk-table__cell">Parr</td>
-      <td class="nhsuk-table__cell">M9ss</td>
-      <td class="nhsuk-table__cell">Lawrence</td>
-
-
-    </tr>
-
-  </tbody>
-</table>
-<!-- <dl class="nhsuk-summary-list">
+<dl class="nhsuk-summary-list">
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Forename
+  Title
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Mrs
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Forename
     </dt>
     <dd class="nhsuk-summary-list__value">
       Tanya
     </dd>
 
 
-
   </div>
-
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Surname 
+    Surname
     </dt>
     <dd class="nhsuk-summary-list__value">
       Parr
@@ -176,81 +137,14 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Title
+  Previous name (surname)
     </dt>
     <dd class="nhsuk-summary-list__value">
-      Miss
+      Lawrence
     </dd>
 
 
-
   </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Previous name
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>Lawrence</p>
-
-    </dd>
-
-  </div>
-
-
-
-
-</dl> -->
-
-<h3 class="nhsuk-heading-s">Alternate names</h3>
-
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Previous Forename
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Previous Surname
-      </th>
-
-
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-
-  </tbody>
-</table>
-
-<!-- <dl class="nhsuk-summary-list">
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
@@ -260,78 +154,98 @@ NHS Cervical screening management system
       -
     </dd>
 
+
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-    Previous surname
+  Previous surname
     </dt>
     <dd class="nhsuk-summary-list__value">
-      -
+      Lawrence
     </dd>
 
 
   </div>
 
-</dl> -->
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+  Birth date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+    11-Jun-1992 (29 years)
+    </dd>
+  </div>
 
-<h2 class="nhsuk-heading-m">Patient GP details</h2>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+  Sex
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Female
+    </dd>
+  </div>
 
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        GP name
-      </th>
-      <th role="columnheader" class="" scope="col">
-        GP practice code
-      </th>
-      <th role="columnheader" class="" scope="col">
-        GP code
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Date added
-      </th>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+  NHS number
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+910 000 2798
+    </dd>
+  </div>
 
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">The Barton HSE</td>
-      <td class="nhsuk-table__cell">	F84008</td>
-      <td class="nhsuk-table__cell">	26843</td>
-      <td class="nhsuk-table__cell">15-May-2017</td>
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">The Barton HSE</td>
-      <td class="nhsuk-table__cell">	F84008</td>
-      <td class="nhsuk-table__cell">	26843</td>
-      <td class="nhsuk-table__cell">15-May-2017</td>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Birth place
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Birmingham
+    </dd>
+  </div>
 
 
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">Thornfield Medical Group</td>
-      <td class="nhsuk-table__cell">S93900</td>
-      <td class="nhsuk-table__cell">27786</td>
-      <td class="nhsuk-table__cell">16-Sep-2015</td>
 
 
-    </tr>
+</dl>
 
-  </tbody>
-</table>
 
-<!-- <dl class="nhsuk-summary-list">
+<h2 class="nhsuk-heading-m">Patient address</h2>
+
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+  Address lines 1-5
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Barton Family Practice<br />
+      Short Lane, <br />
+      Barton Under Needwood, <br />
+      Burton On Trent,<br />
+      Staffordshire    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Address Post code
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      DE13 8LT
+    </dd>
+
+
+  </div>
+
+</dl>
+
+
+
+<h3 class="nhsuk-heading-m">GP details</h3>
+
+<dl class="nhsuk-summary-list">
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
@@ -375,292 +289,9 @@ NHS Cervical screening management system
 
   </div>
 
-</dl> -->
-
-<h2 class="nhsuk-heading-m">Patient address details</h2>
-
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Address lines 1-5
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Address Post code
-      </th>
-
-
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">Barton Family Practice<br />
-      Short Lane, <br />
-      Barton Under Needwood, <br />
-      Burton On Trent,<br />
-      Staffordshire    </dd></td>
-      <td class="nhsuk-table__cell">DE13 8LT</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">Barton Family Practice<br />
-      Short Lane, <br />
-      Barton Under Needwood, <br />
-      Burton On Trent,<br />
-      Staffordshire    </dd></td>
-      <td class="nhsuk-table__cell">DE13 8LT</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">B1600,<br /> Shieldfield, <br />Newcastle upon Tyne</td>
-      <td class="nhsuk-table__cell">NE2 1AL</td>
-
-
-
-    </tr>
-
-  </tbody>
-</table>
-
-<!-- <dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Address lines 1-5
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Barton Family Practice<br />
-      Short Lane, <br />
-      Barton Under Needwood, <br />
-      Burton On Trent,<br />
-      Staffordshire    </dd>
-
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    Address Post code
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      DE13 8LT
-    </dd>
-
-
-  </div>
-
-</dl> -->
-
-<h2 class="nhsuk-heading-m">Other patient details</h2>
-
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Date of birth
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Sex
-      </th>
-      <th role="columnheader" class="" scope="col">
-        NHS Number
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Birth place
-      </th>
-
-
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">9-Jun-1985</td>
-      <td class="nhsuk-table__cell">Female</td>
-      <td class="nhsuk-table__cell">12345678</td>
-      <td class="nhsuk-table__cell">Durham</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">9-Jun-1985</td>
-      <td class="nhsuk-table__cell">Female</td>
-      <td class="nhsuk-table__cell">12345678</td>
-      <td class="nhsuk-table__cell">Durham</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">9-Jun-1985</td>
-      <td class="nhsuk-table__cell">Female</td>
-      <td class="nhsuk-table__cell">12345678</td>
-      <td class="nhsuk-table__cell">Durham</td>
-
-
-
-    </tr>
-
-  </tbody>
-</table>
-
-<!-- <dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Date of birth
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      9-Jun-1985
-    </dd>
-
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    Sex
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Female
-    </dd>
-
-
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    NHS Number
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      12345678
-    </dd>
-
-
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    Birth place
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Durham
-    </dd>
-
-
-  </div>
-
-</dl> -->
-
-<h2 class="nhsuk-heading-m">Transfer in details</h2>
-
-<table class="nhsuk-table">
-  <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
-  <thead role="rowgroup" class="nhsuk-table__head">
-    <tr role="row">
-      <th role="columnheader" class="" scope="col">
-        Stage
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Previous health authority
-      </th>
-      <th role="columnheader" class="" scope="col">
-        Original Acceptance / Posting NHSCR Date
-      </th>
-
-
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (current)</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Live (previous)</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-    <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Before deduction</td>
-      <td class="nhsuk-table__cell">-</td>
-      <td class="nhsuk-table__cell">-</td>
-
-
-
-    </tr>
-
-  </tbody>
-</table>
-
-<!-- <dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Previous health authority
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Notes here
-    </dd>
-
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    Original Acceptance / Posting NHSCR Date
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Notes here
-    </dd>
-
-
-  </div>
-
-</dl> -->
-
-<h2 class="nhsuk-heading-m">Patient notes</h2>
-
-<dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Patient notes
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Notes here
-    </dd>
-
-  </div>
-
-
-
 </dl>
 
-<h2 class="nhsuk-heading-m">Previous registration history</h2>
-
-<h3 class="nhsuk-heading-s">Deduction details </h3>
+<h3 class="nhsuk-heading-m">Previous registration history</h3>
 
 <dl class="nhsuk-summary-list">
 
@@ -669,180 +300,716 @@ NHS Cervical screening management system
   Date deducted
     </dt>
     <dd class="nhsuk-summary-list__value">
-      11-Oct-2021
+      02 Feb
     </dd>
 
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-  Reason for deduction
+    Deduction reason
     </dt>
     <dd class="nhsuk-summary-list__value">
-      O/R
+      Moved to new NHAIS area
     </dd>
 
-  </div>
 
+  </div>
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-  New HA
+    	New NHAIS area (health authority)
     </dt>
     <dd class="nhsuk-summary-list__value">
-      -
+      Manchester (MAN)
     </dd>
-
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-Previous HA
+    Previous NHAIS area (health authority)
     </dt>
     <dd class="nhsuk-summary-list__value">
-      -
+      Wakefield (WAK)
     </dd>
-
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-New HA Acceptance
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      -
-    </dd>
-
-  </div>
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-Deducted notes
+    New health authority acceptance
     </dt>
     <dd class="nhsuk-summary-list__value">
       -
     </dd>
-
   </div>
 
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Deducted notes
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Moved back to Manchester
+    </dd>
+  </div>
 </dl>
 
-<h2 class="nhsuk-heading-m">Additional details</h2>
-
-<h3 class="nhsuk-heading-s">Additional notes</h3>
+<h3 class="nhsuk-heading-m">Transfer in details</h3>
 
 <dl class="nhsuk-summary-list">
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-  Additional notes
+  Previous NHAIS area (health authority)
     </dt>
     <dd class="nhsuk-summary-list__value">
-    Notes here
-  </div>
+      -
+    </dd>
 
-</dl>
-
-<h3 class="nhsuk-heading-s">Immigrant details</h3>
-
-<dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Date of arrival
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    20-July-2008
-  </div>
-
-</dl>
-
-<h3 class="nhsuk-heading-s">FP69 details</h3>
-
-<dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Status set
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    11-Oct-2021
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-  Reason
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    O/R
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Expiry date
+    Original acceptance or posting NHSCR date
     </dt>
     <dd class="nhsuk-summary-list__value">
     -
-  </div>
+    </dd>
 
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Action reason
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    -
-  </div>
 
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Comments
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
   </div>
 
 </dl>
 
-<h2 class="nhsuk-heading-m">Previous deduction history</h2>
 
-<h3 class="nhsuk-heading-s">Registration audit history</h3>
+<h3 class="nhsuk-heading-m">Previous deduction audit</h3>
+
 
 <dl class="nhsuk-summary-list">
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-Date and time change was logged
+  Date and time of change
     </dt>
     <dd class="nhsuk-summary-list__value">
-    11-Oct-2021 at 11:01 AM
+      11 Oct 2000
+      <br>11.00am
+    </dd>
   </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-  Screen used
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    LL
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  OE User
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    NHSIAX
-  </div>
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-  Change description
+    Change description
     </dt>
     <dd class="nhsuk-summary-list__value">
     1st recall, no test, no prior
+    </dd>
   </div>
 
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Open Exeter users
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+    NHAISX
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Screen used
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+    LL
+    </dd>
+  </div>
 
 </dl>
+
+<h3 class="nhsuk-heading-m">Patient notes</h3>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Date note added
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      02-Feb-2021
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Note
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      F874512
+    </dd>
+  </div>
+</dl>
+
+<h3 class="nhsuk-heading-m">Additional notes</h3>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Date note added
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      02-Feb-2021
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Note
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+</dl>
+
+<h3 class="nhsuk-heading-m">FP69 details</h3>
+
+<dl class="nhsuk-summary-list">
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Date FP69 status added
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Reason
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Expiry date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Action reason
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Comments
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      -
+    </dd>
+  </div>
+</dl>
+
+<h2 class="nhsuk-heading-l"> Summary of changes in demographics </h2>
+
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      02 February 2006 - Type of change: Deducted from NHAIS area
+      <br>Manual
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      17 May 2005 - Type of change: Patient name
+      <br>Automatic
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+    <h2 class="nhsuk-heading-m">Demographic details on 17 May 2005 </h2>
+
+    <h3 class="nhsuk-heading-s">Patient details</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Title
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Mrs
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Forename
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Tanya
+        </dd>
+
+
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Surname
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+            <span class="highlight">
+          Parr
+        </span>
+        </dd>
+
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Previous name (surname)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Lawrence
+        </dd>
+
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Previous forename
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Previous surname
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Lawrence
+        </dd>
+
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Birth date
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        11-Jun-1992 (29 years)
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Sex
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Female
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      NHS number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+    910 000 2798
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Birth place
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Birmingham
+        </dd>
+      </div>
+
+
+
+
+    </dl>
+
+
+    <h2 class="nhsuk-heading-m">Patient address</h2>
+
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Address lines 1-5
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Barton Family Practice<br />
+          Short Lane, <br />
+          Barton Under Needwood, <br />
+          Burton On Trent,<br />
+          Staffordshire    </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Address Post code
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          DE13 8LT
+        </dd>
+
+
+      </div>
+
+    </dl>
+
+
+
+    <h3 class="nhsuk-heading-m">GP details</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      GP name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          The Barton HSE
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        GP practice code
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          F84008
+        </dd>
+
+
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        GP code
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          26843
+        </dd>
+
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Date added
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          15-May-2017
+        </dd>
+
+
+      </div>
+
+    </dl>
+
+    <h3 class="nhsuk-heading-m">Previous registration history</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Date deducted
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          02 Feb
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Deduction reason
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Moved to new NHAIS area
+        </dd>
+
+
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        	New NHAIS area (health authority)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Manchester (MAN)
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Previous NHAIS area (health authority)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Wakefield (WAK)
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        New health authority acceptance
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Deducted notes
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Moved back to Manchester
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="nhsuk-heading-m">Transfer in details</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Previous NHAIS area (health authority)
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Original acceptance or posting NHSCR date
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        -
+        </dd>
+
+
+      </div>
+
+    </dl>
+
+
+    <h3 class="nhsuk-heading-m">Previous deduction audit</h3>
+
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+      Date and time of change
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          11 Oct 2000
+          <br>11.00am
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Change description
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        1st recall, no test, no prior
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Open Exeter users
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        NHAISX
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Screen used
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        LL
+        </dd>
+      </div>
+
+    </dl>
+
+    <h3 class="nhsuk-heading-m">Patient notes</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date note added
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          02-Feb-2021
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Note
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          F874512
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="nhsuk-heading-m">Additional notes</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date note added
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          02-Feb-2021
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Note
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="nhsuk-heading-m">FP69 details</h3>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date FP69 status added
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Reason
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Expiry date
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Action reason
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Comments
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+      </div>
+    </dl>
+
+
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      06 April 2004 - Type of change: GP details
+      <br>Automatic
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      01 March 2003 - Type of change: Patient address
+      <br>Automatic
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      20 December 2000 - Type of change: Registered om NHAIS area
+      <br>Manual
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+
+  </div>
+</details>
+
+
+
           </div>
         </div>
 
