@@ -250,7 +250,8 @@ var patients = [
         "nrl": true,
         "participant_id": "1490e402-80a4-4b31-890f-bc28d3850a06",
         "pnl": true,
-        "pnl_action": "",
+        "pnl_action": "Deferred",
+        "pnl_reason": "Patient wishes to defer",
         "registered_gp_practice_code": "L83665",
         "results" : [],
         "sanitised_first_name": "MURIEL",
@@ -429,7 +430,7 @@ var patients = [
     }
 
 
-    
+
 ]
 
 
@@ -473,7 +474,7 @@ module.exports.getPatients = function (notificationType) {
             });
         }
     }
-    
+
     // lots of things here which sort the data
     function compare(a, b) {
         if (notificationType == "nrl") {
@@ -483,7 +484,7 @@ module.exports.getPatients = function (notificationType) {
             var aTime = moment(a.next_test_due_date).diff(moment(), "days");
             var bTime = moment(b.next_test_due_date).diff(moment(), "days");
         }
-        
+
         var aStatus = "";
         var bStatus = "";
 
@@ -493,7 +494,7 @@ module.exports.getPatients = function (notificationType) {
 
         if (b.results[0]) {
             bStatus = b.results[0].action_code;
-        } 
+        }
 
         if (aTime == bTime) {
             return (aStatus > bStatus) ? -1 : (aStatus < bStatus) ? 1 : 0;
@@ -630,9 +631,9 @@ module.exports.addTestResult = function (nhsNumber, data) {
         "hpv_primary": data['hpv-primary'],
         "crm": data['crm'],
         "comments": data['comments']
-        
+
     }];
-    
+
     // we then push the new result into the patient.result data
     patient.results.push(newTest[0]);
 
@@ -650,7 +651,7 @@ module.exports.editTestResult = function (nhsNumber, data) {
     console.log("ATTEMPTING TO EDIT A TEST RESULT")
     // first we find the patient
     var patient = patients.find((patient) => patient.nhs_number == nhsNumber);
-    
+
     // then we find the result to edit using a result_ID which is a generated on the results.js data file
     var result = patient.results.find((result) => result.result_ID == data['result_ID']);
 
@@ -676,7 +677,7 @@ module.exports.editTestResult = function (nhsNumber, data) {
     result.hpv_primary = data['hpv-primary'] || '';
     result.crm = data['crm'] || '';
     result.comments = data['comments'] || '';
-    
+
     // sort the results - incase the test date was changed
     if (patient.results.length > 1) {
         patient.results.sort(function (a, b) {
@@ -689,7 +690,7 @@ module.exports.editTestResult = function (nhsNumber, data) {
 // delete a test requires NHS Number and the form data
 module.exports.deleteTestResult = function (nhsNumber, data) {
     console.log("ATTEMPTING TO DELETE A TEST RESULT")
-    
+
     // first we find the patient
     var patient = patients.find((patient) => patient.nhs_number == nhsNumber);
     console.log("result id: " + data['result_ID']);
@@ -710,7 +711,7 @@ module.exports.cancelResultLetter = function (nhsNumber, data) {
 
     // then we find the result to delete based on the result_ID
     var result = patient.results.find((result) => result.result_ID == data['result_ID']);
-    result.letter_status = "Cancelled";   
+    result.letter_status = "Cancelled";
 }
 
 
@@ -731,11 +732,11 @@ module.exports.resetPatients = function (req) {
     patients.forEach(function (patient) {
         patient.pnl = true;
         patient.pnl_action = "";
-        patient.nrl = true; 
+        patient.nrl = true;
     })
-    
+
     var allResults = results.getResults();
-    for (i = 0; i < patients.length; i++) {        
+    for (i = 0; i < patients.length; i++) {
         patients[i].results = [];
 
         for (j = 0; j < allResults.length; j++) {
@@ -755,7 +756,7 @@ module.exports.resetPatients = function (req) {
 
         if (patients[i].nhs_number == "9100002801" || patients[i].nhs_number == "9100001694" || patients[i].nhs_number == "9100001384" || patients[i].nhs_number == "9100001740" || patients[i].nhs_number == "9991023867") {
             patients[i].pnl_action = "Ceased";
-            
+
             if (patients[i].nhs_number == "9100001694") {
                 patients[i].pnl_reason = "No cervix";
             }

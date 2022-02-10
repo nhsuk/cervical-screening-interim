@@ -1,0 +1,18 @@
+Clinical commissioning group name (code),Practice code ,NHS Number,Name,DoB,Type of accumulated  deferral,No. of Cons. Deferrals,No. of Months Deferred,Last Test Date,Last Test Result,Deferral,Method of Deferral,Defer Date,Months Deferred,Reason,Previous NTDD,New NTDD,Who updated the deferral?,CRM Number
+NHS Hampshire Southampton and Isle of Wight CCG (D9OV),A12334,111 222 3333,Amber Jones,05/01/1991,2 or more consecutive times (deferral period of 36 months or more),3,18,05/01/2018,X0A,1,Ad-hoc,12/03/2021,3,Choice,05/01/2021,05/04/2021,GP Practice,12345
+NHS Hampshire Southampton and Isle of Wight CCG (D9OV),A12334,111 222 3333,Amber Jones,05/01/1991,2 or more consecutive times (deferral period of 36 months or more),3,18,05/01/2018,X0A,2,Ad-hoc,12/06/2021,6,Choice,05/04/2021,05/09/2021,CSAS Jackie Smith,12346
+NHS Hampshire Southampton and Isle of Wight CCG (D9OV),A12334,111 222 3333,Amber Jones,05/01/1991,3 or more consecutive times,3,18,05/01/2018,X0A,3,PNL,12/12/2021,9,Pregnancy,05/09/2021,05/03/2022,GP Practice,12347
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,

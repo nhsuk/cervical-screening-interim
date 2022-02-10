@@ -8,12 +8,12 @@
     {% if data['pnl-defer-reason'] == 'Discharge from colposcopy' %}
       <p>The earliest next test due date you can enter is {{ 71 | returnDate("days") | returnNumericDateFormat }}</p>
       <p>If the next test due date sent by the colposcopy is earlier than {{ 71 | returnDate("days") | returnNumericDateFormat }}, enter it as a comment</p>
-      <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>    
+      <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
     {% else %}
-      <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p> 
+      <p>Maximum deferral can not exceed {{ data['pnl-defer-reason'] | returnReasonGuidance }} months</p>
     {% endif %}
   {% else %}
-    <p>Maximum deferral can not exceed X months</p> 
+    <p>Maximum deferral can not exceed X months</p>
   {% endif %}
 {% endset %}
 
@@ -22,21 +22,21 @@
        <span class="nhsuk-u-visually-hidden">Information: </span>
        <p>The earliest next test due date you can enter is (10 weeks from tomorrow).
  <p>If the next test due date is supposed to be earlier than (10 weeks from tomorrow), enter it as a comment.
- <p>Maximum deferral con not exceed 36/60 months</p> 
+ <p>Maximum deferral con not exceed 36/60 months</p>
      </div>
- 
+
  {% else %}
   {{ insetText({
     "HTML":  message
   }) }}
   {% endif %}
 
-  
 
-  <form action="prior-notification-{{ data.pnlversion }}-defer-crm" method="post">
-  
+
+  <form action="prior-notification-12-defer-crm" method="post">
+
   <div id="nhsuk-form-group-dob-ntdd" class="nhsuk-form-group nhsuk-u-margin-bottom-6">
-    <div class="nhsuk-form-group"> 
+    <div class="nhsuk-form-group">
       <fieldset class="nhsuk-fieldset" aria-describedby="ntdd-from" role="group">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
           Next test due date

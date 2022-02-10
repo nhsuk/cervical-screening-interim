@@ -1,10 +1,10 @@
   <h1 class="nhsuk-heading-l">The patient has been deferred consecutive times</h1>
-  
-  <p>The Patient has been deferred 2 times in a row</p>
+
+  <p>The patient has been deferred 2 times in a row.</p>
 
   <p>We need to make sure that the patient is being correctly invited for screening and all attempts to screen the patient has been made</p>
   {{ details({
-  "text": "Why am i seeing this?",
+  "text": "Why am I seeing this?",
   "HTML": "
   <p><a href='https://www.gov.uk/government/publications/cervical-screening-call-and-recall-administration-best-practice/cervical-screening-call-and-recall'>Cervical screening: guidance for call and recall administration best practice</a></p>
   <p>Section 8.1 states that:</p>
@@ -12,22 +12,22 @@
   "
 }) }}
 
-  <form action="prior-notification-{{ data.pnlversion }}-defer-length" method="post">
+  <form action="prior-notification-12-defer-confirm" method="post">
     <div class="nhsuk-form-group">
-      
+
       <fieldset class="nhsuk-fieldset">
-       
+
        <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-1" name="pnl-cease" type="radio" value="yes">
+        <input class="nhsuk-radios__input" id="example-1" name="pnlCease" type="radio" value="yes">
         <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-          Yes, I wish to defer this patient 
+          Yes, I wish to defer this patient
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="pnl-cease" type="radio" value="no">
+        <input class="nhsuk-radios__input" id="example-2" name="pnlCease" type="radio" value="no">
         <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-          No, go back to Patients due to be invited
+          No, go back to the patient summary
         </label>
       </div>
     </div>
