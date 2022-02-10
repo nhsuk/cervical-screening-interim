@@ -49,7 +49,7 @@ NHS Cervical screening management system
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Historic Data</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
     {% endif %}
   </ul>
@@ -77,10 +77,10 @@ NHS Cervical screening management system
               {% elif data['chooseCipher'] === 'bir' %}
                 Birmingham (BIR)
               {% else %}
-                Wakefield (WAK)
+                Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Historic Data
+               </span>Data from historic system (NHAIS)
              </h1>
 
           <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
@@ -89,7 +89,7 @@ NHS Cervical screening management system
 
               <li class="panel-link__item">
                 <a class="panel-link__link" href="cytology-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Cytology screening history</h2>
+                  <h2 class="panel-link__heading nhsuk-heading-s">Cervical screening test history</h2>
                 </a>
               </li>
 

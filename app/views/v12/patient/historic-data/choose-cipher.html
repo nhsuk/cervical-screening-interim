@@ -50,7 +50,7 @@ NHS Cervical screening management system
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Historic Data</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
     {% endif %}
   </ul>
@@ -75,7 +75,7 @@ NHS Cervical screening management system
       <fieldset class="nhsuk-fieldset">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
           <h1 class="nhsuk-fieldset__heading">
-            Choose a cipher to view historic data for
+            Choose a registrations date range and NHAIS area to view
           </h1>
         </legend>
 
@@ -84,33 +84,30 @@ NHS Cervical screening management system
           <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="wak">
             <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-              Wakefield (WAK)
+              Registration date range: 02 Jan 2006 to 04 March 2007
             </label>
             <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-              Added: 2 January 2006<br>
-              Deducted: 4 March 2007
+              NHAIS area: Wakefield (WAK)
             </div>
           </div>
 
           <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="lds">
             <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-              Leeds (LDS)
+              Registration date range: 02 Jan 2006 to 04 March 2007
             </label>
             <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-              Added: 2 January 2006<br>
-              Deducted: 4 March 2007
+                NHAIS area: Leeds (LDS)
             </div>
           </div>
 
           <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="bir">
             <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-              Birmingham (BIR)
+              Registration date range: 02 Jan 2006 to 04 March 2007
             </label>
             <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-              Added: 2 January 2006<br>
-              Deducted: 4 March 2007
+              Birmingham (BIR)
             </div>
           </div>
 

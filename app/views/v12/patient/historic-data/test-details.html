@@ -49,7 +49,7 @@ NHS Cervical screening management system
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Historic Data</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
     {% endif %}
   </ul>
@@ -86,7 +86,7 @@ NHS Cervical screening management system
               {% elif data['chooseCipher'] === 'bir' %}
                 Birmingham (BIR)
               {% else %}
-                Wakefield (WAK)
+                Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Test details
@@ -119,12 +119,24 @@ NHS Cervical screening management system
 
   </div>
 
+
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Result
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        M
+      </dd>
+
+
+    </div>
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Infection
+      HPV
     </dt>
     <dd class="nhsuk-summary-list__value">
-      XOR
+      9
     </dd>
 
 
@@ -136,7 +148,7 @@ NHS Cervical screening management system
       Action
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>9</p>
+      <p>S</p>
 
     </dd>
 
@@ -144,7 +156,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Repeat months
+      Repeat in months
     </dt>
     <dd class="nhsuk-summary-list__value">
       <p>36</p>
@@ -157,7 +169,7 @@ NHS Cervical screening management system
       HPV Primary
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>N</p>
+      <p>No</p>
 
     </dd>
 
@@ -172,7 +184,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      National lab code
+    National code
     </dt>
     <dd class="nhsuk-summary-list__value">
       60670 - Leeds General W. Yorkshire
@@ -207,7 +219,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Source
+      Source code
     </dt>
     <dd class="nhsuk-summary-list__value">
       <p>N</p>
@@ -218,17 +230,17 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Test input date
+      Date test added
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>12-Sep-2021</p>
+      <p>12 Sep 2021</p>
 
     </dd>
 
   </div>
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Screening HA
+      Health authority
     </dt>
     <dd class="nhsuk-summary-list__value">
       <p>YN</p>
@@ -239,7 +251,7 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Test result correspondence address
+      Address test result sent to 
     </dt>
     <dd class="nhsuk-summary-list__value">
       <p>1 Barry Road, Leeds, LS22 7PL</p>
@@ -252,7 +264,7 @@ NHS Cervical screening management system
       Recall status at time of test
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>L</p>
+      <p>Called</p>
 
     </dd>
 
@@ -262,7 +274,7 @@ NHS Cervical screening management system
       Recall type at time of test
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>S</p>
+      <p>Suspended</p>
 
     </dd>
 
@@ -272,7 +284,7 @@ NHS Cervical screening management system
       Test comments 
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p><strong>15-Sep-2021</strong></p>
+      <p><strong>15 Sep 2021</strong></p>
       <p>
         Result came down as 2-A, Invalid result, lab to resend as lab link card YN 22.12.17 AT
         </p>
