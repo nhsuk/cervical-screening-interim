@@ -49,11 +49,12 @@ NHS Cervical screening management system
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Historic Data</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
     {% endif %}
   </ul>
 </nav>
+
 
 {% set address %}
   <p>{{ data.gpinfo.address_line_1 or 'IVESON APPROACH' }}</p>
@@ -77,8 +78,9 @@ NHS Cervical screening management system
     <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
     </svg>
-    Back to historic data</a>
+    Back to data from historic system (NHAIS)</a>
 </div>
+
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
@@ -89,7 +91,7 @@ NHS Cervical screening management system
               {% elif data['chooseCipher'] === 'bir' %}
                 Birmingham (BIR)
               {% else %}
-                Wakefield (WAK)
+              Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Demographic history between 20 December 2000 and 02 February 2006 in Wakefield NHAIS area
