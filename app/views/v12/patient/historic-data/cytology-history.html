@@ -76,7 +76,7 @@ NHS Cervical screening management system
     <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
     </svg>
-    Back to data from historic system (NHAIS)</a>
+    Back to historic data</a>
 </div>
 
           <h1 class="nhsuk-heading-l">
@@ -86,26 +86,61 @@ NHS Cervical screening management system
               {% elif data['chooseCipher'] === 'bir' %}
                 Birmingham (BIR)
               {% else %}
-                Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
+                Wakefield (WAK)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Cervical screening test history
+               </span>Cytology screening history
              </h1>
 
-<h2 class="nhsuk-heading-m">Most recent details</h2>
+<h2 class="nhsuk-heading-m">Cytology details</h2>
 
 
 
 <dl class="nhsuk-summary-list">
 
 
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      N.B. line in full
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
 
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      GP Recommended Action
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Delayed</p>
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    GP Free text
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Delay the patient</p>
+    </dd>
+    <dd class="nhsuk-summary-list__actions">
+    </dd>
+
+  </div>
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
       Next test due
     </dt>
     <dd class="nhsuk-summary-list__value">
-      15 May 2018
+      15-May-2018
     </dd>
 
 
@@ -124,22 +159,7 @@ NHS Cervical screening management system
       Notification date
     </dt>
     <dd class="nhsuk-summary-list__value">
-      22 Dec 2017
-    </dd>
-    <dd class="nhsuk-summary-list__actions">
-    </dd>
-
-  </div>
-
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Recall type
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>S - Suspended</p>
-
+      22-Dec-2017
     </dd>
     <dd class="nhsuk-summary-list__actions">
     </dd>
@@ -161,10 +181,23 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
+      Recall type
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>S - Suspended</p>
+
+    </dd>
+    <dd class="nhsuk-summary-list__actions">
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
       Invited date
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>22 Dec 2017</p>
+      <p>22-Dec-2017</p>
 
     </dd>
     <dd class="nhsuk-summary-list__actions">
@@ -173,47 +206,11 @@ NHS Cervical screening management system
   </div>
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Prior notificiantion list (PNL) date
+      Prior Notification List Date
     </dt>
     <dd class="nhsuk-summary-list__value">
-      <p>22 Dec 2017</p>
+      <p>22-Dec-2017</p>
 
-    </dd>
-    <dd class="nhsuk-summary-list__actions">
-    </dd>
-
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Full comments (N.B line)
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-
-    </dd>
-
-    <dd class="nhsuk-summary-list__actions">
-    </dd>
-
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      GP recommended action
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>Delayed</p>
-    </dd>
-
-    <dd class="nhsuk-summary-list__actions">
-    </dd>
-
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-    GP free text
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>Delay the patient</p>
     </dd>
     <dd class="nhsuk-summary-list__actions">
     </dd>
@@ -222,7 +219,7 @@ NHS Cervical screening management system
 
 </dl>
 
-<h2 class="nhsuk-heading-m">Cervical screening test result summary </h2>
+<h2 class="nhsuk-heading-m">Cytology test summary</h2>
 
 <table class="nhsuk-table">
   <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
@@ -235,16 +232,13 @@ NHS Cervical screening management system
         Test date
       </th>
       <th role="columnheader" class="" scope="col">
-        Result code
-      </th>
-      <th role="columnheader" class="" scope="col">
-        HPV
+        Infection
       </th>
       <th role="columnheader" class="" scope="col">
         Action
       </th>
       <th role="columnheader" class="" scope="col">
-        Repeat in months
+        Repeat months
       </th>
       <th role="columnheader" class="" scope="col">
         HPV primary
@@ -260,9 +254,8 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">11-Sep-2021</td>
       <td class="nhsuk-table__cell">X0R</td>
       <td class="nhsuk-table__cell">9</td>
-      <td class="nhsuk-table__cell">S</td>
       <td class="nhsuk-table__cell">36</td>
-      <td class="nhsuk-table__cell"> No</td>
+      <td class="nhsuk-table__cell"> N</td>
       <td class="nhsuk-table__cell"><a href="test-details">View</a></td>
 
     </tr>
@@ -271,9 +264,8 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">16-Aug-2018</td>
       <td class="nhsuk-table__cell">X0R</td>
       <td class="nhsuk-table__cell">9</td>
-      <td class="nhsuk-table__cell">A</td>
       <td class="nhsuk-table__cell">36</td>
-      <td class="nhsuk-table__cell"> No</td>
+      <td class="nhsuk-table__cell"> N</td>
       <td class="nhsuk-table__cell"><a href="">View</a></td>
 
     </tr>
@@ -283,7 +275,7 @@ NHS Cervical screening management system
 
 
 
-<h2 class="nhsuk-heading-m">Audit of test result changes</h2>
+<h2 class="nhsuk-heading-m">Audit of changes to cytology and tests</h2>
 
 <table class="nhsuk-table">
   <caption class="nhsuk-table__caption">Skin symptoms and possible causes</caption>
@@ -323,17 +315,17 @@ NHS Cervical screening management system
 
 
 
-<h2 class="nhsuk-heading-m">HPV vaccination details</h2>
+<h2 class="nhsuk-heading-m">HPV vaccination summary</h2>
 
 <table class="nhsuk-table">
 
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
       <th role="columnheader" class="" scope="col">
-        Date given
+        Immunisation date
       </th>
       <th role="columnheader" class="" scope="col">
-        Vaccine name
+        Type
       </th>
       <th role="columnheader" class="" scope="col">
         Batch number
@@ -342,7 +334,7 @@ NHS Cervical screening management system
         Dose
       </th>
       <th role="columnheader" class="" scope="col">
-        Date and time added
+        Date and time
       </th>
       <th role="columnheader" class="" scope="col">
         Org code
