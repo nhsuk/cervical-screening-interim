@@ -1,0 +1,1204 @@
+diff --git a/app/assets/javascript/add-letter-code-list.js b/app/assets/javascript/add-letter-code-list.js
+index 33084c83..0d1a2e23 100644
+--- a/app/assets/javascript/add-letter-code-list.js
++++ b/app/assets/javascript/add-letter-code-list.js
+@@ -14,11 +14,11 @@ letterCodeButton.addEventListener('click', addNumberTolist);
+ 
+ //Function to save the nhs number and spit it back out above
+ function addNumberTolist() {
+-  if(document.getElementById('autocomplete-customTemplates').value != "") {
+-    var number = document.getElementById('autocomplete-customTemplates').value; // get value of whats inside the box
++  if(document.getElementById('letter-codes-autocomplete').value != "") {
++    var number = document.getElementById('letter-codes-autocomplete').value; // get value of whats inside the box
+     var letterCodelength = letterCodes.push(number) //adds it to the array + adds to new variable
+     letterCodelist.innerHTML+="<li id='letter-code-"+letterCodelength+"'name='letter-code-data' value='{{ data['letter-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+letterCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+-    document.getElementById('autocomplete-customTemplates').value="" // clears the box for the next input
++    document.getElementById('letter-codes-autocomplete').value="" // clears the box for the next input
+   }
+   
+ }
+diff --git a/app/assets/javascript/add-result-code-list.js b/app/assets/javascript/add-result-code-list.js
+index 51d2e91b..8d9a1ff4 100644
+--- a/app/assets/javascript/add-result-code-list.js
++++ b/app/assets/javascript/add-result-code-list.js
+@@ -7,9 +7,6 @@
+ //Define empty array where NHS numbers will live when entered
+ var resultCode = []
+ //Define variables and helps the html talk to the javascript
+-var resultCodeinput = document.getElementById('result-code-result')
+-var hpvCodeinput = document.getElementById('result-code-hpv')
+-var actionCodeinput = document.getElementById('result-code-action')
+ var resultCodelist = document.getElementById('result-code-list')
+ var resultCodeButton = document.getElementById('add-result-code')
+ 
+@@ -18,6 +15,9 @@ resultCodeButton.addEventListener('click', addNumberTolist);
+ 
+ //Function to save the nhs number and spit it back out above
+ function addNumberTolist() {
++  var resultCodeinput = document.getElementById('result-code-result-autocomplete')
++  var hpvCodeinput = document.getElementById('result-code-hpv-autocomplete')
++  var actionCodeinput = document.getElementById('result-code-action-autocomplete')
+   var rCode = resultCodeinput.value; // get value of whats inside the box of Result input
+   var hCode = hpvCodeinput.value; // get value of whats inside the box of HPV input
+   var aCode = actionCodeinput.value; // get value of whats inside the box of result input
+diff --git a/app/assets/javascript/add-sender-code-list.js b/app/assets/javascript/add-sender-code-list.js
+index 844f1c86..44f10aa9 100644
+--- a/app/assets/javascript/add-sender-code-list.js
++++ b/app/assets/javascript/add-sender-code-list.js
+@@ -7,7 +7,6 @@
+ //Define empty array where NHS numbers will live when entered
+ var senderCodes = []
+ //Define variables and helps the html talk to the javascript
+-var senderCodeinput = document.getElementById('sender-code-input')
+ var senderCodelist = document.getElementById('sender-code-list')
+ var senderCodeButton = document.getElementById('add-sender-code')
+ 
+@@ -16,6 +15,7 @@ senderCodeButton.addEventListener('click', addNumberTolist);
+ 
+ //Function to save the nhs number and spit it back out above
+ function addNumberTolist() {
++  var senderCodeinput = document.getElementById('sender-code-input-autocomplete')
+   var number = senderCodeinput.value; // get value of whats inside the box
+   var senderCodelength = senderCodes.push(number) //adds it to the array
+   senderCodelist.innerHTML+="<li id='sender-code-"+senderCodelength+"'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+senderCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
+diff --git a/app/assets/javascript/suggestionDropdown.js b/app/assets/javascript/suggestionDropdown.js
+new file mode 100644
+index 00000000..48e7c044
+--- /dev/null
++++ b/app/assets/javascript/suggestionDropdown.js
+@@ -0,0 +1,39 @@
++
++const createSuggestionDropdown = (data, elementId) => {
++    function customSuggest(query, syncResults) {
++      const results = data;
++      syncResults(
++        query
++          ? results.filter(function (result) {
++              var codeContains =
++                result.code.toLowerCase().indexOf(query.toLowerCase()) !== -1;
++              var resultNameContains =
++                result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
++              return codeContains || resultNameContains;
++            })
++          : []
++      );
++    }
++  
++    function inputValueTemplate(result) {
++      return result && result.code;
++    }
++  
++    function suggestionTemplate(result) {
++      return result && `<div class="nhsuk-u-font-weight-bold autocomplete__option-code">${result.code}</div><div class="autocomplete__option-name">${result.name}</div>`;
++    }
++  
++    const element = document.querySelector(`#${elementId}`);
++    const id = `${elementId}-autocomplete`;
++    accessibleAutocomplete({
++      element: element,
++      id: id,
++      name: elementId,
++      displayMenu: 'overlay',
++      source: customSuggest,
++      templates: {
++        inputValue: inputValueTemplate,
++        suggestion: suggestionTemplate,
++      },
++    });
++}
+\ No newline at end of file
+diff --git a/app/assets/sass/components/_autocomplete.scss b/app/assets/sass/components/_autocomplete.scss
+index 08a1c5a7..73965892 100644
+--- a/app/assets/sass/components/_autocomplete.scss
++++ b/app/assets/sass/components/_autocomplete.scss
+@@ -2,166 +2,140 @@
+ // COMPONENTS / AUTOCOMPLETE
+ // ==========================================================================
+ 
+-// needed to add a further wrapper as this 
++// needed to add a further wrapper as this
+ 
+-.codecomplete {
+-  .autocomplete__wrapper {
+-    position: relative;
+-    border-radius: 4px;
+-    background-color: $color_nhsuk-white;
+-  }
+-  
+-  .autocomplete__hint,
+-  .autocomplete__input {
+-    background-color: $color_nhsuk-white;
+-    border-radius: 4px;
+-    height: 40px;
+-    font-size: 17px;
+-    line-height: 1.5;
+-    -webkit-appearance: none;
+-    border: 2px solid #4c6272;
+-    border-radius: 0;
+-    box-sizing: border-box;
+-    -moz-box-sizing: border-box;
+-    -webkit-box-sizing: border-box;
+-    margin-bottom: 0;
+-    width: 100%;
+-  }
+-  
+-  .autocomplete__input {
+-    background-color: transparent;
+-    position: relative;
+-  }
+-  
+-  .autocomplete__hint {
+-    color: #bfc1c3;
+-    position: absolute;
+-  }
+-  
+-  .autocomplete__input--default {
+-    padding: 8px;
+-  }
+-  
+-  .autocomplete__input--focused {
+-    outline-offset: 0;
+-    outline: 3px solid #ffeb3b;
+-  }
+-  
+-  .autocomplete__input--show-all-values {
+-    padding: 4px 34px 4px 4px;
+-    cursor: pointer;
+-  }
+-  
+-  .autocomplete__dropdown-arrow-down {
+-    z-index: -1;
+-    display: inline-block;
+-    position: absolute;
+-    right: 8px;
+-    width: 24px;
+-    height: 24px;
+-    top: 10px;
+-  }
+-  
++.autocomplete__wrapper {
++  position: relative;
++}
++.autocomplete__hint,
++.autocomplete__input {
++  @extend .nhsuk-input;
++  @extend .nhsuk-input--width-10;
++}
++.autocomplete__input {
++  background-color: white;
++  position: relative;
++}
++.autocomplete__hint {
++  color: #b1b4b6;
++  position: absolute;
++}
++.autocomplete__input--default {
++  padding: 5px;
++}
++.autocomplete__input--show-all-values {
++  padding: 5px 34px 5px 5px;
++  cursor: pointer;
++}
++.autocomplete__dropdown-arrow-down {
++  z-index: -1;
++  display: inline-block;
++  position: absolute;
++  right: 8px;
++  width: 24px;
++  height: 24px;
++  top: 10px;
++}
++.autocomplete__menu {
++  background-color: #fff;
++  border: 2px solid #0b0c0c;
++  border-top: 0;
++  color: #0b0c0c;
++  margin: 0;
++  max-height: 342px;
++  overflow-x: hidden;
++  padding: 0;
++  width: 100%;
++  width: calc(100% - 4px);
++}
++.autocomplete__menu--visible {
++  display: block;
++}
++.autocomplete__menu--hidden {
++  display: none;
++}
++.autocomplete__menu--overlay {
++  box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
++  left: 0;
++  position: absolute;
++  top: 100%;
++  z-index: 100;
++  min-width: 500px;
++}
++.autocomplete__menu--inline {
++  position: relative;
++}
++.autocomplete__option {
++  border-bottom: solid #b1b4b6;
++  border-width: 1px 0;
++  cursor: pointer;
++  display: flex;
++  position: relative;
++}
++.autocomplete__option > * {
++  pointer-events: none;
++}
++.autocomplete__option:first-of-type {
++  border-top-width: 0;
++}
++.autocomplete__option:last-of-type {
++  border-bottom-width: 0;
++}
++.autocomplete__option--odd {
++  background-color: #fafafa;
++}
++.autocomplete__option--focused,
++.autocomplete__option:hover {
++  background-color: #1d70b8;
++  border-color: #1d70b8;
++  color: #fff;
++  outline: 0;
++}
++.autocomplete__multiple-input {
++  display: flex;
++}
++@media (-ms-high-contrast: active), (forced-colors: active) {
+   .autocomplete__menu {
+-    background-color: #fff;
+-    border: 4px solid #0b0c0c;
+-    border-top: 0;
+-    color: #34384b;
+-    margin: 0;
+-    max-height: 342px;
+-    overflow-x: hidden;
+-    padding: 0;
+-    width: 100%;
+-    width: calc(100% - 4px);
+-  }
+-  
+-  .autocomplete__menu--visible {
+-    display: block;
+-  }
+-  
+-  .autocomplete__menu--hidden {
+-    display: none;
++    border-color: FieldText;
+   }
+-  
+-  .autocomplete__menu--overlay {
+-    box-shadow: rgba(0,0,0,.256863) 0 2px 6px;
+-    left: 0;
+-    position: absolute;
+-    top: 100%;
+-    z-index: 100;
+-  }
+-  
+-  .autocomplete__menu--inline {
+-    position: relative;
+-  }
+-  
+   .autocomplete__option {
+-    border-bottom: solid #bfc1c3;
+-    border-width: 1px 0;
+-    cursor: pointer;
+-    display: block;
+-    position: relative;
+-  }
+-  
+-  .autocomplete__option > * {
+-    pointer-events: none;
+-  }
+-  
+-  .autocomplete__option:first-of-type {
+-    border-top-width: 0;
+-  }
+-  
+-  .autocomplete__option:last-of-type {
+-    border-bottom-width: 0;
+-  }
+-  
+-  .autocomplete__option--odd {
+-    background-color: #fafafa;
++    background-color: Field;
++    color: FieldText;
+   }
+-  
+   .autocomplete__option--focused,
+   .autocomplete__option:hover {
+-    background-color: #005ea5;
+-    border-color: #005ea5;
+-    color: #fff;
+-    outline: 0;
++    forced-color-adjust: none;
++    background-color: SelectedItem;
++    border-color: SelectedItem;
++    color: SelectedItemText;
++    outline-color: SelectedItemText;
+   }
+-  
+-  .autocomplete__option--no-results {
+-    background-color: #fafafa;
+-    color: #646b6f;
+-    cursor: not-allowed;
+-  }
+-  
++}
++.autocomplete__option--no-results {
++  background-color: #fafafa;
++  color: #646b6f;
++  cursor: not-allowed;
++}
++.autocomplete__hint,
++.autocomplete__input,
++.autocomplete__option {
++  font-size: 16px;
++  line-height: 1.25;
++  margin-bottom: 0;
++}
++.autocomplete__hint,
++.autocomplete__option {
++  padding: 5px;
++}
++.autocomplete__option-name {
++  margin-left: 1em;
++  color: #4C6272;
++}
++@media (min-width: 641px) {
+   .autocomplete__hint,
+   .autocomplete__input,
+   .autocomplete__option {
+-    font-size: 17px;
+-    line-height: 1.5;
++    font-size: 19px;
++    line-height: 1.31579;
+   }
+-  
+-  .autocomplete__hint,
+-  .autocomplete__option {
+-    padding: 8px;
+-  }
+-  @media (min-width:641px) {
+-    .autocomplete__hint,
+-    .autocomplete__input,
+-    .autocomplete__option {
+-      font-size: 17px;
+-      line-height: 1.5;
+-    }
+-  }
+-  
+-  
+-  .autocomplete__input {
+-    &:focus {
+-      box-shadow: 0 0 0 4px 	#ffeb3b;
+-      outline: 4px solid transparent;
+-      outline-offset: 4px;
+-      border: 4px solid black;
+-    }
+-  }
+-  
+ }
+-
+diff --git a/app/views/layout-email-base.html b/app/views/layout-email-base.html
+index b76ce8f1..2e51f73d 100644
+--- a/app/views/layout-email-base.html
++++ b/app/views/layout-email-base.html
+@@ -5,9 +5,7 @@
+ 
+ <!-- This is how we import the Nunjucks macros to the page -->
+ {% from 'action-link/macro.njk' import actionLink %}
+-{% from 'nav-a-z/macro.njk' import azNav %}
+ {% from 'breadcrumb/macro.njk' import breadcrumb %}
+-{% from 'care-card/macro.njk' import careCard %}
+ {% from 'contents-list/macro.njk' import contentsList %}
+ {% from 'details/macro.njk' import details %}
+ {% from 'header/macro.njk' import header %}
+@@ -16,11 +14,7 @@
+ {% from 'do-dont-list/macro.njk' import list %}
+ {% from 'images/macro.njk' import image %}
+ {% from 'inset-text/macro.njk' import insetText %}
+-{% from 'list-panel/macro.njk' import listPanel %}
+ {% from 'pagination/macro.njk' import pagination %}
+-{% from 'panel/macro.njk' import panel %}
+-{% from 'promo/macro.njk' import promo %}
+-{% from 'review-date/macro.njk' import reviewDate %}
+ {% from 'skip-link/macro.njk' import skipLink %}
+ {% from 'tables/macro.njk' import table %}
+ {% from 'warning-callout/macro.njk' import warningCallout %}
+diff --git a/app/views/v12/CSSE-tool/CSSE-create-step5.html b/app/views/v12/CSSE-tool/CSSE-create-step5.html
+index d7b5ace6..9869f9df 100644
+--- a/app/views/v12/CSSE-tool/CSSE-create-step5.html
++++ b/app/views/v12/CSSE-tool/CSSE-create-step5.html
+@@ -6,92 +6,238 @@
+ <script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+ <script type="text/javascript" src="/js/action-menu.js"></script>
+ <script type="text/javascript" src="/js/sort.js"></script>
++<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
+ <script>
+-  function customSuggest (query, syncResults) {
+-            var results = [
+-    { code: 'PA1', result: 'HPV Primary screening invitation', recall: 'Invitation letter' },
+-    { code: 'PA2', result: 'HPV Primary screening reminder', recall: 'Invitation letter'},
+-    { code: 'PA3', result: 'HPV Primary screening invitation (participant not registered with GP', recall: 'Invitation letter' },
+-    { code: 'PA4', result: 'HPV Primary screening reminder (participant not registered with GP', recall: 'Invitation letter' },
+-    { code: 'PX0A', result: 'HPV negative result with no cytology', recall: 'Normal result letter' },
+-    { code: 'PX0C', result: 'HPV negative result and ceased for age', recall: 'Normal result letter' },
+-    { code: 'PX0R', result: 'HPV negative result with early recall (12 or 36 months)', recall: 'Normal result letter' },
+-    { code: 'PX0S', result: 'HPV negative result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'PXUS', result: 'Inadequate HPV result (no cytology) with referral to colposcopy', recall: 'Abnormal result letter'},
+-    { code: 'PXUR', result: 'Inadequate HPV result (no cytology)', recall: 'Normal result letter'},
+-    { code: 'PX9S', result: 'HPV positive result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P09R', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)', recall: 'Normal result letter' },
+-    { code: 'P09S', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P19R', result: 'HPV positive and inadequate cytology result with early recall (3 months)', recall: 'Normal result letter' },
+-    { code: 'P19S', result: 'HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P39S', result: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P49S', result: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P59S', result: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P69S', result: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P79S', result: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P89S', result: 'HPV positive and borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P99S', result: 'HPV positive and borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P29R', result: 'HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
+-    { code: 'P29S', result: 'HPV positive and cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'CXNC', result: 'Ceasing due to no cervix', recall: 'Ceasing letter'},
+-    { code: 'CUA', result: 'Automatic ceasing due to age after non-response', recall: 'Ceasing letter'},
+-    { code: 'CIC', result: 'Ceasing due to informed consent at participant request', recall: 'Ceasing letter'},
+-    { code: 'CMC', result: 'Ceasing due to Mental Capacity Act at request of third party', recall: 'Ceasing letter'},
+-    { code: 'CXAN', result: 'Manual ceasing due to age', recall: 'Ceasing letter'},
+-    { code: 'K-0A', result: 'Negative self sample', recall: 'Normal result letter'},
+-    { code: 'K-9R', result: 'Positive self sample', recall: 'Abnormal result letter'},
+-    { code: 'K1UH', result: 'First inadequate self sample', recall: '1st inadequate result letter'},
+-    { code: 'K2UH', result: 'Second inadequate self sample', recall: '2nd inadequate result letter'},
+-    { code: 'K-0C', result: 'Ceased self sample', recall: 'Ceasing letter'},
+-    { code: 'P0QS', result: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall', recall: 'Normal result letter'},
+-    { code: 'P1QR', result: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter'},
+-    { code: 'P1QS', result: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P2QR', result: 'Old code: HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
+-    { code: 'P3QS', result: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P4QS', result: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P5QS', result: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P6QS', result: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P7QS', result: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P8QS', result: 'Old code: Borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P9QS', result: 'Old code: Borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
+-    { code: 'P2QS', result: 'Old code: Cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
+-
+-
+-  ]
+-          syncResults(query
+-            ? results.filter(function (result) {
+-                var resultContains = result.code.toLowerCase().indexOf(query.toLowerCase()) !== -1
+-                var endonymContains = result.result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+-                return resultContains || endonymContains
+-              })
+-            : []
+-          )
+-        }
+-  
+-        function inputValueTemplate (result) {
+-          return result && result.result + '-' + result.code
+-        }
+-  
+-        function suggestionTemplate (result) {
+-          return result && '<strong>' + result.result + '</strong>' +
+-            ' (' + result.code + '</span>)'
+-        }
+-  
+-        element = document.querySelector('#my-autocomplete-container')
+-        id = 'autocomplete-customTemplates'
+-        accessibleAutocomplete({
+-          element: element,
+-          id: id,
+-          name: 'result',
+-          source: customSuggest,
+-          templates: {
+-            inputValue: inputValueTemplate,
+-            suggestion: suggestionTemplate
+-          }
+-        })
+-      
+-  
+-  </script>
++  const data = [
++    {
++      code: 'PA1',
++      name: 'HPV Primary screening invitation',
++      recall: 'Invitation letter',
++    },
++    {
++      code: 'PA2',
++      name: 'HPV Primary screening reminder',
++      recall: 'Invitation letter',
++    },
++    {
++      code: 'PA3',
++      name: 'HPV Primary screening invitation (participant not registered with GP',
++      recall: 'Invitation letter',
++    },
++    {
++      code: 'PA4',
++      name: 'HPV Primary screening reminder (participant not registered with GP',
++      recall: 'Invitation letter',
++    },
++    {
++      code: 'PX0A',
++      name: 'HPV negative result with no cytology',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'PX0C',
++      name: 'HPV negative result and ceased for age',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'PX0R',
++      name: 'HPV negative result with early recall (12 or 36 months)',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'PX0S',
++      name: 'HPV negative result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'PXUS',
++      name: 'Inadequate HPV result (no cytology) with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'PXUR',
++      name: 'Inadequate HPV result (no cytology)',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'PX9S',
++      name: 'HPV positive result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P09R',
++      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'P09S',
++      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P19R',
++      name: 'HPV positive and inadequate cytology result with early recall (3 months)',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'P19S',
++      name: 'HPV positive and inadequate cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P39S',
++      name: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P49S',
++      name: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P59S',
++      name: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P69S',
++      name: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P79S',
++      name: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P89S',
++      name: 'HPV positive and borderline squamous cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P99S',
++      name: 'HPV positive and borderline endocervical cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P29R',
++      name: 'HPV positive and negative cytology result with early recall',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'P29S',
++      name: 'HPV positive and cytology negative with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'CXNC',
++      name: 'Ceasing due to no cervix',
++      recall: 'Ceasing letter',
++    },
++    {
++      code: 'CUA',
++      name: 'Automatic ceasing due to age after non-response',
++      recall: 'Ceasing letter',
++    },
++    {
++      code: 'CIC',
++      name: 'Ceasing due to informed consent at participant request',
++      recall: 'Ceasing letter',
++    },
++    {
++      code: 'CMC',
++      name: 'Ceasing due to Mental Capacity Act at request of third party',
++      recall: 'Ceasing letter',
++    },
++    {
++      code: 'CXAN',
++      name: 'Manual ceasing due to age',
++      recall: 'Ceasing letter',
++    },
++    {
++      code: 'K-0A',
++      name: 'Negative self sample',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'K-9R',
++      name: 'Positive self sample',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'K1UH',
++      name: 'First inadequate self sample',
++      recall: '1st inadequate result letter',
++    },
++    {
++      code: 'K2UH',
++      name: 'Second inadequate self sample',
++      recall: '2nd inadequate result letter',
++    },
++    { code: 'K-0C', name: 'Ceased self sample', recall: 'Ceasing letter' },
++    {
++      code: 'P0QS',
++      name: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'P1QR',
++      name: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P1QS',
++      name: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P2QR',
++      name: 'Old code: HPV positive and negative cytology result with early recall',
++      recall: 'Normal result letter',
++    },
++    {
++      code: 'P3QS',
++      name: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P4QS',
++      name: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P5QS',
++      name: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P6QS',
++      name: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P7QS',
++      name: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P8QS',
++      name: 'Old code: Borderline squamous cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P9QS',
++      name: 'Old code: Borderline endocervical cytology result with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++    {
++      code: 'P2QS',
++      name: 'Old code: Cytology negative with referral to colposcopy',
++      recall: 'Abnormal result letter',
++    },
++  ];
++  createSuggestionDropdown(data, 'letter-codes');
++</script>
+ <!--Add letter code script above-->
+ <style type="text/css" media="screen">
+   .nhsuk-header__navigation-item:nth-child(4) {
+@@ -443,14 +589,14 @@ NHS Cervical screening management system
+     
+     
+               <div class="nhsuk-form-group">
+-                <label class="nhsuk-label nhsuk-date-input__label" for="codecomplete">
++                <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
+                   <span id="" class="nhsuk-hint" style="">
+                     Enter codes or full description
+                   </span>  
+                   <ul id="letter-code-list">
+ 
+                   </ul>
+-                <div id="my-autocomplete-container" class="codecomplete"></div>
++                <div id="letter-codes"></div>
+               </div>
+         </fieldset>
+         <div style="padding: 20px;"></div>
+diff --git a/app/views/v12/CSSE-tool/CSSE-create-step7.html b/app/views/v12/CSSE-tool/CSSE-create-step7.html
+index e5ce4436..68f6644b 100644
+--- a/app/views/v12/CSSE-tool/CSSE-create-step7.html
++++ b/app/views/v12/CSSE-tool/CSSE-create-step7.html
+@@ -6,7 +6,54 @@
+ <script type="text/javascript" src="/js/action-menu.js"></script>
+ <script type="text/javascript" src="/js/sort.js"></script>
+ <script type="text/javascript" src="/js/add-result-code-list.js"></script>
+-<script type="text/javascript" src="/js/autocomplete-result.js"></script>
++<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
++<script>
++  const resultCodeData = [
++    {code:'0',name:'?Glandular noeplasia (non-cervical)'},
++    {code:'1',name:'Inadequate cytology'},
++    {code:'2',name:'Negative/normal cytology'},
++    {code:'3',name:'Low-grade dyskaryosis'},
++    {code:'4',name:'High-grade dyskaryosis - severe (HPV tested and not)'},
++    {code:'5',name:'High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)'},
++    {code:'6',name:'?Glandular neoplasia of endocervical type (HPV tested and not)'},
++    {code:'7',name:'High-grade dyskaryosis - moderate (HPV tested and not)'},
++    {code:'8',name:'Borderline squamous'},
++    {code:'9',name:'Borderline endocervical'},
++    {code:'B',name:'Borderline change in squamous cells (HPV tested)'},
++    {code:'E',name:'Borderline change in endocervical cells (HPV tested)'},
++    {code:'G',name:'?Glandular neoplasia - non cervical (HPV tested)'},
++    {code:'M',name:'Low grade dyskaryosis (HPV tested)'},
++    {code:'N',name:'Negative (HPV tested)'},
++    {code:'X',name:'No cytology result'},
++  ];
++  const resultHpvData = [
++    {
++      code: '0',
++      name: 'HPV Negative',
++    },
++    {
++      code: '9',
++      name: 'HPV Positive',
++    },
++    {
++      code: 'U',
++      name: 'HPV not available',
++    },
++    {
++      code: 'Q',
++      name: 'No HPV test due to recent HPV positive result'
++    }
++  ];
++  const resultActionData = [
++    { code: 'A', name: 'Routine recall' },
++    { code: 'H', name: 'No change to recall' },
++    { code: 'R', name: 'Early recall' },
++    { code: 'S', name: 'Refer to colposcopy' },
++  ];
++  createSuggestionDropdown(resultCodeData, 'result-code-result');
++  createSuggestionDropdown(resultHpvData, 'result-code-hpv');
++  createSuggestionDropdown(resultActionData, 'result-code-action');
++</script>
+ 
+ <!--Add JS script for list builder above-->
+ <style type="text/css" media="screen">
+@@ -603,7 +650,7 @@ NHS Cervical screening management system
+             For example, X 0 A
+           </div>
+ 
+-          <div class="nhs-date-input" id="result-code">
++          <div class="autocomplete__multiple-input" id="result-code">
+ 
+     
+              <div class="nhsuk-date-input__item">
+@@ -611,42 +658,17 @@ NHS Cervical screening management system
+                 <label for="result-code-result" class="nhsuk-label">
+                   Result
+                 </label>
+-                <input list="result-code-result-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-result" name="result-code-result" type="text" value="{{ data['#'] }}">
++                <div id="result-code-result" class="nhsuk-input--width-2"></div>
+                </div>
+-               <datalist id="result-code-result-items">
+-                 <option value="0">?Glandular noeplasia (non-cervical)</option>
+-                 <option value="1">Inadequate cytology</option>
+-                 <option value="2">Negative/normal cytology</option>
+-                 <option value="3">Low-grade dyskaryosis</option>
+-                 <option value="4">High-grade dyskaryosis - severe (HPV tested and not)</option>
+-                 <option value="5">High-grade dyskaryosis - ?invasive squamous carcinoma (HPV tested and not)</option>
+-                 <option value="6">?Glandular neoplasia of endocervical type (HPV tested and not)</option>
+-                 <option value="7">High-grade dyskaryosis - moderate (HPV tested and not)</option>
+-                 <option value="8">Borderline squamous</option>
+-                 <option value="9">Borderline endocervical</option>
+-                 <option value="B">Borderline change in squamous cells (HPV tested)</option>
+-                 <option value="E">Borderline change in endocervical cells (HPV tested)</option>
+-                 <option value="G">?Glandular neoplasia - non cervical (HPV tested)</option>
+-                 <option value="M">Low grade dyskaryosis (HPV tested)</option>
+-                 <option value="N">Negative (HPV tested)</option>
+-                 <option value="X">No cytology result</option>
+-               </datalist>
+-               
+-             </div>
++              </div>
+     
+              <div class="nhsuk-date-input__item">
+               <div class="nhsuk-form-group">
+                <label for="result-code-hpv" class="nhsuk-label">
+                 HPV
+                </label>
+-               <input list="result-code-hpv-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-hpv" name="result-code-hpv" type="text" value="{{ data['#'] }}">
++               <div id="result-code-hpv" class="nhsuk-input--width-2"></div>
+               </div>
+-              <datalist id="result-code-hpv-items">
+-                <option value="0">HPV negative</option>
+-                <option value="9">HPV positive</option>
+-                <option value="U">HPV not available</option>
+-                <option value="Q">No HPV test due to recent HPV positive result</option>
+-              </datalist>
+             </div>
+     
+             <div class="nhsuk-date-input__item">
+@@ -654,13 +676,7 @@ NHS Cervical screening management system
+                <label for="result-code-action" class="nhsuk-label">
+                 Action
+                </label>
+-               <input list="result-code-action-items" type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="result-code-action" name="result-code-action" type="text" value="{{ data['#'] }}">
+-               <datalist id="result-code-action-items">
+-                 <option value="A">Routine recall</option>
+-                 <option value="H">No change to recall</option>
+-                 <option value="R">Early recall</option>
+-                 <option value="S">Refer to colposcopy</option>
+-               </datalist>
++               <div id="result-code-action" class="nhsuk-input--width-2"></div>
+               </div>
+             </div>
+     
+diff --git a/app/views/v12/CSSE-tool/CSSE-create-step8.html b/app/views/v12/CSSE-tool/CSSE-create-step8.html
+index f1c3feef..d63f2599 100644
+--- a/app/views/v12/CSSE-tool/CSSE-create-step8.html
++++ b/app/views/v12/CSSE-tool/CSSE-create-step8.html
+@@ -7,6 +7,16 @@
+ <script type="text/javascript" src="/js/add-source-code-list.js"></script>
+ <script type="text/javascript" src="/js/add-sender-code-list.js"></script>
+ <script type="text/javascript" src="/js/add-source-type-list.js"></script>
++<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
++<script>
++  const senderCodeData = [
++    {
++      code: '0',
++      name: 'No sender',
++    },
++  ];
++  createSuggestionDropdown(senderCodeData, 'sender-code-input');
++</script>
+ <!--Add Javascript for 'add list input here'-->
+ <style type="text/css" media="screen">
+   .nhsuk-header__navigation-item:nth-child(4) {
+@@ -327,7 +337,8 @@ NHS Cervical screening management system
+             <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="nhsuk-hint">
+               Also known practice code, non GP sender code or GNC number. For example, A86020
+             </div>
+-            <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}">
++            <!-- <input id="sender-code-input" name="sender-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['sender-code'] }}"> -->
++            <div id="sender-code-input"></div>
+               
+           </fieldset>
+ 
+diff --git a/docs/views/template-clinical.html b/docs/views/template-clinical.html
+index 55d8f52b..0ce659fe 100755
+--- a/docs/views/template-clinical.html
++++ b/docs/views/template-clinical.html
+@@ -2,9 +2,7 @@
+ {% from 'footer/macro.njk' import footer %}
+ {% from 'skip-link/macro.njk' import skipLink %}
+ {% from 'action-link/macro.njk' import actionLink %}
+-{% from 'nav-a-z/macro.njk' import azNav %}
+ {% from 'breadcrumb/macro.njk' import breadcrumb %}
+-{% from 'care-card/macro.njk' import careCard %}
+ {% from 'contents-list/macro.njk' import contentsList %}
+ {% from 'details/macro.njk' import details %}
+ {% from 'header/macro.njk' import header %}
+diff --git a/docs/views/template.html b/docs/views/template.html
+index c80db03d..17cc2b40 100755
+--- a/docs/views/template.html
++++ b/docs/views/template.html
+@@ -2,9 +2,7 @@
+ {% from 'footer/macro.njk' import footer %}
+ {% from 'skip-link/macro.njk' import skipLink %}
+ {% from 'action-link/macro.njk' import actionLink %}
+-{% from 'nav-a-z/macro.njk' import azNav %}
+ {% from 'breadcrumb/macro.njk' import breadcrumb %}
+-{% from 'care-card/macro.njk' import careCard %}
+ {% from 'contents-list/macro.njk' import contentsList %}
+ {% from 'details/macro.njk' import details %}
+ {% from 'header/macro.njk' import header %}
+@@ -13,11 +11,7 @@
+ {% from 'do-dont-list/macro.njk' import list %}
+ {% from 'images/macro.njk' import image %}
+ {% from 'inset-text/macro.njk' import insetText %}
+-{% from 'list-panel/macro.njk' import listPanel %}
+ {% from 'pagination/macro.njk' import pagination %}
+-{% from 'panel/macro.njk' import panel %}
+-{% from 'promo/macro.njk' import promo %}
+-{% from 'review-date/macro.njk' import reviewDate %}
+ {% from 'skip-link/macro.njk' import skipLink %}
+ {% from 'tables/macro.njk' import table %}
+ {% from 'warning-callout/macro.njk' import warningCallout %}
+diff --git a/package-lock.json b/package-lock.json
+index 608f2412..e6fbd38c 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -978,14 +978,6 @@
+         "negotiator": "0.6.2"
+       }
+     },
+-    "accessible-autocomplete": {
+-      "version": "2.0.2",
+-      "resolved": "https://registry.npmjs.org/accessible-autocomplete/-/accessible-autocomplete-2.0.2.tgz",
+-      "integrity": "sha512-cdA4O4u1xmefZuAdtL+0VBnDivdapgIZRQjm0E1bcekHnH5h67Vt1QL79NqPtlAn+6lyrR+H+pbnYVvUOJ1ULQ==",
+-      "requires": {
+-        "preact": "^8.3.1"
+-      }
+-    },
+     "after": {
+       "version": "0.8.2",
+       "resolved": "https://registry.npmjs.org/after/-/after-0.8.2.tgz",
+@@ -3202,7 +3194,8 @@
+         },
+         "ansi-regex": {
+           "version": "2.1.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "aproba": {
+           "version": "1.2.0",
+@@ -3220,11 +3213,13 @@
+         },
+         "balanced-match": {
+           "version": "1.0.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "brace-expansion": {
+           "version": "1.1.11",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "balanced-match": "^1.0.0",
+             "concat-map": "0.0.1"
+@@ -3237,15 +3232,18 @@
+         },
+         "code-point-at": {
+           "version": "1.1.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "concat-map": {
+           "version": "0.0.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "console-control-strings": {
+           "version": "1.1.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "core-util-is": {
+           "version": "1.0.2",
+@@ -3348,7 +3346,8 @@
+         },
+         "inherits": {
+           "version": "2.0.4",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "ini": {
+           "version": "1.3.5",
+@@ -3358,6 +3357,7 @@
+         "is-fullwidth-code-point": {
+           "version": "1.0.0",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "number-is-nan": "^1.0.0"
+           }
+@@ -3370,17 +3370,20 @@
+         "minimatch": {
+           "version": "3.0.4",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "brace-expansion": "^1.1.7"
+           }
+         },
+         "minimist": {
+           "version": "0.0.8",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "minipass": {
+           "version": "2.9.0",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "safe-buffer": "^5.1.2",
+             "yallist": "^3.0.0"
+@@ -3397,6 +3400,7 @@
+         "mkdirp": {
+           "version": "0.5.1",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "minimist": "0.0.8"
+           }
+@@ -3477,7 +3481,8 @@
+         },
+         "number-is-nan": {
+           "version": "1.0.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "object-assign": {
+           "version": "4.1.1",
+@@ -3487,6 +3492,7 @@
+         "once": {
+           "version": "1.4.0",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "wrappy": "1"
+           }
+@@ -3562,7 +3568,8 @@
+         },
+         "safe-buffer": {
+           "version": "5.1.2",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "safer-buffer": {
+           "version": "2.1.2",
+@@ -3592,6 +3599,7 @@
+         "string-width": {
+           "version": "1.0.2",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "code-point-at": "^1.0.0",
+             "is-fullwidth-code-point": "^1.0.0",
+@@ -3609,6 +3617,7 @@
+         "strip-ansi": {
+           "version": "3.0.1",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "ansi-regex": "^2.0.0"
+           }
+@@ -3647,11 +3656,13 @@
+         },
+         "wrappy": {
+           "version": "1.0.2",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "yallist": {
+           "version": "3.1.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         }
+       }
+     },
+@@ -5076,13 +5087,9 @@
+       "integrity": "sha1-yobR/ogoFpsBICCOPchCS524NCw="
+     },
+     "nhsuk-frontend": {
+-      "version": "3.1.0",
+-      "resolved": "https://registry.npmjs.org/nhsuk-frontend/-/nhsuk-frontend-3.1.0.tgz",
+-      "integrity": "sha512-b3mt1E4N+MVkVUjrNtF1z/FyGn8icz2d5slQ/baPAbKbvOvfgE0ecqv6BrggiyGMzFXeSYuA8pTMhRU90jmv/Q==",
+-      "requires": {
+-        "accessible-autocomplete": "^2.0.2",
+-        "sass-mq": "^5.0.1"
+-      }
++      "version": "6.1.0",
++      "resolved": "https://registry.npmjs.org/nhsuk-frontend/-/nhsuk-frontend-6.1.0.tgz",
++      "integrity": "sha512-iUqPP9TM29ycbaqoNlINp7jVzPblrHVUIArQlpL4TRtu1iYDkwuXPMkZWps5ORN+DOIR3Xlt2XgeNoO26OWjeQ=="
+     },
+     "node-gyp": {
+       "version": "3.8.0",
+@@ -5831,11 +5838,6 @@
+       "resolved": "https://registry.npmjs.org/posix-character-classes/-/posix-character-classes-0.1.1.tgz",
+       "integrity": "sha1-AerA/jta9xoqbAL+q7jB/vfgDqs="
+     },
+-    "preact": {
+-      "version": "8.5.3",
+-      "resolved": "https://registry.npmjs.org/preact/-/preact-8.5.3.tgz",
+-      "integrity": "sha512-O3kKP+1YdgqHOFsZF2a9JVdtqD+RPzCQc3rP+Ualf7V6rmRDchZ9MJbiGTT7LuyqFKZqlHSOyO/oMFmI2lVTsw=="
+-    },
+     "prepend-http": {
+       "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/prepend-http/-/prepend-http-2.0.0.tgz",
+@@ -6464,11 +6466,6 @@
+         }
+       }
+     },
+-    "sass-mq": {
+-      "version": "5.0.1",
+-      "resolved": "https://registry.npmjs.org/sass-mq/-/sass-mq-5.0.1.tgz",
+-      "integrity": "sha512-ugSVZO5fzasSFrGfKCtY02spnkOOfo9U9sXuzCuSXoCl1CgcoqdJRdNmigZkhvRVph1GKM6o0pgI00Jjc445CA=="
+-    },
+     "scss-tokenizer": {
+       "version": "0.2.3",
+       "resolved": "https://registry.npmjs.org/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz",
+diff --git a/package.json b/package.json
+index 452458ad..2575a770 100755
+--- a/package.json
++++ b/package.json
+@@ -32,7 +32,7 @@
+     "gulp-sass": "^4.1.0",
+     "keypather": "^3.0.0",
+     "moment": "^2.24.0",
+-    "nhsuk-frontend": "^3.1.0",
++    "nhsuk-frontend": "^6.1.0",
+     "nunjucks": "^3.2.1",
+     "path": "^0.12.7"
+   },

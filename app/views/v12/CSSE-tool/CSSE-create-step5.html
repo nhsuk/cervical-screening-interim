@@ -6,92 +6,238 @@
 <script type="text/javascript" src="/js/add-letter-code-list.js"></script>
 <script type="text/javascript" src="/js/action-menu.js"></script>
 <script type="text/javascript" src="/js/sort.js"></script>
+<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
 <script>
-  function customSuggest (query, syncResults) {
-            var results = [
-    { code: 'PA1', result: 'HPV Primary screening invitation', recall: 'Invitation letter' },
-    { code: 'PA2', result: 'HPV Primary screening reminder', recall: 'Invitation letter'},
-    { code: 'PA3', result: 'HPV Primary screening invitation (participant not registered with GP', recall: 'Invitation letter' },
-    { code: 'PA4', result: 'HPV Primary screening reminder (participant not registered with GP', recall: 'Invitation letter' },
-    { code: 'PX0A', result: 'HPV negative result with no cytology', recall: 'Normal result letter' },
-    { code: 'PX0C', result: 'HPV negative result and ceased for age', recall: 'Normal result letter' },
-    { code: 'PX0R', result: 'HPV negative result with early recall (12 or 36 months)', recall: 'Normal result letter' },
-    { code: 'PX0S', result: 'HPV negative result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'PXUS', result: 'Inadequate HPV result (no cytology) with referral to colposcopy', recall: 'Abnormal result letter'},
-    { code: 'PXUR', result: 'Inadequate HPV result (no cytology)', recall: 'Normal result letter'},
-    { code: 'PX9S', result: 'HPV positive result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P09R', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)', recall: 'Normal result letter' },
-    { code: 'P09S', result: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P19R', result: 'HPV positive and inadequate cytology result with early recall (3 months)', recall: 'Normal result letter' },
-    { code: 'P19S', result: 'HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P39S', result: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P49S', result: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P59S', result: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P69S', result: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P79S', result: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P89S', result: 'HPV positive and borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P99S', result: 'HPV positive and borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P29R', result: 'HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
-    { code: 'P29S', result: 'HPV positive and cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'CXNC', result: 'Ceasing due to no cervix', recall: 'Ceasing letter'},
-    { code: 'CUA', result: 'Automatic ceasing due to age after non-response', recall: 'Ceasing letter'},
-    { code: 'CIC', result: 'Ceasing due to informed consent at participant request', recall: 'Ceasing letter'},
-    { code: 'CMC', result: 'Ceasing due to Mental Capacity Act at request of third party', recall: 'Ceasing letter'},
-    { code: 'CXAN', result: 'Manual ceasing due to age', recall: 'Ceasing letter'},
-    { code: 'K-0A', result: 'Negative self sample', recall: 'Normal result letter'},
-    { code: 'K-9R', result: 'Positive self sample', recall: 'Abnormal result letter'},
-    { code: 'K1UH', result: 'First inadequate self sample', recall: '1st inadequate result letter'},
-    { code: 'K2UH', result: 'Second inadequate self sample', recall: '2nd inadequate result letter'},
-    { code: 'K-0C', result: 'Ceased self sample', recall: 'Ceasing letter'},
-    { code: 'P0QS', result: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall', recall: 'Normal result letter'},
-    { code: 'P1QR', result: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy', recall: 'Abnormal result letter'},
-    { code: 'P1QS', result: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P2QR', result: 'Old code: HPV positive and negative cytology result with early recall', recall: 'Normal result letter'},
-    { code: 'P3QS', result: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P4QS', result: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P5QS', result: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P6QS', result: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P7QS', result: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P8QS', result: 'Old code: Borderline squamous cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P9QS', result: 'Old code: Borderline endocervical cytology result with referral to colposcopy', recall: 'Abnormal result letter' },
-    { code: 'P2QS', result: 'Old code: Cytology negative with referral to colposcopy', recall: 'Abnormal result letter' },
-
-
-  ]
-          syncResults(query
-            ? results.filter(function (result) {
-                var resultContains = result.code.toLowerCase().indexOf(query.toLowerCase()) !== -1
-                var endonymContains = result.result.toLowerCase().indexOf(query.toLowerCase()) !== -1
-                return resultContains || endonymContains
-              })
-            : []
-          )
-        }
-  
-        function inputValueTemplate (result) {
-          return result && result.result + '-' + result.code
-        }
-  
-        function suggestionTemplate (result) {
-          return result && '<strong>' + result.result + '</strong>' +
-            ' (' + result.code + '</span>)'
-        }
-  
-        element = document.querySelector('#my-autocomplete-container')
-        id = 'autocomplete-customTemplates'
-        accessibleAutocomplete({
-          element: element,
-          id: id,
-          name: 'result',
-          source: customSuggest,
-          templates: {
-            inputValue: inputValueTemplate,
-            suggestion: suggestionTemplate
-          }
-        })
-      
-  
-  </script>
+  const data = [
+    {
+      code: 'PA1',
+      name: 'HPV Primary screening invitation',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA2',
+      name: 'HPV Primary screening reminder',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA3',
+      name: 'HPV Primary screening invitation (participant not registered with GP',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA4',
+      name: 'HPV Primary screening reminder (participant not registered with GP',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PX0A',
+      name: 'HPV negative result with no cytology',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0C',
+      name: 'HPV negative result and ceased for age',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0R',
+      name: 'HPV negative result with early recall (12 or 36 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0S',
+      name: 'HPV negative result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'PXUS',
+      name: 'Inadequate HPV result (no cytology) with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'PXUR',
+      name: 'Inadequate HPV result (no cytology)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX9S',
+      name: 'HPV positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P09R',
+      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P09S',
+      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P19R',
+      name: 'HPV positive and inadequate cytology result with early recall (3 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P19S',
+      name: 'HPV positive and inadequate cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P39S',
+      name: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P49S',
+      name: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P59S',
+      name: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P69S',
+      name: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P79S',
+      name: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P89S',
+      name: 'HPV positive and borderline squamous cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P99S',
+      name: 'HPV positive and borderline endocervical cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P29R',
+      name: 'HPV positive and negative cytology result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P29S',
+      name: 'HPV positive and cytology negative with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'CXNC',
+      name: 'Ceasing due to no cervix',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CUA',
+      name: 'Automatic ceasing due to age after non-response',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CIC',
+      name: 'Ceasing due to informed consent at participant request',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CMC',
+      name: 'Ceasing due to Mental Capacity Act at request of third party',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CXAN',
+      name: 'Manual ceasing due to age',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'K-0A',
+      name: 'Negative self sample',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'K-9R',
+      name: 'Positive self sample',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'K1UH',
+      name: 'First inadequate self sample',
+      recall: '1st inadequate result letter',
+    },
+    {
+      code: 'K2UH',
+      name: 'Second inadequate self sample',
+      recall: '2nd inadequate result letter',
+    },
+    { code: 'K-0C', name: 'Ceased self sample', recall: 'Ceasing letter' },
+    {
+      code: 'P0QS',
+      name: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P1QR',
+      name: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P1QS',
+      name: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P2QR',
+      name: 'Old code: HPV positive and negative cytology result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P3QS',
+      name: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P4QS',
+      name: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P5QS',
+      name: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P6QS',
+      name: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P7QS',
+      name: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P8QS',
+      name: 'Old code: Borderline squamous cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P9QS',
+      name: 'Old code: Borderline endocervical cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P2QS',
+      name: 'Old code: Cytology negative with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+  ];
+  createSuggestionDropdown(data, 'letter-codes');
+</script>
 <!--Add letter code script above-->
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
@@ -207,9 +353,9 @@ NHS Cervical screening management system
                     </div>
       
                     <div class="nhsuk-checkboxes__item">
-                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-cancelled" value="Cancelled" {{ checked("comms-recall-type", "Cancelled") }}>
-                      <label for="comms-cancelled" class="nhsuk-label nhsuk-checkboxes__label">
-                        Cancelled
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-ceased" value="Ceased" {{ checked("comms-recall-type", "Ceased") }}>
+                      <label for="comms-ceased" class="nhsuk-label nhsuk-checkboxes__label">
+                        Ceased
                       </label>
                     </div>
       
@@ -443,14 +589,14 @@ NHS Cervical screening management system
     
     
               <div class="nhsuk-form-group">
-                <label class="nhsuk-label nhsuk-date-input__label" for="codecomplete">
-                  <span id="" class="nhsuk-hint" style="">
+                <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
+                  <span id="" class="nhsuk-hint">
                     Enter codes or full description
                   </span>  
                   <ul id="letter-code-list">
 
                   </ul>
-                <div id="my-autocomplete-container" class="codecomplete"></div>
+                <div id="letter-codes"></div>
               </div>
         </fieldset>
         <div style="padding: 20px;"></div>
