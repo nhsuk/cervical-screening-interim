@@ -14,11 +14,11 @@ letterCodeButton.addEventListener('click', addNumberTolist);
 
 //Function to save the nhs number and spit it back out above
 function addNumberTolist() {
-  if(document.getElementById('letter-codes-autocomplete').value != "") {
-    var number = document.getElementById('letter-codes-autocomplete').value; // get value of whats inside the box
+  if(document.getElementById('autocomplete-customTemplates').value != "") {
+    var number = document.getElementById('autocomplete-customTemplates').value; // get value of whats inside the box
     var letterCodelength = letterCodes.push(number) //adds it to the array + adds to new variable
     letterCodelist.innerHTML+="<li id='letter-code-"+letterCodelength+"'name='letter-code-data' value='{{ data['letter-code-data'] }}'><strong>"+number+"</strong> <span class='nhsuk-body-s' style='display: inline; text-decoration: underline; margin-left:6px'><a class='remove-link' href='javascript:removeNumberFromList("+letterCodelength+")'> Remove </a> </span> </li>" //spit it back out (with some added extras)
-    document.getElementById('letter-codes-autocomplete').value="" // clears the box for the next input
+    document.getElementById('autocomplete-customTemplates').value="" // clears the box for the next input
   }
   
 }
