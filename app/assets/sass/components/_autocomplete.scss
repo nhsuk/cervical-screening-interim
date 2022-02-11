@@ -90,6 +90,10 @@
   border-color: #1d70b8;
   color: #fff;
   outline: 0;
+
+  & .autocomplete__option-name {
+    color: #fff;
+  }
 }
 .autocomplete__multiple-input {
   display: flex;
