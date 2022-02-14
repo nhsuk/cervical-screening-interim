@@ -67,9 +67,18 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
 
 
+
     <div class="nhsuk-width-container-fluid">
       <main class="nhsuk-main-wrapper" style="padding-top: 24px;" id="maincontent" role="main">
         <div class="nhsuk-grid-row">
+
+          <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="historic-data">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back to data from historic system (NHAIS)</a>
+</div>
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'lds' %}
@@ -80,46 +89,22 @@ NHS Cervical screening management system
                 Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Data from historic system (NHAIS)
+               </span>Full screening history (CYAU report)
              </h1>
 
-          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
-            <ul class="panel-link">
+             <div class="nhsuk-u-reading-width">
+
+             <p>Use this page to download a CSV file of the full screening history from the historic NHAIS system while the patient was registered in Wakefield (WAK) from 02 January 2006 to 04 March 2007.</p>
+
+             <form action="#" method="post">
+               <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                 Download full screening history CSV 
+               </button>
+           </form>
+
+           </div>
 
 
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="cytology-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Cervical screening test history</h2>
-                </a>
-              </li>
-
-                <li class="panel-link__item">
-                  <a class="panel-link__link" href="demographics-history">
-                    <h2 class="panel-link__heading nhsuk-heading-s">Demographics history</h2>
-                  </a>
-                </li>
-              </ul>
-                        </div>
-          <div class="nhsuk-grid-column-one-half">
-            <ul class="panel-link">
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="notifications-history">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Notifications history</h2>
-                </a>
-              </li>
-
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="cyau">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Full screening history (CYAU report)</h2>
-                </a>
-              </li>
-              <!-- <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Interchange, letters and lab files history</h2>
-                </a>
-              </li> -->
-
-            </ul>
           </div>
         </div>
 
