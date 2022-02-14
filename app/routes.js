@@ -881,5 +881,23 @@ router.post('/v12/reports/sms-download/answer', function (req, res) {
 
 })
 
+//lab files routing
+router.post('/v12/reports/lab-file-report/report-chosen', function (req, res) {
+
+  // Make a variable and give it the value from 'chooseReport'
+  var reportChoice = req.session.data['chooseReport']
+
+
+  // Check whether the variable matches a condition
+  if (reportChoice == "labFiles"){
+    // Send user to next page
+    res.redirect('/v12/reports/lab-file-report/filter-reports')
+  }
+  else {
+    // Send user to ineligible page
+    res.redirect('/v12/reports/lab-file-report/missing-files/choose-date')
+  }
+
+})
 
 module.exports = router;
