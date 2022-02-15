@@ -900,4 +900,21 @@ router.post('/v12/reports/lab-file-report/report-chosen', function (req, res) {
 
 })
 
+router.post('/v12/reports/lab-file-report/missing-files/reports', function (req, res) {
+
+  // Make a variable and give it the value from 'chooseReport'
+  var reportType = req.session.data['reportType']
+
+
+  // Check whether the variable matches a condition
+  if ( reportType == "single"){
+    // Send user to next page
+    res.redirect('/v12/reports/lab-file-report/missing-files/single-date-report')
+  }
+  else {
+    // Send user to ineligible page
+    res.redirect('/v12/reports/lab-file-report/missing-files/range-report')
+  }
+
+})
 module.exports = router;

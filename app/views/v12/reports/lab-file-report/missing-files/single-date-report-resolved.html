@@ -38,12 +38,12 @@
 
  
 
-  
+  <form action="/v12/reports/lab-file-report/missing-files/add-missing1" method="post">
    <h2 class="nhsuk-heading-m">Missing files</h2>
    <p>This list shows possible missing files that may need resolving. You can mark the files as resolved or manually add missing files to record how they are resolved if needed. </p>
 
-   <a class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers">Add a missing file</a>
-
+   <button class ="nhsuk-button--secondary nhsuk-button--ers nhsuk-button--ers" type="submit">Add a missing file</button>
+  </form>
    <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
     <table class="nhsuk-table">
@@ -141,9 +141,9 @@
            <td class="nhsuk-table__cell">565444/02</td>
            <td class="nhsuk-table__cell ">17-Feb-2022
             <span class="nhsuk-table__cell--hint">11:30:10</span></td>
-            <td class="nhsuk-table__cell "><div class="nhsuk-tag nhsuk-tag--grey">Not yet resolved</div></td>
-          <td class="nhsuk-table__cell ">Not applicable</td>
-          <td class="nhsuk-table__cell "><button class="nhsuk-button nhsuk-button--ers" href="/resolution-step1">Resolve this file</button></td>
+            <td class="nhsuk-table__cell "><div class="nhsuk-tag">Resolved</div> <span class="nhsuk-table__cell--hint">CSAS12 on 17-Feb-2022</span></td>
+          <td class="nhsuk-table__cell ">File was saved in the wrong format, saved as correct format in the local drive</td>
+          <td class="nhsuk-table__cell ">No action needed</td>
           
            </form>
 
@@ -152,9 +152,6 @@
   </div>
 </div>
 
- <!--<div id="boxshadow">
-    <img src="/images/summary-csv.png" alt="HMR101 form">
-  </div>
-</div>-->
+ 
 
 {% endblock %}
