@@ -30,14 +30,6 @@
     {% if data['reviewHPV'] === 'True' %}
 
     <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
-      <a class="nhsuk-back-link__link" href="../add-hpv/review-hpv-vaccination-2">
-        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
-        </svg>
-        Back to review HPV vaccination</a>
-    </div>
-    {% elif data['reviewHPV2'] === 'True' %}
-    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
       <a class="nhsuk-back-link__link" href="../add-hpv/review-edit-hpv-vaccination">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
@@ -45,7 +37,6 @@
         Back to review HPV vaccination</a>
     </div>
     {% else %}
-
     <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
       <a class="nhsuk-back-link__link" href="../patient-summary-7">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -56,15 +47,17 @@
   {% endif %}
   {% endif %}
 
-<div class="nhsuk-card nhsuk-card--feature">
-  <div class="nhsuk-card__content nhsuk-card__content--feature">
+<div class="nhsuk-panel-with-label">
     {% include '../../components/hpv-patient.html' %}
 
-  <h1 class="nhsuk-heading-l">Edit HPV vaccination</h1>
+  <h1 class="nhsuk-heading-l">Review HPV vaccination</h1>
 
 
-    <form action="/v12/patient/add-hpv/review-edit-hpv-vaccination?hpvEdited=True" method="post">
-
+    <form action="/v12/patient/add-hpv/edit-hpv-vaccination?hpvEdited=True&reviewHPV=True" method="post">
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Edit HPV vaccination
+      </button>
+  </form>
       <div class="nhsuk-form-group">
       <fieldset class="nhsuk-fieldset" aria-describedby="dateGiven-hint" role="group">
         <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -227,19 +220,14 @@
         <textarea class="nhsuk-textarea" id="hpvComments" value="{{ data['hpvComments'] or "NA"}}" name="hpvComments" rows="5"></textarea>
       </div>
 
+      {% include '../../components/comments-timeline-hpv.html' %}
 
-
-        <button class="nhsuk-button nhsuk-button--ers" type="submit">
-          Continue
-        </button>
-    </form>
 
     <p><a href="../patient-summary-7">Exit without saving</a></p>
 
   </div>
 
   </div>
-</div>
 </div>
 
 
