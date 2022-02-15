@@ -19,7 +19,8 @@
         Back to step 1 - Choose a reason to {{ "delay" if data.role == 'csas' else "defer" }} the patient</a>
     </div>
 
-    <div class="nhsuk-panel-with-label">
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
       {% include '../components/pnl-patient-2.html' %}
 
       {% if data.role == 'csas' %}

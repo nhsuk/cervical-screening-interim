@@ -28,17 +28,18 @@ NHS Cervical screening management system
     }) }}
 
     <h1 class="nhsuk-heading-l">Outbound transfer report</h1>
-    <div class="nhsuk-panel-with-label">
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
     {% include '../../components/report-transfer-patient.html' %}
 
 
 
     <form action="report-outbound-transfer-complete" method="post">
 
-      <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
-        <li class="nhsuk-panel"> <p>Transfer for Ella Depetris confirmed </p></li>
+      <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
+     <p>Transfer for Ella Depetris confirmed </p></li>
 
-      </ul>
+      </div>
 
       <button class="nhsuk-button nhsuk-button--ers" type="submit">Back to transfer list</button>
   </div>

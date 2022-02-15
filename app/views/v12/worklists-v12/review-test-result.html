@@ -59,12 +59,12 @@ NHS Cervical screening management system
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
-    <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
-      <li class="nhsuk-panel"> <p><strong>Test results have duplicate slide numbers. </strong></p>
+    <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
+     <p><strong>Test results have duplicate slide numbers. </strong></p>
       <p>Review both test results and choose which to use.</p>
       <p>The original result is valid and already saved to a patient. The duplicate result has invalid or missing patient data. This would need resolving before the test result can be added to the a patient.</p>
       </li>
-    </ul>
+    </div>
  </div>
 </div>
 
@@ -72,7 +72,8 @@ NHS Cervical screening management system
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-one-half">
- <div class="nhsuk-panel-with-label">
+ <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
 
       {% include '../components/patient-result-duplicate-fraser-dup.html' %}
 
@@ -193,7 +194,8 @@ NHS Cervical screening management system
 
 
 <div class="nhsuk-grid-column-one-half">
- <div class="nhsuk-panel-with-label">
+ <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
 
    {% include '../components/patient-result-duplicate-fraser-og.html' %}
 

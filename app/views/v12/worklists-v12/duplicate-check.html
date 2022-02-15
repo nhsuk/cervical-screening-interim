@@ -62,12 +62,12 @@ NHS Cervical screening management system
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-three-quarters">
-     <ul class="nhsuk-inset-text nhsuk-comment-container nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
-       <li class="nhsuk-panel"> <p><strong>Test results have duplicate slide numbers. </strong></p>
+     <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--failure">
+     <p><strong>Test results have duplicate slide numbers. </strong></p>
        <p>Review both test results and choose which to use.</p>
          <p>The duplicate result contains invalid or missing patient and test result data. The original result contains invalid or missing test result data. They would need resolving before a test result can be added to the patient.</p>
        </li>
-     </ul>
+     </div>
   </div>
  </div>
 
@@ -75,7 +75,8 @@ NHS Cervical screening management system
 
  <div class="nhsuk-grid-row">
    <div class="nhsuk-grid-column-one-half">
-  <div class="nhsuk-panel-with-label">
+  <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
 
        {% include '../components/patient-result-duplicate-simmons-dup.html' %}
 
@@ -197,7 +198,8 @@ NHS Cervical screening management system
 
 
  <div class="nhsuk-grid-column-one-half">
-  <div class="nhsuk-panel-with-label">
+  <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
 
     {% include '../components/patient-result-duplicate-simmons-og.html' %}
 

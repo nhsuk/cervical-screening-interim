@@ -6,7 +6,7 @@
   {% set resultDate = data.pnl_patient.results[0].result_date | returnDateFormat + " " + data.pnl_patient.results[0].result_date | returnTimeDiff %}
 {% endif %}
   
-  <h3 class="nhsuk-panel-with-label__label">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }} 
+  <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }} 
   <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.pnl_patient.nhs_number | formatNHSNumber }}</span></h3>
 
  

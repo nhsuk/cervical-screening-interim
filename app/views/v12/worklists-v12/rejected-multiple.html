@@ -55,8 +55,8 @@ NHS Cervical screening management system
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
-    <ul class="nhsuk-inset-text nhsuk-comment-container-bullet nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
-      <li class="nhsuk-panel"> <strong>This test result has multiple errors.</strong>
+    <div class="nhsuk-inset-text-bullet nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
+     <strong>This test result has multiple errors.</strong>
       <p>
         <ul>
           <li> Invalid test date </li>
@@ -64,7 +64,7 @@ NHS Cervical screening management system
         </ul>
       </p>
       <p> All letters and notifications will be paused for this patient until the result is resolved.<br>Time recieved: 08 August 2021, 09:30am </span></li>
-    </ul>
+    </div>
  </div>
 </div>
 
@@ -72,7 +72,8 @@ NHS Cervical screening management system
       
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
- <div class="nhsuk-panel-with-label">
+ <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
     
       {% include '../components/patient-result-2.html' %} 
      
