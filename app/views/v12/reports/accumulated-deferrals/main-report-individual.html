@@ -30,39 +30,27 @@ NHS Cervical screening management system
 
 
 
-      {% set ccgName %}
-        {% if data['enterCCGName'] %}
-           {{ data['enterCCGName'] }}
-      {% else %}
-           NHS Hampshire, Southampton and Isle of Wight clinical commissioning group (D9OV)
-        {% endif %}
-      {% endset %}
-
 
          <h1 class="nhsuk-heading-l">
            <span class="nhsuk-caption-m">
                   Accumulated deferrals report
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
-              Accumulated deferrals for {{ ccgName }} between
-              <!-- {% if (data['accDefDateGiven1-day']) and (data['accDefDateGiven1-month']) and (data['accDefDateGiven1-year']) %}
-                {{ data['accDefDateGiven1-day'] }}-{{ data['accDefDateGiven1-month'] }}-{{ data['accDefDateGiven1-year'] }}
-              {% else %} -->
-                20 December 2021
-              <!-- {% endif %} -->
-              and
-              <!-- {% if (data['accDefDateGiven2-day']) and (data['accDefDateGiven2-month']) and (data['accDefDateGiven2-year']) %}
-                {{ data['accDefDateGiven2-day'] }}-{{ data['accDefDateGiven2-month'] }}-{{ data['accDefDateGiven2-year'] }}
-              {% else %} -->
-                20 January 2022
-              <!-- {% endif %} -->
+              Accumulated deferrals for NHS Hampshire, Southampton and Isle of Wight clinical commissioning group (D9OV) between 20 December 2021 and 20 January 2022
          </h1>
 
-                  <form action="/images/accumulated-deferrals-individual-ccg.csv" method="get">
+                  <form action="/images/accumulated-deferrals-individual-ccg-2.csv" method="get">
                     <button class="nhsuk-button nhsuk-button--ers" type="submit">
                       Download full report CSV
                     </button>
                   </form>
+
+                  <form action="/images/accumulated-deferrals-summary-individual-ccg.csv" method="get">
+                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
+                    Download summary report CSV
+                  </button>
+                </form>
+
 
                   <table role="table" class="nhsuk-table-responsive">
                     <caption class="nhsuk-table__caption">Accumulated deferrals for all clinical commissioning groups</caption>
@@ -72,10 +60,10 @@ NHS Cervical screening management system
                           Clinical commissioning group name (code)
                         </th>
                         <th role="columnheader" class="" scope="col">
-                          Number of patients deferred 2 or more consecutive times (within 36 months or more)
+                          Patients deferred 2 consecutive times over a period of 36 months
                         </th>
                         <th role="columnheader" class="" scope="col">
-                        Number of patients deferred 3 or more consecutive times
+                        Patients deferred 3 or more consecutive times
                         </th>
                       </tr>
                     </thead>

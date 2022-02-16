@@ -19,8 +19,9 @@
         </svg>
         Back to step 6 - Review test</a>
     </div>
-  <div class="nhsuk-panel-with-label">
-    <h3 class="nhsuk-panel-with-label__label">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }}
+  <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
+        <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }}
     <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.pnl_patient.nhs_number | formatNHSNumber }}</span></h3>
 
     <div class="nhsuk-u-reading-width">

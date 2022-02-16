@@ -1,0 +1,395 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/v12/reports/lab-file-report/report-lab-files-matched">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back to choose a date range</a>
+</div>
+<span class="nhsuk-caption-m">Results outside cut off report</span>
+
+  <h1 id="" class="nhsuk-heading-l">Results outside cut off between 04 January 2022 and 20 January 2022 for Gateshead</h1>
+
+
+
+ <a class ="nhsuk-button--ers" href="" download>Download report</a>
+
+
+   <br>
+
+
+
+
+   <div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption"></caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" scope="col" width="230">
+           File name
+           </th>
+         <th role="columnheader" scope="col" width="280">
+           NHS number
+          </th>
+          <th role="columnheader" scope="col" width="200">
+            Name
+          </th>
+         
+          <th role="columnheader" scope="col" width="330">
+            Test date
+          </th>
+          <th role="columnheader" scope="col" width="200">
+           Result code
+          </th>
+        
+          <th role="columnheader" scope="col" width="170">
+          Action code
+          </th>
+          <th role="columnheader" scope="col" width="170">
+           HPV code
+           </th>
+          <th role="columnheader" scope="col" width="150">
+          HPV primary
+          </th>
+
+          <th role="columnheader" scope="col" width="200">
+           Sending lab name and national code
+          </th><th role="columnheader" scope="col" width="170">
+          Sender code
+          </th>
+          
+        </tr>
+      </thead>
+
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">B00200/01.csv</td>
+        <td class="nhsuk-table__cell">999 123 4568</td>
+
+
+           <td class="nhsuk-table__cell">Rachel Burrows</td>
+           <td class="nhsuk-table__cell ">13-Jan-2022
+          </td>
+            <td class="nhsuk-table__cell ">X</td>
+
+          <td class="nhsuk-table__cell ">R
+           </td>
+           <td class="nhsuk-table__cell ">0</td>
+           <td class="nhsuk-table__cell ">Yes</td>
+            <td class="nhsuk-table__cell ">Gateshead 
+              <span class="nhsuk-table__cell--hint">60540</span>
+            </td>
+             <td class="nhsuk-table__cell ">000071</td>
+            
+             </tr>
+
+             <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">B00200/01.csv</td>
+              <td class="nhsuk-table__cell">999 123 4568</td>
+      
+      
+                 <td class="nhsuk-table__cell">Ashar Iqbal</td>
+           
+                 <td class="nhsuk-table__cell ">15-Jan-2022
+                </td>
+                  <td class="nhsuk-table__cell ">3</td>
+      
+                <td class="nhsuk-table__cell ">R
+                 </td>
+                 <td class="nhsuk-table__cell ">9</td>
+                 <td class="nhsuk-table__cell ">No</td>
+                  <td class="nhsuk-table__cell ">Gateshead 
+                    <span class="nhsuk-table__cell--hint">60540</span>
+                  </td>
+                   <td class="nhsuk-table__cell ">000134</td>
+                
+                   </tr>
+                   
+
+                   <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">C02441/01.csv</td>
+                    <td class="nhsuk-table__cell">999 123 4568</td>
+            
+            
+                       <td class="nhsuk-table__cell">Aysha King</td>
+                    
+                       <td class="nhsuk-table__cell ">15-Jan-2022
+                      </td>
+                        <td class="nhsuk-table__cell ">2</td>
+            
+                      <td class="nhsuk-table__cell ">A
+                       </td>
+                       <td class="nhsuk-table__cell ">0</td>
+                       <td class="nhsuk-table__cell ">Yes</td>
+                        <td class="nhsuk-table__cell ">Gateshead 
+                          <span class="nhsuk-table__cell--hint">60540</span>
+                        </td>
+                         <td class="nhsuk-table__cell ">001333</td>
+                       
+                         </tr>
+
+
+                   <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">B2222/01.csv</td>
+                    <td class="nhsuk-table__cell">999 123 4568</td>
+            
+            
+                       <td class="nhsuk-table__cell">Harriet Curt</td>
+                
+                       <td class="nhsuk-table__cell ">15-Jan-2022
+                      </td>
+                        <td class="nhsuk-table__cell ">2</td>
+            
+                      <td class="nhsuk-table__cell ">A
+                       </td>
+                       <td class="nhsuk-table__cell ">0</td>
+                       <td class="nhsuk-table__cell ">Yes</td>
+                        <td class="nhsuk-table__cell ">Gateshead 
+                          <span class="nhsuk-table__cell--hint">60540</span>
+                        </td>
+                         <td class="nhsuk-table__cell ">001333</td>
+                       
+                         </tr>
+
+
+                   <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">B00200/01.csv</td>
+                    <td class="nhsuk-table__cell">999 123 4568</td>
+            
+            
+                       <td class="nhsuk-table__cell">Melinda Weir</td>
+                      
+                       <td class="nhsuk-table__cell ">15-Jan-2022
+                      </td>
+                        <td class="nhsuk-table__cell ">7</td>
+            
+                      <td class="nhsuk-table__cell ">R
+                       </td>
+                       <td class="nhsuk-table__cell ">9</td>
+                       <td class="nhsuk-table__cell ">Yes</td>
+                        <td class="nhsuk-table__cell ">Gateshead 
+                          <span class="nhsuk-table__cell--hint">60540</span>
+                        </td>
+                         <td class="nhsuk-table__cell ">001333</td>
+                        
+                         </tr>
+                   
+
+                   <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">B00200/01.csv</td>
+                    <td class="nhsuk-table__cell">999 123 4568</td>
+            
+            
+                       <td class="nhsuk-table__cell">Yasmin Akbar</td>
+                   
+                       <td class="nhsuk-table__cell ">15-Jan-2022
+                      </td>
+                        <td class="nhsuk-table__cell ">X</td>
+            
+                      <td class="nhsuk-table__cell ">A
+                       </td>
+                       <td class="nhsuk-table__cell ">0</td>
+                       <td class="nhsuk-table__cell ">Yes</td>
+                        <td class="nhsuk-table__cell ">Gateshead 
+                          <span class="nhsuk-table__cell--hint">60540</span>
+                        </td>
+                         <td class="nhsuk-table__cell ">001333</td>
+                        
+                         </tr>
+
+                         <tr role="row" class="nhsuk-table__row">
+                          <td class="nhsuk-table__cell">B00200/01.csv</td>
+                          <td class="nhsuk-table__cell">999 123 4568</td>
+                  
+                  
+                             <td class="nhsuk-table__cell">Paula Espinosa</td>
+                      
+                             <td class="nhsuk-table__cell ">16-Jan-2022
+                            </td>
+                              <td class="nhsuk-table__cell ">X</td>
+                  
+                            <td class="nhsuk-table__cell ">A
+                             </td>
+                             <td class="nhsuk-table__cell ">0</td>
+                             <td class="nhsuk-table__cell ">Yes</td>
+                              <td class="nhsuk-table__cell ">Gateshead 
+                                <span class="nhsuk-table__cell--hint">60540</span>
+                              </td>
+                               <td class="nhsuk-table__cell ">001142</td>
+                              
+                               </tr>
+                   
+                               <tr role="row" class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">B11111/01.csv</td>
+                                <td class="nhsuk-table__cell">999 123 4568</td>
+                        
+                        
+                                   <td class="nhsuk-table__cell">Betty Harlem</td>
+                                 
+                                   <td class="nhsuk-table__cell ">16-Jan-2022
+                                  </td>
+                                    <td class="nhsuk-table__cell ">4</td>
+                        
+                                  <td class="nhsuk-table__cell ">R
+                                   </td>
+                                   <td class="nhsuk-table__cell ">9</td>
+                                   <td class="nhsuk-table__cell ">Yes</td>
+                                    <td class="nhsuk-table__cell ">Gateshead 
+                                      <span class="nhsuk-table__cell--hint">60540</span>
+                                    </td>
+                                     <td class="nhsuk-table__cell ">001555</td>
+                                   
+                                     </tr>
+
+
+                               <tr role="row" class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">B00200/01.csv</td>
+                                <td class="nhsuk-table__cell">999 123 4568</td>
+                        
+                        
+                                   <td class="nhsuk-table__cell">Crystal Datag</td>
+                                 
+                                   <td class="nhsuk-table__cell ">16-Jan-2022
+                                  </td>
+                                    <td class="nhsuk-table__cell ">X</td>
+                        
+                                  <td class="nhsuk-table__cell ">A
+                                   </td>
+                                   <td class="nhsuk-table__cell ">0</td>
+                                   <td class="nhsuk-table__cell ">Yes</td>
+                                    <td class="nhsuk-table__cell ">Gateshead 
+                                      <span class="nhsuk-table__cell--hint">60540</span>
+                                    </td>
+                                    <td class="nhsuk-table__cell ">001555</td>
+                                     </tr>
+
+
+                               <tr role="row" class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">B13455/02.csv</td>
+                                <td class="nhsuk-table__cell">999 123 4568</td>
+                        
+                        
+                                   <td class="nhsuk-table__cell">Sofia Limon</td>
+                                 
+                                   <td class="nhsuk-table__cell ">16-Jan-2022
+                                  </td>
+                                    <td class="nhsuk-table__cell ">2</td>
+                        
+                                  <td class="nhsuk-table__cell ">R
+                                   </td>
+                                   <td class="nhsuk-table__cell ">9</td>
+                                   <td class="nhsuk-table__cell ">Yes</td>
+                                    <td class="nhsuk-table__cell ">Gateshead 
+                                      <span class="nhsuk-table__cell--hint">60540</span>
+                                    </td>
+                                     <td class="nhsuk-table__cell ">001555</td>
+                                   
+                                     </tr>
+
+
+                               <tr role="row" class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">B00200/01.csv</td>
+                                <td class="nhsuk-table__cell">999 123 3333</td>
+                        
+                        
+                                   <td class="nhsuk-table__cell">Christine Furmin</td>
+                                   
+                                   <td class="nhsuk-table__cell ">16-Jan-2022
+                                  </td>
+                                    <td class="nhsuk-table__cell ">X</td>
+                        
+                                  <td class="nhsuk-table__cell ">A
+                                   </td>
+                                   <td class="nhsuk-table__cell ">0</td>
+                                   <td class="nhsuk-table__cell ">Yes</td>
+                                    <td class="nhsuk-table__cell ">Gateshead 
+                                      <span class="nhsuk-table__cell--hint">60540</span>
+                                    </td>
+                                     <td class="nhsuk-table__cell ">001555</td>
+                                
+                                     </tr>
+
+
+                               <tr role="row" class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">B01111/01.csv</td>
+                                <td class="nhsuk-table__cell">999 123 4568</td>
+                        
+                        
+                                   <td class="nhsuk-table__cell">Taylor Mift</td>
+                                  
+                                   <td class="nhsuk-table__cell ">16-Jan-2022
+                                  </td>
+                                    <td class="nhsuk-table__cell ">X</td>
+                        
+                                  <td class="nhsuk-table__cell ">A
+                                   </td>
+                                   <td class="nhsuk-table__cell ">0</td>
+                                   <td class="nhsuk-table__cell ">Yes</td>
+                                    <td class="nhsuk-table__cell ">Gateshead 
+                                      <span class="nhsuk-table__cell--hint">60540</span>
+                                    </td>
+                                     <td class="nhsuk-table__cell ">001555</td>
+                                     
+                                    
+                                     </tr>
+      </tbody>
+    </table>
+
+
+    <nav role="navigation" aria-label="Pagination">
+      <ul class="screening-pagination">
+        <li class="screening-pagination-item" aria-current="page">
+          <span class="screeing-pagination-current">
+            1</span>
+          </a>
+        </li>
+        <li class="screening-pagination-item">
+          <a href="">
+            <span>2</span>
+          </a>
+        </li>
+        <li class="screening-pagination-item">
+          <a href="">
+            <span>3</span>
+          </a>
+        </li>
+        <li class="screening-pagination-item">
+          <a href="">
+            <span>Next >></span>
+          </a>
+        </li>
+        <p class="screening-pagination-showing">Showing 12 of 63 results</p>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+   
+
+
+
+
+{% endblock %}
