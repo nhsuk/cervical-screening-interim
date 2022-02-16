@@ -25,16 +25,16 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
 
     <div class="nhsuk-back-link">
-      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step8">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step9">
         <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
           <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
         </svg>
-        Go back to Step 8: Define patient details</a>
+        Go back to Step 9: File output</a>
     </div>
     
-    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 9 of 10</span>
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 10 of 10</span>
 
-    <form action="CSSE-create-step10" method="post">
+    <form action="CSSE-create-step11-download" method="post">
       <div class="nhsuk-form-group">
 
         <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="review-report">
@@ -67,20 +67,37 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="review-report">
           <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
             <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
-              Review report
+              View enquiry details
             </h1>
           </legend>
 
           <p class="nhsuk-body nhsuk-u-margin-bottom-7">
-            You can check the sections you have filled in and make changes
+            You can use this page to check and edit any of the parameters before saving the enquiry and downloading the report
           </p>
 
 
           <dl class="nhsuk-summary-list" id="enquiry-name">
 
-            <h2 class="nhsuk-heading-m">
-              Step 1: Enquiry name
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 1: Enquiry name
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step1">
+                  Edit<span class="nhsuk-u-visually-hidden"> enquiry name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -92,9 +109,7 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step1">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
+
           
               </dd>
           
@@ -105,34 +120,49 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-location-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 2: Define location details
-            </h2>
 
-            <!--<div class="nhsuk-summary-list__row">
+            <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Area code
+                <h2 class="nhsuk-heading-m">
+                  Step 2: Define location details
+                </h2>
               </dt>
               <dd class="nhsuk-summary-list__value">
-                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
-                  {% for item in data['post-code-list'] %}
-                <li>{{ item }}</li>
-              {% else %}
-                <li>BAA, BIR</li>
-              {% endfor %}
-                </ul>
-                {{ data['post-code-data'] }}
+ 
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
           
                 <a href="CSSE-create-step2">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                  Edit<span class="nhsuk-u-visually-hidden"> location details</span>
                 </a>
           
               </dd>
           
-            </div>-->
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                CCG code
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  {% for item in data['ccg-code-list'] %}
+                <li>{{ item }}</li>
+              {% else %}
+                <li>02P, 99E, 06H</li>
+              {% endfor %}
+                </ul>
+                {{ data['ccg-code-data'] }}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -151,9 +181,7 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step2">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
+
           
               </dd>
           
@@ -164,9 +192,26 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-patient-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 3: Define patient details
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 3: Define patient details
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+ 
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step3">
+                  Edit<span class="nhsuk-u-visually-hidden"> patient details</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -183,10 +228,6 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -208,10 +249,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -231,10 +268,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -248,10 +281,6 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -270,10 +299,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step3">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -284,13 +309,30 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-recall-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 4: Define recall details
-            </h2>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Participant status
+                <h2 class="nhsuk-heading-m">
+                  Step 4: Define recall details
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step4">
+                  Edit<span class="nhsuk-u-visually-hidden"> recall details</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Recall type
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
@@ -305,17 +347,13 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step4">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Episode status
+                Recall status
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
@@ -330,10 +368,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step4">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -343,9 +377,26 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-communication-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 5: Define communication details
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 5: Define communication details
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step5">
+                  Edit<span class="nhsuk-u-visually-hidden"> communication details</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -363,11 +414,7 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step5">
-                  Change<span class="nhsuk-u-visually-hidden"> notification type</span>
-                </a>
-          
+
               </dd>
           
             </div>
@@ -381,11 +428,7 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step5">
-                  Change<span class="nhsuk-u-visually-hidden"> notification date range</span>
-                </a>
-          
+ 
               </dd>
           
             </div>
@@ -407,10 +450,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step5">
-                  Change<span class="nhsuk-u-visually-hidden"> letter code</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -422,9 +461,26 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-test">
 
-            <h2 class="nhsuk-heading-m">
-              Step 6: Define test type
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 6: Define test type
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+ 
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step6">
+                  Edit<span class="nhsuk-u-visually-hidden"> test type</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -443,9 +499,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -468,9 +521,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -493,10 +543,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step6">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -507,9 +553,26 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-test-result-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 7: Define test result details
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 7: Define test result details
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+ 
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step7">
+                  Edit<span class="nhsuk-u-visually-hidden"> result details</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -524,10 +587,6 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step7">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -546,9 +605,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step7">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -570,11 +626,7 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step7">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
+
               </dd>
           
             </div>
@@ -585,9 +637,26 @@ NHS Cervical screening management system
 
           <dl class="nhsuk-summary-list" id="define-sender-details">
 
-            <h2 class="nhsuk-heading-m">
-              Step 8: Define lab and sender details
-            </h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 8: Define lab and sender details
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step8">
+                  Edit<span class="nhsuk-u-visually-hidden"> lab and sender details</span>
+                </a>
+          
+              </dd>
+          
+            </div>
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
@@ -606,10 +675,6 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
-          
-                <a href="CSSE-create-step8">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
           
               </dd>
           
@@ -634,10 +699,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step8">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -661,10 +722,6 @@ NHS Cervical screening management system
           
               <dd class="nhsuk-summary-list__actions">
           
-                <a href="CSSE-create-step8">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
-                </a>
-          
               </dd>
           
             </div>
@@ -685,14 +742,120 @@ NHS Cervical screening management system
               </dd>
           
               <dd class="nhsuk-summary-list__actions">
+        
           
-                <a href="CSSE-create-step8">
-                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+              </dd>
+          
+            </div>
+
+
+
+
+          
+          
+          </dl>
+
+          <dl class="nhsuk-summary-list" id="file-output">
+
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                <h2 class="nhsuk-heading-m">
+                  Step 9: File output
+                </h2>
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="CSSE-create-step9">
+                  Edit<span class="nhsuk-u-visually-hidden"> file output</span>
                 </a>
           
               </dd>
           
             </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Patient data
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>All fields</li>
+
+                </ul>
+
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Practice data
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>CCG code</li>
+                  <li>GP practice code</li>
+
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Recall data
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>Notification date</li>
+                  <li>Non responder status</li>
+                  <li>Reason for ceasing</li>
+                  <li>Reason for deferring</li>
+
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Test data
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>Prior invitation date</li>
+                  <li>Anticipated delivery date</li>
+
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+        
+          
+              </dd>
+          
+            </div>
+
+
+
+
           
           
           </dl>
@@ -703,9 +866,6 @@ NHS Cervical screening management system
 
       </div>
       <span>
-        <!--<a class="nhsuk-button  nhsuk-button--secondary nhsuk-button--ers nhsuk-u-margin-right-6" href="csse-duplicate-enquiry">
-          Duplicate
-        </a>-->
 
         <button class="nhsuk-button nhsuk-button--ers" type="submit">
           Submit and continue

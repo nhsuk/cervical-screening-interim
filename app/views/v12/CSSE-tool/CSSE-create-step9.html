@@ -490,7 +490,7 @@ NHS Cervical screening management system
     
     
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-dot" value="Date of test">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-dot" value="Date of test" checked {{ checked("test-data", "Date of test") }}>
                     <label for="test-dot" class="nhsuk-label nhsuk-checkboxes__label">
                       Date of test
                     </label>
@@ -504,21 +504,21 @@ NHS Cervical screening management system
                   </div>-->
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-nlc" value="National lab code">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-nlc" value="National code" checked {{ checked("test-data", "National code") }}>
                     <label for="test-nlc" class="nhsuk-label nhsuk-checkboxes__label">
-                      National lab code
+                      National code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-sn" value="Slide number">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-sn" value="Slide number" checked {{ checked("test-data", "Slide number") }}>
                     <label for="test-sn" class="nhsuk-label nhsuk-checkboxes__label">
                       Slide number
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-pnd" value="Prior notification date">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-pnd" value="Prior notification date" checked {{ checked("test-data", "Prior notification date") }}>
                     <label for="test-pnd" class="nhsuk-label nhsuk-checkboxes__label">
                       Prior notification date
                     </label>
@@ -532,56 +532,85 @@ NHS Cervical screening management system
                   </div>-->
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-hpv-code" value="HPV code">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-hpv-code" value="HPV code" checked {{ checked("test-data", "HPV code") }}>
                     <label for="test-hpv-code" class="nhsuk-label nhsuk-checkboxes__label">
                       HPV code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-pid" value="Prior invitation date">
-                    <label for="test-pid" class="nhsuk-label nhsuk-checkboxes__label">
-                      Prior invitation date
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-rc" value="Result code">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-rc" value="Result code" checked {{ checked("test-data", "Result code") }}>
                     <label for="test-rc" class="nhsuk-label nhsuk-checkboxes__label">
                       Result code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-sc" value="Sender code">
-                    <label for="test-sc" class="nhsuk-label nhsuk-checkboxes__label">
-                      Sender code
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-tid" value="Test input date">
-                    <label for="test-tid" class="nhsuk-label nhsuk-checkboxes__label">
-                      Test input date
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-ac" value="Action code">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-ac" value="Action code" checked {{ checked("test-data", "Action code") }}>
                     <label for="test-ac" class="nhsuk-label nhsuk-checkboxes__label">
                       Action code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-soc" value="Source code">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-hpti" value="HPV primary test indicator" checked {{ checked("test-data", "HPV primary test indicator") }}>
+                    <label for="test-hpti" class="nhsuk-label nhsuk-checkboxes__label">
+                      HPV primary test indicator
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-repm" value="Repeat months" checked {{ checked("test-data", "Repeat months") }}>
+                    <label for="test-repm" class="nhsuk-label nhsuk-checkboxes__label">
+                      Repeat months
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-spco" value="Screening PCO" checked {{ checked("test-data", "Screening PCO") }}>
+                    <label for="test-spco" class="nhsuk-label nhsuk-checkboxes__label">
+                      Screening PCO
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-ddate" value="Anticipated delivery date" checked {{ checked("test-data", "Anticipated delivery date") }}>
+                    <label for="test-ddate" class="nhsuk-label nhsuk-checkboxes__label">
+                      Anticipated delivery date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-sc" value="Sender code" checked {{ checked("test-data", "Sender code") }}>
+                    <label for="test-sc" class="nhsuk-label nhsuk-checkboxes__label">
+                      Sender code
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-tid" value="Test input date" checked {{ checked("test-data", "Test input date") }}>
+                    <label for="test-tid" class="nhsuk-label nhsuk-checkboxes__label">
+                      Test input date
+                    </label>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-pid" value="Prior invitation date" checked {{ checked("test-data", "Prior invitation date") }}>
+                    <label for="test-pid" class="nhsuk-label nhsuk-checkboxes__label">
+                      Prior invitation date
+                    </label>
+                  </div>
+
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-soc" value="Source code" checked {{ checked("test-data", "Source code") }}>
                     <label for="test-soc" class="nhsuk-label nhsuk-checkboxes__label">
                       Source code
                     </label>
                   </div>
 
                   <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-st" value="Source type">
+                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-st" value="Source type" checked {{ checked("test-data", "Source type") }}>
                     <label for="test-st" class="nhsuk-label nhsuk-checkboxes__label">
                       Source type
                     </label>
@@ -594,33 +623,6 @@ NHS Cervical screening management system
                     </label>
                   </div>-->
 
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-repm" value="Repeat months">
-                    <label for="test-repm" class="nhsuk-label nhsuk-checkboxes__label">
-                      Repeat months
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-hpti" value="HPV primary test indicator">
-                    <label for="test-hpti" class="nhsuk-label nhsuk-checkboxes__label">
-                      HPV primary test indicator
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-spco" value="Screening PCO">
-                    <label for="test-spco" class="nhsuk-label nhsuk-checkboxes__label">
-                      Screening PCO
-                    </label>
-                  </div>
-
-                  <div class="nhsuk-checkboxes__item">
-                    <input type="checkbox" class="nhsuk-checkboxes__input" name="test-data" id="test-ddate" value="Anticipated delivery date">
-                    <label for="test-ddate" class="nhsuk-label nhsuk-checkboxes__label">
-                      Anticipated delivery date
-                    </label>
-                  </div>
     
                 </div>
             
