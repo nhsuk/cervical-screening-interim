@@ -3,6 +3,103 @@
 {% block pageScripts %}
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
+<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
+<script>
+  const data = [
+    {
+      code: 'BD',
+      name: 'Bedfordshire',
+    },
+    {
+      code: 'BIK',
+      name: 'Wirral',
+    },
+    {
+      code: 'BRS',
+      name: 'Avon',
+    },
+    {
+      code: 'CB',
+      name: 'Cambridgeshire',
+    },
+    {
+      code: 'CH',
+      name: 'Cheshire',
+    },
+    {
+      code: 'CU',
+      name: 'Cumbria',
+    },
+    {
+      code: 'EX',
+      name: 'Essex',
+    },
+    {
+      code: 'GMK',
+      name: 'Tameside',
+    },
+    {
+      code: 'HT',
+      name: 'Hertfordshire',
+    },
+    {
+      code: 'KC',
+      name: 'Kent',
+    },
+    {
+      code: 'LA',
+      name: 'Lancashire',
+    },
+    {
+      code: 'LIP',
+      name: 'Liverpool',
+    },
+    {
+      code: 'MAN',
+      name: 'Manchester',
+    },
+    {
+      code: 'NF',
+      name: 'Norfolk',
+    },
+    {
+      code: 'ROC',
+      name: 'Bury and Rochdale ',
+    },
+    {
+      code: 'SLF',
+      name: 'Salford & Trafford',
+    },
+    {
+      code: 'SM',
+      name: 'Somerset',
+    },
+    {
+      code: 'SOP',
+      name: 'Sefton',
+    },
+    {
+      code: 'SPT',
+      name: 'Stockport',
+    },
+    {
+      code: 'BIR',
+      name: 'Birmingham',
+    },
+    {
+      code: 'LDS',
+      name: 'Leeds',
+    },
+    {
+      code: 'WAK',
+      name: 'Wakefield',
+    },
+  ];
+  createSuggestionDropdown(data, 'letter-codes');
+</script>
 <style type="text/css" media="screen">
   .nhsuk-header__navigation-item:nth-child(4) {
     border-bottom: 4px solid #d8dde0;
@@ -45,7 +142,7 @@ NHS Cervical screening management system
 
   <form>
 
-    <div class="nhsuk-form-group">
+    <div class="nhsuk-form-group nhsuk-u-margin-bottom-5">
 
       <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
@@ -78,9 +175,9 @@ NHS Cervical screening management system
     </div>
 
 
-    <h3 class="nhsuk-heading-xs">Add date range</h3>
+    <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Add date range</h3>
 
-          <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
 
           <div class="nhsuk-grid-column-one-third">
 
@@ -178,20 +275,28 @@ NHS Cervical screening management system
 
 </fieldset>
 
-<div class="nhsuk-form-group">
+<fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
+  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+    Enter area code or name
+  </legend>
 
-  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-      <h3 class="nhsuk-fieldset__heading">
-        Choose area
-      </h3>
-    </legend>
 
-  </div>
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
+          <span id="" class="nhsuk-hint" style="">
+            Also known as NHAIS cipher or NHAIS box. For example, BD or LNA.
+          </span>
+          <ul id="letter-code-list" class="nhsuk-list">
+
+          </ul>
+        <div id="letter-codes"></div>
+      </div>
+</fieldset>
+<div style="padding: 10px;"></div>
 
           <form action="#" method="post">
             <button class="nhsuk-button nhsuk-button--ers" type="submit">
-              DDownload letter types CSV
+              Download letter types CSV
             </button>
         </form>
 
