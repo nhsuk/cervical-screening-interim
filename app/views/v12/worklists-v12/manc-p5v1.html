@@ -66,36 +66,38 @@ function checkSpecialKeys(e) {
     <div class="nhsuk-grid-column-full">
 
 
-<div class="nhsuk-panel nhsuk-promo">
-<h3>Previous letters sent to:</h3>
-      <dl class="nhsuk-summary-list--no-border nhsuk-body-m">
+      <div class="nhsuk-card nhsuk-promo">
+        <div class="nhsuk-card__content">
+  <h3>Previous letters sent to:</h3>
+        <dl class="nhsuk-summary-list--no-border nhsuk-body-m">
 
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-           20-08-18
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-    22 Norwood Grove
-      <br>
-      Headingley
-      <br>
-       LS6 5JJ
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+            20-08-18
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+      22 Norwood Grove
+        <br>
+        Headingley
+        <br>
+        LS6 5JJ
 
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-            20-08-15
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-      56 Acorn Road
-      <br>
-      Bramley
-      <br>
-       LS22 9GD
-          </dd>
+          </div>
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              20-08-15
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+        56 Acorn Road
+        <br>
+        Bramley
+        <br>
+        LS22 9GD
+            </dd>
 
-        </div>
-      </dl>
+          </div>
+        </dl>
+      </div>
       </div>
 
 
@@ -367,7 +369,7 @@ RG17 8PS
     <ul class="nhsuk-comment-container">
       {% if data.commentsc !=null %}
 
-  <li class="nhsuk-panel"><span class="name">{{ name }}</span> <span class="date"><strong>{{data.date}}</strong></span> {{data.commentsc}}</li>
+  <li class="nhsuk-card"><div class="nhsuk-card__content"><span class="name">{{ name }}</span> <span class="date"><strong>{{data.date}}</strong></span> {{data.commentsc}}</div></li>
 
   {% endif %}
   			</ul>
