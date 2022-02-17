@@ -857,6 +857,49 @@ router.post("/v12/CSSE-tool/CSSE-home-exit-choice", function (req, res) {
   
   });
 
+  // CSSE edit screen exit without saving
+router.post("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-exit-choice", function (req, res) {
+  var exitChoice = req.session.data['edit-exit-enquiry'];
+  
+  if (exitChoice == 'Yes') {
+    res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+  }
+  
+  else {
+    res.redirect("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-name");
+  }
+  
+  });
+
+
+  // CSSE edit screen overwrite enquiry
+  router.post("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-choice", function (req, res) {
+    var saveChoice = req.session.data['overwrite-enquiry'];
+    
+    if (saveChoice == 'Yes') {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-edit-download");
+    }
+    
+    else {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+    }
+    
+    });
+
+  // CSSE duplicate screen enquiry
+  router.post("/v12/CSSE-tool/csse-manage/csse-duplicate-enquiry-choice", function (req, res) {
+    var saveChoice = req.session.data['duplicate-enquiry'];
+    
+    if (saveChoice == 'Yes') {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-duplicate-enquiry-name");
+    }
+    
+    else {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+    }
+    
+    });
+
 // CSSE step 5 branching
 router.post("/v12/CSSE-tool/CSSE-create-step5-route", function (req, res) {
   var stepChoice = req.session.data['comms-type'];
@@ -889,7 +932,7 @@ router.post("/v12/CSSE-tool/CSSE-create-step5-route", function (req, res) {
 router.post('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name', function (req, res) {
   let duplicateCreateName = req.body.duplicateCreateName;
   if (duplicateCreateName) {
-    res.redirect('/v12/csse-tool/csse-manage/csse-duplicate-review?duplicateCreateNameError=')
+    res.redirect('/v12/CSSE-tool/csse-manage/csse-duplicate-download?duplicateCreateNameError=')
   } else {
     var errorURL = "";
     if (duplicateCreateName) {
