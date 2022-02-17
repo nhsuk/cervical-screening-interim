@@ -1,0 +1,630 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
+<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
+<script>
+  const data = [
+    {
+      code: 'PA1',
+      name: 'HPV Primary screening invitation',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA2',
+      name: 'HPV Primary screening reminder',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA3',
+      name: 'HPV Primary screening invitation (participant not registered with GP',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PA4',
+      name: 'HPV Primary screening reminder (participant not registered with GP',
+      recall: 'Invitation letter',
+    },
+    {
+      code: 'PX0A',
+      name: 'HPV negative result with no cytology',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0C',
+      name: 'HPV negative result and ceased for age',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0R',
+      name: 'HPV negative result with early recall (12 or 36 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX0S',
+      name: 'HPV negative result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'PXUS',
+      name: 'Inadequate HPV result (no cytology) with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'PXUR',
+      name: 'Inadequate HPV result (no cytology)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'PX9S',
+      name: 'HPV positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P09R',
+      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with recall (12 or 36 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P09S',
+      name: 'HPV positive, cytology negative and noncervical glandular neoplasia positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P19R',
+      name: 'HPV positive and inadequate cytology result with early recall (3 months)',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P19S',
+      name: 'HPV positive and inadequate cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P39S',
+      name: 'HPV positive and low-grade dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P49S',
+      name: 'HPV positive and high-grade (severe) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P59S',
+      name: 'HPV positive and abnormal squamous cytology result with urgent (2 week) referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P69S',
+      name: 'HPV positive and abnormal endocervical cytology result with urgent (2 week) referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P79S',
+      name: 'HPV positive and high-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P89S',
+      name: 'HPV positive and borderline squamous cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P99S',
+      name: 'HPV positive and borderline endocervical cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P29R',
+      name: 'HPV positive and negative cytology result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P29S',
+      name: 'HPV positive and cytology negative with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'CXNC',
+      name: 'Ceasing due to no cervix',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CUA',
+      name: 'Automatic ceasing due to age after non-response',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CIC',
+      name: 'Ceasing due to informed consent at participant request',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CMC',
+      name: 'Ceasing due to Mental Capacity Act at request of third party',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'CXAN',
+      name: 'Manual ceasing due to age',
+      recall: 'Ceasing letter',
+    },
+    {
+      code: 'K-0A',
+      name: 'Negative self sample',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'K-9R',
+      name: 'Positive self sample',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'K1UH',
+      name: 'First inadequate self sample',
+      recall: '1st inadequate result letter',
+    },
+    {
+      code: 'K2UH',
+      name: 'Second inadequate self sample',
+      recall: '2nd inadequate result letter',
+    },
+    { code: 'K-0C', name: 'Ceased self sample', recall: 'Ceasing letter' },
+    {
+      code: 'P0QS',
+      name: 'Old code: HPV positive, cytology negative and non-cervical glandular neoplasia positive result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P1QR',
+      name: 'Old code: Cytology negative and non-cervical glandular neoplasia positive result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P1QS',
+      name: 'Old code: HPV positive and inadequate cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P2QR',
+      name: 'Old code: HPV positive and negative cytology result with early recall',
+      recall: 'Normal result letter',
+    },
+    {
+      code: 'P3QS',
+      name: 'Old code: Low-grade dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P4QS',
+      name: 'Old code: High-grade (severe) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P5QS',
+      name: 'Old code: Abnormal squamous cytology result with urgent referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P6QS',
+      name: 'Old code: Abnormal endocervical cytology result with urgent referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P7QS',
+      name: 'Old code: High-grade (moderate) dyskaryosis cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P8QS',
+      name: 'Old code: Borderline squamous cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P9QS',
+      name: 'Old code: Borderline endocervical cytology result with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+    {
+      code: 'P2QS',
+      name: 'Old code: Cytology negative with referral to colposcopy',
+      recall: 'Abnormal result letter',
+    },
+  ];
+  createSuggestionDropdown(data, 'letter-codes');
+</script>
+<!--Add letter code script above-->
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="CSSE-create-step4">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to Step 4: Define recall details</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1">Step 5 of 10</span>
+    <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-7">
+        Define communication details
+    </h1>
+
+    <form action="CSSE-create-step6" method="post">
+      <div class="nhsuk-form-group">
+
+
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-notification-type">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body nhsuk-u-margin-bottom-2">
+              What type of notification do you want to refine by?
+            </p>
+            <div class="nhsuk-hint">Select 1 option</div>
+          </legend>
+
+          <div class="nhsuk-radios nhsuk-radios--conditional">
+            
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="none" value="None" checked aria-controls="" aria-expnded="false">
+              <label for="none" class="nhsuk-label nhsuk-radios__label">
+                None
+              </label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-prior-noti-list" value="Prior notification list" {{ checked("comms-notification-type", "Prior notification list") }} aria-controls="expand-prior-noti-list" aria-expnded="false">
+              <label for="comms-prior-noti-list" class="nhsuk-label nhsuk-radios__label">
+                Prior notification list (PNL) of patients due to be invited
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-prior-noti-list">
+              <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
+                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                      Which PNL notification type do you want to include?
+                    </p>
+                  </legend>
+      
+                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+                    Select all options that are relevant to you
+                  </div>
+
+                  <!--<p class="nhsuk-body nhsuk-u-margin-bottom-4">
+                    Select all options that are relevant to you
+                  </p>-->
+      
+                  <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-called" value="Called" {{ checked("comms-recall-type", "Called") }}>
+                      <label for="comms-called" class="nhsuk-label nhsuk-checkboxes__label">
+                        Called
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-routine" value="Routine" {{ checked("comms-recall-type", "Routine") }}>
+                      <label for="comms-routine" class="nhsuk-label nhsuk-checkboxes__label">
+                        Routine
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-suspended" value="Suspended" {{ checked("comms-recall-type", "Suspended") }}>
+                      <label for="comms-suspended" class="nhsuk-label nhsuk-checkboxes__label">
+                        Suspended
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-repeat-advised" value="Repeat advised" {{ checked("comms-recall-type", "Repeat advised") }}>
+                      <label for="comms-repeat-advised" class="nhsuk-label nhsuk-checkboxes__label">
+                        Repeat advised
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-inadequate" value="Inadequate" {{ checked("comms-recall-type", "Inadequate") }}>
+                      <label for="comms-inadequate" class="nhsuk-label nhsuk-checkboxes__label">
+                        Inadequate
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-cancelled" value="Cancelled" {{ checked("comms-recall-type", "Cancelled") }}>
+                      <label for="comms-cancelled" class="nhsuk-label nhsuk-checkboxes__label">
+                        Cancelled
+                      </label>
+                    </div>
+      
+                  </div>
+              
+                    
+                </fieldset>
+
+              </div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-invitation" value="Invitation" {{ checked("comms-notification-type", "Invitation") }} aria-controls="expand-invitation" aria-expnded="false">
+              <label for="comms-invitation" class="nhsuk-label nhsuk-radios__label">
+                Invitation
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-invitation">
+              <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-invitation">
+                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                      Which invitation notification type do you want to include?
+                    </p>
+                  </legend>
+      
+                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+                    Select all options that are relevant to you
+                  </div>
+      
+                  <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-invitation" value="Invitation" {{ checked("comms-recall-type", "Invitation") }}>
+                      <label for="comms-invitation" class="nhsuk-label nhsuk-checkboxes__label">
+                        Invitation
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-reminder" value="Reminder" {{ checked("comms-recall-type", "Reminder") }}>
+                      <label for="comms-reminder" class="nhsuk-label nhsuk-checkboxes__label">
+                        Reminder
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-nonresponder" value="Non responder" {{ checked("comms-recall-type", "Non responder") }}>
+                      <label for="comms-nonresponder" class="nhsuk-label nhsuk-checkboxes__label">
+                        Non responder
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-district-list" value="District list" {{ checked("comms-recall-type", "District list") }}>
+                      <label for="comms-district-list" class="nhsuk-label nhsuk-checkboxes__label">
+                        District list
+                      </label>
+                    </div>
+      
+                  </div>
+              
+                    
+                </fieldset>
+
+              </div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input type="radio" class="nhsuk-radios__input" name="comms-notification-type" id="comms-results" value="Results" {{ checked("comms-notification-type", "Results") }} aria-controls="expand-results" aria-expnded="false">
+              <label for="comms-results" class="nhsuk-label nhsuk-radios__label">
+                Results
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-results">
+              <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="comms-participant-status">
+                  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+                    <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                      What result notification type do you want to include?
+                    </p>
+                  </legend>
+      
+                  <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
+                    Select all options that are relevant to you
+                  </div>
+      
+                  <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-only" value="Results only" {{ checked("comms-recall-type", "Results only") }}>
+                      <label for="comms-result-only" class="nhsuk-label nhsuk-checkboxes__label">
+                        Results only
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-results-recall" value="Results with recall" {{ checked("comms-recall-type", "Results with recall") }}>
+                      <label for="comms-results-recall" class="nhsuk-label nhsuk-checkboxes__label">
+                        Results with recall
+                      </label>
+                    </div>
+      
+                    <div class="nhsuk-checkboxes__item">
+                      <input type="checkbox" class="nhsuk-checkboxes__input" name="comms-recall-type" id="comms-result-print" value="Result print summary" {{ checked("comms-recall-type", "Result print summary") }}>
+                      <label for="comms-result-print" class="nhsuk-label nhsuk-checkboxes__label">
+                        Result print summary
+                      </label>
+                    </div>
+      
+                  </div>
+              
+                    
+                </fieldset>
+
+              </div>
+            </div>
+
+
+          </div>
+
+
+      
+            
+        </fieldset>
+
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+            <p class="nhsuk-body">
+              What date range do you want to include for the notifiction?
+            </p>
+          </legend>
+
+          <div class="nhsuk-grid-row">
+
+            <div class="nhsuk-grid-column-one-half">
+              <div class="nhs-date-input" id="comms-noti-date-from">
+
+                <label for="comms-noti-date-from" class="nhsuk-label nhsuk-label__strong">
+                  Enter date from
+                </label>
+        
+                 <div class="nhsuk-hint" for="comms-noti-date-from">
+                  For example, 15 3 1998
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                   <div class="nhsuk-form-group">
+                    <label for="comms-noti-date-from-day" class="nhsuk-label">
+                      Day
+                    </label>
+                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-day" name="comms-noti-date-from-day" type="text" value="{{ data['comms-noti-date-from-day'] }}" pattern="[0-9]*" inputmode="numeric">
+                   </div>
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-from-month" class="nhsuk-label">
+                    Month
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-month" name="comms-noti-date-from-month" type="text" value="{{ data['comms-noti-date-from-month'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+                <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-from-year" class="nhsuk-label">
+                    Year
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-from-year" name="comms-noti-date-from-year" type="text" value="{{ data['comms-noti-date-from-year'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+               </div>
+            </div>
+
+            <div class="nhsuk-grid-column-one-half">
+
+              <div class="nhs-date-input" id="comms-noti-date-to">
+
+                <label for="comms-noti-date-to" class="nhsuk-label nhsuk-label__strong">
+                  Enter date to
+                </label>
+        
+                 <div class="nhsuk-hint" for="comms-noti-date-to">
+                  Leave blank to search for 1 day
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                   <div class="nhsuk-form-group">
+                    <label for="comms-noti-date-to-day" class="nhsuk-label">
+                      Day
+                    </label>
+                    <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-day" name="comms-noti-date-to-day" type="text" value="{{ data['comms-noti-date-to-day'] }}" pattern="[0-9]*" inputmode="numeric">
+                   </div>
+                 </div>
+        
+                 <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-to-month" class="nhsuk-label">
+                    Month
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-month" name="comms-noti-date-to-month" type="text" value="{{ data['comms-noti-date-to-month'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+                <div class="nhsuk-date-input__item">
+                  <div class="nhsuk-form-group">
+                   <label for="comms-noti-date-to-year" class="nhsuk-label">
+                    Year
+                   </label>
+                   <input type="text" class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-u-margin-bottom-4" id="comms-noti-date-to-year" name="comms-noti-date-to-year" type="text" value="{{ data['comms-noti-date-to-year'] }}" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+        
+               </div>
+            </div>
+
+
+          </div>
+      
+
+        </fieldset>
+
+        <fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
+          <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+           Add letter code
+          </legend>
+    
+    
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
+                  <span id="" class="nhsuk-hint">
+                    Enter codes or full description
+                  </span>  
+                  <ul id="letter-code-list" class="nhsuk-list">
+
+                  </ul>
+                <div id="letter-codes"></div>
+              </div>
+        </fieldset>
+        <div style="padding: 20px;"></div>
+
+        <a id="add-letter-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9 nhsuk-margin-top-4">
+          Add letter code
+        </a>
+
+      </div>
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Continue
+      </button>
+    </form>
+
+    <div class="nhsuk-body">
+      <p>
+        <a href="CSSE-home" class="nhsuk-link">Exit without saving</a>
+      </p>
+    </div>
+   
+
+ 
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
