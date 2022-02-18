@@ -242,6 +242,8 @@ NHS Cervical screening management system
           52 HOLLY MEWS TOWNSVILLE LS20 8QF
           {% elif data.patientSummary.nhs_number == '9100002801' %}
           47 Ashburnham Road, Livermead, EXETER, Devon, EX2 5SE
+          {% elif data.patientSummary.nhs_number == '9100002798' %}
+          20 Knight Street, Queens, Stockton, Wakefield, WA9T 6TY
           {% else %}
           {{ data['address'] or '20 Thornhill Street, Pudsey, LS15 6FD' }}
           {% endif %}
