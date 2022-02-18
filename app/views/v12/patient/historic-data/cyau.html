@@ -81,12 +81,12 @@ NHS Cervical screening management system
 </div>
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
-              {% if data['chooseCipher'] === 'lds' %}
-                Leeds (LDS)
-              {% elif data['chooseCipher'] === 'bir' %}
-                Birmingham (BIR)
+              {% if data['chooseCipher'] === 'wak2' %}
+                Wakefield (WAK) from 18 February 2021 to [date of migration]
+              {% elif data['chooseCipher'] === 'lds' %}
+                Leeds (LDS) from 04 January 2018 to 18 February 2021
               {% else %}
-                Wakefield (WAK) from 02 Jan 2006 to 04 March 2007
+              Wakefield (WAK) from 11 June 1992 to 04 January 2018
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Full screening history (CYAU report)
