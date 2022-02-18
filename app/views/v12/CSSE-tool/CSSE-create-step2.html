@@ -43,11 +43,13 @@ NHS Cervical screening management system
     <form action="CSSE-create-step3" method="post">
       <div class="nhsuk-form-group">
 
-        <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
+        <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="ccg-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                Add CCG location code
+                Add Clinical commissioning group (CCG) code
               </p>
+              <div class="nhsuk-hint">See details for CCG codes on the <a href="https://www.england.nhs.uk/ccg-details/" target="_blank">NHS England website</a> (opens in new window)</div>
+              
             </legend>
 
             <ul class="nhsuk-list" id="ccg-code-list">
@@ -55,15 +57,16 @@ NHS Cervical screening management system
             </ul>
 
             <label for="ccg-code" class="nhsuk-label">
-              Enter CCG location code to include
+              Enter CCG code to include
             </label>
+            
             <input id="ccg-code-input" name="ccg-code" type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-0" value="{{ data['name'] }}">
               
           </fieldset>
 
           <a id="add-ccg-code" class="nhsuk-button nhsuk-button--reverse nhsuk-button--ers nhsuk-u-margin-bottom-9">
-            Add CCG location code
-          </a>-->
+            Add CCG code
+          </a>
 
           <!--<fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-4" aria-describedby="post-code">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">

@@ -41,17 +41,13 @@ NHS Cervical screening management system
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="current-participant-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                What current participant status do you want to include?
+                What current recall type do you want to include?
               </p>
             </legend>
 
-            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-              Previously known as recall type
-            </div>
-
-            <p class="nhsuk-body nhsuk-u-margin-bottom-4">
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="checkbox-hint">
               Select all options that are relevant to you
-            </p>
+            </div>
 
             <div class="nhsuk-checkboxes">
 
@@ -63,13 +59,6 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-called" value="Called" checked {{ checked("current-participant-status", "Called") }}>
-                <label for="current-called" class="nhsuk-label nhsuk-checkboxes__label">
-                  Called
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-routine" value="Routine" checked {{ checked("current-participant-status", "Routine") }}>
                 <label for="current-routine" class="nhsuk-label nhsuk-checkboxes__label">
                   Routine
@@ -77,9 +66,9 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-suspended" value="Suspended" checked {{ checked("current-participant-status", "Suspended") }}>
-                <label for="current-suspended" class="nhsuk-label nhsuk-checkboxes__label">
-                  Suspended
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-called" value="Called" checked {{ checked("current-participant-status", "Called") }}>
+                <label for="current-called" class="nhsuk-label nhsuk-checkboxes__label">
+                  Called
                 </label>
               </div>
 
@@ -96,6 +85,15 @@ NHS Cervical screening management system
                   Inadequate
                 </label>
               </div>
+
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-suspended" value="Suspended" checked {{ checked("current-participant-status", "Suspended") }}>
+                <label for="current-suspended" class="nhsuk-label nhsuk-checkboxes__label">
+                  Suspended
+                </label>
+              </div>
+
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-participant-status" id="current-ceased" value="Ceased" checked {{ checked("current-participant-status", "Ceased") }}>
@@ -218,18 +216,14 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6" aria-describedby="current-episode-status">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
-                What current episode status do you want to include?
+                What current recall status do you want to include?
               </p>
             </legend>
 
-            <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="checkbox-hint">
-              Previously known as recall status
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-4" id="checkbox-hint">
+              Select all options that are relevant to you
             </div>
             <!--Includes CSMS episode status and NHAIS recall status-->
-
-            <p class="nhsuk-body nhsuk-u-margin-bottom-4">
-              Select all options that are relevant to you
-            </p>
 
             <div class="nhsuk-checkboxes">
 
@@ -248,9 +242,16 @@ NHS Cervical screening management system
               </div>
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="On prior notification list of patients due to be invited" checked {{ checked("current-episode-status", "On prior notification list of patients due to be invited") }}>
-                <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-due-invite" value="On prior notification list of patients due to be invited" checked {{ checked("current-episode-status", "On prior notification list of patients due to be invited") }}>
+                <label for="current-due-invite" class="nhsuk-label nhsuk-checkboxes__label">
                   On prior notification list of patients due to be invited
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="Waiting to be sent invite" checked {{ checked("current-episode-status", "Waiting to be sent invite") }}>
+                <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
+                  Waiting to be sent invite
                 </label>
               </div>
 

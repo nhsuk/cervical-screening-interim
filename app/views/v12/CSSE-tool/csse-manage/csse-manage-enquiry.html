@@ -55,7 +55,7 @@ NHS Cervical screening management system
              </p>
            </legend>
     
-           <label for="search-name" class="nhsuk-label">Enter enquiry name</label>
+           <label for="search-name" class="nhsuk-label">Enter enquiry name (optional)</label>
            <input type="text" class="nhsuk-input nhsuk-input--width-10 nhsuk-u-margin-bottom-4" id="search-name" name="search-name" type="text" value="{{ data['search-name'] }}">
     
            <!--<label for="search-code" class="nhsuk-label">Code</label>
@@ -63,7 +63,7 @@ NHS Cervical screening management system
     
            <div class="nhs-date-input" id="search-date">
     
-            <label for="search-date" class="nhsuk-label">Enter date created</label>
+            <label for="search-date" class="nhsuk-label">Enter date created (optional)</label>
     
              <div class="nhsuk-hint" for="search-date-hint">
               For example, 15 3 1984
@@ -145,7 +145,7 @@ NHS Cervical screening management system
         <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}11{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}Aug{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2022{% endif %}<span class="nhsuk-table__cell--hint">11:00am</span></td>
         <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}HPV primary in bristol{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">Review report</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View or edit enquiry details</a></td>
         <td class="nhsuk-table__cell"><a href="csse-remove-enquiry"></a></td>
         <td class="nhsuk-table__cell">Catherine Johnson</td>
 
@@ -155,7 +155,7 @@ NHS Cervical screening management system
         <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}29{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}Jun{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2021{% endif %}<span class="nhsuk-table__cell--hint">11:00am</span></td>
         <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}Ceased participants total{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">Review report</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View or edit enquiry details</a></td>
         <td class="nhsuk-table__cell"><a href="csse-remove-enquiry"></a></td>
         <td class="nhsuk-table__cell">Anne Mae</td>
       </tr>
@@ -164,7 +164,7 @@ NHS Cervical screening management system
         <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}18{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}Jun{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2021{% endif %}<span class="nhsuk-table__cell--hint">11:00am</span></td>
         <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}Patients with no results{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">Review report</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View or edit enquiry details</a></td>
         <td class="nhsuk-table__cell"><a href="csse-remove-enquiry"></a></td>
         <td class="nhsuk-table__cell">Halima Bismillah</td>
       </tr>
@@ -173,7 +173,7 @@ NHS Cervical screening management system
         <td class="nhsuk-table__cell">{% if data['search-date-day'] %}{{ data['search-date-day'] }}{% else %}09{% endif %}-{% if data['search-date-month'] %}{{ data['search-date-month'] }}{% else %}May{% endif %}-{% if data['search-date-year'] %}{{ data['search-date-year'] }}{% else %}2021{% endif %} <span class="nhsuk-table__cell--hint">11:00am</span></td>
         <td class="nhsuk-table__cell ">{% if data['search-name'] %}{{ data['search-name'] }}{% else %}Non responders{% endif %}</td>
         <td class="nhsuk-table__cell"><a href="">Download report</a></td>
-        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">Review report</a></td>
+        <td class="nhsuk-table__cell"><a href="csse-view-enquiry">View or edit enquiry details</a></td>
         <td class="nhsuk-table__cell"><a href="csse-remove-enquiry"></a></td>
         <td class="nhsuk-table__cell">Ole Sven</td>
       </tr>

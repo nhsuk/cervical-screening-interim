@@ -841,7 +841,90 @@ else {
   res.redirect("/v12/patient/patient-summary-7");
 }
 
-})
+});
+
+// CSSE exit without saving
+router.post("/v12/CSSE-tool/CSSE-home-exit-choice", function (req, res) {
+  var exitChoice = req.session.data['exit-enquiry'];
+  
+  if (exitChoice == 'Yes') {
+    res.redirect("/v12/CSSE-tool/CSSE-home");
+  }
+  
+  else {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step1");
+  }
+  
+  });
+
+  // CSSE edit screen exit without saving
+router.post("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-exit-choice", function (req, res) {
+  var exitChoice = req.session.data['edit-exit-enquiry'];
+  
+  if (exitChoice == 'Yes') {
+    res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+  }
+  
+  else {
+    res.redirect("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-name");
+  }
+  
+  });
+
+
+  // CSSE edit screen overwrite enquiry
+  router.post("/v12/CSSE-tool/csse-manage/csse-edit-enquiry-choice", function (req, res) {
+    var saveChoice = req.session.data['overwrite-enquiry'];
+    
+    if (saveChoice == 'Yes') {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-edit-download");
+    }
+    
+    else {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+    }
+    
+    });
+
+  // CSSE duplicate screen enquiry
+  router.post("/v12/CSSE-tool/csse-manage/csse-duplicate-enquiry-choice", function (req, res) {
+    var saveChoice = req.session.data['duplicate-enquiry'];
+    
+    if (saveChoice == 'Yes') {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-duplicate-enquiry-name");
+    }
+    
+    else {
+      res.redirect("/v12/CSSE-tool/csse-manage/csse-view-enquiry");
+    }
+    
+    });
+
+// CSSE step 5 branching
+router.post("/v12/CSSE-tool/CSSE-create-step5-route", function (req, res) {
+  var stepChoice = req.session.data['comms-type'];
+  
+  if (stepChoice == 'None') {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step6");
+  }
+
+  if (stepChoice == 'Prior notification list') {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step5a");
+  }
+
+  if (stepChoice == 'Invitation') {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step5b");
+  }
+
+  if (stepChoice == 'Results') {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step5c");
+  }
+  
+  else {
+    res.redirect("/v12/CSSE-tool/CSSE-create-step5");
+  }
+  
+  });
 
 
 
@@ -849,7 +932,7 @@ else {
 router.post('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name', function (req, res) {
   let duplicateCreateName = req.body.duplicateCreateName;
   if (duplicateCreateName) {
-    res.redirect('/v12/csse-tool/csse-manage/csse-duplicate-review?duplicateCreateNameError=')
+    res.redirect('/v12/CSSE-tool/csse-manage/csse-duplicate-download?duplicateCreateNameError=')
   } else {
     var errorURL = "";
     if (duplicateCreateName) {
@@ -860,6 +943,8 @@ router.post('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name', function (
     res.redirect('/v12/csse-tool/csse-manage/csse-duplicate-enquiry-name?' + errorURL )
   }
 });
+
+
 
 //sms branching
 
