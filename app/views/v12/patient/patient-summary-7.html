@@ -43,7 +43,7 @@ NHS Cervical screening management system
 {% if (data['janetFraser'] === 'checkAccepted') or (data['samanthaRhodes'] === 'checkAccepted')  %}
 {% include '../components/patient-banner-rhodes-fraser.html' %}
 {% else %}
-{% include '../components/patient-banner.html' %}
+{% include 'v12/components/patient-banner.html' %}
 {% endif %}
 {% endblock %}
 
@@ -55,9 +55,13 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link" aria-current="page">Patient Summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP Information</a></li>
+
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
-    {% endif %}
+    {% if data.patientSummary.nhs_number == '9100002798' %}
+      <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
+      {% endif %}
+      {% endif %}
   </ul>
 </nav>
 
@@ -139,6 +143,31 @@ NHS Cervical screening management system
       <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
     {% endif %}
     <dl class="nhsuk-summary-list nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
+
+      {% if data.patientSummary.nhs_number == '9100002798' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Name:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Mrs Tanya Parr
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Previous name:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Ms Tanya Lawrence
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
+
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Next test due date:
@@ -189,6 +218,20 @@ NHS Cervical screening management system
           {% endif %}
         </dd>
       </div>
+
+      {% if data.patientSummary.nhs_number == '9100002798' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Prior notification list date:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          02-Mar-2020
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
+
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">

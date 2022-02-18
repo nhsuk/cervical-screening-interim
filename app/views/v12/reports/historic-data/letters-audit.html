@@ -1,0 +1,310 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<script type="text/javascript" src="/js/action-menu.js"></script>
+<script type="text/javascript" src="/js/sort.js"></script>
+<script type="text/javascript" src="/js/suggestionDropdown.js"></script>
+<script>
+  const data = [
+    {
+      code: 'BD',
+      name: 'Bedfordshire',
+    },
+    {
+      code: 'BIK',
+      name: 'Wirral',
+    },
+    {
+      code: 'BRS',
+      name: 'Avon',
+    },
+    {
+      code: 'CB',
+      name: 'Cambridgeshire',
+    },
+    {
+      code: 'CH',
+      name: 'Cheshire',
+    },
+    {
+      code: 'CU',
+      name: 'Cumbria',
+    },
+    {
+      code: 'EX',
+      name: 'Essex',
+    },
+    {
+      code: 'GMK',
+      name: 'Tameside',
+    },
+    {
+      code: 'HT',
+      name: 'Hertfordshire',
+    },
+    {
+      code: 'KC',
+      name: 'Kent',
+    },
+    {
+      code: 'LA',
+      name: 'Lancashire',
+    },
+    {
+      code: 'LIP',
+      name: 'Liverpool',
+    },
+    {
+      code: 'MAN',
+      name: 'Manchester',
+    },
+    {
+      code: 'NF',
+      name: 'Norfolk',
+    },
+    {
+      code: 'ROC',
+      name: 'Bury and Rochdale ',
+    },
+    {
+      code: 'SLF',
+      name: 'Salford & Trafford',
+    },
+    {
+      code: 'SM',
+      name: 'Somerset',
+    },
+    {
+      code: 'SOP',
+      name: 'Sefton',
+    },
+    {
+      code: 'SPT',
+      name: 'Stockport',
+    },
+    {
+      code: 'BIR',
+      name: 'Birmingham',
+    },
+    {
+      code: 'LDS',
+      name: 'Leeds',
+    },
+    {
+      code: 'WAK',
+      name: 'Wakefield',
+    },
+  ];
+  createSuggestionDropdown(data, 'letter-codes');
+</script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="nhsuk-width-container-fluid">
+      <main class="nhsuk-main-wrapper" style="padding-top:0;" id="maincontent" role="main">
+        <div class="nhsuk-grid-row">
+          {{ backLink({
+            "href": "/v12/reports/historic-data/hub",
+            "text": "Go back to data from historic system (NHAIS)"
+          }) }}
+          <h1 class="nhsuk-heading-l">Audit for letters sent data</h1>
+
+          <div class="nhsuk-u-reading-width">
+
+          <p>Use this page to download a CSV file.</p>
+
+        </div>
+
+
+          <fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+    <h2 class="nhsuk-fieldset__heading">
+      Refine data
+    </h2>
+  </legend>
+
+  <form>
+
+    <div class="nhsuk-form-group nhsuk-u-margin-bottom-5">
+
+      <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+          <h3 class="nhsuk-fieldset__heading">
+            Choose letter types
+          </h3>
+        </legend>
+
+        <div class="nhsuk-hint" id="example-hint">
+          Select all options that are relevant to you.
+        </div>
+
+        <div class="nhsuk-checkboxes">
+
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+              Result (CP)
+            </label>
+          </div>
+
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+              Invitation (RP)
+            </label>
+          </div>
+
+        </div>
+    </div>
+
+
+    <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Add date range</h3>
+
+          <div class="nhsuk-grid-row nhsuk-u-margin-bottom-3">
+
+          <div class="nhsuk-grid-column-one-third">
+
+
+       <div class="nhsuk-form-group">
+      <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+        <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+          <h2 class="nhsuk-fieldset__heading">
+    Enter date from
+          </h2>
+        </legend>
+        <div class="nhsuk-hint" id="example-hint">
+          For example, 15 3 1984
+        </div>
+
+        <div class="nhsuk-date-input" id="example">
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                Day
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day" name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                Month
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month" name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="nhsuk-date-input__item">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                Year
+              </label>
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year" name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+    </div>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+
+    <div class="nhsuk-form-group">
+    <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+     <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+       <h2 class="nhsuk-fieldset__heading">
+    Enter date to
+       </h2>
+     </legend>
+
+     <div class="nhsuk-hint" id="example-hint">
+       Leave blank to view 1 day
+     </div>
+
+     <div class="nhsuk-date-input" id="example">
+       <div class="nhsuk-date-input__item">
+         <div class="nhsuk-form-group">
+           <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+             Day
+           </label>
+           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day" name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+         </div>
+       </div>
+       <div class="nhsuk-date-input__item">
+         <div class="nhsuk-form-group">
+           <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+             Month
+           </label>
+           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month" name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+         </div>
+       </div>
+       <div class="nhsuk-date-input__item">
+         <div class="nhsuk-form-group">
+           <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+             Year
+           </label>
+           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year" name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+         </div>
+       </div>
+     </div>
+    </fieldset>
+
+    </div>
+    </div>
+    </div>
+
+  </form>
+
+
+</fieldset>
+
+<fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
+  <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
+    Enter area code or name
+  </legend>
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
+          <span id="" class="nhsuk-hint" style="">
+            Also known as NHAIS cipher or NHAIS box. For example, BD or LNA.
+          </span>
+          <ul id="letter-code-list" class="nhsuk-list">
+
+          </ul>
+        <div id="letter-codes"></div>
+      </div>
+</fieldset>
+<div style="padding: 10px;"></div>
+
+          <form action="#" method="post">
+            <button class="nhsuk-button nhsuk-button--ers" type="submit">
+              Download letter types CSV
+            </button>
+        </form>
+
+
+        </div>
+      </main>
+    </div>
+
+
+
+{% endblock %}
