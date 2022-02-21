@@ -50,6 +50,40 @@ NHS Cervical screening management system
 
 {% block content %}
 
+{% set recallStatusWord %}
+{% if data['recallStatus'] === 'Reminded' %}
+reminded
+{% elif data['recallStatus'] === 'Not due yet' %}
+not due yet
+{% elif data['recallStatus'] === 'Invited' %}
+invited
+{% elif data['recallStatus'] === 'Non responder' %}
+non responder
+{% elif data['recallStatus'] === 'Ceased' %}
+ceased
+{% else %}
+invited
+{% endif %}
+
+{% endset %}
+
+{% set recallStatusWord2 %}
+{% if data['recallStatus2'] === 'Reminded' %}
+reminded
+{% elif data['recallStatus2'] === 'Not due yet' %}
+not due yet
+{% elif data['recallStatus2'] === 'Invited' %}
+invited
+{% elif data['recallStatus2'] === 'Non responder' %}
+non responder
+{% elif data['recallStatus2'] === 'Ceased' %}
+ceased
+{% else %}
+invited
+{% endif %}
+
+{% endset %}
+
 <nav class="nhsuk-sub-navigation no-print">
   <ul class="nhsuk-sub-navigation__list">
     <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link" aria-current="page">Patient Summary</a></li>
@@ -79,7 +113,7 @@ NHS Cervical screening management system
 {% if data['recallStatus'] %}
 <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
   <span class="nhsuk-u-visually-hidden">Information: </span>
-    <p>Update: Patient recall status has been amended to {{  data['recallStatus'] or '' }}</p>
+    <p>Update: Patient recall status has been amended to {{ recallStatusWord }}</p>
 </div>
 {% else %}
 {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
@@ -95,7 +129,7 @@ NHS Cervical screening management system
 {% if data['recallStatus2'] %}
 <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
   <span class="nhsuk-u-visually-hidden">Information: </span>
-    <p>Update: Patient has been reinstated with a recall status of {{  data['recallStatus2'] or '' }}</p>
+    <p>Update: Patient has been reinstated with a recall status of {{ recallStatusWord2 }}</p>
 </div>
 {% endif %}
 
