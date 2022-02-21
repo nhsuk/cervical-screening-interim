@@ -1,0 +1,83 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
+    }) }}
+
+    <h1 class="nhsuk-heading-l">Missing and corrupt files</h1>
+    <div class="nhsuk-card nhsuk-card--feature">
+      <div class="nhsuk-card__content nhsuk-card__content--feature">
+    {% include '../../../components/report-add-missing.html' %}
+    <span class="nhsuk-hint">Step 3 of 3</span>
+
+
+    <form action="single-date-report-added-file" method="post">
+
+
+        <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">
+                Confirm file has been resolved
+              </h2>
+      
+            </legend>
+      
+            <div class="nhsuk-checkboxes">
+      
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                  I confirm the problems relating to this file have been resolved
+                </label>
+              </div>
+      
+      
+            </div>
+          </fieldset>
+      
+        </div>
+
+
+
+
+
+
+
+  <button class="nhsuk-button nhsuk-button--ers" type="submit">Continue</button>
+
+</form>
+</div>
+
+  </div>
+  <p><a class="nhsuk-link" href="single-date-report">Exit without saving</a></p>
+</div>
+
+</div>
+
+
+{% endblock %}

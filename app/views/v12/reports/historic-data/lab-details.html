@@ -1,0 +1,50 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../components/header.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="nhsuk-width-container-fluid">
+      <main class="nhsuk-main-wrapper" style="padding-top:0;" id="maincontent" role="main">
+        <div class="nhsuk-grid-row">
+          {{ backLink({
+            "href": "/v12/reports/historic-data/hub",
+            "text": "Go back to data from historic system (NHAIS)"
+          }) }}
+          <h1 class="nhsuk-heading-l">Lab details data</h1>
+
+          <div class="nhsuk-u-reading-width">
+
+          <p>Use this page to download a CSV file of all the lab details from the historic National Health Application and Infrastructure Services (NHAIS) system.</p>
+
+          <form action="#" method="post">
+            <button class="nhsuk-button nhsuk-button--ers" type="submit">
+            Download lab details CSV
+            </button>
+        </form>
+
+        </div>
+
+        </div>
+      </main>
+    </div>
+
+
+
+{% endblock %}

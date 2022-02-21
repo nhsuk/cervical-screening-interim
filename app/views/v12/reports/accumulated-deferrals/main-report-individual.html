@@ -45,6 +45,13 @@ NHS Cervical screening management system
                     </button>
                   </form>
 
+                  <form action="/images/accumulated-deferrals-summary-individual-ccg.csv" method="get">
+                  <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers" type="submit">
+                    Download summary report CSV
+                  </button>
+                </form>
+
+
                   <table role="table" class="nhsuk-table-responsive">
                     <caption class="nhsuk-table__caption">Accumulated deferrals for all clinical commissioning groups</caption>
                     <thead role="rowgroup" class="nhsuk-table__head">
@@ -53,7 +60,7 @@ NHS Cervical screening management system
                           Clinical commissioning group name (code)
                         </th>
                         <th role="columnheader" class="" scope="col">
-                          Patients deferred 2 or more consecutive times resulting in a deferral period of 36 months or more
+                          Patients deferred 2 consecutive times over a period of 36 months
                         </th>
                         <th role="columnheader" class="" scope="col">
                         Patients deferred 3 or more consecutive times

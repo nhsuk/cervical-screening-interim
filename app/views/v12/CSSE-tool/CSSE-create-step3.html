@@ -59,9 +59,9 @@ NHS Cervical screening management system
 
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Deducted" checked {{ checked("patient-reg", "Deducted") }}>
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="patient-reg" id="patient-reg" value="Inactive" checked {{ checked("patient-reg", "Inactive") }}>
                 <label for="patient-reg" class="nhsuk-label nhsuk-checkboxes__label">
-                  Deducted
+                  Inactive
                 </label>
               </div>
 
@@ -337,13 +337,13 @@ NHS Cervical screening management system
               </div>
   
               <div class="nhsuk-radios__item">
-                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="deducted-date" value="Deducted date" {{ checked("patient-date-type", "Deducted date") }} aria-controls="expand-deducted-date" aria-expnded="false">
-                <label for="deducted-date" class="nhsuk-label nhsuk-radios__label">
-                  Deducted date
+                <input type="radio" class="nhsuk-radios__input" name="patient-date-type" id="inactive-date" value="Inactive date" {{ checked("patient-date-type", "Inactive date") }} aria-controls="expand-inactive-date" aria-expnded="false">
+                <label for="inactive-date" class="nhsuk-label nhsuk-radios__label">
+                  Inactive date
                 </label>
               </div>
   
-              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-deducted-date">
+              <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="expand-inactive-date">
                 <div class="nhsuk-form-group">
                   <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
                     <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
@@ -551,9 +551,10 @@ NHS Cervical screening management system
 
           <fieldset class="nhsuk-fieldset nhsuk-u-margin-bottom-6">
             <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-              <p class="nhsuk-body">
+              <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Do you want to search by current age of patient?
               </p>
+              <div class="nhsuk-hint">Includes anyone in the NHS Cervical Screening Management System, even if they are outside of the screening age range</div>
             </legend>
 
             <div class="nhsuk-grid-row">
@@ -616,6 +617,7 @@ NHS Cervical screening management system
               <p class="nhsuk-body nhsuk-u-margin-bottom-0">
                 Which date do you want to refine by?
               </p>
+              <div class="nhsuk-hint">Select 1 option</div>
             </legend>
   
             <div class="nhsuk-radios nhsuk-radios--conditional">

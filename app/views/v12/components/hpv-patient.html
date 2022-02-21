@@ -1,7 +1,7 @@
 
 
 
-  <h3 class="nhsuk-panel-with-label__label">{{ data.patientSummary.first_name | capitalize or 'Brenda' }} {{ data.patientSummary.last_name | capitalize or 'Brazier' }}
+  <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">{{ data.patientSummary.first_name | capitalize or 'Brenda' }} {{ data.patientSummary.last_name | capitalize or 'Brazier' }}
   <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.patientSummary.nhs_number | formatNHSNumber or '910 000 1929' }}</span></h3>
 
 
@@ -17,4 +17,4 @@
               </div>
             </div>
           </td>
-        </tr></p>
+        </tr>

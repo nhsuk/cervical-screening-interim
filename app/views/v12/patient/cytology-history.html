@@ -1,0 +1,465 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo nhsuk-header__logo--only"><a class="nhsuk-header__link nhsuk-header__link--service " href="/v12/pds/search/search" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text"
+            d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6">
+          </path>
+          <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+        </svg>
+        <span class="nhsuk-header__service-name">
+          Cervical Screening Management System
+        </span>
+      </a>
+    </div>
+
+    <div class="nhsuk-header__logout">
+      <a class="nhsuk-header__logout--link" href="/v12/login/login?patversion=7">Log out</a>
+    </div>
+
+
+  </div>
+
+</header>
+{% endblock %}
+
+{% block patientBanner %}
+  {% include '../components/patient-banner.html' %}
+{% endblock %}
+
+{% block content %}
+
+<nav class="nhsuk-sub-navigation">
+  <ul class="nhsuk-sub-navigation__list">
+    <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    {% if data.role == 'csas' %}
+    <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="historic-data" class="nhsuk-sub-navigation__link" aria-current="page">Historic Data</a></li>
+    {% endif %}
+
+  </ul>
+</nav>
+
+{% set address %}
+  <p>{{ data.gpinfo.address_line_1 or 'IVESON APPROACH' }}</p>
+  <p>{{ data.gpinfo.address_line_3 or 'LEEDS' }}</p>
+  <p>{{ data.gpinfo.address_line_4 or 'WEST YORKSHIRE' }}</p>
+  <p>{{ data.gpinfo.address_line_5 or 'ENGLAND' }}</p>
+  <p>{{ data.gpinfo.postcode or 'LS16 6FR' }}</p>
+{% endset %}
+
+<div class="nhsuk-grid-row nhsuk-u-margin-top-4">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+      "href": "historic-data",
+      "text": "Go back"
+    }) }}
+
+
+
+        
+              <h1 class="nhsuk-heading-l">Cytology Screening History</h1>
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  Refine historic data view
+                </span>
+
+              </summary>
+              <div class="nhsuk-details__text">
+                <form>
+
+                  <div class="nhsuk-form-group">
+
+                    <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                        <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
+                          Which HA would you like to see?
+                        </p>
+                        <div class="nhsuk-hint" id="example-hint">
+                          Select all options that are relevant to you.
+                        </div>
+                      </legend>
+
+
+
+                      <div class="nhsuk-checkboxes">
+
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            BAA
+                          </label>
+                        </div>
+
+                        <div class="nhsuk-checkboxes__item">
+                          <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+                          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                            WAK
+                          </label>
+                        </div>
+
+                      </div>
+                    </fieldset>
+
+                  </div>
+
+                  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
+                      Select a date range
+                    </p>
+                    <div class="nhsuk-hint" id="example-hint">
+                    Leave blank to view full history.
+                    </div>
+                  </legend>
+
+
+
+
+
+
+
+
+                        <div class="nhsuk-form-group">
+                          <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-third">
+                              <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                                <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+                                  <h3 class="nhsuk-fieldset__heading">
+                                    Enter a date from:
+                                  </h3>
+                                </legend>
+                                <div class="nhsuk-hint" id="example-hint">
+                                  For example, 15 3 1984
+                                </div>
+
+                                <div class="nhsuk-date-input" id="example">
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                                        Day
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day"
+                                        name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                        Month
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month"
+                                        name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                        Year
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year"
+                                        name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+
+                            <div class="nhsuk-grid-column-one-third">
+                              <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                                <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+                                  <h3 class="nhsuk-fieldset__heading">
+                                    Enter a date to:
+                                  </h3>
+                                </legend>
+                                <div class="nhsuk-hint" id="example-hint">
+                                  For example, 15 3 1984
+                                </div>
+
+                                <div class="nhsuk-date-input" id="example">
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                                        Day
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day"
+                                        name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                        Month
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month"
+                                        name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                  <div class="nhsuk-date-input__item">
+                                    <div class="nhsuk-form-group">
+                                      <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                        Year
+                                      </label>
+                                      <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year"
+                                        name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                  </div>
+
+
+
+                </form>
+
+
+
+
+          </div>
+
+
+          <h2 class="nhsuk-heading-m">Present patient cytology tests and details</h2>
+
+          <table role="table" class="nhsuk-table-responsive">
+  <caption class="nhsuk-table__caption">Ibuprofen tablet dosages for children</caption>
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" class="" scope="col">
+        Age
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How much
+      </th>
+      <th role="columnheader" class="" scope="col">
+        How often
+      </th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>7 to 9 years
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>200mg
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>10 to 11 years
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>200mg to 300mg
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+      </td>
+    </tr>
+    <tr role="row" class="nhsuk-table__row">
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">Age </span>12 to 17 years
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How much? </span>200mg to 400mg
+      </td>
+      <td role="cell" class="nhsuk-table__cell">
+        <span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">Present audit of cytology changes</h2>
+
+<table role="table" class="nhsuk-table-responsive">
+<caption class="nhsuk-table__caption">Ibuprofen tablet dosages for children</caption>
+<thead role="rowgroup" class="nhsuk-table__head">
+<tr role="row">
+<th role="columnheader" class="" scope="col">
+Age
+</th>
+<th role="columnheader" class="" scope="col">
+How much
+</th>
+<th role="columnheader" class="" scope="col">
+How often
+</th>
+</tr>
+</thead>
+<tbody class="nhsuk-table__body">
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>7 to 9 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>10 to 11 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 300mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>12 to 17 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 400mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">Present patient HPV vaccination details</h2>
+
+<table role="table" class="nhsuk-table-responsive">
+<caption class="nhsuk-table__caption">Ibuprofen tablet dosages for children</caption>
+<thead role="rowgroup" class="nhsuk-table__head">
+<tr role="row">
+<th role="columnheader" class="" scope="col">
+Age
+</th>
+<th role="columnheader" class="" scope="col">
+How much
+</th>
+<th role="columnheader" class="" scope="col">
+How often
+</th>
+</tr>
+</thead>
+<tbody class="nhsuk-table__body">
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>7 to 9 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>10 to 11 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 300mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>12 to 17 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 400mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 class="nhsuk-heading-m">Present patient NB Notes Details</h2>
+
+<table role="table" class="nhsuk-table-responsive">
+<caption class="nhsuk-table__caption">Ibuprofen tablet dosages for children</caption>
+<thead role="rowgroup" class="nhsuk-table__head">
+<tr role="row">
+<th role="columnheader" class="" scope="col">
+Age
+</th>
+<th role="columnheader" class="" scope="col">
+How much
+</th>
+<th role="columnheader" class="" scope="col">
+How often
+</th>
+</tr>
+</thead>
+<tbody class="nhsuk-table__body">
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>7 to 9 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>10 to 11 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 300mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+<tr role="row" class="nhsuk-table__row">
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">Age </span>12 to 17 years
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How much? </span>200mg to 400mg
+</td>
+<td role="cell" class="nhsuk-table__cell">
+<span class="nhsuk-table-responsive__heading">How often? </span>Max 3 times in 24 hours
+</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+{% endblock %}

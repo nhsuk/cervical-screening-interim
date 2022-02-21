@@ -1,0 +1,85 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<script type="text/javascript" src="/js/add-letter-code-list.js"></script>
+<!--Add letter code script above-->
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-4" href="">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back</a>
+    </div>
+    
+    <span class="nhsuk-hint nhsuk-u-margin-bottom-1"></span>
+
+    <form action="/v12/CSSE-tool/CSSE-home-exit-choice" method="post">
+
+        <div class="nhsuk-form-group">
+
+            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">
+                Exit without saving
+            </h1>
+
+            <p class="nhsuk-body">
+                If you exit without saving, you will return to the system enquiries tool and your progress will be lost.
+            </p>
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <p class="nhsuk-body nhsuk-u-margin-bottom-0">
+                  Are you sure you want to exit without saving?
+                </p>
+              </legend>
+          
+              <div class="nhsuk-radios">
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="exit-enquiry" name="exit-enquiry" type="radio" value="No" checked>
+                  <label class="nhsuk-label nhsuk-radios__label" for="exit-enquiry">
+                    No, return to enquiry
+                  </label>
+                </div>
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="exit-enquiry" name="exit-enquiry" type="radio" value="Yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="exit-enquiry">
+                    Yes, exit back to system enquiries tool
+                  </label>
+                </div>
+          
+              </div>
+            </fieldset>
+          
+          </div>
+
+      <button class="nhsuk-button nhsuk-button--ers" type="submit">
+        Continue
+      </button>
+    </form>
+
+    
+  </div>
+</div>
+{% endblock %}

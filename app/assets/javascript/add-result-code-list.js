@@ -7,9 +7,6 @@
 //Define empty array where NHS numbers will live when entered
 var resultCode = []
 //Define variables and helps the html talk to the javascript
-var resultCodeinput = document.getElementById('result-code-result')
-var hpvCodeinput = document.getElementById('result-code-hpv')
-var actionCodeinput = document.getElementById('result-code-action')
 var resultCodelist = document.getElementById('result-code-list')
 var resultCodeButton = document.getElementById('add-result-code')
 
@@ -18,6 +15,9 @@ resultCodeButton.addEventListener('click', addNumberTolist);
 
 //Function to save the nhs number and spit it back out above
 function addNumberTolist() {
+  var resultCodeinput = document.getElementById('result-code-result-autocomplete')
+  var hpvCodeinput = document.getElementById('result-code-hpv-autocomplete')
+  var actionCodeinput = document.getElementById('result-code-action-autocomplete')
   var rCode = resultCodeinput.value; // get value of whats inside the box of Result input
   var hCode = hpvCodeinput.value; // get value of whats inside the box of HPV input
   var aCode = actionCodeinput.value; // get value of whats inside the box of result input

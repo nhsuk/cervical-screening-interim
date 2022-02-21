@@ -19,14 +19,41 @@ NHS Cervical screening management system
 
 
 {% block content %}
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-three-quarters">
 
-    <h1 class="nhsuk-heading-l">Admin and print</h1>
+    <div class="nhsuk-width-container-fluid">
+      <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+        <div class="nhsuk-grid-row">
+          <h1 class="nhsuk-heading-l">Admin and print</h1>
 
-    <p><a href="/v12/admin/manage-sender-codes-v3/manage-sender-codes">Manage sender codes</a></p>
-    <p><a href="/v12/admin/print-notifications-v3/select-gp-practice">Print notifications</a></p>
-    <p><a href="/v12/admin/smartcard/enter-smartcard-number">Smartcard user activity</a></p>
+          <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
+            <ul class="panel-link">
+
+
+              <li class="panel-link__item">
+                <a class="panel-link__link" href="/v12/admin/manage-sender-codes-v3/manage-sender-codes">
+                  <h2 class="panel-link__heading nhsuk-heading-s">Manage sender codes</h2>
+                </a>
+              </li>
+
+                <li class="panel-link__item">
+                  <a class="panel-link__link" href="/v12/admin/print-notifications-v3/select-gp-practice">
+                    <h2 class="panel-link__heading nhsuk-heading-s">Print notifications</h2>
+                  </a>
+                </li>
+
+                <li class="panel-link__item">
+                  <a class="panel-link__link" href="/v12/admin/smartcard/enter-smartcard-number">
+                    <h2 class="panel-link__heading nhsuk-heading-s">Smartcard user activity</h2>
+                  </a>
+                </li>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+
 
     <!--<p>not mvp<a href="/v12/admin/incidents/incidents">Incidents</a></p>-->
     <!--<p>not mvp<a href="/v12/admin/gp-letter-text/enter-gp-code">GP practice</a> / <a href="/v12/admin/gp-letter-text/enter-district-code">District Letter Text</a></p>-->

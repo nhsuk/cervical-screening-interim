@@ -43,7 +43,7 @@ NHS Cervical screening management system
 {% if (data['janetFraser'] === 'checkAccepted') or (data['samanthaRhodes'] === 'checkAccepted')  %}
 {% include '../components/patient-banner-rhodes-fraser.html' %}
 {% else %}
-{% include '../components/patient-banner.html' %}
+{% include 'v12/components/patient-banner.html' %}
 {% endif %}
 {% endblock %}
 
@@ -55,9 +55,13 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link" aria-current="page">Patient Summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP Information</a></li>
+
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
-    {% endif %}
+    {% if data.patientSummary.nhs_number == '9100002798' %}
+      <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
+      {% endif %}
+      {% endif %}
   </ul>
 </nav>
 
@@ -129,6 +133,31 @@ NHS Cervical screening management system
       <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
     {% endif %}
     <dl class="nhsuk-summary-list nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
+
+      {% if data.patientSummary.nhs_number == '9100002798' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Name:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Mrs Tanya Parr
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Previous name:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Ms Tanya Lawrence
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
+
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Next test due date:
@@ -197,6 +226,18 @@ NHS Cervical screening management system
         </dd>
       </div>
 
+      {% if data.patientSummary.nhs_number == '9100002798' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Prior notification list date:
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          02-Mar-2020
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -207,6 +248,8 @@ NHS Cervical screening management system
           52 HOLLY MEWS TOWNSVILLE LS20 8QF
           {% elif data.patientSummary.nhs_number == '9100002801' %}
           47 Ashburnham Road, Livermead, EXETER, Devon, EX2 5SE
+          {% elif data.patientSummary.nhs_number == '9100002798' %}
+          20 Knight Street, Queens, Stockton, Wakefield, WA9T 6TY
           {% else %}
           {{ data['address'] or '20 Thornhill Street, Pudsey, LS15 6FD' }}
           {% endif %}
@@ -255,7 +298,6 @@ NHS Cervical screening management system
 
         <table role="table" class="">
           <caption class="nhsuk-table__caption">
-            <h2>HPV vaccination record</h2>
           </caption>
           <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
@@ -314,7 +356,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
-                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2" style="margin-left:4px; margin-right:4px;">Review</a>
                 <br>
                 <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
               </td>
@@ -336,6 +378,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2-no-edit" style="margin-left:4px; margin-right:4px;">Review</a>
 
               </td>
               {% endif %}
@@ -355,6 +398,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2-no-edit" style="margin-left:4px; margin-right:4px;">Review</a>
 
               </td>
               {% endif %}
@@ -382,7 +426,6 @@ NHS Cervical screening management system
 
         <table role="table" class="">
           <caption class="nhsuk-table__caption">
-            <h2>HPV vaccination record</h2>
           </caption>
           <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
@@ -439,7 +482,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
-                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2" style="margin-left:4px; margin-right:4px;">Review</a>
                 <br>
                 <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
               </td>
@@ -474,7 +517,6 @@ NHS Cervical screening management system
 
         <table role="table" class="">
           <caption class="nhsuk-table__caption">
-            <h2>HPV vaccination record</h2>
           </caption>
           <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
@@ -532,7 +574,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
-                <a href="/v12/patient/add-hpv/edit-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Edit</a>
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2" style="margin-left:4px; margin-right:4px;">Review</a>
                 <br>
                 <a href="/v12/patient/add-hpv/delete-hpv-vaccination" style="margin-left:4px; margin-right:4px;">Remove</a>
               </td>
@@ -554,6 +596,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2-no-edit" style="margin-left:4px; margin-right:4px;">Review</a>
 
               </td>
               {% endif %}
@@ -573,6 +616,7 @@ NHS Cervical screening management system
               </td>
               {% if data.role == 'csas' %}
               <td role="cell" class="nhsuk-table__cell">
+                <a href="/v12/patient/add-hpv/review-hpv-vaccination-2-no-edit" style="margin-left:4px; margin-right:4px;">Review</a>
 
               </td>
               {% endif %}

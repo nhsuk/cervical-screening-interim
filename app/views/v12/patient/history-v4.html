@@ -49,6 +49,9 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP Information</a></li>
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
+    {% if data.patientSummary.nhs_number == '9100002798' %}
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Historic Data</a></li>
+    {% endif %}
     {% endif %}
 
   </ul>
