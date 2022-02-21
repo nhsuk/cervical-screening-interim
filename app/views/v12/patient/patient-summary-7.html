@@ -83,7 +83,7 @@ NHS Cervical screening management system
 {% if data['recallStatus'] %}
 <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
   <span class="nhsuk-u-visually-hidden">Information: </span>
-    <p>Patient recall status has been amended</p>
+    <p>Update: Patient recall status has been amended to {{  data['recallStatus'] or '' }}</p>
 </div>
 {% else %}
 {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
@@ -99,7 +99,7 @@ NHS Cervical screening management system
 {% if data['recallStatus2'] %}
 <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
   <span class="nhsuk-u-visually-hidden">Information: </span>
-    <p>Patient has been reinstated </p>
+    <p>Update: Patient has been reinstated with a recall status of {{  data['recallStatus2'] or '' }}</p>
 </div>
 {% endif %}
 
