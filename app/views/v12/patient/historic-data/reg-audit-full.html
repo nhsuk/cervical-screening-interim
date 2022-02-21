@@ -81,15 +81,9 @@ NHS Cervical screening management system
 </div>
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
-              {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to 12 September 2022
-              {% elif data['chooseCipher'] === 'lds' %}
-                Leeds (LDS) from 04 January 2018 to 18 February 2021
-              {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
-              {% endif %}
+                All NHAIS areas from 11 June 1992 to 12 September 2022
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Registration audit history
+               </span>Full registration audit history
              </h1>
 
 
@@ -112,88 +106,19 @@ NHS Cervical screening management system
 
     </tr>
   </thead>
-
   <tbody class="nhsuk-table__body">
-
-  {% if data['chooseCipher'] === 'wak2' %}
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">06 August 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">18 Feb 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-  {% elif data['chooseCipher'] === 'lds' %}
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">18 Feb 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">15 March 2020</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">04 Jan 2018</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  {% else %}
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">04 Jan 2018</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">02 Jan 2016</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">15 March 2013</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
-
-  <tr role="row" class="nhsuk-table__row">
-    <td class="nhsuk-table__cell">15 March 2010</td>
-    <td class="nhsuk-table__cell">MR</td>
-    <td class="nhsuk-table__cell">Name of user</td>
-    <td class="nhsuk-table__cell">Address amendment</td>
-
-  </tr>
 
 
       <tr role="row" class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">15 March 2008</td>
+        <td class="nhsuk-table__cell">06 August 2021</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
+
+      </tr>
+
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">18 Feb 2021</td>
         <td class="nhsuk-table__cell">MR</td>
         <td class="nhsuk-table__cell">Name of user</td>
         <td class="nhsuk-table__cell">Address amendment</td>
@@ -201,40 +126,92 @@ NHS Cervical screening management system
       </tr>
 
 
-              <tr role="row" class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">15 March 2005</td>
-                <td class="nhsuk-table__cell">MR</td>
-                <td class="nhsuk-table__cell">Name of user</td>
-                <td class="nhsuk-table__cell">Address amendment</td>
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">15 March 2020</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
 
-              </tr>
+      </tr>
 
-              <tr role="row" class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">15 March 1997</td>
-                <td class="nhsuk-table__cell">MR</td>
-                <td class="nhsuk-table__cell">Name of user</td>
-                <td class="nhsuk-table__cell">Address amendment</td>
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">04 Jan 2018</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
 
-              </tr>
-
-              <tr role="row" class="nhsuk-table__row">
-                <td class="nhsuk-table__cell">15 March 1994</td>
-                <td class="nhsuk-table__cell">MR</td>
-                <td class="nhsuk-table__cell">Name of user</td>
-                <td class="nhsuk-table__cell">Address amendment</td>
-
-              </tr>
+      </tr>
 
 
-                              <tr role="row" class="nhsuk-table__row">
-                                <td class="nhsuk-table__cell">11 June 1992</td>
-                                <td class="nhsuk-table__cell">MR</td>
-                                <td class="nhsuk-table__cell">Name of user</td>
-                                <td class="nhsuk-table__cell">Address amendment</td>
 
-                              </tr>
+      </tr>
 
-  {% endif %}
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">02 Jan 2016</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
+
+      </tr>
+
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">15 March 2013</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
+
+      </tr>
+
+      <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">15 March 2010</td>
+        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">Name of user</td>
+        <td class="nhsuk-table__cell">Address amendment</td>
+
+      </tr>
+
+
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">15 March 2008</td>
+            <td class="nhsuk-table__cell">MR</td>
+            <td class="nhsuk-table__cell">Name of user</td>
+            <td class="nhsuk-table__cell">Address amendment</td>
+
+          </tr>
+
+
+                  <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">15 March 2005</td>
+                    <td class="nhsuk-table__cell">MR</td>
+                    <td class="nhsuk-table__cell">Name of user</td>
+                    <td class="nhsuk-table__cell">Address amendment</td>
+
+                  </tr>
+
+                  <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">15 March 1997</td>
+                    <td class="nhsuk-table__cell">MR</td>
+                    <td class="nhsuk-table__cell">Name of user</td>
+                    <td class="nhsuk-table__cell">Address amendment</td>
+
+                  </tr>
+
+                  <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">15 March 1994</td>
+                    <td class="nhsuk-table__cell">MR</td>
+                    <td class="nhsuk-table__cell">Name of user</td>
+                    <td class="nhsuk-table__cell">Address amendment</td>
+
+                  </tr>
+
+
+                                  <tr role="row" class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">11 June 1992</td>
+                                    <td class="nhsuk-table__cell">MR</td>
+                                    <td class="nhsuk-table__cell">Name of user</td>
+                                    <td class="nhsuk-table__cell">Address amendment</td>
+
+                                  </tr>
 
 
 
@@ -242,7 +219,6 @@ NHS Cervical screening management system
   </tbody>
 </table>
 
-<p><a href="reg-audit-full">Show full registration audit history for all NHAIS areas</a></p>
 
 
           </div>
