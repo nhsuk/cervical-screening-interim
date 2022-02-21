@@ -79,44 +79,31 @@ NHS Cervical screening management system
     {% else %}
     {% endif %}
 
-    <!-- {% if data.patientSummary.pnl_action == 'Ceased' %}
-    {% else %}
-    {% if data['bypassPnl']== 'yes' %}
-    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>Patient has been amended or deferred</p>
-    </div>
 
-    {% elif data['bypassPnl']== 'no' %}
-    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>Patient has been amended or deferred and they will not be added to the GP prior notification list</p>
-    </div>
-
-    {% elif data['bypassPnl2']== 'yes' %}
-    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>Patient has been reinstated</p>
-    </div>
-
-    {% elif data['bypassPnl2']== 'no' %}
-    <div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>Patient has been reinstated and they will not be added to the GP prior notification list</p>
-    </div>
-
-    {% endif %}
-    {% endif %} -->
+{% if data['recallStatus'] %}
+<div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+    <p>Patient recall status has been amended</p>
+</div>
+{% else %}
+{% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
+{% if (data['pnl_update_msg_show'] > 1) %}
+{{ insetText({
+      "HTML": pnlMsg,
+      "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
+    }) }}
+{% endif %}
+{% endif %}
 
 
+{% if data['recallStatus2'] %}
+<div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+    <p>Patient has been reinstated </p>
+</div>
+{% endif %}
 
-    {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
-    {% if (data['pnl_update_msg_show'] > 1) %}
-    {{ insetText({
-          "HTML": pnlMsg,
-          "classes": "nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-0"
-        }) }}
-    {% endif %}
+
 
     {% if data['audit_msg_show'] == 1 %}
     {{ insetText({
@@ -134,10 +121,13 @@ NHS Cervical screening management system
         }) }}
     {% endif %}
 
-
+{% if data['recallStatus'] %}
+{% else %}
     {% if data.patientSummary.pnl_action == 'Deferred' %}
     <span class="nhsuk-tag nhsuk-tag--blue"><span>{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span></span>
     {% endif %}
+    {% endif %}
+
 
     {% if data.patientSummary.pnl_action == 'Ceased' %}
       <span class="nhsuk-tag nhsuk-tag--orange">{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span>
@@ -184,8 +174,8 @@ NHS Cervical screening management system
           {% if data.patientSummary.pnl_action == 'Ceased' %}
           Actions:
           {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Radiotherapy (to the pelvic area which affects the cervix)" %}
-          <!-- <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a> -->
-          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a>
+          <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate">Reinstate</a>
+          <!-- <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=manual">Reinstate</a> -->
           {% elif data.patientSummary.pnl_reason == "Due to age" %}
           <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
           {% else %}
@@ -193,7 +183,8 @@ NHS Cervical screening management system
           {% endif %}
           {% else %}
           Actions:
-          <a href="/v12/start-prior-notifications-defer-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Amend or Defer</a>
+          <!-- <a href="/v12/start-prior-notifications-defer-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Amend or Defer</a> -->
+          <a href="/v12/prior-notification/bypass-pnl/prior-notification-amend-reason">Amend or Defer</a>
           <a href="/v12/start-prior-notifications-cease-reason?nhsNumber={{ data.patientSummary.nhs_number }}&pnlversion=12&patversion=7&role=csas&returnUrl=pat">Cease</a>
           {% endif %}
           {% endif %}
@@ -217,6 +208,22 @@ NHS Cervical screening management system
           <a href="/v12/patient/audit/resend-invite-add-comment">Resend invite</a>
           {% endif %}
         </dd>
+
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Recall status
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          Ceased
+          {% else %}
+        Ceased
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+
+        </dd>
       </div>
 
       {% if data.patientSummary.nhs_number == '9100002798' %}
@@ -231,7 +238,6 @@ NHS Cervical screening management system
         </dd>
       </div>
       {% endif %}
-
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">

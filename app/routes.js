@@ -781,6 +781,20 @@ else {
 })
 
 
+router.post("/v12/prior-notification/bypass-pnl/prior-notification-amend-reason", function (req, res) {
+var pnlDeferReason = req.session.data['pnlDeferReason'];
+
+if (pnlDeferReason == 'incorrect') {
+  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-amend");
+}
+
+else {
+  res.redirect("/v12/prior-notification/prior-notification-12-defer-length");
+}
+
+})
+
+
 // accumulated deferrals reports
 router.post("/v12/reports/accumulated-deferrals/choose-ccg", function (req, res) {
 var chooseCCG = req.session.data['chooseCCG'];

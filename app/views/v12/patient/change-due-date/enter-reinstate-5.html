@@ -17,13 +17,15 @@
     "text": "Back to patient summary",
     "classes" : "nhsuk-u-margin-bottom-4"
     }) }}
+
+    <div class="nhsuk-panel-with-label">
     
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
       {% include '../../components/pnl-patient-reinstate.html' %}
-      {% if data.reinstateType != 'reject' %}
+
         <span class="nhsuk-hint">Step 1 of 3</span>
-      {% endif %}
+
       {% include '../../components/patient-reinstate.html' %}
     </div>
 
@@ -33,4 +35,3 @@
 {% endblock %}
 
            </div>
-
