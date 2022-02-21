@@ -43,11 +43,11 @@ NHS Cervical screening management system
 {% block content %}
 <nav class="nhsuk-sub-navigation">
   <ul class="nhsuk-sub-navigation__list">
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
     {% if data.role == 'csas' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
@@ -87,7 +87,7 @@ NHS Cervical screening management system
               <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to [date of migration]
+                Wakefield (WAK) from 18 February 2021 to 12 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
               {% else %}
@@ -451,9 +451,9 @@ NHS Cervical screening management system
                                             <dt class="nhsuk-summary-list__key">
                                           Title
                                             </dt>
-                                            <dd class="nhsuk-summary-list__value">
+                                            <dd class="nhsuk-summary-list__value"><span class="highlight">
                                               Mrs
-                                            </dd>
+                                            </span></dd>
 
                                           </div>
 
@@ -471,9 +471,9 @@ NHS Cervical screening management system
                                             <dt class="nhsuk-summary-list__key">
                                             Surname
                                             </dt>
-                                            <dd class="nhsuk-summary-list__value">
+                                            <dd class="nhsuk-summary-list__value"><span class="highlight">
                                               Parr
-                                            </dd>
+                                            </span></dd>
 
 
                                           </div>

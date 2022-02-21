@@ -44,11 +44,11 @@ NHS Cervical screening management system
 
 <nav class="nhsuk-sub-navigation">
   <ul class="nhsuk-sub-navigation__list">
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
     {% if data.role == 'csas' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
@@ -67,60 +67,44 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
   <div class="nhsuk-grid-column-full">
 
-    <form action="/v12/patient/historic-data/historic-data" method="post">
+
+      <h1 class="nhsuk-heading-l">
+         Choose a registration date range and NHAIS area to view
+       </h1>
+
+       <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
+
+      <ul class="panel-link">
 
 
-    <div class="nhsuk-form-group">
+      <li class="panel-link__item">
+                <a class="panel-link__link" href="historic-data?chooseCipher=wak2">
+                  <h2 class="panel-link__heading nhsuk-heading-s">Registration date range: 18 Feb 2021 to 12 Sept 2022</h2>
+                  <p class="panel-link__content">NHAIS area: Wakefield (WAK)</p>
+                </a>
+              </li>
 
-      <fieldset class="nhsuk-fieldset">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-          <h1 class="nhsuk-fieldset__heading">
-            Choose a registration date range and NHAIS area to view
-          </h1>
-        </legend>
 
-        <div class="nhsuk-radios">
+                    <li class="panel-link__item">
+                              <a class="panel-link__link" href="historic-data?chooseCipher=lds">
+                                <h2 class="panel-link__heading nhsuk-heading-s">Registration date range: 04 Jan 2018 to 18 Feb 2021</h2>
+                                <p class="panel-link__content">NHAIS area: Leeds (LDS)</p>
+                              </a>
+                            </li>
 
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="wak2">
-            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-              Registration date range: 18 Feb 2021 to [date of migration]
-            </label>
-            <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-              NHAIS area: Wakefield (WAK)
-            </div>
-          </div>
 
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="lds">
-            <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-              Registration date range: 04 Jan 2018 to 18 Feb 2021
-            </label>
-            <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                NHAIS area: Leeds (LDS)
-            </div>
-          </div>
 
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="chooseCipher" name="chooseCipher" type="radio" value="wak">
-            <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-              Registration date range: 11 Jun 1992 to 04 Jan 2018
-            </label>
-            <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-            NHAIS area: Wakefield (WAK)
-            </div>
-          </div>
+                                  <li class="panel-link__item">
+                                            <a class="panel-link__link" href="historic-data?chooseCipher=wak">
+                                              <h2 class="panel-link__heading nhsuk-heading-s">Registration date range: 11 Jun 1992 to 04 Jan 2018</h2>
+                                              <p class="panel-link__content">NHAIS area: Wakefield (WAK)</p>
+                                            </a>
+                                          </li>
+            </ul>
 
-        </div>
-      </fieldset>
+</div>
+</div>
 
-    </div>
-
-    <button class="nhsuk-button nhsuk-button--ers" type="submit">
-      Continue
-    </button>
-</form>
 
   </div>
-</div>
 {% endblock %}
