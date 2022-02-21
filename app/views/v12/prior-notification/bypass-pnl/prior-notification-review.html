@@ -48,31 +48,28 @@
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Defer reason</dt>
-          <dd class="nhsuk-summary-list__value">Administrative</dd>
+          <dd class="nhsuk-summary-list__value">Incorrectly amended or deferred previously</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Add to prior notification list</dt>
-          <dd class="nhsuk-summary-list__value">{% if data['bypassPnl'] === 'yes' %}
-            Yes
-          {% else %}
-            No
-          {% endif %}</dd>
+          <dt class="nhsuk-summary-list__key">Amended recall status</dt>
+          <dd class="nhsuk-summary-list__value">{{  data['recallStatus'] or '' }}</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
         </div>
 
 
-          {% if data['ntdd-year'] != '' %}
-            {% set nextTestDueDate = data['ntdd-year'] + "-" + data['ntdd-month'] + "-" + data['ntdd-day'] %}
-            <div class="nhsuk-summary-list__row">
-              <dt class="nhsuk-summary-list__key">Next test due date</dt>
-              <dd class="nhsuk-summary-list__value">{{ nextTestDueDate | returnDateFormat + ' ' + nextTestDueDate | returnTimeDiff }}</dd>
-              <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
-            </div>
+        {% if data['ntdd-year'] != '' %}
+          {% set nextTestDueDate = data['ntdd-year'] + "-" + data['ntdd-month'] + "-" + data['ntdd-day'] %}
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Next test due date</dt>
+            <dd class="nhsuk-summary-list__value">{{ nextTestDueDate | returnDateFormat + ' ' + nextTestDueDate | returnTimeDiff }}</dd>
+            <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
+          </div>
+        {% endif %}
 
 
-          {% endif %}
+
 
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">CRM Case Number</dt>
@@ -111,7 +108,7 @@
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Defer reason</dt>
-          <dd class="nhsuk-summary-list__value">Administrative</dd>
+          <dd class="nhsuk-summary-list__value">Incorrectly amended or deferred previously</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
         </div>
 

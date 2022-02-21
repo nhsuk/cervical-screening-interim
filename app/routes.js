@@ -789,7 +789,7 @@ if (pnlDeferReason == 'incorrect') {
 }
 
 else {
-  res.redirect("/v12/prior-notification/bypass-pnl/prior-notification-defer");
+  res.redirect("/v12/prior-notification/prior-notification-12-defer-length");
 }
 
 })
