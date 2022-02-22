@@ -43,11 +43,11 @@ NHS Cervical screening management system
 {% block content %}
 <nav class="nhsuk-sub-navigation">
   <ul class="nhsuk-sub-navigation__list">
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
     {% if data.role == 'csas' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
@@ -326,9 +326,9 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                         Date deducted
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             04 January 2018
-                          </dd>
+                          </span></dd>
 
                         </div>
 
@@ -336,9 +336,9 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                           Deduction reason
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Moved to new NHAIS area
-                          </dd>
+                          </span></dd>
 
 
                         </div>
@@ -346,36 +346,36 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                           	New NHAIS area (health authority)
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Leeds (LDS)
-                          </dd>
+                          </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           Previous NHAIS area (health authority)
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Wakefield (WAK)
-                          </dd>
+                          </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           New health authority acceptance
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             -
-                          </dd>
+                          </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           Deducted notes
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Moved to Leeds
-                          </dd>
+                          </span></dd>
                         </div>
                       </dl>
 
