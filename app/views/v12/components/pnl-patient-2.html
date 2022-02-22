@@ -6,8 +6,19 @@
   {% set resultDate = (data.pnl_patient.results[0].result_date | returnDateFormat or "-") + " " + (data.pnl_patient.results[0].result_date | returnTimeDiff or "-") %}
 {% endif %}
 
-  <h3 class="nhsuk-card__heading nhsuk-card__heading--feature">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }}
+{% if data.patientSummary.nhs_number == '9100001694' %}
+  <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">Judith Cunningham
+  <span style= color:white; class="nhsuk-table__cell--hint">NHS No: 9100001694</span></h3>
+        {% elif data.patientSummary.nhs_number == '9100001287' %}
+  <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">Muriel Smith
+  <span style= color:white; class="nhsuk-table__cell--hint">NHS No: 9100001287</span></h3>
+        {% else %}
+    <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }}
   <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.pnl_patient.nhs_number | formatNHSNumber }}</span></h3>
+        {% endif %}
+
+  <!-- <h3 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">{{ data.pnl_patient.first_name | capitalize }} {{ data.pnl_patient.last_name | capitalize }}
+  <span style= color:white; class="nhsuk-table__cell--hint">NHS No: {{ data.pnl_patient.nhs_number | formatNHSNumber }}</span></h3> -->
 
 
 <!--
