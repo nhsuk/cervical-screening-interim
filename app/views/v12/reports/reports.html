@@ -71,15 +71,12 @@ NHS Cervical screening management system
                     <h2 class="panel-link__heading nhsuk-heading-s">Demographic changes report</h2>
                   </a>
                 </li>
-                {% if data.patientSummary.nhs_number == '9100002798' %}
+
                 <li class="panel-link__item">
                   <a class="panel-link__link" href="../CSSE-tool/CSSE-home">
                     <h2 class="panel-link__heading nhsuk-heading-s">System enquiries tool (CSSE)</h2>
                   </a>
                 </li>
-                {% else %}
-                {% endif %}
-
 
                 <li class="panel-link__item">
                   <a class="panel-link__link" href="../reports/results-cutoff/choose-lab">
@@ -87,19 +84,14 @@ NHS Cervical screening management system
                   </a>
                 </li>
 
+
+
               </ul>
                         </div>
           <div class="nhsuk-grid-column-one-half">
             <ul class="panel-link">
 
-              {% if data.patientSummary.nhs_number == '9100002798' %}
-              {% else %}
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="../CSSE-tool/CSSE-home">
-                  <h2 class="panel-link__heading nhsuk-heading-s">System enquiries tool (CSSE)</h2>
-                </a>
-              </li>
-              {% endif %}
+
               <li class="panel-link__item">
                 <a class="panel-link__link" href="non-gp-sender-report">
                   <h2 class="panel-link__heading nhsuk-heading-s">Non-GP sender report</h2>
@@ -120,16 +112,15 @@ NHS Cervical screening management system
                   <h2 class="panel-link__heading nhsuk-heading-s">Prior notifications list (PNL) responses report</h2>
                 </a>
               </li>
-              {% if data.patientSummary.nhs_number == '9100002798' %}
-              <li class="panel-link__item">
-                <a class="panel-link__link" href="../reports/historic-data/hub">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Report data from historic system (NHAIS)</h2>
-                </a>
-              </li>
-              {% endif %}
               <li class="panel-link__item">
                 <a class="panel-link__link" href="../reports/sms-download/choose-date">
                   <h2 class="panel-link__heading nhsuk-heading-s">SMS Data Download</h2>
+                </a>
+              </li>
+
+              <li class="panel-link__item">
+                <a class="panel-link__link" href="../reports/historic-data/hub">
+                  <h2 class="panel-link__heading nhsuk-heading-s">Report data from historic system (NHAIS)</h2>
                 </a>
               </li>
             </ul>
