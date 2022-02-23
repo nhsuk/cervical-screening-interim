@@ -43,11 +43,11 @@ NHS Cervical screening management system
 {% block content %}
 <nav class="nhsuk-sub-navigation">
   <ul class="nhsuk-sub-navigation__list">
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
     {% if data.role == 'csas' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
     {% endif %}
@@ -87,14 +87,14 @@ NHS Cervical screening management system
               <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to 12 September 2022
+                Wakefield (WAK) from 18 February 2021 to migration
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
               {% else %}
               Wakefield (WAK) from 11 June 1992 to 04 January 2018
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Demographic history between 18 February 2021 and 12 September 2022 in Wakefield NHAIS area
+               </span>Demographic history between 18 February 2021 and migration in Wakefield NHAIS area
              </h1>
            </div>
          </div>
@@ -105,7 +105,7 @@ NHS Cervical screening management system
                                              <details class="nhsuk-details nhsuk-expander">
                                                <summary class="nhsuk-details__summary">
                                                  <span class="nhsuk-details__summary-text">
-                                                   18 February 2021 – Manual change
+                                                   18 February 2021
                                                  </span>
                                                </summary>
                                                <div class="nhsuk-details__text">
@@ -309,7 +309,7 @@ NHS Cervical screening management system
                                                      <dt class="nhsuk-summary-list__key">
                                                    Previous health authority
                                                      </dt>
-                                                     <dd class="nhsuk-summary-list__value"><span class="highlight">
+                                                     <dd class="nhsuk-summary-list__value">
                                                        Leeds (LDS)
                                                      </span></dd>
 
@@ -319,7 +319,7 @@ NHS Cervical screening management system
                                                      <dt class="nhsuk-summary-list__key">
                                                      Original acceptance or posting NHSCR date
                                                      </dt>
-                                                     <dd class="nhsuk-summary-list__value"><span class="highlight">
+                                                     <dd class="nhsuk-summary-list__value">
                                                        56HHYY
                                                      </span></dd>
 
@@ -336,12 +336,87 @@ NHS Cervical screening management system
                                                      <dt class="nhsuk-summary-list__key">
                                                    Patient notes
                                                      </dt>
-                                                     <dd class="nhsuk-summary-list__value"><span class="highlight">
+                                                     <dd class="nhsuk-summary-list__value">
                                                        -
                                                      </span></dd>
 
                                                    </div>
                                                  </dl>
+
+
+                                                              <h2 class="nhsuk-heading-m">Additional details</h2>
+
+                                                              <dl class="nhsuk-summary-list">
+
+                                                                <div class="nhsuk-summary-list__row">
+                                                                  <dt class="nhsuk-summary-list__key">
+                                                                Additional notes
+                                                                  </dt>
+                                                                  <dd class="nhsuk-summary-list__value">
+                                                                  -
+                                                                  </dd>
+
+                                                                </div>
+
+                                                                <div class="nhsuk-summary-list__row">
+                                                                  <dt class="nhsuk-summary-list__key">
+                                                                  Immigrant details
+                                                                  </dt>
+                                                                  <dd class="nhsuk-summary-list__value">
+                                                                    -
+                                                                  </dd>
+                                                                </div>
+                                                              </dl>
+
+                                                              <h3 class="nhsuk-heading-s">FP69 details</h2>
+                                                                <dl class="nhsuk-summary-list">
+
+                                                                  <div class="nhsuk-summary-list__row">
+                                                                    <dt class="nhsuk-summary-list__key">
+                                                                  Status set
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value">
+                                                                    -
+                                                                    </dd>
+
+                                                                  </div>
+
+                                                                  <div class="nhsuk-summary-list__row">
+                                                                    <dt class="nhsuk-summary-list__key">
+                                                                    Reason
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value">
+                                                                      -
+                                                                    </dd>
+                                                                  </div>
+                                                                  <div class="nhsuk-summary-list__row">
+                                                                    <dt class="nhsuk-summary-list__key">
+                                                                    Expiry date
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value">
+                                                                      -
+                                                                    </dd>
+                                                                  </div>
+                                                                  <div class="nhsuk-summary-list__row">
+                                                                    <dt class="nhsuk-summary-list__key">
+                                                                    Reason for FP69 action
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value">
+                                                                      -
+                                                                    </dd>
+                                                                  </div>
+                                                                  <div class="nhsuk-summary-list__row">
+                                                                    <dt class="nhsuk-summary-list__key">
+                                                                    Comments
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value">
+                                                                      -
+                                                                    </dd>
+                                                                  </div>
+                                                                </dl>
+
+                                                            </div>
+
                                                </div>
                                              </details>
 

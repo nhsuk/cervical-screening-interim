@@ -82,7 +82,7 @@ NHS Cervical screening management system
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to 12 September 2022
+                Wakefield (WAK) from 18 February 2021 to migration
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
               {% else %}
@@ -94,7 +94,14 @@ NHS Cervical screening management system
 
              <div class="nhsuk-u-reading-width">
 
-             <p>Use this page to download a CSV file of the full screening history from the historic NHAIS system while the patient was registered in Wakefield (WAK) from 02 January 2006 to 04 March 2007.</p>
+               {% if data['chooseCipher'] === 'wak2' %}
+                 <p>Use this page to download a CSV file of the full screening history from the historic NHAIS system while the patient was registered in Wakefield (WAK) from 18 February 2021 to migration.</p>
+               {% elif data['chooseCipher'] === 'lds' %}
+                 <p>Use this page to download a CSV file of the full screening history from the historic NHAIS system while the patient was registered in Leeds (LDS) from 04 January 2018 to 18 February 2021.</p>
+               {% else %}
+                <p>Use this page to download a CSV file of the full screening history from the historic NHAIS system while the patient was registered in Wakefield (WAK) from 11 June 1992 to 04 January 2018.</p>
+               {% endif %}
+
 
              <form action="#" method="post">
                <button class="nhsuk-button nhsuk-button--ers" type="submit">

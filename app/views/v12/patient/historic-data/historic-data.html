@@ -67,13 +67,23 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
 
 
+
     <div class="nhsuk-width-container-fluid">
       <main class="nhsuk-main-wrapper" style="padding-top: 24px;" id="maincontent" role="main">
         <div class="nhsuk-grid-row">
+
+          <div class="nhsuk-back-link">
+      <a class="nhsuk-back-link__link" href="choose-cipher">
+      <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+      </svg>
+      Back to Choose a registration date range and NHAIS area to view</a>
+      </div>
+
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to 12 September 2022
+                Wakefield (WAK) from 18 February 2021 to migration
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
               {% else %}
