@@ -44,14 +44,12 @@ NHS Cervical screening management system
 
 <nav class="nhsuk-sub-navigation">
   <ul class="nhsuk-sub-navigation__list">
-    <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient Summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
-    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP information</a></li>
-    {% if data.role == 'csas' %}
-    <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link" aria-current="page">Additional information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link" >GP Information</a></li>
+    <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link" aria-current="page">Additional Information</a></li>
     {% if data.patientSummary.nhs_number == '9100002798' %}
-    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
-    {% endif %}
+    <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Historic Data</a></li>
     {% endif %}
 
   </ul>
@@ -69,11 +67,7 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
     <form action="additional-info?display=True" method="post">
 
-    <h1 class="nhsuk-heading-l">Add additional information</h1>
-
-    <p class="nhsuk-body nhsuk-u-reading-width">
-      Use this page to add, store and track CRM numbers or comments relating to the patient. You can edit or remove them if needed. They are not added to the patient audit in the system.
-      </p>
+    <h1 class="nhsuk-heading-l">Enter CRM case number</h1>
 
     <div class="nhsuk-form-group">
       <h1 class="nhsuk-label-wrapper">
@@ -95,7 +89,7 @@ NHS Cervical screening management system
       </label>
           <span class="nhsuk-hint" id="example-hint"> Do not include clinical information at this point.</span>
 
-      <textarea class="nhsuk-textarea"  name="crmComments" rows="4" value="crmComments" aria-describedby="example-hint" ></textarea>
+      <textarea class="nhsuk-textarea"  name="crmComments" rows="4" value="{{ data['crmComments'] }}" aria-describedby="example-hint" autocomplete="off"></textarea>
     </div>
     </div>
     </div>
@@ -105,7 +99,9 @@ NHS Cervical screening management system
     </div>
 
     <table role="table" class="">
-
+      <caption class="nhsuk-table__caption">
+        <h2>CRM History</h2>
+      </caption>
       <thead role="rowgroup" class="nhsuk-table__head">
         <tr role="row">
           <th role="columnheader" class="" scope="col">
@@ -125,7 +121,89 @@ NHS Cervical screening management system
           </th>
         </tr>
       </thead>
+      <tbody class="nhsuk-table__body">
 
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell" >
+            14 January 2022
+          </td>
+          <td>
+            CAS-12345-ABCDE
+            </td>
+            <td>
+              Had to change their slide number
+              </td>
+              <td>
+                Alison Jones
+                </td>
+                <td>
+                  <a href="">Edit</a><br />
+                  <a href="">Delete</a>
+
+                  </td>
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell" >
+            14 January 2022
+          </td>
+          <td>
+            CAS-12345-ABCDE
+            </td>
+            <td>
+              Had to change their slide number
+              </td>
+              <td>
+                Alison Jones
+                </td>
+                <td>
+                  <a href="">Edit</a><br />
+                  <a href="">Delete</a>
+
+                  </td>
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell" >
+            14 January 2022
+          </td>
+          <td>
+            CAS-12345-ABCDE
+            </td>
+            <td>
+              Had to change their slide number
+              </td>
+              <td>
+                Alison Jones
+                </td>
+                <td>
+                  <a href="">Edit</a><br />
+                  <a href="">Delete</a>
+
+                  </td>
+
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell" >
+            14 January 2022
+          </td>
+          <td>
+            CAS-12345-ABCDE
+            </td>
+            <td>
+              Had to change their slide number
+              </td>
+              <td>
+                Alison Jones
+                </td>
+                <td>
+                  <a href="">Edit</a><br />
+                  <a href="">Delete</a>
+
+                  </td>
+
+        </tr>
+      </tbody>
       {% if data['display'] === 'True' %}
 
 
@@ -156,114 +234,18 @@ NHS Cervical screening management system
       {% else %}
       {% endif %}
 
-
-  {% if data['delete'] === 'True' %}
-      {% else %}
-
-      <tbody class="nhsuk-table__body">
-
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell" >
-            14 January 2022<br />11.00am
-          </td>
-          <td role="cell" class="nhsuk-table__cell" value="CAS-12345-ABCDE"  name="crmNumber" >
-            {{ data['editCrm'] or "CAS-12345-ABCDE" }}
-            </td>
-            <td role="cell" class="nhsuk-table__cell" id="comments2" name="comments2" value="Had to change their slide number">
-              {{ data['editCrmComment'] or "Had to change their slide number" }}
-              </td>
-              <td role="cell" class="nhsuk-table__cell">
-                Alison Jones
-                </td>
-                <td>
-                  <a href="edit-crm">Edit</a><br />
-                  <a href="delete-crm">Delete</a>
-
-                  </td>
-
-        </tr>
-
-          {% endif %}
-
-
-
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell" >
-            9 January 2022<br />9.30am
-          </td>
-          <td>
-            {{ data['editCrm2'] or "CAS-12345-ABCDE" }}
-            </td>
-            <td>
-              {{ data['editCrmComment2'] or "Lab sent test with an error in the action code" }}
-              </td>
-              <td>
-                Alison Jones
-                </td>
-                <td>
-                  <a href="">Edit</a><br />
-                  <a href="">Delete</a>
-
-                  </td>
-
-        </tr>
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell" >
-            14 January 2022<br />9.00am
-          </td>
-          <td>
-            CAS-12345-ABCDE
-            </td>
-            <td>
-              Added HPV vaccination from Scotland.
-
-
-              </td>
-              <td>
-                Alison Jones
-                </td>
-                <td>
-                  <a href="">Edit</a><br />
-                  <a href="">Delete</a>
-
-                  </td>
-
-        </tr>
-        <tr role="row" class="nhsuk-table__row">
-          <td role="cell" class="nhsuk-table__cell" >
-            14 January 2022<br />8.46am
-          </td>
-          <td>
-            CAS-12345-ABCDE
-            </td>
-            <td>
-              Had to change their slide number
-              </td>
-              <td>
-                Alison Jones
-                </td>
-                <td>
-                  <a href="">Edit</a><br />
-                  <a href="">Delete</a>
-
-                  </td>
-
-        </tr>
-      </tbody>
-
-
     </table>
 
     <nav role="navigation" aria-label="Pagination">
       <ul class="screening-pagination">
-        <li class="screening-pagination-item" aria-current="page">
-          <span class="screeing-pagination-current">
+        <li class="screening-pagination-item" >
+          <a  href="/v12/patient/additional-info"><span >
             1</span>
           </a>
         </li>
-        <li class="screening-pagination-item">
+        <li class="screening-pagination-item" aria-current="page">
           <a href="/v12/patient/additional-info-p2">
-            <span>2</span>
+            <span class="screeing-pagination-current">2</span>
           </a>
         </li>
         <li class="screening-pagination-item">
@@ -272,11 +254,11 @@ NHS Cervical screening management system
           </a>
         </li>
         <li class="screening-pagination-item">
-          <a href="/v12/patient/additional-info-p2">
+          <a href="/v12/patient/additional-info-p3">
             <span>Next >></span>
           </a>
         </li>
-        <p class="screening-pagination-showing">Showing 12 of 106 comments</p>
+        <p class="screening-pagination-showing">Showing 12 of 106 CCGs</p>
       </ul>
     </nav>
 
