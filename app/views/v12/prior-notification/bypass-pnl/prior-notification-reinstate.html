@@ -27,14 +27,14 @@ NHS Cervical screening management system
 
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-      {% include '../../components/pnl-patient-2.html' %}
+      {% include '../../components/pnl-patient-4.html' %}
 
       {% if data.role == 'csas' %}
       <span class="nhsuk-hint">Step 1 of 3</span>
       {% else %}
       <span class="nhsuk-hint">Step 2 of 3</span>
       {% endif %}
-      {% if (data.role == 'csas') %}
+
           <form action="prior-notification-reinstate-crm" method="post">
                   <div class="nhsuk-grid-row">
                     <div class="nhsuk-grid-column-three-quarters">
@@ -76,7 +76,7 @@ NHS Cervical screening management system
       Cease date
     </dt>
     <dd class="nhsuk-summary-list__value">
-      DD Month YYYY
+      9 October 2021
     </dd>
 
 
@@ -88,7 +88,7 @@ NHS Cervical screening management system
       Cease reason
     </dt>
     <dd class="nhsuk-summary-list__value">
-      Ceased for age
+      No cervix
     </dd>
 
 
@@ -100,7 +100,7 @@ NHS Cervical screening management system
       Next test due date when ceased
     </dt>
     <dd class="nhsuk-summary-list__value">
-      DD Month YYYY
+      8 May 2023
     </dd>
 
 
@@ -111,7 +111,7 @@ NHS Cervical screening management system
       Recall status when ceased
     </dt>
     <dd class="nhsuk-summary-list__value">
-      Invited
+      GP informed via prior notification list
     </dd>
 
 
@@ -193,7 +193,7 @@ NHS Cervical screening management system
     </div>
 
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-2" name="recallStatus2" type="radio" value="Gp informed">
+      <input class="nhsuk-radios__input" id="example-2" name="recallStatus2" type="radio" value="GP informed via prior notification list">
       <label class="nhsuk-label nhsuk-radios__label" for="example-2">
         GP informed via prior notification list
       </label>
@@ -241,9 +241,7 @@ NHS Cervical screening management system
                   <p><a href="">Exit without saving</a></p>
 
                 </form>
-      <!-- {% else %}
-      {% include '../../components/patient-defer-length.html' %}
-      {% endif %} -->
+
     </div>
 
 
