@@ -61,6 +61,8 @@ invited
 non responder
 {% elif data['recallStatus'] === 'Ceased' %}
 ceased
+{% elif data['recallStatus'] === 'GP informed via prior notification list' %}
+GP informed via prior notification list
 {% else %}
 invited
 {% endif %}
@@ -78,6 +80,8 @@ invited
 non responder
 {% elif data['recallStatus2'] === 'Ceased' %}
 ceased
+{% elif data['recallStatus2'] === 'GP informed via prior notification list' %}
+GP informed via prior notification list
 {% else %}
 invited
 {% endif %}
@@ -119,6 +123,11 @@ invited
   <span class="nhsuk-u-visually-hidden">Information: </span>
     <p>Update: Patient recall status has been amended to {{ recallStatusWord }}</p>
 </div>
+{% elif data['recallStatus2'] %}
+<div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+    <p>Update: Patient has been reinstated with a recall status of {{ recallStatusWord2 }}</p>
+</div>
 {% else %}
 {% set pnlMsg = "<p>Update: " + data.pnl_update_msg  + " </p>"  %}
 {% if (data['pnl_update_msg_show'] > 1) %}
@@ -130,12 +139,6 @@ invited
 {% endif %}
 
 
-{% if data['recallStatus2'] %}
-<div class="nhsuk-inset-text nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4 nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
-  <span class="nhsuk-u-visually-hidden">Information: </span>
-    <p>Update: Patient has been reinstated with a recall status of {{ recallStatusWord2 }}</p>
-</div>
-{% endif %}
 
 
 
@@ -156,6 +159,7 @@ invited
     {% endif %}
 
 {% if data['recallStatus'] %}
+{% elif data['recallStatus2'] %}
 {% else %}
     {% if data.patientSummary.pnl_action == 'Deferred' %}
     <span class="nhsuk-tag nhsuk-tag--blue"><span>{{ data.patientSummary.pnl_action }} - {{ data.patientSummary.pnl_reason }}</span></span>
@@ -246,13 +250,13 @@ invited
       </div>
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Recall status
+          Recall status:
         </dt>
         <dd class="nhsuk-summary-list__value">
           {% if data.patientSummary.pnl_action == 'Ceased' %}
           Ceased
           {% else %}
-        Ceased
+        {{  data['recallStatus2'] or '' }}
           {% endif %}
         </dd>
         <dd class="nhsuk-summary-list__actions">
