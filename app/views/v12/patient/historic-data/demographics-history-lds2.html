@@ -90,12 +90,148 @@ NHS Cervical screening management system
                 Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Demographic history between 04 January 2018 and 18 February 2021 in Leeds NHAIS area
+               </span>Demographic history
              </h1>
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
+
+
+             <details class="nhsuk-details">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Refine date
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+    <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-one-third">
+
+        <form action="#" method="post">
+
+ <div class="nhsuk-form-group">
+<fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+  <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+    <h2 class="nhsuk-fieldset__heading">
+Enter date from
+    </h2>
+  </legend>
+  <div class="nhsuk-hint" id="example-hint">
+    For example, 15 3 1984
+  </div>
+
+  <div class="nhsuk-date-input" id="accDefDateGiven1">
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-day">
+          Day
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-day" name="accDefDateGiven1-day" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+    </div>
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-month">
+          Month
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-month" name="accDefDateGiven1-month" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+    </div>
+    <div class="nhsuk-date-input__item">
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-year">
+          Year
+        </label>
+        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven1-year" name="accDefDateGiven1-year" type="text" pattern="[0-9]*" inputmode="numeric">
+      </div>
+    </div>
+  </div>
+
+</fieldset>
+
+</div>
+</div>
+
+<div class="nhsuk-grid-column-one-third">
+
+<div class="nhsuk-form-group">
+<fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+<legend class="nhsuk-fieldset__legend nhsuk-label--m">
+ <h2 class="nhsuk-fieldset__heading">
+Enter date to
+ </h2>
+</legend>
+
+<div class="nhsuk-hint" id="example-hint">
+ Leave blank to view 1 day
+</div>
+
+<div class="nhsuk-date-input" id="accDefDateGiven2">
+ <div class="nhsuk-date-input__item">
+   <div class="nhsuk-form-group">
+     <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-day">
+       Day
+     </label>
+     <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-day" name="accDefDateGiven2-day" type="text" pattern="[0-9]*" inputmode="numeric">
+   </div>
+ </div>
+ <div class="nhsuk-date-input__item">
+   <div class="nhsuk-form-group">
+     <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-month">
+       Month
+     </label>
+     <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-month" name="accDefDateGiven2-month" type="text" pattern="[0-9]*" inputmode="numeric">
+   </div>
+ </div>
+ <div class="nhsuk-date-input__item">
+   <div class="nhsuk-form-group">
+     <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-year">
+       Year
+     </label>
+     <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven2-year" name="accDefDateGiven2-year" type="text" pattern="[0-9]*" inputmode="numeric">
+   </div>
+ </div>
+</div>
+</fieldset>
+
+</div>
+</div>
+</div>
+
+<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-column-one-third">
+
+
+
+  <button class="nhsuk-button nhsuk-button--ers" type="submit">
+    Search
+  </button>
+</form>
+
+</div>
+</div>
+  </div>
+</details>
            </div>
          </div>
 
@@ -103,7 +239,7 @@ NHS Cervical screening management system
          <details class="nhsuk-details nhsuk-expander">
            <summary class="nhsuk-details__summary">
              <span class="nhsuk-details__summary-text">
-               18 February 2021
+               18 February 2021 (deducted)
              </span>
            </summary>
            <div class="nhsuk-details__text">
@@ -302,9 +438,9 @@ NHS Cervical screening management system
                  <dt class="nhsuk-summary-list__key">
                Date deducted
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    18 February 2021
-                </dd>
+                </span></dd>
 
                </div>
 
@@ -312,9 +448,9 @@ NHS Cervical screening management system
                  <dt class="nhsuk-summary-list__key">
                  Deduction reason
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    Moved back to previous NHAIS area
-                 </dd>
+                 </span></dd>
 
 
                </div>
@@ -322,36 +458,36 @@ NHS Cervical screening management system
                  <dt class="nhsuk-summary-list__key">
                   New NHAIS area (health authority)
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    Wakefield (WAK)
-                 </dd>
+                 </span></dd>
                </div>
 
                <div class="nhsuk-summary-list__row">
                  <dt class="nhsuk-summary-list__key">
                  Previous NHAIS area (health authority)
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    Leeds (LDS)
-                 </dd>
+                 </span></dd>
                </div>
 
                <div class="nhsuk-summary-list__row">
                  <dt class="nhsuk-summary-list__key">
                  Date of new health authority acceptance or death
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    -
-                 </dd>
+                 </span></dd>
                </div>
 
                <div class="nhsuk-summary-list__row">
                  <dt class="nhsuk-summary-list__key">
                  Deducted notes
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    Moved to Wakefield
-                </dd>
+                </span></dd>
                </div>
              </dl>
 
@@ -453,7 +589,7 @@ NHS Cervical screening management system
                                             <dt class="nhsuk-summary-list__key">
                                           Title
                                             </dt>
-                                            <dd class="nhsuk-summary-list__value">
+                                            <dd class="nhsuk-summary-list__value"><span class="highlight">
                                               Mrs
                                             </span></dd>
 
@@ -473,7 +609,7 @@ NHS Cervical screening management system
                                             <dt class="nhsuk-summary-list__key">
                                             Surname
                                             </dt>
-                                            <dd class="nhsuk-summary-list__value">
+                                            <dd class="nhsuk-summary-list__value"><span class="highlight">
                                               Parr
                                             </span></dd>
 
@@ -836,7 +972,7 @@ NHS Cervical screening management system
                                                                   <dt class="nhsuk-summary-list__key">
                                                                 Previous health authority
                                                                   </dt>
-                                                                  <dd class="nhsuk-summary-list__value">
+                                                                  <dd class="nhsuk-summary-list__value"><span class="highlight">
                                                                     Wakefield (WAK)
                                                                   </span></dd>
 
@@ -846,7 +982,7 @@ NHS Cervical screening management system
                                                                   <dt class="nhsuk-summary-list__key">
                                                                   Original acceptance or posting NHSCR date
                                                                   </dt>
-                                                                  <dd class="nhsuk-summary-list__value">
+                                                                  <dd class="nhsuk-summary-list__value"><span class="highlight">
                                                                     F84008
                                                                   </span></dd>
 

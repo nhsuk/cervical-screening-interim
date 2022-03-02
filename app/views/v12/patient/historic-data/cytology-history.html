@@ -82,15 +82,34 @@ NHS Cervical screening management system
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to migration
+                Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Cervical screening test history
              </h1>
+
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
 
 <h2 class="nhsuk-heading-m">Most recent details</h2>
 
@@ -232,7 +251,7 @@ NHS Cervical screening management system
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
       <th role="columnheader" class="" scope="col">
-        Test number
+        Slide number
       </th>
       <th role="columnheader" class="" scope="col">
         Test date
@@ -259,9 +278,9 @@ NHS Cervical screening management system
   </thead>
   <tbody class="nhsuk-table__body">
     <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">871147</td>
+      <td class="nhsuk-table__cell">91003184</td>
       <td class="nhsuk-table__cell">11-Sep-2021</td>
-      <td class="nhsuk-table__cell">X0R</td>
+      <td class="nhsuk-table__cell">X</td>
       <td class="nhsuk-table__cell">9</td>
       <td class="nhsuk-table__cell">S</td>
       <td class="nhsuk-table__cell">36</td>
@@ -270,9 +289,9 @@ NHS Cervical screening management system
 
     </tr>
     <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">971042</td>
+      <td class="nhsuk-table__cell">91003182</td>
       <td class="nhsuk-table__cell">16-Aug-2018</td>
-      <td class="nhsuk-table__cell">X0R</td>
+      <td class="nhsuk-table__cell">X</td>
       <td class="nhsuk-table__cell">9</td>
       <td class="nhsuk-table__cell">A</td>
       <td class="nhsuk-table__cell">36</td>

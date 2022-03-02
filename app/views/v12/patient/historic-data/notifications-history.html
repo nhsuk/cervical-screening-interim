@@ -82,15 +82,34 @@ NHS Cervical screening management system
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to migration
+                Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Notifications history
              </h1>
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
+
 
 <h2 class="nhsuk-heading-m">Audit of invitation and result notifications</h2>
 
@@ -105,16 +124,16 @@ NHS Cervical screening management system
         Date notification sent to patient or GP
       </th>
       <th role="columnheader" class="" scope="col">
-        Notification Type
+        Notification name and code
       </th>
       <th role="columnheader" class="" scope="col">
-        Notification description
+        Notification type
       </th>
       <th role="columnheader" class="" scope="col">
-        Reason for notification
+        Reason code for notification 
       </th>
       <th role="columnheader" class="" scope="col">
-        Letter code
+        Code description
       </th>
 
     </tr>
@@ -126,7 +145,7 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">Result (CP)</td>
       <td class="nhsuk-table__cell">Letter</td>
       <td class="nhsuk-table__cell">RS</td>
-      <td class="nhsuk-table__cell">PXOA - HPV negative result with no cytology</td>
+      <td class="nhsuk-table__cell">PXOA</td>
 
     </tr>
 
@@ -136,7 +155,7 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">Invitation (RP)</td>
       <td class="nhsuk-table__cell">Letter</td>
       <td class="nhsuk-table__cell">RS</td>
-      <td class="nhsuk-table__cell">PA1 - HPV primary screening invitation</td>
+      <td class="nhsuk-table__cell">PA1</td>
 
     </tr>
 
@@ -235,7 +254,7 @@ NHS Cervical screening management system
         Recall status
       </th>
       <th role="columnheader" class="" scope="col">
-        PNL type
+        PNL delivery method
       </th>
 
 
@@ -247,7 +266,7 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">PN (RG)</td>
       <td class="nhsuk-table__cell">Routine</td>
       <td class="nhsuk-table__cell">GP Informed (G)</td>
-      <td class="nhsuk-table__cell">PXOA - HPV negative result with no cytology</td>
+      <td class="nhsuk-table__cell">Open Exeter</td>
 
 
     </tr>
@@ -257,7 +276,7 @@ NHS Cervical screening management system
       <td class="nhsuk-table__cell">Invitation (CP)</td>
       <td class="nhsuk-table__cell">Repeat advised</td>
       <td class="nhsuk-table__cell">GP informed (G)</td>
-      <td class="nhsuk-table__cell">PA1 - HPV primary screening invitation</td>
+      <td class="nhsuk-table__cell">Open Exeter and Paper PNL</td>
 
 
     </tr>

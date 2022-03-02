@@ -82,15 +82,34 @@ NHS Cervical screening management system
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to migration
+                Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Test details
              </h1>
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
+
 
 <h2 class="nhsuk-heading-m">Summary test details</h2>
 
@@ -98,10 +117,10 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Test number
+      Slide number
     </dt>
     <dd class="nhsuk-summary-list__value">
-      871147
+      91003184
     </dd>
 
 
@@ -196,10 +215,10 @@ NHS Cervical screening management system
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Slide number
+      Test number
     </dt>
     <dd class="nhsuk-summary-list__value">
-      91003184
+      871147
     </dd>
 
 

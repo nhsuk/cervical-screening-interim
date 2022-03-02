@@ -82,15 +82,33 @@ NHS Cervical screening management system
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to migration
+                Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Registration audit history
              </h1>
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
 
 
 <table class="nhsuk-table">
@@ -104,7 +122,7 @@ NHS Cervical screening management system
         Screen or application </br>used to make the change
       </th>
       <th role="columnheader" class="" scope="col">
-        Open Exeter (OE) user
+        User
       </th>
       <th role="columnheader" class="" scope="col">
       Description of change
@@ -119,7 +137,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">06 August 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">CY</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -127,7 +145,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">18 Feb 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">LD</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -136,7 +154,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">18 Feb 2021</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">CY</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -144,7 +162,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">15 March 2020</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">LD</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -152,7 +170,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">04 Jan 2018</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">AD</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -161,7 +179,7 @@ NHS Cervical screening management system
   {% else %}
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">04 Jan 2018</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">CY</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -169,7 +187,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">02 Jan 2016</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">LD</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -177,7 +195,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">15 March 2013</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">AD</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -185,7 +203,7 @@ NHS Cervical screening management system
 
   <tr role="row" class="nhsuk-table__row">
     <td class="nhsuk-table__cell">15 March 2010</td>
-    <td class="nhsuk-table__cell">MR</td>
+    <td class="nhsuk-table__cell">CY</td>
     <td class="nhsuk-table__cell">Name of user</td>
     <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -194,7 +212,7 @@ NHS Cervical screening management system
 
       <tr role="row" class="nhsuk-table__row">
         <td class="nhsuk-table__cell">15 March 2008</td>
-        <td class="nhsuk-table__cell">MR</td>
+        <td class="nhsuk-table__cell">LD</td>
         <td class="nhsuk-table__cell">Name of user</td>
         <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -203,7 +221,7 @@ NHS Cervical screening management system
 
               <tr role="row" class="nhsuk-table__row">
                 <td class="nhsuk-table__cell">15 March 2005</td>
-                <td class="nhsuk-table__cell">MR</td>
+                <td class="nhsuk-table__cell">AD</td>
                 <td class="nhsuk-table__cell">Name of user</td>
                 <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -211,7 +229,7 @@ NHS Cervical screening management system
 
               <tr role="row" class="nhsuk-table__row">
                 <td class="nhsuk-table__cell">15 March 1997</td>
-                <td class="nhsuk-table__cell">MR</td>
+                <td class="nhsuk-table__cell">CY</td>
                 <td class="nhsuk-table__cell">Name of user</td>
                 <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -219,7 +237,7 @@ NHS Cervical screening management system
 
               <tr role="row" class="nhsuk-table__row">
                 <td class="nhsuk-table__cell">15 March 1994</td>
-                <td class="nhsuk-table__cell">MR</td>
+                <td class="nhsuk-table__cell">LD</td>
                 <td class="nhsuk-table__cell">Name of user</td>
                 <td class="nhsuk-table__cell">Address amendment</td>
 
@@ -228,7 +246,7 @@ NHS Cervical screening management system
 
                               <tr role="row" class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">11 June 1992</td>
-                                <td class="nhsuk-table__cell">MR</td>
+                                <td class="nhsuk-table__cell">AD</td>
                                 <td class="nhsuk-table__cell">Name of user</td>
                                 <td class="nhsuk-table__cell">Address amendment</td>
 
