@@ -293,6 +293,9 @@ invited
           {% endif %}
         </dd>
         <dd class="nhsuk-summary-list__actions">
+          {% if data.patientSummary.nhs_number == '9100002798' %}
+          <p class="nhsuk-u-margin-bottom-2"><a href="/v12/patient/previous-addresses">View previous system addresses</a></p>
+          {% endif %}
 
           {% if data.role == 'csas' %}
           <span class="nhsuk-tag nhsuk-tag--red">FP69</span>

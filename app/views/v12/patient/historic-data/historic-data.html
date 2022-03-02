@@ -77,21 +77,39 @@ NHS Cervical screening management system
       <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
       </svg>
-      Back to Choose a registration date range and NHAIS area to view</a>
+      Back to Choose an NHAIS area to view</a>
       </div>
 
           <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-m">
               {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to migration
+                Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
                </span>Data from historic system (NHAIS)
              </h1>
+
+             {% if data['chooseCipher'] === 'wak3' %}
+             <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+              <ul>
+                <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                <li>11 June 1992 to 04 January 2018 (deducted)</li>
+              </ul>
+              {% elif data['chooseCipher'] === 'lds2' %}
+              <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+               <ul>
+                 <li>04 January 2018 to 18 February 2021 (deducted)</li>
+               </ul>
+               {% else %}
+               {% endif %}
 
           <div class="nhsuk-grid-column-one-half" style="padding-left: 0;">
             <ul class="panel-link">
@@ -107,10 +125,14 @@ NHS Cervical screening management system
                   <a class="panel-link__link" href="demographics-history-wak2">
                   {% elif data['chooseCipher'] === 'lds' %}
                   <a class="panel-link__link" href="demographics-history-lds">
-                  {% else %}
+                  {% elif data['chooseCipher'] === 'lds2' %}
+                  <a class="panel-link__link" href="demographics-history-lds2">
+                  {% elif data['chooseCipher'] === 'wak' %}
                   <a class="panel-link__link" href="demographics-history-wak">
+                  {% else %}
+                  <a class="panel-link__link" href="demographics-history-wak3">
                   {% endif %}
-                    <h2 class="panel-link__heading nhsuk-heading-s">Demographics history</h2>
+                    <h2 class="panel-link__heading nhsuk-heading-s">Demographic history</h2>
                   </a>
                 </li>
 

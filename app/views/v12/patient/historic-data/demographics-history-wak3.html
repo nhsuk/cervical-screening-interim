@@ -90,23 +90,474 @@ NHS Cervical screening management system
                 Wakefield (WAK) from 18 February 2021 to 22 September 2022
               {% elif data['chooseCipher'] === 'lds' %}
                 Leeds (LDS) from 04 January 2018 to 18 February 2021
+              {% elif data['chooseCipher'] === 'wak' %}
+                Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              {% elif data['chooseCipher'] === 'wak3' %}
+              Wakefield (WAK)
               {% else %}
-              Wakefield (WAK) from 11 June 1992 to 04 January 2018
+              Leeds (LDS)
               {% endif %}
                  <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Demographic history between 11 June 1992 and 04 January 2018 in Wakefield NHAIS area
+               </span>Demographic history
              </h1>
            </div>
          </div>
 
 
+                      {% if data['chooseCipher'] === 'wak3' %}
+                      <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+                       <ul>
+                         <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
+                         <li>11 June 1992 to 04 January 2018 (deducted)</li>
+                       </ul>
+                       {% elif data['chooseCipher'] === 'lds2' %}
+                       <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
+                        <ul>
+                          <li>04 January 2018 to 18 February 2021 (deducted)</li>
+                        </ul>
+                        {% else %}
+                        {% endif %}
+
+                        <details class="nhsuk-details">
+                 <summary class="nhsuk-details__summary">
+                 <span class="nhsuk-details__summary-text">
+                 Refine date
+                 </span>
+                 </summary>
+                 <div class="nhsuk-details__text">
+                 <div class="nhsuk-grid-row">
+
+                 <div class="nhsuk-grid-column-one-third">
+
+                   <form action="#" method="post">
+
+                 <div class="nhsuk-form-group">
+                 <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                 <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+                 <h2 class="nhsuk-fieldset__heading">
+                 Enter date from
+                 </h2>
+                 </legend>
+                 <div class="nhsuk-hint" id="example-hint">
+                 For example, 15 3 1984
+                 </div>
+
+                 <div class="nhsuk-date-input" id="accDefDateGiven1">
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                   <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-day">
+                     Day
+                   </label>
+                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-day" name="accDefDateGiven1-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                   <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-month">
+                     Month
+                   </label>
+                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven1-month" name="accDefDateGiven1-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                   <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven1-year">
+                     Year
+                   </label>
+                   <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven1-year" name="accDefDateGiven1-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 </div>
+
+                 </fieldset>
+
+                 </div>
+                 </div>
+
+                 <div class="nhsuk-grid-column-one-third">
+
+                 <div class="nhsuk-form-group">
+                 <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                 <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+                 <h2 class="nhsuk-fieldset__heading">
+                 Enter date to
+                 </h2>
+                 </legend>
+
+                 <div class="nhsuk-hint" id="example-hint">
+                 Leave blank to view 1 day
+                 </div>
+
+                 <div class="nhsuk-date-input" id="accDefDateGiven2">
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                 <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-day">
+                  Day
+                 </label>
+                 <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-day" name="accDefDateGiven2-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                 <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-month">
+                  Month
+                 </label>
+                 <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="accDefDateGiven2-month" name="accDefDateGiven2-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 <div class="nhsuk-date-input__item">
+                 <div class="nhsuk-form-group">
+                 <label class="nhsuk-label nhsuk-date-input__label" for="accDefDateGiven2-year">
+                  Year
+                 </label>
+                 <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="accDefDateGiven2-year" name="accDefDateGiven2-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                 </div>
+                 </div>
+                 </div>
+                 </fieldset>
+
+                 </div>
+                 </div>
+                 </div>
+
+                 <div class="nhsuk-grid-row">
+                 <div class="nhsuk-grid-column-one-third">
+
+
+
+                 <button class="nhsuk-button nhsuk-button--ers" type="submit">
+                 Search
+                 </button>
+                 </form>
+
+                 </div>
+                 </div>
+                 </div>
+                 </details>
+
+
+                                                      <details class="nhsuk-details nhsuk-expander">
+                                                        <summary class="nhsuk-details__summary">
+                                                          <span class="nhsuk-details__summary-text">
+                                                            18 February 2021
+                                                          </span>
+                                                        </summary>
+                                                        <div class="nhsuk-details__text">
+
+
+
+                                                          <h2 class="nhsuk-heading-m">Patient details</h2>
+
+                                                          <dl class="nhsuk-summary-list">
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Title
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Mrs
+                                                              </dd>
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                              Forename
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Tanya
+                                                              </dd>
+
+
+                                                            </div>
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                              Surname
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Parr
+                                                              </dd>
+
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Previous name (surname)
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Lawrence
+                                                              </dd>
+
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Previous forename
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                -
+                                                              </dd>
+
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Previous surname
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Lawrence
+                                                              </dd>
+
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Birth date
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                              11-Jun-1992 (x years)
+                                                              </dd>
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Sex
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Female
+                                                              </dd>
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            NHS number
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                          910 000 2798
+                                                              </dd>
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                                Birth place
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                Wakefield
+                                                              </dd>
+                                                            </div>
+
+
+
+
+                                                          </dl>
+
+
+                                                          <h2 class="nhsuk-heading-m">Patient address</h2>
+
+
+                                                          <dl class="nhsuk-summary-list">
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Address lines 1-5
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                20 Knight Street<br />
+                                                                Queens, <br />
+                                                                Stockton, <br />
+                                                               Wakefield,<br />
+                                                               </dd>
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                              Address postcode
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                WA9T 6TY
+                                                              </dd>
+
+
+                                                            </div>
+
+                                                          </dl>
+
+
+
+                                                          <h2 class="nhsuk-heading-m">GP details</h2>
+
+                                                                                <dl class="nhsuk-summary-list">
+
+                                                                                  <div class="nhsuk-summary-list__row">
+                                                                                    <dt class="nhsuk-summary-list__key">
+                                                                                  GP name
+                                                                                    </dt>
+                                                                                    <dd class="nhsuk-summary-list__value">
+                                                                                      The Barton Practice
+                                                                                    </dd>
+
+                                                                                  </div>
+
+                                                                                  <div class="nhsuk-summary-list__row">
+                                                                                    <dt class="nhsuk-summary-list__key">
+                                                                                    GP practice code
+                                                                                    </dt>
+                                                                                    <dd class="nhsuk-summary-list__value">
+                                                                                      F84008
+                                                                                    </dd>
+
+
+                                                                                  </div>
+                                                                                  <div class="nhsuk-summary-list__row">
+                                                                                    <dt class="nhsuk-summary-list__key">
+                                                                                    GP code
+                                                                                    </dt>
+                                                                                    <dd class="nhsuk-summary-list__value">
+                                                                                      26843
+                                                                                    </dd>
+
+
+                                                                                  </div>
+
+                                                                                  <div class="nhsuk-summary-list__row">
+                                                                                    <dt class="nhsuk-summary-list__key">
+                                                                                    Date added
+                                                                                    </dt>
+                                                                                    <dd class="nhsuk-summary-list__value">
+                                                                                       18 February 2021
+                                                                                    </dd>
+
+
+                                                                                  </div>
+                                                                                </dl>
+
+                                                          <h2 class="nhsuk-heading-m">Transfer in details</h2>
+
+                                                          <dl class="nhsuk-summary-list">
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Previous health authority
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value"><span class="highlight">
+                                                                Leeds (LDS)
+                                                              </span></dd>
+
+                                                            </div>
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                              Original acceptance or posting NHSCR date
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value"><span class="highlight">
+                                                                56HHYY
+                                                              </span></dd>
+
+
+                                                            </div>
+
+                                                          </dl>
+
+                                                          <h2 class="nhsuk-heading-m">Patient notes</h2>
+
+                                                          <dl class="nhsuk-summary-list">
+
+                                                            <div class="nhsuk-summary-list__row">
+                                                              <dt class="nhsuk-summary-list__key">
+                                                            Patient notes
+                                                              </dt>
+                                                              <dd class="nhsuk-summary-list__value">
+                                                                -
+                                                              </span></dd>
+
+                                                            </div>
+                                                          </dl>
+
+
+                                                                       <h2 class="nhsuk-heading-m">Additional details</h2>
+
+                                                                       <dl class="nhsuk-summary-list">
+
+                                                                         <div class="nhsuk-summary-list__row">
+                                                                           <dt class="nhsuk-summary-list__key">
+                                                                         Additional notes
+                                                                           </dt>
+                                                                           <dd class="nhsuk-summary-list__value">
+                                                                           -
+                                                                           </dd>
+
+                                                                         </div>
+
+                                                                         <div class="nhsuk-summary-list__row">
+                                                                           <dt class="nhsuk-summary-list__key">
+                                                                           Immigrant details
+                                                                           </dt>
+                                                                           <dd class="nhsuk-summary-list__value">
+                                                                             -
+                                                                           </dd>
+                                                                         </div>
+                                                                       </dl>
+
+                                                                       <h3 class="nhsuk-heading-s">FP69 details</h2>
+                                                                         <dl class="nhsuk-summary-list">
+
+                                                                           <div class="nhsuk-summary-list__row">
+                                                                             <dt class="nhsuk-summary-list__key">
+                                                                           Status set
+                                                                             </dt>
+                                                                             <dd class="nhsuk-summary-list__value">
+                                                                             -
+                                                                             </dd>
+
+                                                                           </div>
+
+                                                                           <div class="nhsuk-summary-list__row">
+                                                                             <dt class="nhsuk-summary-list__key">
+                                                                             Reason
+                                                                             </dt>
+                                                                             <dd class="nhsuk-summary-list__value">
+                                                                               -
+                                                                             </dd>
+                                                                           </div>
+                                                                           <div class="nhsuk-summary-list__row">
+                                                                             <dt class="nhsuk-summary-list__key">
+                                                                             Expiry date
+                                                                             </dt>
+                                                                             <dd class="nhsuk-summary-list__value">
+                                                                               -
+                                                                             </dd>
+                                                                           </div>
+                                                                           <div class="nhsuk-summary-list__row">
+                                                                             <dt class="nhsuk-summary-list__key">
+                                                                             Reason for FP69 action
+                                                                             </dt>
+                                                                             <dd class="nhsuk-summary-list__value">
+                                                                               -
+                                                                             </dd>
+                                                                           </div>
+                                                                           <div class="nhsuk-summary-list__row">
+                                                                             <dt class="nhsuk-summary-list__key">
+                                                                             Comments
+                                                                             </dt>
+                                                                             <dd class="nhsuk-summary-list__value">
+                                                                               -
+                                                                             </dd>
+                                                                           </div>
+                                                                         </dl>
+
+                                                        </div>
+                                                      </details>
 
 
 
                   <details class="nhsuk-details nhsuk-expander">
                     <summary class="nhsuk-details__summary">
                       <span class="nhsuk-details__summary-text">
-                        04 January 2018
+                        04 January 2018 (deducted)
                       </span>
                     </summary>
                     <div class="nhsuk-details__text">
@@ -312,9 +763,9 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                         Date deducted
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             04 January 2018
-                        </dd>
+                        </span></dd>
 
                         </div>
 
@@ -322,9 +773,9 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                           Deduction reason
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Moved to new NHAIS area
-                          </dd>
+                          </span></dd>
 
 
                         </div>
@@ -332,36 +783,36 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                           	New NHAIS area (health authority)
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Leeds (LDS)
-                    </dd>
+                    </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           Previous NHAIS area (health authority)
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Wakefield (WAK)
-                          </dd>
+                          </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           Date of new health authority acceptance or death
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             -
-                          </dd>
+                          </span></dd>
                         </div>
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
                           Deducted notes
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             Moved to Leeds
-                          </dd>
+                          </span></dd>
                         </div>
                       </dl>
 
@@ -568,13 +1019,13 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                         Address lines 1-5
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             The Grove,<br />
                           Lilly Lane,<br />
                             Towerlam, <br />
                             Swanston, <br />
                            Wakefield,<br />
-                           </dd>
+                           </span></dd>
 
                         </div>
 
@@ -582,9 +1033,9 @@ NHS Cervical screening management system
                           <dt class="nhsuk-summary-list__key">
                           Address postcode
                           </dt>
-                          <dd class="nhsuk-summary-list__value">
+                          <dd class="nhsuk-summary-list__value"><span class="highlight">
                             WA7 9DW
-                          </dd>
+                          </span></dd>
 
 
                         </div>
@@ -780,12 +1231,12 @@ NHS Cervical screening management system
                  <dt class="nhsuk-summary-list__key">
                Address lines 1-5
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    7 Block Lane<br />
                    Shrimpton, <br />
                    Sevenoaks, <br />
                   Wakefield,<br />
-                </dd>
+                </span></dd>
 
                </div>
 
@@ -793,9 +1244,9 @@ NHS Cervical screening management system
                  <dt class="nhsuk-summary-list__key">
                  Address postcode
                  </dt>
-                 <dd class="nhsuk-summary-list__value">
+                 <dd class="nhsuk-summary-list__value"><span class="highlight">
                    WA7 9DW
-                 </dd>
+                 </span></dd>
 
 
                </div>
