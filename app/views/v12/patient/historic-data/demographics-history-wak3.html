@@ -85,38 +85,12 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
               <h1 class="nhsuk-heading-l">
-            <span class="nhsuk-caption-m">
-              {% if data['chooseCipher'] === 'wak2' %}
-                Wakefield (WAK) from 18 February 2021 to 22 September 2022
-              {% elif data['chooseCipher'] === 'lds' %}
-                Leeds (LDS) from 04 January 2018 to 18 February 2021
-              {% elif data['chooseCipher'] === 'wak' %}
-                Wakefield (WAK) from 11 June 1992 to 04 January 2018
-              {% elif data['chooseCipher'] === 'wak3' %}
-              Wakefield (WAK)
-              {% else %}
-              Leeds (LDS)
-              {% endif %}
-                 <span class="nhsuk-u-visually-hidden"> - </span>
-               </span>Demographic history
+               Demographic history
              </h1>
            </div>
          </div>
 
 
-                      {% if data['chooseCipher'] === 'wak3' %}
-                      <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
-                       <ul>
-                         <li class="nhsuk-u-margin-bottom-0">18 February 2021 to 22 September 2022</li>
-                         <li>11 June 1992 to 04 January 2018 (deducted)</li>
-                       </ul>
-                       {% elif data['chooseCipher'] === 'lds2' %}
-                       <p class="nhsuk-u-margin-bottom-0">Registration dates in this area:</p>
-                        <ul>
-                          <li>04 January 2018 to 18 February 2021 (deducted)</li>
-                        </ul>
-                        {% else %}
-                        {% endif %}
 
                         <details class="nhsuk-details">
                  <summary class="nhsuk-details__summary">
@@ -234,6 +208,12 @@ NHS Cervical screening management system
                  </div>
                  </div>
                  </details>
+
+                 <h2 class="nhsuk-heading-m">
+                   18 February 2021 to 22 September 2022
+                   <h2>
+
+
 
 
                                                       <details class="nhsuk-details nhsuk-expander">
@@ -551,6 +531,10 @@ NHS Cervical screening management system
 
                                                         </div>
                                                       </details>
+
+                                                      <h2 class="nhsuk-heading-m">
+                                                      11 June 1992 to 04 January 2018 (deducted)
+                                                        <h2>
 
 
 
