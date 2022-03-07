@@ -51,11 +51,7 @@
               Date given
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
-                {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
-              {% else %}
-                22-Oct-2021
-              {% endif %}
+                1-Feb-2015
             </dd>
 
 
@@ -67,13 +63,7 @@
               Vaccine name
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data['vaccineName'] === 'gardasil'%}
-                Gardasil
-              {% elif data['vaccineName'] === 'other'%}
-                {{ data['other'] }}
-              {% else %}
                 Cervarix
-              {% endif %}
             </dd>
 
 
@@ -85,12 +75,7 @@
             Batch number
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data['batchNumber'] %}
-                {{ data['batchNumber'] }}
-              {% else %}
-                HP3PV5895H
-              {% endif %}
-
+                CHPV5687AA
             </dd>
 
 
@@ -101,12 +86,8 @@
               Dose
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data['dose'] %}
-                {{ data['dose'] }}
-              {% else %}
-              3
-              {% endif %}
-            </dd>
+              1
+              </dd>
 
 
           </div>
@@ -117,11 +98,7 @@
               CRM
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data['hpvCrm'] %}
-                {{ data['hpvCrm'] }}
-              {% else %}
                 CAS-12345-ABCDE
-              {% endif %}
             </dd>
 
 
@@ -134,11 +111,7 @@
               Comments
             </dt>
             <dd class="nhsuk-summary-list__value">
-              {% if data['hpvComments'] %}
-                {{ data['hpvComments'] }}
-              {% else %}
                 N/A
-              {% endif %}
             </dd>
 
 
