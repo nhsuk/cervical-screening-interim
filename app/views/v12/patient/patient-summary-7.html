@@ -96,10 +96,8 @@ invited
 
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
-    {% if data.patientSummary.nhs_number == '9100002798' %}
+      {% endif %}
       <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
-      {% endif %}
-      {% endif %}
   </ul>
 </nav>
 

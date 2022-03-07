@@ -49,10 +49,8 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
-    {% if data.patientSummary.nhs_number == '9100002798' %}
+    {% endif %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
-    {% endif %}
-    {% endif %}
   </ul>
 </nav>
 
@@ -67,7 +65,7 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
   <div class="nhsuk-grid-column-full">
 
-
+    {% if data.patientSummary.nhs_number == '9100002798' %}
       <h1 class="nhsuk-heading-l">
          Choose an NHAIS area to view
        </h1>
@@ -112,6 +110,15 @@ NHS Cervical screening management system
                                             </a>
                                           </li> -->
             </ul>
+
+            {% else %}
+            <div class="nhsuk-u-reading-width">
+
+            <h1 class="nhsuk-heading-l">
+               There is no data from the historic system (NHAIS) for this patient
+             </h1>
+           </div>
+            {% endif %}
 
 </div>
 </div>
