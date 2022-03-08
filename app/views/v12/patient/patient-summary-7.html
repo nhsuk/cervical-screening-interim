@@ -96,10 +96,8 @@ invited
 
     {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
-    {% if data.patientSummary.nhs_number == '9100002798' %}
+      {% endif %}
       <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
-      {% endif %}
-      {% endif %}
   </ul>
 </nav>
 
@@ -293,10 +291,6 @@ invited
           {% endif %}
         </dd>
         <dd class="nhsuk-summary-list__actions">
-          {% if data.patientSummary.nhs_number == '9100002798' %}
-          <p class="nhsuk-u-margin-bottom-2"><a href="/v12/patient/previous-addresses">View previous system addresses</a></p>
-          {% endif %}
-
           {% if data.role == 'csas' %}
           <span class="nhsuk-tag nhsuk-tag--red">FP69</span>
           {% endif %}
