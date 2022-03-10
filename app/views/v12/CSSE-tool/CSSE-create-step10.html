@@ -82,7 +82,7 @@ NHS Cervical screening management system
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
                 <h2 class="nhsuk-heading-m">
-                  Step 1: Enquiry name
+                  Step 1: Enter enquiry name
                 </h2>
               </dt>
               <dd class="nhsuk-summary-list__value">
@@ -235,7 +235,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Cervix status
+                Cervix
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
@@ -288,7 +288,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Date type
+                Date type and range
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
@@ -421,6 +421,27 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
+                PNL/Invitation/Results notification types
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
+                  <li>{{ data['comms-notification-type'] }}:</li>
+                  {% for item in data['comms-recall-type'] %}
+                    <li>{{ item }}</li>
+                  {% else %}
+                    <li>No criteria set</li>
+                  {% endfor %}
+                </ul>
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+
+              </dd>
+          
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
                 Notification date range
               </dt>
               <dd class="nhsuk-summary-list__value">
@@ -528,7 +549,7 @@ NHS Cervical screening management system
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                HPV primary status
+                HPV primary screening status
               </dt>
               <dd class="nhsuk-summary-list__value">
                 <ul class="nhsuk-list nhsuk-u-margin-bottom-1">
