@@ -237,21 +237,14 @@ NHS Cervical screening management system
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-not-due" value="Not due yet" checked {{ checked("current-episode-status", "Not due yet") }}>
                 <label for="current-not-due" class="nhsuk-label nhsuk-checkboxes__label">
-                  Not due yet
+                  No action
                 </label>
               </div>
 
               <div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-due-invite" value="On prior notification list of patients due to be invited" checked {{ checked("current-episode-status", "On prior notification list of patients due to be invited") }}>
                 <label for="current-due-invite" class="nhsuk-label nhsuk-checkboxes__label">
-                  On prior notification list of patients due to be invited
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-waiting-invite" value="Waiting to be sent invite" checked {{ checked("current-episode-status", "Waiting to be sent invite") }}>
-                <label for="current-waiting-invite" class="nhsuk-label nhsuk-checkboxes__label">
-                  Waiting to be sent invite
+                 GP informed via prior notification list
                 </label>
               </div>
 
@@ -275,14 +268,14 @@ NHS Cervical screening management system
                   Non responder
                 </label>
               </div>
-              <div class="nhsuk-checkboxes__item">
+              <!--div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-episode-status" id="current-pause" value="Pause patient notifications" checked {{ checked("current-episode-status", "Pause patient notifications") }}>
                 <label for="current-pause" class="nhsuk-label nhsuk-checkboxes__label">
-                  Pause patient notifications (while result being resolved)
+                 Ceased
                 </label>
               </div>
 
-              <!--<div class="nhsuk-checkboxes__item">
+              <<div class="nhsuk-checkboxes__item">
                 <input type="checkbox" class="nhsuk-checkboxes__input" name="current-no-action" id="current-no-action" value="No action (NHAIS)">
                 <label for="current-no-action" class="nhsuk-label nhsuk-checkboxes__label">
                   No action (NHAIS)
@@ -343,14 +336,14 @@ NHS Cervical screening management system
                 <label for="current-ZZZ" class="nhsuk-label nhsuk-checkboxes__label">
                   ZZZ (dummy) GP (NHAIS)
                 </label>
-              </div>
+              </div-->
 
               <div class="nhsuk-checkboxes__item">
-                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-ceased" id="current-ceased" value="Ceased or cancelled (NHAIS)">
+                <input type="checkbox" class="nhsuk-checkboxes__input" name="current-ceased" id="current-ceased" value="Ceased or cancelled (NHAIS)" checked {{ checked("current-episode-status", "Ceased") }}>
                 <label for="current-ceased" class="nhsuk-label nhsuk-checkboxes__label">
-                  Ceased or cancelled (NHAIS)
+                  Ceased
                 </label>
-              </div>-->
+              </div>
               
 
             </div>

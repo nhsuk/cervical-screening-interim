@@ -430,14 +430,14 @@ NHS Cervical screening management system
               <div class="nhsuk-radios__item">
                 <input type="radio" class="nhsuk-radios__input" name="include-letter-code" id="include-letter-code" value="Yes, include all letter codes" checked {{ checked("comms-notification-type", "Yes, include all letter codes") }} aria-controls="expand-letter-code" aria-expnded="false">
                 <label for="include-letter-code" class="nhsuk-label nhsuk-radios__label">
-                  Yes, include all letter codes
+                  Yes, include all invitation letter codes
                 </label>
               </div>
 
               <div class="nhsuk-radios__item">
                 <input type="radio" class="nhsuk-radios__input" name="include-letter-code" id="include-letter-code" value="No, only include specific letter codes" {{ checked("comms-notification-type", "Results") }} aria-controls="expand-letter-code" aria-expnded="false">
                 <label for="include-letter-code" class="nhsuk-label nhsuk-radios__label">
-                  No, only include specific letter codes
+                  No, only include specific invitation letter codes
                 </label>
               </div>
   
@@ -446,14 +446,14 @@ NHS Cervical screening management system
 
                     <fieldset class="nhsuk-fieldset" aria-describedby="dob-from" role="group">
                         <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-                         Add letter code
+                         Add individual letter codes
                         </legend>
                   
                   
                             <div class="nhsuk-form-group">
                               <label class="nhsuk-label nhsuk-date-input__label" for="letter-codes">
                                 <span id="" class="nhsuk-hint">
-                                  Enter codes or full description
+                                  HINT: You can search for the letter code or full name of the letter. 
                                 </span>  
                                 <ul id="letter-code-list" class="nhsuk-list">
               
