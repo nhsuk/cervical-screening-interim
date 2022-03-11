@@ -151,16 +151,20 @@ NHS Cervical screening management system
                 </a>
               </li>
 
+              {% if data['chooseCipher'] === 'wak3' %}
               <li class="panel-link__item">
-                <a class="panel-link__link" href="cyau">
+                <a class="panel-link__link" href="cyau-wak">
                   <h2 class="panel-link__heading nhsuk-heading-s">Full screening history (CYAU report)</h2>
                 </a>
               </li>
-              <!-- <li class="panel-link__item">
-                <a class="panel-link__link" href="#">
-                  <h2 class="panel-link__heading nhsuk-heading-s">Interchange, letters and lab files history</h2>
+              {% else %}
+              <li class="panel-link__item">
+                <a class="panel-link__link" href="cyau-lds">
+                  <h2 class="panel-link__heading nhsuk-heading-s">Full screening history (CYAU report)</h2>
                 </a>
-              </li> -->
+              </li>
+              {% endif %}
+
 
             </ul>
           </div>
