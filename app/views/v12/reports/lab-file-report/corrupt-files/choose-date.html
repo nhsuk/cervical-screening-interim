@@ -27,7 +27,7 @@ NHS Cervical screening management system
       "text": "Go back to reports"
     }) }}
 
-    <form action="/v12/reports/lab-file-report/missing-files/reports" method="post">
+    <form action="/v12/reports/lab-file-report/corrupt-files/reports" method="post">
 
     <div class="nhsuk-form-group">
 
@@ -35,7 +35,7 @@ NHS Cervical screening management system
        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
          <h1 class="nhsuk-fieldset__heading">
            <span class="nhsuk-caption-m">
-             Missing files report
+             Corrupt files report
                 <span class="nhsuk-u-visually-hidden"> - </span>
               </span>
         Choose the date you want to view
@@ -45,18 +45,18 @@ NHS Cervical screening management system
        <div class="nhsuk-radios">
 
          <div class="nhsuk-radios__item">
-           <input class="nhsuk-radios__input" id="reportType" name="reportType" type="radio" value="single">
+           <input class="nhsuk-radios__input" id="reportDate" name="reportDate" type="radio" value="today">
            <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-             View any missing files for today (16 March 2022)
+             View any corrupt files for today (16 March 2022)
            </label>
          </div>
 
          <div class="nhsuk-radios nhsuk-radios--conditional">
 
            <div class="nhsuk-radios__item">
-             <input class="nhsuk-radios__input" id="reportType" name="reportType" type="radio" value="range" aria-controls="conditional-contact-1" aria-expanded="false">
+             <input class="nhsuk-radios__input" id="reportDate" name="reportDate" type="radio" value="range" aria-controls="conditional-contact-1" aria-expanded="false">
              <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
-             View any missing files for another date or date range
+             View any corrupt files for another date or date range
              </label>
            </div>
 

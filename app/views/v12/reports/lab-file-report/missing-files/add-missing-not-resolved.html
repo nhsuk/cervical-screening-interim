@@ -1,0 +1,50 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports" 
+    }) }}
+    <h1 class="nhsuk-heading-l">Mark missing file as lab informed</h1>
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
+    {% include '../../../components/report-missing.html' %}
+
+    <form action="add-missing-mark" method="post">
+    <h2 class="nhsuk-heading-m">Missing file investigation details</h2>
+
+    <div class="nhsuk-inset-text" style="border-color: gray !important;">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>This file has not been resolved</p>
+    </div>
+    
+    <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+    </form>
+   
+    <p><a href="">Exit without saving</a></p>
+    </div>
+    </div>
+
+
+{% endblock %}

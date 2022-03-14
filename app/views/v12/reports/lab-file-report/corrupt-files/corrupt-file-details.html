@@ -1,0 +1,70 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports" 
+    }) }}
+    <h1 class="nhsuk-heading-l">This corrupt file has been resolved</h1>
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
+    {% include '../../../components/report-corrupt.html' %}
+
+    <form action="add-missing-resolve1" method="post">
+    <h2 class="nhsuk-heading-m">Corrupt file investigation details</h2>
+
+    <div class="nhsuk-inset-text">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>This corrupt file has been resolved</p>
+    </div>
+
+    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-6">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Date lab informed</dt>
+        <dd class="nhsuk-summary-list__value">16-Mar-22</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Lab informed comments</dt>
+        <dd class="nhsuk-summary-list__value">Sent lab an email</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Date error resolved</dt>
+        <dd class="nhsuk-summary-list__value">16-Mar-22 by CSAS1</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Resolution comments</dt>
+        <dd class="nhsuk-summary-list__value">New file received by CSAS, old file archived</dd>
+      </div>
+     
+    </dl>
+    
+   
+    </form>
+   
+    <p><a href="report-resolved">Go back to corrupt files</a></p>
+    </div>
+    </div>
+
+
+{% endblock %}

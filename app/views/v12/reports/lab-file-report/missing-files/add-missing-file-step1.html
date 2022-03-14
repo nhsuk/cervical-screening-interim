@@ -31,10 +31,9 @@ NHS Cervical screening management system
     <div class="nhsuk-card nhsuk-card--feature">
       <div class="nhsuk-card__content nhsuk-card__content--feature">
     {% include '../../../components/report-add-missing.html' %}
-    <span class="nhsuk-hint">Step 1 of 3</span>
 
 
-    <form action="add-missing2" method="post">
+    <form action="report-file-added" method="post">
 
   <div class="nhsuk-form-group">
 
@@ -60,7 +59,7 @@ NHS Cervical screening management system
 
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="example">
-            Name of last file received
+            Name of missing file
           </label>
           <input class="nhsuk-input nhsuk-input--width-10" id="example" name="example" type="text">
         </div>
@@ -69,7 +68,7 @@ NHS Cervical screening management system
           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
             <legend class="nhsuk-fieldset__legend">
               <p class="nhsuk-fieldset__heading">
-                Date last file was recieved
+                Date last file in sequence was recieved
               </p>
             </legend>
             <div class="nhsuk-hint" id="example-hint">
@@ -107,6 +106,35 @@ NHS Cervical screening management system
         </div>
 
 
+<div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend">
+      <p class="nhsuk-fieldset__heading">
+        Has the lab been informed?
+      </p>
+    </legend>
+
+    <div class="nhsuk-radios">
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          Yes
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+          No
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+
+</div>
 
 
 

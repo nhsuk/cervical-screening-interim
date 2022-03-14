@@ -992,9 +992,13 @@ router.post('/v12/reports/lab-file-report/report-chosen', function (req, res) {
     // Send user to next page
     res.redirect('/v12/reports/lab-file-report/filter-reports')
   }
+  if (reportChoice == "missingFiles"){
+    // Send user to next page
+    res.redirect('/v12/reports/lab-file-report/missing-files/choose-date')
+  }
   else {
     // Send user to ineligible page
-    res.redirect('/v12/reports/lab-file-report/missing-files/choose-date')
+    res.redirect('/v12/reports/lab-file-report/corrupt-files/choose-date')
   }
 
 })
@@ -1013,6 +1017,24 @@ router.post('/v12/reports/lab-file-report/missing-files/reports', function (req,
   else {
     // Send user to ineligible page
     res.redirect('/v12/reports/lab-file-report/missing-files/range-report')
+  }
+
+})
+
+router.post('/v12/reports/lab-file-report/corrupt-files/reports', function (req, res) {
+
+  // Make a variable and give it the value from 'chooseReport'
+  var reportDate = req.session.data['reportDate']
+
+
+  // Check whether the variable matches a condition
+  if ( reportDate == "today"){
+    // Send user to next page
+    res.redirect('/v12/reports/lab-file-report/corrupt-files/single-date-report')
+  }
+  else {
+    // Send user to ineligible page
+    res.redirect('/v12/reports/lab-file-report/corrupt-files/range-report')
   }
 
 })
