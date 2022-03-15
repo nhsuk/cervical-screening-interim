@@ -44,7 +44,13 @@
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Action</dt>
           <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
-          <dd class="nhsuk-summary-list__actions"></dd>
+          <dd class="nhsuk-summary-list__actions"><a href="">Change<span class="nhsuk-u-visually-hidden">Action</span></a></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Incident</dt>
+          <dd class="nhsuk-summary-list__value">{{  data['incidentStatus'] or 'Yes' }}</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="">Change<span class="nhsuk-u-visually-hidden">Incident status</span></a></dd>
         </div>
 
         <div class="nhsuk-summary-list__row">
@@ -52,6 +58,8 @@
           <dd class="nhsuk-summary-list__value">Incorrectly amended or deferred previously</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
         </div>
+
+
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Amended recall status</dt>
@@ -147,7 +155,7 @@
       </dl>
 
       <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="updateNtdd" value="true" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
-      <p><a href="">Exit without saving</a></p>
+      <p><a href="../../patient/patient-summary-7">Exit without saving</a></p>
 
 
 

@@ -59,6 +59,11 @@
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-length">Change<span class="nhsuk-u-visually-hidden"> Next test due date</span></a></dd>
         </div>
 
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Incident</dt>
+          <dd class="nhsuk-summary-list__value">Yes</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="">Change</a></dd>
+        </div>
 
 
           {% if data['ntdd-year'] != '' %}
@@ -104,14 +109,23 @@
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Action</dt>
           <dd class="nhsuk-summary-list__value">Amend or defer next test due date</dd>
-          <dd class="nhsuk-summary-list__actions"></dd>
+          <dd class="nhsuk-summary-list__actions"><a href="">Change<span class="nhsuk-u-visually-hidden">Action</span></a></dd>
         </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Incident</dt>
+          <dd class="nhsuk-summary-list__value">{{  data['incidentStatus'] or 'Yes' }}</dd>
+          <dd class="nhsuk-summary-list__actions"><a href="">Change<span class="nhsuk-u-visually-hidden">Incident status</span></a></dd>
+        </div>
+
 
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">Defer reason</dt>
           <dd class="nhsuk-summary-list__value">Administrative</dd>
           <dd class="nhsuk-summary-list__actions"><a href="prior-notification-{{ data.pnlversion }}-defer-reason">Change<span class="nhsuk-u-visually-hidden"> Defer reason</span></a></dd>
         </div>
+
+
 
         {% if (data['pnl-defer-reason'] == "Pregnancy") and data['edd-year'] != '' %}
           {% set estimatedDateOfDelivery = data['edd-year'] + "-" + data['edd-month'] + "-" + data['edd-day'] %}
@@ -151,7 +165,7 @@
       </dl>
 
       <a href="/v12/prior-notification/prior-notification-deferred-{{ data.pnlversion }}" id="update-Ntdd" value="updateNtdd" name="updateNtdd" class="nhsuk-button nhsuk-button--ers">Submit</a>
-      <p><a href="">Exit without saving</a></p>
+      <p><a href="../../patient/patient-summary-7">Exit without saving</a></p>
 
 
 
