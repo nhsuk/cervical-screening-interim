@@ -51,7 +51,7 @@ NHS Cervical screening management system
 
                                                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
                                                   <h2 class="nhsuk-fieldset__heading">
-                                                    Last amend or defer details if needed:
+                                                    Patient details at amend or defer
                                                   </h2>
                                                 </legend>
 
@@ -59,7 +59,7 @@ NHS Cervical screening management system
 
                           <div class="nhsuk-summary-list__row">
                             <dt class="nhsuk-summary-list__key">
-                              Amend or defer date
+                              Amend or deferral date
                             </dt>
                             <dd class="nhsuk-summary-list__value">
                               DD Month YYYY
@@ -71,7 +71,7 @@ NHS Cervical screening management system
 
                           <div class="nhsuk-summary-list__row">
                             <dt class="nhsuk-summary-list__key">
-                                Amend or defer reason
+                                Amend or deferral reason
                             </dt>
                             <dd class="nhsuk-summary-list__value">
                               Ceased for age
@@ -139,7 +139,9 @@ NHS Cervical screening management system
 
                              </h2>
                            </legend>
-
+                           <!-- <div class="nhsuk-hint" id="example-hint">
+                             If the next test due date is on or before 22 January 2022 (in 7 days), the letter date will be pushed back by 1 week to allow for quality assurance check.
+                           </div> -->
 
                            <div class="nhsuk-date-input" id="example">
                              <div class="nhsuk-date-input__item">
@@ -170,44 +172,8 @@ NHS Cervical screening management system
                            <input type="hidden" id="ntdd" name="ntdd" value="19 01 2021">
                          </fieldset>
 
-                         <div class="nhsuk-u-padding-bottom-5"></div>
 
-
-                         <div class="nhsuk-form-group">
-
-                           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-                             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-                               <h2 class="nhsuk-fieldset__heading">
-                                 Is this an incident?
-                               </h2>
-                             </legend>
-
-                             <div class="nhsuk-hint" id="example-hint">
-                             For incidents, if the next test due date is within the next 7 days the letter date will be pushed back by 1 week to allow for quality assurance check.
-                             </div>
-
-                             <div class="nhsuk-radios" name="incident-status">
-
-                               <div class="nhsuk-radios__item">
-                                 <input class="nhsuk-radios__input" id="example-1" name="incidentStatus" type="radio" value="Yes">
-                                 <label class="nhsuk-label nhsuk-radios__label"for="example-1">
-                                   Yes, this is an incident and needs 7 days for a quality assurance check
-                                 </label>
-                               </div>
-
-                               <div class="nhsuk-radios__item">
-                                 <input class="nhsuk-radios__input" id="example-2" name="incidentStatus" type="radio" value="No">
-                                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                                   No, this is not an incident and does not need 7 days for a quality assurance check
-                                 </label>
-                               </div>
-
-
-
-                             </div>
-                           </fieldset>
-
-                         </div>
+                                         </fieldset>
 
                                           <div class="nhsuk-u-padding-bottom-5"></div>
 
@@ -276,7 +242,7 @@ NHS Cervical screening management system
                 </br>
                   <button class="nhsuk-button nhsuk-button--ers">Continue</button>
 
-                  <p><a href="../../patient/patient-summary-7">Exit without saving</a></p>
+                  <p><a href="">iExit without saving</a></p>
 
                 </form>
       <!-- {% else %}
