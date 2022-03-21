@@ -1,0 +1,91 @@
+{% extends "layout-v2.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    {{ backLink({
+      "href": "/v12/reports/reports",
+      "text": "Go back to reports"
+    }) }}
+
+
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m">
+         Dummy registrations report
+                 <span class="nhsuk-u-visually-hidden"> - </span>
+               </span>View dummy registrations</h1>
+
+
+
+
+
+    <div class="nhsuk-inset-text">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>The data used to identify dummy registrations is updated daily and was last refreshed midnight 25 March 2022. </p>
+    </div>
+
+ 
+   <h3 class="nhsuk-heading-s">Latest reports</h3>
+
+    <table class="nhsuk-table">
+   
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+      
+          <th role="columnheader" class="" scope="col">
+            Report name
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Downloaded by and date
+          </th>
+          <th role="columnheader" class="" scope="col">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+  
+          <td class="nhsuk-table__cell ">All dummy registrations</a></td>
+          <td class="nhsuk-table__cell">Not yet downloaded</td>
+          <td class="nhsuk-table__cell"><a href="" download>Download CSV</a><br>
+        </td>
+        </tr>
+
+        <tr role="row" class="nhsuk-table__row">
+
+          <td class="nhsuk-table__cell ">Non-responder dummy registrations</a></td>
+          <td class="nhsuk-table__cell">J.Smith <span class="nhsuk-table__cell--hint">25-Mar-2022</span></td>
+          <td class="nhsuk-table__cell"><a href="" download>Download CSV</a><br>
+        </td>
+        </tr>
+
+    
+
+      </tbody>
+    </table>
+
+
+   
+  </div>
+</div>
+{% endblock %}
