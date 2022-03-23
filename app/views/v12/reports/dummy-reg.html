@@ -20,7 +20,7 @@ NHS Cervical screening management system
 
 {% block content %}
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-three-quarters">
+  <div class="nhsuk-grid-column-full">
 
     {{ backLink({
       "href": "/v12/reports/reports",
@@ -55,6 +55,9 @@ NHS Cervical screening management system
             Report name
           </th>
           <th role="columnheader" class="" scope="col">
+           Number of records
+          </th>
+          <th role="columnheader" class="" scope="col">
             Downloaded by and date
           </th>
           <th role="columnheader" class="" scope="col">
@@ -66,23 +69,26 @@ NHS Cervical screening management system
         <tr role="row" class="nhsuk-table__row">
   
           <td class="nhsuk-table__cell ">All dummy registrations</a></td>
+          <td class="nhsuk-table__cell ">2</a></td>
           <td class="nhsuk-table__cell">Not yet downloaded</td>
-          <td class="nhsuk-table__cell"><a href="" download>Download CSV</a><br>
+          <td class="nhsuk-table__cell"><a href="/images/all-dummy-reg.csv" download>Download CSV</a><br>
         </td>
         </tr>
 
         <tr role="row" class="nhsuk-table__row">
 
           <td class="nhsuk-table__cell ">Non-responder dummy registrations</a></td>
-          <td class="nhsuk-table__cell">J.Smith <span class="nhsuk-table__cell--hint">25-Mar-2022</span></td>
-          <td class="nhsuk-table__cell"><a href="" download>Download CSV</a><br>
+          <td class="nhsuk-table__cell ">2</a></td>
+          <td class="nhsuk-table__cell">J.Smith <span class="nhsuk-table__cell--hint">24-Mar-2022</span></td>
+          <td class="nhsuk-table__cell"><a href="/images/non-resp.csv" download>Download CSV</a><br>
         </td>
         </tr>
 
         <tr role="row" class="nhsuk-table__row">
 
           <td class="nhsuk-table__cell ">PDS records with a dummy registration</a></td>
-          <td class="nhsuk-table__cell">J.Smith <span class="nhsuk-table__cell--hint">25-Mar-2022</span></td>
+          <td class="nhsuk-table__cell ">1</a></td>
+          <td class="nhsuk-table__cell">J.Smith <span class="nhsuk-table__cell--hint">24-Mar-2022</span></td>
           <td class="nhsuk-table__cell"><a href="" download>Download CSV</a><br>
         </td>
         </tr>

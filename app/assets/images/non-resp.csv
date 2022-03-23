@@ -1,0 +1,3 @@
+﻿24/03/2022,Non-responders only,2,Live or inactive,NHS number,Inactive NHS number,Surname,Forename,Date of birth,Address,Current recall type,Current recall status,Test date,Result code,HPV code,Action code,Repeat months,Non responder count,Date of last non-response,Date dummy registration created,Subject level comments,Test level comments
+,,,Live ,999 123 4567,,Jackson,Fiona,18/11/1995,6 Yarmouth Close,R,2,19/03/2022,X,0,R,12,2,22/03/2022,20/03/2022,Patient contacted twice,No address match
+,,,Inactive,,999 987 6543,Craig,Paloma,16/04/1996,12 Tyne Road,R,1,20/03/2022,X,0,R,3,1,23/03/2022,21/03/2022,,
