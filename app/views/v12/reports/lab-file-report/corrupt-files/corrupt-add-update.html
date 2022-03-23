@@ -26,19 +26,26 @@ NHS Cervical screening management system
       "href": "/v12/reports/reports",
       "text": "Go back to reports" 
     }) }}
-    <h1 class="nhsuk-heading-l">Mark missing file as lab informed</h1>
+    <h1 class="nhsuk-heading-l">Update or resolve this issue</h1>
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-    {% include '../../../components/report-missing.html' %}
+    {% include '../../../components/report-corrupt.html' %}
 
-    <form action="add-missing-file-received" method="post">
-    <h2 class="nhsuk-heading-m">Missing file investigation details</h2>
+    <form action="corrupt-update" method="post">
 
-    <div class="nhsuk-inset-text" style="border-color: gray !important;">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>This file has not been investigated yet</p>
+    <h2 class="nhsuk-heading-m">Add an update</h2>
+
+  
+    <div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="example">
+        Comments
+      </label>
+      <div class="nhsuk-hint" id="example-hint">
+        Do not include clinical information at this point.
+      </div>
+      <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
     </div>
-    
+
     <button class="nhsuk-button nhsuk-button--ers">Continue</button>
     </form>
    
