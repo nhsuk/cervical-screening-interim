@@ -26,7 +26,7 @@ NHS Cervical screening management system
       "href": "/v12/reports/reports",
       "text": "Go back to reports" 
     }) }}
-    <h1 class="nhsuk-heading-l">This missing file has been resolved</h1>
+    <h1 class="nhsuk-heading-l">Update or resolve this issue</h1>
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
     {% include '../../../components/report-missing.html' %}
@@ -34,15 +34,15 @@ NHS Cervical screening management system
     <form action="add-missing-resolve1" method="post">
     <h2 class="nhsuk-heading-m">Missing file investigation details</h2>
 
-    <div class="nhsuk-inset-text">
+    <div class="nhsuk-inset-text" style="border-color: orange !important;">
       <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>This missing file has been resolved</p>
+      <p>The lab has been informed there is a file missing</p>
     </div>
 
     <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-6">
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">Date lab informed</dt>
-        <dd class="nhsuk-summary-list__value">24-Mar-2022</dd>
+        <dd class="nhsuk-summary-list__value">24-Mar-2022 by CSAS1</dd>
       </div>
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">Lab informed comments</dt>
@@ -50,23 +50,17 @@ NHS Cervical screening management system
       </div>
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">Update on 24-Mar-2022</dt>
-        <dd class="nhsuk-summary-list__value">Sent lab a follow up email</dd>
+        <dd class="nhsuk-summary-list__value">Sent a follow up email - CSAS1</dd>
       </div>
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">Date error resolved</dt>
-        <dd class="nhsuk-summary-list__value">24-Mar-2022 by CSAS1</dd>
-      </div>
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">Resolution comments</dt>
-        <dd class="nhsuk-summary-list__value">File received by CSAS</dd>
-      </div>
+      
      
     </dl>
     
-   
+    <button class="nhsuk-button nhsuk-button--ers">Resolve file</button>
+    <a class="nhsuk-button nhsuk-button--secondary nhsuk-button--ers">Add an update</a>
     </form>
    
-    <p><a href="possible-missing-resolved">Go back to missing files</a></p>
+    <p><a href="">Exit without saving</a></p>
     </div>
     </div>
 

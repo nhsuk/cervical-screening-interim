@@ -1,0 +1,327 @@
+{% extends "layout-v2-patient.html" %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/auto.js"></script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(4) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+{% include '../../../components/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/../v12/reports/reports">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back to reports</a>
+</div>
+
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+ 
+      <span class="nhsuk-caption-m">
+       Corrupt files report
+           <span class="nhsuk-u-visually-hidden"> - </span>
+         </span>
+        <h1 id="" class="nhsuk-heading-l">Corrupt files</h1>
+
+        </div>
+        </div>
+        <div class="nhsuk-grid-row">
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Refine by date and status
+              </span>
+        
+            </summary>
+            <div class="nhsuk-details__text">
+              <form action="possible-missing-date" method="post">
+        
+                <div class="nhsuk-form-group">
+        
+                  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                      <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
+                        Which status would you like to see?
+                      </p>
+                      <div class="nhsuk-hint" id="example-hint">
+                        Select all options that are relevant to you.
+                      </div>
+                    </legend>
+        
+        
+        
+                    <div class="nhsuk-checkboxes">
+        
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                          Not resolved
+                        </label>
+                      </div>
+        
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                         Lab informed
+                        </label>
+                      </div>
+                      <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                          File resolved
+                        </label>
+                      </div>
+        
+                    </div>
+                  </fieldset>
+        
+                </div>
+        
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                  <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
+                    Which date or date range would you like to see?
+                  </p>
+                 
+                </legend>
+        
+                <div class="">
+        
+        
+        
+                  
+ 
+        
+                      <div class="nhsuk-form-group">
+                        <div class="nhsuk-grid-row">
+                          <div class="nhsuk-grid-column-one-third">
+                            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                              <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+                                <h3 class="nhsuk-fieldset__heading">
+                                  Enter a date from:
+                                </h3>
+                              </legend>
+                              <div class="nhsuk-hint" id="example-hint">
+                                For example, 15 3 1984
+                              </div>
+        
+                              <div class="nhsuk-date-input" id="example">
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                                      Day
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day"
+                                      name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                      Month
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month"
+                                      name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                      Year
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year"
+                                      name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+        
+                          <div class="nhsuk-grid-column-one-third">
+                            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                              <legend class="nhsuk-fieldset__legend nhsuk-label--s">
+                                <h3 class="nhsuk-fieldset__heading">
+                                  Enter a date to:
+                                </h3>
+                              </legend>
+                              <div class="nhsuk-hint" id="example-hint">
+                                Leave blank for 1 day
+                              </div>
+        
+                              <div class="nhsuk-date-input" id="example">
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-day">
+                                      Day
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-day"
+                                      name="example-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                      Month
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month"
+                                      name="example-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                                <div class="nhsuk-date-input__item">
+                                  <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                      Year
+                                    </label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year"
+                                      name="example-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                   
+        
+        
+        
+                  </div>
+        
+        
+              
+        
+                  <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-6" type="submit">Search</button>
+        
+              </form>
+        
+        
+             
+            </div>
+          </details>
+        
+        </div>
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+
+       
+  </div>
+</div>
+ 
+
+  
+   <h2 class="nhsuk-heading-m">Corrupt files</h2>
+   <p>This list shows corrupted files that may need resolving. You can use this list to track the resolution of corrupt files. </p>
+
+
+   <div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption"></caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+         <th role="columnheader" scope="col" width="200">
+            Lab and national code
+          </th>
+          <th role="columnheader" scope="col" width="120">
+            Area
+          </th>
+          <th role="columnheader" scope="col" width="200">
+            Name of file
+          </th>
+          <th role="columnheader" scope="col" width="240">
+            Date and time file was received
+          </th>
+          <th role="columnheader" scope="col" width="240">
+           Error
+            </th>
+          <th role="columnheader" scope="col" width="240">
+          Status
+          </th>
+        
+          <th role="columnheader" scope="col" width="220">
+            Action
+           </th>
+          
+        </tr>
+      </thead>
+
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Manchester <span class="nhsuk-table__cell--hint">60125</span></td></td>
+           <td class="nhsuk-table__cell">Salford</td>
+           <td class="nhsuk-table__cell">B000570/01</td>
+           <td class="nhsuk-table__cell ">24-Mar-2022
+            <span class="nhsuk-table__cell--hint">09:30:10</span></td>
+            <td class="nhsuk-table__cell">Bad file contents</td>
+            <td class="nhsuk-table__cell "><div class="nhsuk-tag nhsuk-tag--yellow">Lab informed</div><span class="nhsuk-table__cell--hint">CSAS1 on 24-Mar-2022</span</td>
+    
+            
+
+        
+          
+           <td class="nhsuk-table__cell "><a href="corrupt-lab-informed">Update or result this issue</a></td>
+           </tr>
+           <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Manchester <span class="nhsuk-table__cell--hint">60125</span></td></td>
+               <td class="nhsuk-table__cell">Salford</td>
+               <td class="nhsuk-table__cell">56570/01</td>
+               <td class="nhsuk-table__cell ">23-Mar-2022
+                <span class="nhsuk-table__cell--hint">09:30:10</span></td>
+                <td class="nhsuk-table__cell">Invalid message type</td>
+                <td class="nhsuk-table__cell "><div class="nhsuk-tag nhsuk-tag--yellow">Lab informed</div><span class="nhsuk-table__cell--hint">J.Kruger on 23-Mar-2022</span></td>
+        
+                
+    
+            
+              
+               <td class="nhsuk-table__cell "><a href="">Update or resolve this issue</a></td>
+               </tr>
+
+           <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Manchester <span class="nhsuk-table__cell--hint">60125</span></td></td>
+               <td class="nhsuk-table__cell">Chorlton</td>
+               <td class="nhsuk-table__cell">C100570/33</td>
+               <td class="nhsuk-table__cell ">23-Mar-2022
+                <span class="nhsuk-table__cell--hint">09:30:10</span></td>
+                <td class="nhsuk-table__cell">EDIFACT extract error</td>
+                <td class="nhsuk-table__cell "><div class="nhsuk-tag">File resolved</div>  <span class="nhsuk-table__cell--hint">J.Kruger on 23-Mar-2022</span></td>
+  
+    
+            
+              
+               <td class="nhsuk-table__cell "><a href="">View missing file details</a></td>
+               </tr>
+             
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+   
+  </div>
+</div>
+
+ <!--<div id="boxshadow">
+    <img src="/images/summary-csv.png" alt="HMR101 form">
+  </div>
+</div>-->
+
+{% endblock %}
