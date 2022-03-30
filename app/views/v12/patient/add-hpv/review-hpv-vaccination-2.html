@@ -59,172 +59,115 @@
         Edit HPV vaccination
       </button>
   </form>
-      <div class="nhsuk-form-group">
-      <fieldset class="nhsuk-fieldset" aria-describedby="dateGiven-hint" role="group">
-        <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-          Date given
-        </legend>
-      <span class="nhsuk-hint" id="dateGiven-hint">
-          For example, 13 6 2011
-        </span>
 
 
-        <div class="nhsuk-date-input" id="dateGiven">
-          <div class="nhsuk-date-input__item">
-            <div class="nhsuk-form-group">
-              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-day">
-                Day
-              </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dateGiven-day" value="{{ data['dateGiven-day'] or "22" }}" name="dateGiven-day" type="number" pattern="[0-9]*">
-            </div>
-          </div>
-          <div class="nhsuk-date-input__item">
-            <div class="nhsuk-form-group">
-              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-month">
-                Month
-              </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dateGiven-month" value="{{ data['dateGiven-month'] or "10" }}" name="dateGiven-month" type="number" pattern="[0-9]*">
-            </div>
-          </div>
-          <div class="nhsuk-date-input__item">
-            <div class="nhsuk-form-group">
-              <label class="nhsuk-label nhsuk-date-input__label" for="dateGiven-year">
-                Year
-              </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dateGiven-year" value="{{ data['dateGiven-year'] or "2021" }}" name="dateGiven-year" type="number" pattern="[0-9]*">
-            </div>
-          </div></div></fieldset>
+  <dl class="nhsuk-summary-list">
 
-
-      </div>
-
-
-      <div class="nhsuk-form-group">
-
-        <fieldset class="nhsuk-fieldset">
-        <legend class="nhsuk-fieldset__legend nhsuk-label__strong">
-          Vaccine name
-        </legend>
-
-        <div class="nhsuk-radios nhsuk-radios--conditional">
-
-          <div class="nhsuk-radios__item">
-
-            {% if data['vaccineName'] === 'cervarix'%}
-            <input class="nhsuk-radios__input" id="vaccineName-1" name="vaccineName" type="radio" value="cervarix" checked="checked">
-            {% else %}
-            <input class="nhsuk-radios__input" id="vaccineName-1" name="vaccineName" type="radio" value="cervarix">
-            {% endif %}
-            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-1">
-              Cervarix
-            </label>
-          </div>
-
-
-          <div class="nhsuk-radios__item">
-            {% if data['vaccineName'] === 'gardasil'%}
-            <input class="nhsuk-radios__input" id="vaccineName-2" name="vaccineName" type="radio" value="gardasil" checked="checked">
-            {% else %}
-            <input class="nhsuk-radios__input" id="vaccineName-2" name="vaccineName" type="radio" value="gardasil">
-            {% endif %}
-            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-2">
-              Gardasil
-            </label>
-          </div>
-
-          {% if data['vaccineName'] === 'other'%}
-
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="vaccineName-3" name="vaccineName" type="radio" value="other" checked="checked" aria-controls="conditional-vaccineName-3" aria-expanded="false">
-            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-3">
-              Other
-            </label>
-          </div>
-
-          <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-vaccineName-3">
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Date given
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
+          {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
+        {% else %}
+          22-Oct-2021
+        {% endif %}
+      </dd>
 
 
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="other">
-          Enter vaccine name
-        </label>
-        <input class="nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--width-10" id="other" name="other" value="{{ data['other'] }}" type="text">
-      </div>
+    </div>
+
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Vaccine name
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if data['vaccineName'] === 'gardasil'%}
+          Gardasil
+        {% elif data['vaccineName'] === 'other'%}
+          {{ data['other'] }}
+        {% else %}
+          Cervarix
+        {% endif %}
+      </dd>
 
 
-          </div>
+    </div>
 
-          {% else %}
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+      Batch number
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if data['batchNumber'] %}
+          {{ data['batchNumber'] }}
+        {% else %}
+          HP3PV5895H
+        {% endif %}
 
-
-
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="vaccineName-3" name="vaccineName" type="radio" value="other" aria-controls="conditional-vaccineName-3" aria-expanded="false">
-            <label class="nhsuk-label nhsuk-radios__label" for="vaccineName-3">
-              Other
-            </label>
-          </div>
-
-          <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-vaccineName-3">
-
-
-
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="other">
-          Enter vaccine name
-        </label>
-        <input class="nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--width-10" id="other" name="other" type="text">
-      </div>
-          </div>
-          {% endif %}
+      </dd>
 
 
 
-        </div>
-        </fieldset>
+    </div>
 
-      </div>
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Dose
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if data['dose'] %}
+          {{ data['dose'] }}
+        {% else %}
+        3
+        {% endif %}
+      </dd>
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label__strong" for="batchNumber">
-          Batch number
-        </label>
-        <span class="nhsuk-hint" id="batchNumber-hint">
-          Leave blank if no batch number provided
-        </span>
-        <input class="nhsuk-input nhsuk-input--width-10" id="batchNumber" name="batchNumber" value="{{ data['batchNumber'] or "HP3PV5895H"}}" type="text" aria-describedby="batchNumber-hint">
-      </div>
+
+    </div>
 
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label__strong" for="dose">
-          Dose
-        </label>
-        <input class="nhsuk-input nhsuk-input--width-2" id="dose" name="dose" value="{{ data['dose'] or "3"}}" type="text" aria-describedby="dose-hint">
-      </div>
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label__strong" for="hpvCrm">
-          CRM case number
-        </label>
-        <span class="nhsuk-hint" id="hpvCrm-hint">
-          For example, CAS-12345-ABCDE
-        </span>
-        <input class="nhsuk-input nhsuk-input--width-10" id="hpvCrm" name="hpvCrm" value="{{ data['hpvCrm'] or "CAS-12345-ABCDE"}}" type="text" aria-describedby="hpvCrm-hint">
-      </div>
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        CRM
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if data['hpvCrm'] %}
+          {{ data['hpvCrm'] }}
+        {% else %}
+          CAS-12345-ABCDE
+        {% endif %}
+      </dd>
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label__strong" for="hpvComments">
-          Comments (optional)
-        </label>
-        <textarea class="nhsuk-textarea" id="hpvComments" value="{{ data['hpvComments'] or "NA"}}" name="hpvComments" rows="5"></textarea>
-      </div>
+
+
+    </div>
+
+
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+        Comments
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {% if data['hpvComments'] %}
+          {{ data['hpvComments'] }}
+        {% else %}
+          N/A
+        {% endif %}
+      </dd>
+
+    </div>
+
+  </dl>
+
+
 
       {% include '../../components/comments-timeline-hpv.html' %}
 
 
-    <p><a href="../patient-summary-7">Exit without saving</a></p>
 
   </div>
 
