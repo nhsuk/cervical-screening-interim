@@ -22,10 +22,11 @@ NHS Cervical screening management system
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    {{ backLink({
-      "href": "/v12/reports/reports",
-      "text": "Go back to reports" 
-    }) }}
+
+            {{ backLink({
+              "href": "/v12/reports/lab-file-report/missing-files/add-missing-resolve1",
+              "text": "Go back to enter resolution information"
+            }) }}
     <h1 class="nhsuk-heading-l">Resolve missing file </h1>
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
@@ -33,7 +34,7 @@ NHS Cervical screening management system
 
     <form action="possible-missing-resolved" method="post">
       <span class="nhsuk-hint">Step 2 of 2</span>
-  
+
 
     <div class="nhsuk-form-group">
 
@@ -42,27 +43,27 @@ NHS Cervical screening management system
           <h2 class="nhsuk-fieldset__heading">
             Confirm file has been resolved
           </h2>
-  
+
         </legend>
-  
+
         <div class="nhsuk-checkboxes">
-  
+
           <div class="nhsuk-checkboxes__item">
             <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
             <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
               I confirm I have resolved any problems relating to this file
             </label>
           </div>
-  
-  
+
+
         </div>
       </fieldset>
-  
+
     </div>
 
     <button class="nhsuk-button nhsuk-button--ers">Continue</button>
     </form>
-   
+
     <p><a href="">Exit without saving</a></p>
     </div>
     </div>
