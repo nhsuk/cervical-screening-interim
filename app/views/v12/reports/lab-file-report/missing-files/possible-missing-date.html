@@ -21,40 +21,38 @@
 {% block content %}
 
 <div class="nhsuk-back-link">
-  <a class="nhsuk-back-link__link" href="/../v12/reports/reports">
+  <a class="nhsuk-back-link__link" href="/../v12/reports/lab-file-report/choose-report">
     <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
     </svg>
-    Go back to reports</a>
+    Go back to choose the report you want to view</a>
 </div>
+
 
 
 
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
- 
+
       <span class="nhsuk-caption-m">
         Missing files report
            <span class="nhsuk-u-visually-hidden"> - </span>
          </span>
         <h1 id="" class="nhsuk-heading-l">Missing files</h1>
 
-        </div>
-        </div>
-        <div class="nhsuk-grid-row">
           <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
               <span class="nhsuk-details__summary-text">
                 Refine by date and status
               </span>
-        
+
             </summary>
             <div class="nhsuk-details__text">
               <form>
-        
+
                 <div class="nhsuk-form-group">
-        
+
                   <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                     <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                       <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
@@ -64,18 +62,18 @@
                         Select all options that are relevant to you.
                       </div>
                     </legend>
-        
-        
-        
+
+
+
                     <div class="nhsuk-checkboxes">
-        
+
                       <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
                           Not resolved
                         </label>
                       </div>
-        
+
                       <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
@@ -88,26 +86,26 @@
                           File resolved
                         </label>
                       </div>
-        
+
                     </div>
                   </fieldset>
-        
+
                 </div>
-        
+
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                   <p class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-2">
                     Which date or date range would you like to see?
                   </p>
-                 
+
                 </legend>
-        
+
                 <div class="">
-        
-        
-        
-                  
- 
-        
+
+
+
+
+
+
                       <div class="nhsuk-form-group">
                         <div class="nhsuk-grid-row">
                           <div class="nhsuk-grid-column-one-third">
@@ -120,7 +118,7 @@
                               <div class="nhsuk-hint" id="example-hint">
                                 For example, 15 3 1984
                               </div>
-        
+
                               <div class="nhsuk-date-input" id="example">
                                 <div class="nhsuk-date-input__item">
                                   <div class="nhsuk-form-group">
@@ -152,7 +150,7 @@
                               </div>
                             </fieldset>
                           </div>
-        
+
                           <div class="nhsuk-grid-column-one-third">
                             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
                               <legend class="nhsuk-fieldset__legend nhsuk-label--s">
@@ -163,7 +161,7 @@
                               <div class="nhsuk-hint" id="example-hint">
                                 Leave blank for 1 day
                               </div>
-        
+
                               <div class="nhsuk-date-input" id="example">
                                 <div class="nhsuk-date-input__item">
                                   <div class="nhsuk-form-group">
@@ -197,25 +195,27 @@
                           </div>
                         </div>
                       </div>
-                   
-        
-        
-        
+
+
+
+
                   </div>
-        
-        
-              
-        
-        
-        
+
+
+
+
+
+
               </form>
-        
-        
+
+
               <button class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-6">Search</button>
             </div>
           </details>
-        
+
         </div>
+      </div>
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-full">
 
@@ -228,9 +228,9 @@
     </nav>
   </div>
 </div>
- 
 
-  
+
+
    <h2 class="nhsuk-heading-m">Possible missing files</h2>
    <p>Possible missing files are identified when a file is expected for an area but no file is received. This list shows the last file that was received from that area. You can use this list to track the resolution of missing files. </p>
 
@@ -256,11 +256,11 @@
           <th role="columnheader" scope="col" width="240">
           Status
           </th>
-        
+
           <th role="columnheader" scope="col" width="220">
             Action
            </th>
-          
+
         </tr>
       </thead>
 
@@ -272,14 +272,14 @@
            <td class="nhsuk-table__cell ">24-Mar-2022
             <span class="nhsuk-table__cell--hint">09:30:10</span></td>
             <td class="nhsuk-table__cell "><div class="nhsuk-tag nhsuk-tag--grey">Not resolved</div></td>
-    
-            
 
-        
-          
+
+
+
+
            <td class="nhsuk-table__cell "><a href="add-missing-not-resolved">Mark as lab informed</a></td>
            </tr>
-       
+
 
       </tbody>
     </table>
@@ -287,7 +287,7 @@
 </div>
 
 <br>
-   
+
   </div>
 </div>
 
