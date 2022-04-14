@@ -1,0 +1,145 @@
+{% extends "layout-v2.html" %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-width-container nhsuk-header__container">
+    <div class="nhsuk-header__logo nhsuk-header__logo--only"><a class="nhsuk-header__link nhsuk-header__link--service " href="/v12/pds/search/search" aria-label="NHS homepage">
+        <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+          <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
+          <path class="nhsuk-logo__text"
+            d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6">
+          </path>
+          <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+        </svg>
+        <span class="nhsuk-header__service-name">
+          Cervical Screening Management System
+        </span>
+      </a>
+    </div>
+
+    <div class="nhsuk-header__logout">
+      <a class="nhsuk-header__logout--link" href="/v12/login/login?patversion=7">Log out</a>
+    </div>
+
+
+  </div>
+
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="add-test-result-repeat-in-months">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to patient summary</a>
+    </div>
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
+      {% include 'v12/components/patient-result-4.html' %}
+     <span class="nhsuk-hint">Step 3 of 6</span>
+
+<form action="add-test-result" method="post">
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        Add test details
+      </h1>
+    </legend>
+
+    <div class="nhsuk-form-group">
+                   <label class="nhsuk-label nhsuk-label__strong" for="sender-code">
+                     Sender code
+                   </label>
+                   <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                     Also known as Practice code, non GP sender code or GNC number.
+                     <br>
+                     For example, A86020
+                     <br>
+                     Leave blank if no sender code provided.
+                   </div>
+                   <input class="nhsuk-input nhsuk-input--width-4" value='{{ senderValue }}' id="sender-code" name="sender-code" type="text" aria-describedby="Sender code" inputmode="text" autocomplete="off">
+               </div>
+
+
+       {{ input({
+                  "label": {
+                   "text": "Slide number",
+                   "classes": "nhsuk-label nhsuk-label__strong"
+                  },
+                  hint: {
+                     html: "For example, 18010000"
+                  },
+                  "id": "input-width-10",
+                  "name": "slide-number",
+                  "classes": "nhsuk-input--width-10",
+                  "autocomplete": "off",
+                  "value": data['slide-number']
+                 }) }}
+
+               {{ dateInput({
+                 "id": "example",
+                 "namePrefix": "example",
+                 "fieldset": {
+                   "legend": {
+                     "text": "Test date",
+                     "classes": "nhsuk-label nhsuk-label__strong",
+                     "isPageHeading": true
+                   }
+                 },
+                 "hint": {
+                   "text": "For example, 15 3 1984"
+                 },
+                 "items": [
+                   {
+                     "name": "day",
+                     "classes": "nhsuk-input--width-2",
+                     "autocomplete": "off",
+                     "value": data['example-day']
+                   },
+                   {
+                     "name": "month",
+                     "classes": "nhsuk-input--width-2",
+                     "autocomplete": "off",
+                     "value": data['example-month']
+                   },
+                   {
+                     "name": "year",
+                     "classes": "nhsuk-input--width-4",
+                     "autocomplete": "off",
+                     "value": data['example-year']
+                   }
+                 ]
+               }) }}
+             </fieldset>
+
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">Continue</button>
+  </form>
+
+
+  <p><a href="manc-rejected">Exit without saving</a></p>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
