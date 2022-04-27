@@ -1,0 +1,264 @@
+{% extends "layout-v2.html" %}
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+
+{% include 'v12/components/header.html' %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="add-test-result-repeat-in-months">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to patient summary</a>
+    </div>
+    <div class="nhsuk-card nhsuk-card--feature">
+    <div class="nhsuk-card__content nhsuk-card__content--feature">
+      {% include 'v12/components/patient-result-4.html' %}
+     <span class="nhsuk-hint">Step 6 of 6</span>
+
+<form action="#" method="post"> <input type="hidden" name="hideDetails" value="true">
+
+
+      <h1 class="nhsuk-heading-l">
+        Review action to pause patient
+      </h1>
+
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Acion
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+        Pause letters and notifications
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Pause start date
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          19-Aug-2021
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          National code
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          60670
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> national code</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Health authority
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          LDS
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Sender code
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          -
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Slide number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          91003184
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Test date
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          11-Sep-2021
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Result
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                X0R
+              </dd>
+
+              <dd class="nhsuk-summary-list__actions">
+
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                </a>
+
+              </dd>
+
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Validation failure reason
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                3rd HPV positive result: colposcopy required
+              </dd>
+
+              <dd class="nhsuk-summary-list__actions">
+
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                </a>
+
+              </dd>
+
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                CRM case number
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                CAS-12345-ABCDE
+              </dd>
+
+              <dd class="nhsuk-summary-list__actions">
+
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+                </a>
+
+              </dd>
+
+            </div>
+
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Comments
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                            Result has come in with errors, waiting for lab to send new result.
+                          </dd>
+
+                          <dd class="nhsuk-summary-list__actions">
+
+                            <a href="#">
+                              Change<span class="nhsuk-u-visually-hidden"> comments</span>
+                            </a>
+
+                          </dd>
+
+                        </div>
+
+    </dl>
+
+
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">Submit</button>
+  </form>
+
+
+  <p><a href="manc-rejected">Exit without saving</a></p>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
