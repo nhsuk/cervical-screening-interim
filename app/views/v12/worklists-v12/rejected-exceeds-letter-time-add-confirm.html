@@ -4,6 +4,12 @@
 <script type="text/javascript" src="/js/reveal.js"></script>
 <script type="text/javascript" src="/js/comments.js"></script>
 
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+
 {% endblock %}
 {% block pageTitle %}
 NHS Cervical screening management system
@@ -90,16 +96,17 @@ NHS Cervical screening management system
 
                   {% if (data['address-line-1'] == "" or data['address-line-1'] == null) and (data['address-line-2'] == "" or data['address-line-2'] == null) and (data['address-town'] == "" or data['address-town'] == null) and (data['address-county'] == "" or data['address-county'] == null) and (data['address-postcode'] == "" or data['address-postcode'] == null) %}
                   1 Westfield Place<br>Great Shelford<br> CB22 5JJ
-                  {% endif %} 
+                  {% endif %}
               </dd>
             </div>
           </dl>
         </div>
+      </div>
 
-    
+
 
         <a href="manc-query" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-4 nhsuk-u-margin-right-6">Continue to next rejection</a>
-    
+
         <a href="manc-query" class="nhsuk-button nhsuk-button--ers nhsuk-button--ers_secondary nhsuk-u-margin-top-4 nhsuk-u-margin-right-6">View patient summary</a>
 
 

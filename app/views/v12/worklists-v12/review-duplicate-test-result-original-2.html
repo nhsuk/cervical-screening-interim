@@ -116,7 +116,7 @@ NHS Cervical screening management system
 
 
 
-      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
+      <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 nhsuk-u-margin-bottom-0">
 
         <div class="nhsuk-form-group">
           <dl class="nhsuk-summary-list">
@@ -182,17 +182,12 @@ NHS Cervical screening management system
 
 
     </dl>
+    <div class="nhsuk-u-margin-left-3">
      {% include '../components/comments-timeline-manual-match.html' %}
+   </div>
 
-
-
-  <dl>
-
-
-
-
-      </dl>
 </dl>
+</div>
 </div>
 </div>
 
@@ -202,7 +197,7 @@ NHS Cervical screening management system
  <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
 
-   {% include '../components/patient-result-duplicate-rhodes-og.html' %}
+        {% include '../components/patient-result-duplicate-rhodes-og.html' %}
    <!-- <h2 class="nhsuk-heading-m nhsuk-u-padding-left-3 nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-3">Original result</h2> -->
 
 
@@ -307,8 +302,9 @@ NHS Cervical screening management system
 
 
     </dl>
+    <div class="nhsuk-u-margin-left-3">
      {% include '../components/comments-timeline-manual-match.html' %}
-
+   </div>
 
 
 
@@ -320,6 +316,8 @@ NHS Cervical screening management system
   </div>
   </div>
     </div>
+  </div>
+
 
      <div class="nhsuk-form-group nhsuk-u-reading-width">
           <form action="/v12/worklists-v12/review-duplicate-test-result-original-2" method="post">

@@ -96,7 +96,11 @@
     cursor: pointer;
   }
 </style>
-
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 
 {% endblock %}
 {% block pageTitle %}
@@ -122,7 +126,7 @@ NHS Cervical screening management system
     <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success nhsuk-u-margin-top-8 nhsuk-u-margin-bottom-8">
            <h3 class="nhsuk-heading-s">No system demographic match found</h3>
         </div>
-    
+
     <!-- LAB DEMOGRAPHICS -->
     <h3>Lab patient demographics</h3>
 
@@ -207,12 +211,12 @@ NHS Cervical screening management system
               <label class="nhsuk-label nhsuk-label__strong nhsuk-u-padding-top-6" for="example">
                 Comments (optional)
               </label>
-              
+
               <textarea class="nhsuk-textarea commentBox char-textarea" id="commentsa" value="commentsa" name="commentsa" rows="5" ></textarea>
-              
+
             </div>
-            
-          </form> 
+
+          </form>
 
         </div>
       </div>

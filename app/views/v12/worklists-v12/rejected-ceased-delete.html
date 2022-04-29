@@ -26,6 +26,12 @@ function checkSpecialKeys(e) {
         return true;
 }
 </script>
+
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 
 {% block pageTitle %}
@@ -55,24 +61,24 @@ NHS Cervical screening management system
     <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
      <h1 class="nhsuk-heading-l"> Check test result selected before deleting</h1>
-     
+
 
     <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-    
-      {% include '../components/patient-result-1.html' %} 
 
-      
+      {% include '../components/patient-result-1.html' %}
+
+
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-top-4" aria-describedby="example-hint">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
             Test result details
           </legend>
-      
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
-        
+
 
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">Slide number</dt>
@@ -99,16 +105,17 @@ NHS Cervical screening management system
               <dd class="nhsuk-summary-list__value">36 months</dd>
             </div>
           </dl>
-      
+
 
       <div class="nhsuk-form-group">
-        
 
-            
+
+
 
           </div>
-          </div>       
-          
+          </div>
+
+        </div>
 
 
 
@@ -129,7 +136,7 @@ NHS Cervical screening management system
             <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
              This action will remove the result fromt he rejected lab list.
             </div>
-            
+
             <div class="nhsuk-form-group">
               <h1 class="nhsuk-label-wrapper">
                 <label class="nhsuk-fieldset__legend--s nhsuk-label__strong" for="example-heading">
@@ -142,13 +149,13 @@ NHS Cervical screening management system
               <input class="nhsuk-input nhsuk-input--width-10" type="text" name="crm" autocomplete="off" value="{{ data.crm }}">
             </div>
             <div class="nhsuk-form-group">
-             
+
 
               <label class="nhsuk-label" for="example">
-                Comments 
+                Comments
               </label>
                   <span class="nhsuk-hint" id="example-hint"> Add a comment explaining this action taken.</span>
-               
+
               <textarea class="nhsuk-textarea" id="example" name="comments" rows="4" aria-describedby="example-hint" autocomplete="off">{{ data.comments }}</textarea>
             </div>
           </div>
@@ -159,19 +166,19 @@ NHS Cervical screening management system
             <input class="nhsuk-radios__input" id="example-1" name="result-type" type="radio" value="English" >
             <label class="nhsuk-label nhsuk-radios__label" for="example-1">
               No, return back to rejected lab list.
-            </label> 
+            </label>
             <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
              The result will stay on the rejected lab list.
-            </div>  
-          </div>   
-        </div> 
-      </fieldset> 
+            </div>
+          </div>
+        </div>
+      </fieldset>
     </div>
     <br>
-    <button class="nhsuk-button nhsuk-button--ers" type="submit">Confirm</button>   
+    <button class="nhsuk-button nhsuk-button--ers" type="submit">Confirm</button>
   </form>
 
- <p><a href="manc-rejected">Exit without saving</a></p> 
+ <p><a href="manc-rejected">Exit without saving</a></p>
   </div>
 
 {% endblock %}

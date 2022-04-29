@@ -96,7 +96,11 @@
     cursor: pointer;
   }
 </style>
-
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 
 {% endblock %}
 {% block pageTitle %}
@@ -120,7 +124,7 @@ NHS Cervical screening management system
 
     <h1 class="nhsuk-heading-l nhsuk-u-padding-top-2">Review unmatched patient</h1>
 
-    
+
     <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
     <div class="nhsuk-inset-text nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
@@ -406,12 +410,12 @@ NHS Cervical screening management system
               <label class="nhsuk-label nhsuk-label__strong nhsuk-u-padding-top-6" for="example">
                 Comments (optional)
               </label>
-              
+
               <textarea class="nhsuk-textarea commentBox char-textarea" id="commentsa" value="commentsa" name="commentsa" rows="5" ></textarea>
-              
+
             </div>
-            
-          </form> 
+
+          </form>
 
         </div>
       </div>
