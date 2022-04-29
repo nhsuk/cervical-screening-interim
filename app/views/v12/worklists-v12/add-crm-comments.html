@@ -1,5 +1,13 @@
 {% extends "layout-v2.html" %}
 
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+
 {% block pageTitle %}
   NHS Cervical screening management system
 {% endblock %}
@@ -22,16 +30,16 @@
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
       {% include '../components/patient-result-2.html' %}
-      
+
 
       <!--<div class="nhsuk-form-group">-->
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
         <!--<legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
           Add {{ data['result-type'] }} test details
         </legend>-->
-        
+
              <form action="manc-rejected" method="post">
-        
+
             <div class="nhsuk-form-group">
               <h1 class="nhsuk-label-wrapper">
                 <label class="nhsuk-label nhsuk-label--l nhsuk-u-margin-bottom-2" for="example-heading">
@@ -50,9 +58,9 @@
               <!--<span class="nhsuk-hint" id="example-hint">
                 Do not include clinical information at this point.
               </span>-->
-              
+
                   <span class="nhsuk-hint" id="example-hint">Do not include clinical information at this point.</span>
-               
+
               <textarea class="nhsuk-textarea" id="example" name="comments" rows="5" aria-describedby="example-hint" autocomplete="off">{{ data.comments }}</textarea>
             </div>
 

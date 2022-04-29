@@ -4,6 +4,12 @@
 <script type="text/javascript" src="/js/reveal.js"></script>
 <script type="text/javascript" src="/js/comments.js"></script>
 
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
+
 {% endblock %}
 {% block pageTitle %}
 NHS Cervical screening management system
@@ -31,15 +37,15 @@ NHS Cervical screening management system
 
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-      
-      {% include '../components/patient-result-2.html' %} 
 
-      
+      {% include '../components/patient-result-2.html' %}
+
+
         <fieldset class="nhsuk-fieldset nhsuk-u-margin-top-4" aria-describedby="example-hint">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
             Test result details
           </legend>
-      
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
 
@@ -47,22 +53,22 @@ NHS Cervical screening management system
     <dt class="nhsuk-summary-list__key">National code</dt>
     <dd class="nhsuk-summary-list__value">{{ data['national-code'] or "12345" }}</dd>
   </div>
-    
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Health Authority</dt>
     <dd class="nhsuk-summary-list__value">{{ data['health-authority'] or "-" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Self-sample</dt>
     <dd class="nhsuk-summary-list__value">{{ data['self-sample'] or "No" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Source code</dt>
     <dd class="nhsuk-summary-list__value">{{ data['source-code'] or "G" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Sender code</dt>
     <dd class="nhsuk-summary-list__value">{{ data['sender-code'] or "A86020" }} </dd>
@@ -90,7 +96,7 @@ NHS Cervical screening management system
     <dd class="nhsuk-summary-list__value">{{ data['result-result'] }} {{ data['result-infection'] }} {{ data['result-action'] or "X0R"}}</dd>
   </div>
 
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Repeat in months</dt>
     <dd class="nhsuk-summary-list__value">{{ data['repeat-months'] or "36" }} months</dd>
@@ -99,16 +105,16 @@ NHS Cervical screening management system
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">Next test due date</dt>
       <dd class="nhsuk-summary-list__value">01-April-2024 (in 2 years and 275 days)</dd>
-    </div> 
+    </div>
 
       </dl>
-      {% include '../components/comments-timeline-manual-match.html' %} 
+      {% include '../components/comments-timeline-manual-match.html' %}
     </div>
-  </div> 
-    
+  </div>
+
 
         <a href="manc-query" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-4 nhsuk-u-margin-right-6">Continue to next rejection</a>
-    
+
         <a href="/v12/patient/patient-summary-logged-oldtest" class="nhsuk-button nhsuk-button--ers nhsuk-button--ers_secondary nhsuk-u-margin-top-4 nhsuk-u-margin-right-6">View patient summary</a>
 
  <p><a href="manc-rejected-minus2">Back to rejected list</a></p>

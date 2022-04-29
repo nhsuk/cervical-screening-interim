@@ -26,6 +26,11 @@ function checkSpecialKeys(e) {
         return true;
 }
 </script>
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 
 {% block pageTitle %}
@@ -59,19 +64,19 @@ NHS Cervical screening management system
  </div>
 </div>
 
-   
 
-      
+
+
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
  <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-    
-      {% include '../components/patient-result-2.html' %} 
-     
+
+      {% include '../components/patient-result-2.html' %}
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
-        
+
         <div class="nhsuk-form-group">
           <dl class="nhsuk-summary-list">
 <div class="nhsuk-grid-column-full">
@@ -83,22 +88,22 @@ NHS Cervical screening management system
     <dt class="nhsuk-summary-list__key">National code</dt>
     <dd class="nhsuk-summary-list__value">{{ data['national-code'] or "CHR3" }}</dd>
   </div>
-    
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Health Authority</dt>
     <dd class="nhsuk-summary-list__value">{{ data['health-authority'] or "-" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Self-sample</dt>
     <dd class="nhsuk-summary-list__value">{{ data['self-sample'] or "No" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Source code</dt>
     <dd class="nhsuk-summary-list__value">{{ data['source-code'] or "G" }}</dd>
   </div>
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Sender code</dt>
     <dd class="nhsuk-summary-list__value"><span class="highlight">0000Y</span></dd>
@@ -126,7 +131,7 @@ NHS Cervical screening management system
     <dd class="nhsuk-summary-list__value">{{ data['result-result'] }} {{ data['result-infection'] }} {{ data['result-action'] or "X0A"}}</dd>
   </div>
 
-  
+
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">Repeat in months</dt>
     <dd class="nhsuk-summary-list__value">{{ data['repeat-months'] or "36" }} months</dd>
@@ -135,28 +140,32 @@ NHS Cervical screening management system
     <div class="nhsuk-summary-list__row">
       <dt class="nhsuk-summary-list__key">Next test due date</dt>
       <dd class="nhsuk-summary-list__value">{{ 3 | returnDate('years', data['test_date']) + ' ' + 3 | returnDate('years', data['test_date']) | returnTimeDiff }}</dd>
-    </div> 
+    </div>
 
 
     </dl>
-  
-  
-      {% include '../components/comments-timeline-manual-match.html' %} 
 
-      
-  
- 
+
+    <div class="nhsuk-u-margin-left-3">
+     {% include '../components/comments-timeline-manual-match.html' %}
+   </div>
+
+
+
 </dl>
 </div>
+</div>
+</div>
+</div>
 
-      
+
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-three-quarters">
 
-       
+
   <div class="nhsuk-form-group">
      <form action="/*/worklists-v12/rejected-invalid" method="post">
-     
+
  <fieldset class="nhsuk-fieldset">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
               <h2 class="nhsuk-fieldset__heading nhsuk-label nhsuk-label__strong nhsuk-u-margin-top-4">
@@ -167,7 +176,7 @@ NHS Cervical screening management system
                 </div>
             </legend>
 
-           
+
 
             <div class="nhsuk-radios">
               <div class="nhsuk-radios__item">
@@ -176,9 +185,9 @@ NHS Cervical screening management system
                   Edit and add result
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-               This will resolve the result and add it to the patient summary 
+               This will resolve the result and add it to the patient summary
                 </div>
-              </div>  
+              </div>
 
                <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="example-1" name="rejectAction" type="radio" value="remove">
@@ -186,31 +195,31 @@ NHS Cervical screening management system
                   Remove result
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                This will remove the test result from the rejected list and archive it 
+                This will remove the test result from the rejected list and archive it
                 </div>
               </div>
 
                <div class="nhsuk-radios__item">
                 <input class="nhsuk-radios__input" id="example-2" name="rejectAction" type="radio" value="comment">
                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  Add CRM and comments 
+                  Add CRM and comments
                 </label>
                 <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                 This will add a new CRM and comments to the rejected result. 
+                 This will add a new CRM and comments to the rejected result.
                 </div>
               </div>
 
           </fieldset>
-       </div> 
-       
-       
-  
+       </div>
 
-      
+
+
+
+
     <button class="nhsuk-button nhsuk-u-margin-top-5 nhsuk-button--ers" type="submit">Continue</button>
-     
-     
-    
+
+
+
     </form>
     <p><a href="manc-rejected">Exit without saving</a></p>
 

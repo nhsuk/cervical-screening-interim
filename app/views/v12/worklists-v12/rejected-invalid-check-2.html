@@ -26,7 +26,11 @@
       return true;
   }
 </script>
-
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 
 {% block pageTitle %}
@@ -142,14 +146,10 @@ NHS Cervical screening management system
 
 
     </dl>
+    <div class="nhsuk-u-margin-left-3">
      {% include '../components/comments-timeline-manual-match.html' %}
+   </div>
 
-  <dl>
-
-
-
-
-      </dl>
 </dl>
 </div>
 </div>
@@ -160,7 +160,7 @@ NHS Cervical screening management system
 
 
           <dl class="nhsuk-summary-list">
-           <div class="nhsuk-grid-column-two-thirds">
+           <div class="nhsuk-grid-column-full">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
             Review action chosen:
           </legend>

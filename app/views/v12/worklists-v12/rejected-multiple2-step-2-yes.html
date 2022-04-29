@@ -26,7 +26,11 @@
       return true;
   }
 </script>
-
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 {% endblock %}
 
 {% block pageTitle %}
@@ -55,7 +59,7 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-three-quarters">
     <h3 class="nhsuk-inset-text nhsuk-comment-container-bullet nhsuk-inset-text__screening nhsuk-inset-text__screening--success">
       <div class="nhsuk-card">
-        <div class="nhsuk-card__content"> <strong>This test result has multiple errors.</strong> 
+        <div class="nhsuk-card__content"> <strong>This test result has multiple errors.</strong>
       <p>
         <ul>
           <li> Invalid test date </li>
@@ -71,25 +75,25 @@ NHS Cervical screening management system
 </div>
 
 
-  
+
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-one-half">
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-      
-      {% include '../components/patient-result-4.html' %} 
+
+      {% include '../components/patient-result-4.html' %}
 
       <h2 class="nhsuk-heading-m">Rejected result due to multiple errors
-      
+
 
                 <div class="nhsuk-hint" id="example-hints-1-item-hint">
                  Time received: 20 May 2021, 09:30am
-                </div><h2>
-      
+               </div></h2>
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3 ">
-        
+
 
         <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">National code</dt>
@@ -132,24 +136,25 @@ NHS Cervical screening management system
             </div>
 
       </dl>
-       {% include '../components/comments-timeline-manual-match.html' %} 
-    </div>
+       {% include '../components/comments-timeline-manual-match.html' %}
+       </div>
   </div>
+</div>
 
 
   <div class="nhsuk-grid-column-one-half">
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-      
-      {% include '../components/patient-result-4.html' %} 
+
+      {% include '../components/patient-result-4.html' %}
 
 
       <h2 class="nhsuk-heading-m"> Current result in patient's records
-      
+
                 <div class="nhsuk-hint" id="example-hints-1-item-hint">
                  Time received: 03 May 2021, 10:29am
-                </div><h2>
-     
+               </div></h2>
+
 
       <dl class="nhsuk-summary-list nhsuk-u-padding-top-3">
 
@@ -197,16 +202,16 @@ NHS Cervical screening management system
 
 
       </dl>
-       {% include '../components/comments-timeline-manual-match.html' %} 
-    </div>
+       {% include '../components/comments-timeline-manual-match.html' %}
+       </div>
   </div>
 </div>
 
- 
- 
 
 
-<div class="nhsuk-grid-row">
+
+
+<div class="nhsuk-grid-row nhsuk-u-margin-left-0">
   <div class="nhsuk-grid-column-two-thirds">
 
 <fieldset class="nhsuk-fieldset">
@@ -239,13 +244,13 @@ NHS Cervical screening management system
                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
                  Time recived: 03 May 2021, 10:29 am
                 </div>
-                
+
               </div>
 
             </div>
           </fieldset>
 
-       
+
 
 
     <div class="nhsuk-grid-row">
@@ -280,7 +285,7 @@ NHS Cervical screening management system
       </div>
     </div>
     <a href="rejected-p2" class="nhsuk-button nhsuk-button--ers nhsuk-u-margin-top-3 nhsuk-u-margin-right-6">Save and next</a>
-    
+
     <p><a href="manc-rejected">Exit without saving</a></p>
 
   </div>

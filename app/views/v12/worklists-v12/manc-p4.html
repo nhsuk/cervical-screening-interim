@@ -16,7 +16,11 @@
 
   });
 </script>
-
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(3) {
+    border-bottom: 4px solid #d8dde0;
+  }
+</style>
 <script>
   $(".char-textarea").on("keyup", function(event) {
     checkTextAreaMaxLength(this, event);
@@ -126,7 +130,7 @@ NHS Cervical screening management system
 
     <h3>Lab patient demographics</h3>
 
-  
+
 
       <table class="order-table" id="lab">
         <thead>
@@ -185,12 +189,12 @@ NHS Cervical screening management system
               <div class="nhsuk-radios">
                 <tr role="row" class="nhsuk-table__row">
                   <td class="nhsuk-table__cell">
-                   
+
                   <td><span class="highlight">No system match</span> </td>
                   <td><span class="highlight">No system match</td>
                   <td><span class="highlight">No system match</span></td>
                 </tr>
-                
+
               </div>
             </fieldset>
           </div>
