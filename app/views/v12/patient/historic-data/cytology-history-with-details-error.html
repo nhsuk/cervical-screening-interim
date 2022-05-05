@@ -46,6 +46,7 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
+    {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
   </ul>
@@ -295,11 +296,11 @@ NHS Cervical screening management system
     </tr>
 
     <tr role="row" class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">1-Feb-2015</td>
+      <td class="nhsuk-table__cell">01-Feb-2015</td>
       <td class="nhsuk-table__cell">Cervarix</td>
       <td class="nhsuk-table__cell">CHPV5687AA</td>
       <td class="nhsuk-table__cell">1</td>
-      <td class="nhsuk-table__cell">1-Feb-2015 1.55pm</td>
+      <td class="nhsuk-table__cell">01-Feb-2015 1.55pm</td>
       <td class="nhsuk-table__cell">B86055</td>
       <td class="nhsuk-table__cell">SASM9</td>
 
