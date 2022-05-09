@@ -46,7 +46,6 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/gp-info" class="nhsuk-sub-navigation__link" >GP information</a></li>
-    {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/additional-info" class="nhsuk-sub-navigation__link">Additional information</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link" aria-current="page">Data from historic system (NHAIS)</a></li>
   </ul>
@@ -134,7 +133,7 @@ NHS Cervical screening management system
         Repeat in months
       </th>
       <th role="columnheader" class="" scope="col">
-        HPV primary
+        HPV Primary/Self-sample
       </th>
       <th role="columnheader" class="" scope="col">
         Test details
