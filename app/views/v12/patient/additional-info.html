@@ -47,9 +47,7 @@ NHS Cervical screening management system
     <li class="nhsuk-sub-navigation__item"><a href="patient-summary-7" class="nhsuk-sub-navigation__link">Patient summary</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="history-v4" class="nhsuk-sub-navigation__link">Audit</a></li>
     <li class="nhsuk-sub-navigation__item"><a href="gp-info" class="nhsuk-sub-navigation__link">GP information</a></li>
-    {% if data.role == 'csas' %}
     <li class="nhsuk-sub-navigation__item"><a href="additional-info" class="nhsuk-sub-navigation__link" aria-current="page">Additional information</a></li>
-      {% endif %}
       <li class="nhsuk-sub-navigation__item"><a href="/v12/patient/historic-data/choose-cipher" class="nhsuk-sub-navigation__link">Data from historic system (NHAIS)</a></li>
 
   </ul>
@@ -67,7 +65,10 @@ NHS Cervical screening management system
   <div class="nhsuk-grid-column-full">
     <form action="additional-info?display=True" method="post">
 
+
     <h1 class="nhsuk-heading-l">Add additional information</h1>
+
+    {% if data.role == 'csas' %}
 
     <p class="nhsuk-body nhsuk-u-reading-width">
       Use this page to add, store and track CRM numbers or comments relating to the patient. You can edit or remove them if needed. They are not added to the patient audit in the system.
@@ -101,6 +102,26 @@ NHS Cervical screening management system
     <button class="nhsuk-button nhsuk-button--ers" type="post" >Save CRM and comments</button>
     </div>
     </div>
+
+    {% else %}
+
+    <p class="nhsuk-body nhsuk-u-reading-width">
+      Use this page to store and track CRM numbers or comments relating to the patient. You can edit or remove them if needed. They are not added to the patient audit in the system.
+      </p>
+
+      {% endif %}
+
+  {% if data.patientSummary.nhs_number == '9100002798' %}
+
+    <h2 class="nhsuk-heading-m">Record of CRM and comments</h2>
+
+    <p>
+      There are no comments relating to this patient
+      </p>
+
+      {% else %}
+
+  <h2 class="nhsuk-heading-m">Record of CRM and comments</h2>
 
     <table role="table" class="">
 
@@ -153,6 +174,7 @@ NHS Cervical screening management system
 
       {% else %}
       {% endif %}
+
 
 
   {% if data['delete'] === 'True' %}
@@ -252,6 +274,8 @@ NHS Cervical screening management system
 
     </table>
 
+
+
     <nav role="navigation" aria-label="Pagination">
       <ul class="screening-pagination">
         <li class="screening-pagination-item" aria-current="page">
@@ -277,6 +301,8 @@ NHS Cervical screening management system
         <p class="screening-pagination-showing">Showing 12 of 106 comments</p>
       </ul>
     </nav>
+
+    {% endif %}
 
 
     <!-- <p><a href="manc-rejected">Exit without saving</a></p> -->
