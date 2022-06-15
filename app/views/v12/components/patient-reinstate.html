@@ -4,7 +4,7 @@
   <form action="/v12/patient/change-due-date/enter-reinstate-5-crm" method="post">
 {% endif %}
 
-{#
+
 {% if data.reinstateType == 'manual' %}
   <h1 class="nhsuk-fieldset__legend--m">Are you sure you want to reinstate the patient?</h1>
   <p>The patient was ceased on <strong>13-Oct-2019 (12 months ago)</strong> due to <strong>{{ data.pnl_patient.pnl_reason or 'No cervix' }}</strong></p>
@@ -24,7 +24,7 @@
   ]
   }) }}
 {% endif %}
-#}
+
 {% if data.reinstateType == 'default' %}
   <h1 class="nhsuk-fieldset__legend--m">Reinstate the patient</h1>
   <p>The next test due date has been calculated to <strong>{{ 11 | returnDate('weeks', ("today" | returnDate)) | returnDateFormat + " " + 11 | returnDate('weeks', ("today" | returnDate)) | returnTimeDiff }}</strong></p>
@@ -58,12 +58,23 @@
   }) }}
 {% endif %}
 
+{% if data.reinstateType == 'manual' %}
+<button class="nhsuk-button nhsuk-button--ers">Continue</button>
+
+{% endif %}
+
 {% if data.reinstateType == 'default' %}
 <button class="nhsuk-button nhsuk-button--ers">Continue</button>
+<a href="/v12/prior-notification/bypass-pnl/prior-notification-amend" class="nhsuk-button--ers_secondary" type="submit">
+  Override recall status
+</a>
 {% endif %}
 
 {% if data.reinstateType == 'reject' %}
 <a href="/v12/patient/patient-summary-5" class="nhsuk-button nhsuk-button--ers">Back to patient summary</a>
+<a href="/v12/prior-notification/bypass-pnl/prior-notification-amend" class="nhsuk-button--ers_secondary" type="submit">
+  Override rejection
+</a>
 {% endif %}
 
 <p><a href="/v12/patient/patient-summary-5">Exit without saving</a></p>

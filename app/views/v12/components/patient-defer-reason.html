@@ -1,5 +1,5 @@
-{% if data.pnl_patient.nhs_number == "9991023867" or data.pnl_patient.nhs_number ==  "9100001287" %}
-  <form action="prior-notification-12-defer-confirm" method="get">
+{% if data.pnl_patient.nhs_number == "9100001287" %}
+  <form action="/v12/prior-notification/bypass-pnl/prior-notification-amend" method="get">
 {% else %}
   <form action="prior-notification-12-defer-length" method="get">
 {% endif %}
@@ -66,6 +66,13 @@
           <input class="nhsuk-radios__input" id="example-2" name="pnl-defer-reason" type="radio" value="Administrative">
           <label class="nhsuk-label nhsuk-radios__label" for="example-2">
             Administrative
+          </label>
+        </div>
+
+        <div class="nhsuk-radios__item">
+          <input class="nhsuk-radios__input" id="example-2" name="pnl-defer-reason" type="radio" value="Administrative">
+          <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+            Amend next test due date and recall status for incidents or incorrect deferrals
           </label>
         </div>
       {% endif %}
