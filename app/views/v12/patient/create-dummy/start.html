@@ -1,0 +1,146 @@
+{% extends "layout-v2.html" %}
+
+
+
+{% block pageScripts %}
+<style type="text/css" media="screen">
+  .nhsuk-header__navigation-item:nth-child(2){
+    border-bottom:4px solid #d8dde0;
+  }
+</style>
+{% endblock %}
+{% block pageTitle %}
+  NHS Cervical screening management system
+{% endblock %}
+
+{% block header %}
+
+  {% include '../../components/header.html' %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-three-quarters">
+
+    <div class="nhsuk-back-link nhsuk-u-margin-bottom-4">
+      <a class="nhsuk-back-link__link" href="/v12/pds/search/search">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Back to search by</a>
+    </div>
+
+
+
+<div class="nhsuk-card nhsuk-card--feature">
+  <div class="nhsuk-card__content nhsuk-card__content--feature">
+    {% include '../../components/create-dummy.html' %}
+
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+    <form action="/v12/patient/create-dummy/add-details" method="post">
+
+    <div class="nhsuk-form-group">
+
+
+
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Creating a dummy registration means:
+              </h1>
+
+            </legend>
+
+
+            <ul class="nhsuk-u-margin-bottom-0">
+              <li>we will create a unique number to identify them</li>
+              <li>you can send a test result to the patient</li>
+              <li>they will be invited for screening based on their recall status</li>
+              <li>you can view their patient summary on the system</li>
+              <li>you can add future test results to their dummy registration record and view their screening history</li>
+              <li>you can cease and defer them from screening</li>
+          </ul>
+
+
+
+            <!-- <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <h1 class="nhsuk-fieldset__heading">
+                  Create a dummy registration
+                </h1>
+
+              </legend> -->
+
+
+      <!-- <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">
+          <span role="text">
+            Important
+          </span>
+        </h3>
+        <p>You should only create a dummy registration as a last resort if a participant cannot be matched, or you need to send communications to an inactive patient.</p>
+      </div>
+
+      <p>Creating a dummy registration means:</p>
+      <ul>
+        <li>we will create a unique number to identify them</li>
+        <li>you can send a test result to the patient</li>
+        <li>they will be invited for screening based on their recall status</li>
+        <li>you can view their patient summary on the system</li>
+        <li>you can add future test results to their dummy registration record and view their screening history</li>
+        <li>you can cease and defer them from screening</li>
+    </ul>
+
+      <p>Demographics data cannot be updated on dummy registrations.</p>
+      <p>This means if the patient’s details change, such as they move address or change GP, they will not be updated in the system and letters may not reach them.</p> -->
+
+          <!-- <div class="nhsuk-checkboxes">
+
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                I confirm that I wish to create a dummy registration for this result
+              </label>
+            </div>
+
+
+          </div> -->
+        </fieldset>
+
+      </div>
+
+        <button class="nhsuk-button nhsuk-button--ers" type="submit">
+          Continue
+        </button>
+    </form>
+
+    <p><a href="../patient-summary-7">Exit without saving</a></p>
+
+  </div>
+
+  </div>
+
+  </div>
+
+  </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+<footer role="contentinfo">
+  <div class="nhsuk-footer" id="nhsuk-footer">
+    <div class="nhsuk-width-container nhsuk-width-container-fluid">
+      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p><a href="/v12/reset-patient-data-12">Reset patient data</a></p>
+    </div>
+  </div>
+</footer>
+{% endblock %}
