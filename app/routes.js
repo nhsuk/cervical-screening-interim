@@ -857,24 +857,6 @@ else {
 })
 
 
-
-//consecutive defer
-
-router.post("/v12/prior-notification/prior-notification-12-defer-confirm", function (req, res) {
-var patientDefer = req.session.data['patientDefer'];
-
-if (patientDefer == 'Yes') {
-  res.redirect("/v12/prior-notification/prior-notification-12-defer-length");
-}
-
-else {
-res.redirect("/v12/prior-notification/prior-notification-12-defer-reason");
-}
-
-}); 
-
-
-
 // CSSE exit without saving
 router.post("/v12/CSSE-tool/CSSE-home-exit-choice", function (req, res) {
   var exitChoice = req.session.data['exit-enquiry'];

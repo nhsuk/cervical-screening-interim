@@ -14,19 +14,22 @@
   "
 }) }}
 
+<script type="text/javascript">
+
+  function submitForm(event){
+      event.preventDefault();
+      const value = document.querySelector('input[name="patientDefer"]:checked')?.value;
+      if (value==="No") {
+        document.location= '/v12/prior-notification/prior-notification-12-defer-reason';
+        return;
+      }
+      document.location='/v12/prior-notification/prior-notification-12-defer-length';
+
+  }
+</script>
 
 
-{% if data.patientDefer == 'Yes' %}
-
-<form action="prior-notification-12-defer-length" method="get">
-
-{% else %} 
-
-  <form action="prior-notification-12-defer-reason" method="get">
-
-{% endif %}
-
-
+<form onsubmit="submitForm(event)">
 
     <div class="nhsuk-form-group">
 
@@ -63,4 +66,3 @@
         
    
   </form>
-</form>
