@@ -106,7 +106,6 @@ invited
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
 
   <div class="nhsuk-grid-column-full">
-
     <h1 class="nhsuk-heading-l">Patient summary</h1>
 
     {% if data['incident-text'] %}
@@ -335,10 +334,25 @@ invited
 
         <h2>HPV vaccination record</h2>
 
-     
+        {% if data.role == 'csas' %}
+        {% if data['hpvAdded'] === 'True' %}
+
+        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+          <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="nhsuk-error-summary__body">
+            <p>
+              The Immunisation History API cannot validate this vaccine record. Review and edit the record and try again.
+            </p>
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% endif %}
 
         {% if data.role == 'csas' %}
-        <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">
+        <form action="/v12/patient/add-hpv/add-hpv-vaccination-errors" method="get">
           <button class="nhsuk-button nhsuk-button--ers" type="submit">
             Add HPV vaccination
           </button>
@@ -378,12 +392,23 @@ invited
             {% if data['hpvAdded'] === 'True' %}
             <tr role="row" class="nhsuk-table__row">
               <td role="cell" class="nhsuk-table__cell">
+                
+                <div class="nhsuk-form-group nhsuk-form-group--error">
+                 
+                   
+
                 {% if (data['dateGiven-day']) and (data['dateGiven-month']) and (data['dateGiven-year']) %}
                 {{ data['dateGiven-day'] }}-{{ data['dateGiven-month'] }}-{{ data['dateGiven-year'] }}
                 {% else %}
                 22-Oct-2021
                 {% endif %}
+                    
+                
+                </div>
+
+              
               </td>
+
               <td role="cell" class="nhsuk-table__cell">
                 {% if data['vaccineName'] === 'gardasil'%}
                 Gardasil
@@ -464,6 +489,7 @@ invited
 
               </td>
               {% endif %}
+              
             </tr>
           </tbody>
         </table>

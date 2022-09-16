@@ -43,7 +43,7 @@ NHS Cervical screening management system
         <li class="nhsuk-sub-navigation__item"><a href="manc-process" class="nhsuk-sub-navigation__link">To process<span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-2">10</span></a></li>
         <li class="nhsuk-sub-navigation__item"><a href="manc-query" class="nhsuk-sub-navigation__link">To query<span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-2">3</span></a></li>
         <li class="nhsuk-sub-navigation__item"><a href="manc-check" class="nhsuk-sub-navigation__link">To check <span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-2">11</span></a></li>
-        <li class="nhsuk-sub-navigation__item"><a href="manc-rejected" class="nhsuk-sub-navigation__link" aria-current="page">Rejected<span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-2">7</span></a></li>
+        <li class="nhsuk-sub-navigation__item"><a href="manc-rejected" class="nhsuk-sub-navigation__link" aria-current="page">Rejected<span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-left-2">5</span></a></li>
       </ul>
     </nav>
 
@@ -65,7 +65,7 @@ NHS Cervical screening management system
           </th>
           <th class="ten">
           </th>
-
+         
         <tr>
       </thead>
 
@@ -76,98 +76,101 @@ NHS Cervical screening management system
         <tr>
           <td>Jane Simmons</td>
           <td>308 219 3281</td>
-          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
+          <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To check</span></td>
           <td></td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
-          <td>08:44 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="review-duplicate-test-result-2?first_name=Jane&last_name=Simmons&title=Miss&nhs_number=308 219 3281&address=19 Forest Road, Bromley, BR4 7BG&age=35&dob=22 March 1986">Review</a>
+          <td>8.44am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-duplicate-check">Check</a>
           </td>
         </tr>
         <tr>
 
           <td>Karen Smith</td>
           <td>708 249 3121</td>
-          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
+          <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To check</span></td>
           <td></td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">HPV-PS set to N</span></td>
-          <td>09:35 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-missing-status">Review</a>
+          <td>09.35am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="">Check</a>
           </td>
         </tr>
         <tr>
+
 
          <td>Lucy Harper</td>
           <td>209 137 9921</td>
           <td><span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-bottom-2">With processor</span></td>
           <td>Joanna Jones</td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Older than 3 months</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
            <td>
           </td>
         </tr>
         <tr>
           <td>Janet Fraser</td>
           <td>998 666 1234</td>
-          {% if (data['addedCrm'] === 'yes') %}
-          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Started</span></td>
-          {% else %}
-          <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
-          {% endif %}
-          {% if (data['addedCrm'] === 'yes') %}
-          <td>Joanna Jones</td>
-          {% else %}
+          <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To check</span></td>
           <td></td>
-          {% endif %}
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="review-test-result-2?first_name=Janet&last_name=Fraser&title=Ms&nhs_number=998 666 1234&address=16 Princess Drive, Sleaford, PE21 8PR&age=41&dob=18 April 1980">Review</a>
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid data</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-invalid-check">Check</a>
          </td>
-          <!-- <tr>
+        </tr>
+                   <tr>
+         <td>Lucy Harper</td>
+          <td>209 137 9921</td>
+          <td><span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-bottom-2">With processor</span></td>
+          <td>Joanna Jones</td>
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Older than 3 months</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+           <td>
+          </td>
+        </tr>
+        <tr>
           <td>Janet Fraser</td>
           <td>998 666 1234</td>
           <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
           <td></td>
-          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">mulitiple errors</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-multiple">Review</a>
+          <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Invalid data</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+          <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-invalid">Review</a>
          </td>
-        </tr>
-        </tr>
              <tr>
          <td>Lucy Harper</td>
           <td>209 137 9921</td>
           <td><span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-2">Not started</span></td>
           <td></td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Previous result</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
            <td><a  class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3"  href="rejected-awaiting-sidebyside">Review</a>
          </td>
-        </tr> -->
+        </tr>
         <tr>
           <td>Joy Mccrone</td>
           <td>308 219 3281</td>
           <td><span class="nhsuk-tag nhsuk-tag--purple nhsuk-u-margin-bottom-2">To check</span></td>
           <td>Josie Driver</td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Duplicate data</span></td>
-          <td>08:44 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
-          <td> <a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-duplicate-check">Review</a></td>
+          <td>08.44am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
+          <td> <a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-duplicate-check">Check</a></td>
         </tr>
-
+        
         <tr>
           <td>Margery Bowling</td>
           <td>239 138 9920</td>
           <td><span class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-2">Started</span></td>
           <td>Joanna Jones</td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Missing data</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
           <td><a class="nhsuk-button nhsuk-button--ers nhsuk-button--secondary nhsuk-u-margin-bottom-3" href="rejected-invalid">Review</a>
          </td>
         </tr>
@@ -177,13 +180,13 @@ NHS Cervical screening management system
           <td><span class="nhsuk-tag nhsuk-tag--grey nhsuk-u-margin-bottom-2">With processor</span></td>
           <td>Josie Driver</td>
           <td><span class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-2">Ceased</span></td>
-          <td>11:06 am
-            <span class="nhsuk-table__cell--hint">08-August-2021</span></td>
+          <td>11.06am
+            <span class="nhsuk-table__cell--hint">08 August 2021</span></td>
           <td>
          </td>
         </tr>
-
-
+         
+        
       </tbody>
     </table>
   </div>

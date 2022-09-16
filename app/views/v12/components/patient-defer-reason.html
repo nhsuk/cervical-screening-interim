@@ -1,7 +1,7 @@
 {% if data.pnl_patient.nhs_number == "9100001287" %}
   <form action="/v12/prior-notification/bypass-pnl/prior-notification-amend" method="get">
 {% else %}
-  <form action="prior-notification-12-defer-length" method="get">
+  <form action="prior-notification-12-defer-confirm" method="get">
 {% endif %}
 {% if data.role != 'csas' %}
 <details class="nhsuk-details">

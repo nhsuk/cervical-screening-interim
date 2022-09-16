@@ -200,6 +200,21 @@ router.post("/*/worklists-v12/rejected-dup", function (req, res) {
 }
 });
 
+router.post("/*/worklists-v12/rejected-missing-status", function (req, res) {
+  console.log('working')
+  var rejectAction = req.session.data["rejectAction"];
+
+  console.log("check reason: " + rejectAction);
+
+  if (rejectAction == "remove") {
+      res.redirect("/v12/worklists-v12/rejected-delete-hpv");
+  }
+
+  if (rejectAction == "comment") {
+    res.redirect("/v12/worklists-v12/add-crm-comments");
+}
+});
+
 router.post("/*/hmr101/cervix", function(req, res) {
   var reason = req.session.data["cervix"];
   console.log(reason);
@@ -811,6 +826,7 @@ else {
 
 
 
+
 // PNL responses report
 router.post("/v12/reports/pnl-responses/all-individual", function (req, res) {
 var allIndividual = req.session.data['allIndividual'];
@@ -842,20 +858,22 @@ else {
 
 
 
-// consecutive defer
+//consecutive defer
 
 router.post("/v12/prior-notification/prior-notification-12-defer-confirm", function (req, res) {
-var pnlCease = req.session.data['pnlCease'];
+var patientDefer = req.session.data['patientDefer'];
 
-if (pnlCease == 'yes') {
+if (patientDefer == 'Yes') {
   res.redirect("/v12/prior-notification/prior-notification-12-defer-length");
 }
 
 else {
-  res.redirect("/v12/patient/patient-summary-7");
+res.redirect("/v12/prior-notification/prior-notification-12-defer-reason");
 }
 
-});
+}); 
+
+
 
 // CSSE exit without saving
 router.post("/v12/CSSE-tool/CSSE-home-exit-choice", function (req, res) {

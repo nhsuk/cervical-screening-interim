@@ -126,9 +126,13 @@
            "autocomplete": "off"
           }) }}-->
 
-                 
+             
+{% if data['result-action'] == 'H' %}
+<a href="add-test-result-ntdd-2" class="nhsuk-button nhsuk-button--ers">Continue</a>
+{% else %}
+<a href="add-test-result-ntdd" class="nhsuk-button nhsuk-button--ers">Continue</a>
+{% endif %}    
 
-          <button class="nhsuk-button nhsuk-button--ers" type="submit">Continue</button>
 
           {% if data['edit-test'] != 'true' %}
             <p><a href="../patient-summary-7">Exit without saving</a></p>
