@@ -41,9 +41,9 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-half">
-      <div class="nhsuk-inset-text">
+      <div class="nhsuk-form-group nhsuk-form-group--error">
         <span class="nhsuk-u-visually-hidden">Information: </span>
-          <p> An email address needs to be registered in the Cervical Screening Management System to be able to receive ePNL and eNRL notifications.</p>
+          <p>You cannot remove this email address right now. Add a new email address first and try again. </p>
       </div>
     </div>
   </div>
@@ -74,16 +74,7 @@
                         <a href="prior-notification-12-delete-email?pnlversion=12">Remove</a></td>
                         
                       </tr>
-                      <tr class="nhsuk-table__row">
-                        <td class="nhsuk-table__cell">admin.clarks@nhs.net</td>
-                        <!--<td class="nhsuk-table__cell ">
-                        <ul>
-                        <li>Patients due to be invited</li>
-                        </ul>
-                        </td>-->
-                        <td class="nhsuk-table__cell"><!--<a href="prior-notification-12-edit-email">Edit</a>-->
-                        <a href="prior-notification-12-delete-email?pnlversion=12">Remove</a></td>
-                      </tr>
+                      
                     {% if data.manageEmail != null %}
                       <tr class="nhsuk-table__row">
                         <td class="nhsuk-table__cell">{{ data.manageEmail }}</td>
