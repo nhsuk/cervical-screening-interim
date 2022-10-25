@@ -345,8 +345,13 @@ invited
         </form>
         {% endif %}
 
+        <div class="nhsuk-inset-text">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p>The Immunisation History API found no records of HPV vaccination for this patient.</p>
+        </div>
 
-        <table role="table" class="">
+
+       <!-- <table role="table" class="">
           <caption class="nhsuk-table__caption">
           </caption>
           <thead role="rowgroup" class="nhsuk-table__head">
@@ -466,7 +471,7 @@ invited
               {% endif %}
             </tr>
           </tbody>
-        </table>
+        </table> -->
 
 
 
@@ -483,7 +488,7 @@ invited
         {% endif %}
 
 
-        {% if data['hpvAdded'] === 'True' %}
+       <!-- {% if data['hpvAdded'] === 'True' %}
 
 
         <table role="table" class="">
