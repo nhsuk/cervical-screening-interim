@@ -213,10 +213,10 @@ invited
           {% if data.patientSummary.pnl_action == 'Ceased' %}
           Actions:
           {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Due to age" %}
-            <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
+            <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
 
           {% else %}
-          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=default">Reinstate</a>
+          <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=default">Reinstate</a>
           {% endif %}
           {% else %}
           Actions:
