@@ -213,10 +213,10 @@ invited
           {% if data.patientSummary.pnl_action == 'Ceased' %}
           Actions:
           {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Due to age" %}
-            <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
+            <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=reject">Reinstate</a>
 
           {% else %}
-          <a href="/v12/start-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=default">Reinstate</a>
+          <a href="/v12/prior-notification/bypass-pnl/prior-notification-reinstate?nhsNumber={{ data.patientSummary.nhs_number}}&role=csas&patversion=7&reinstateType=default">Reinstate</a>
           {% endif %}
           {% else %}
           Actions:
@@ -229,7 +229,7 @@ invited
 
       </div>
 
-      <div class="nhsuk-summary-list__row">
+      <!-- <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Invited date:
         </dt>
@@ -247,7 +247,7 @@ invited
           {% endif %}
         </dd>
 
-      </div>
+      </div> -->
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Recall status:
@@ -258,6 +258,7 @@ invited
           {% else %}
         {{  data['recallStatus2'] or '' }}
           {% endif %}
+           - 12-Apr-2020
         </dd>
         <dd class="nhsuk-summary-list__actions">
 
@@ -265,7 +266,7 @@ invited
       </div>
 
       {% if data.patientSummary.nhs_number == '9100002798' %}
-      <div class="nhsuk-summary-list__row">
+      <!-- <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Prior notification list date:
         </dt>
@@ -274,7 +275,7 @@ invited
         </dd>
         <dd class="nhsuk-summary-list__actions">
         </dd>
-      </div>
+      </div> -->
       {% endif %}
 
       <div class="nhsuk-summary-list__row">
@@ -335,7 +336,7 @@ invited
 
         <h2>HPV vaccination record</h2>
 
-     
+
 
         {% if data.role == 'csas' %}
         <form action="/v12/patient/add-hpv/add-hpv-vaccination" method="get">

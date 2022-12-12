@@ -124,7 +124,43 @@ NHS Cervical screening management system
                          <div class="nhsuk-u-padding-bottom-5"></div>
 
 
+                         <div class="nhsuk-form-group">
 
+                           <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                               <h2 class="nhsuk-fieldset__heading">
+                                 Is this an incident?
+                               </h2>
+                             </legend>
+
+                             <div class="nhsuk-hint" id="example-hint">
+                             For incidents, if the next test due date is within the next 7 days the letter date will be pushed back by 1 week to allow for quality assurance check.
+                             </div>
+
+                             <div class="nhsuk-radios" name="incident-status">
+
+                               <div class="nhsuk-radios__item">
+                                 <input class="nhsuk-radios__input" id="example-1" name="incidentStatus" type="radio" value="Yes">
+                                 <label class="nhsuk-label nhsuk-radios__label"for="example-1">
+                                   Yes, this is an incident and needs 7 days for a quality assurance check
+                                 </label>
+                               </div>
+
+                               <div class="nhsuk-radios__item">
+                                 <input class="nhsuk-radios__input" id="example-2" name="incidentStatus" type="radio" value="No">
+                                 <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                                   No, this is not an incident and does not need 7 days for a quality assurance check
+                                 </label>
+                               </div>
+
+
+
+                             </div>
+                           </fieldset>
+
+                         </div>
+
+                         <div class="nhsuk-u-padding-bottom-5"></div>
 
                         <fieldset class="nhsuk-fieldset">
 
@@ -175,41 +211,7 @@ NHS Cervical screening management system
 
                       <form>
 
-    <div class="nhsuk-form-group">
 
-      <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-          <h2 class="nhsuk-fieldset__heading">
-            Is this an incident?
-          </h2>
-        </legend>
-
-        <div class="nhsuk-hint" id="example-hint">
-        For incidents, if the next test due date is within the next 7 days the letter date will be pushed back by 1 week to allow for quality assurance check.
-        </div>
-
-        <div class="nhsuk-radios" name="incident-status">
-
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="example-1" name="incidentStatus" type="radio" value="Yes">
-            <label class="nhsuk-label nhsuk-radios__label"for="example-1">
-              Yes, this is an incident and needs 7 days for a quality assurance check
-            </label>
-          </div>
-
-          <div class="nhsuk-radios__item">
-            <input class="nhsuk-radios__input" id="example-2" name="incidentStatus" type="radio" value="No">
-            <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-              No, this is not an incident and does not need 7 days for a quality assurance check
-            </label>
-          </div>
-
-
-
-        </div>
-      </fieldset>
-
-    </div>
 
 
 
@@ -227,12 +229,19 @@ NHS Cervical screening management system
 
     <div class="nhsuk-radios">
 
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="example-1" name="recallStatus2" type="radio" value="Completed/closed">
-      <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-        Completed/Closed
-      </label>
-    </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-1" name="recallStatus" type="radio" value="not-yet-due">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+          Not yet due
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-1b" name="recallStatus" type="radio" value="non-repsonder-overdue">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-1b">
+          Non-responder overdue
+        </label>
+      </div>
 
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="example-2" name="recallStatus2" type="radio" value="Prior notification list (PNL)">
