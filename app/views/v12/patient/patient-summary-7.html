@@ -254,14 +254,29 @@ invited
         </dt>
         <dd class="nhsuk-summary-list__value">
           {% if data.patientSummary.pnl_action == 'Ceased' %}
-          Ceased
+          <strong>Ceased</strong>
           {% else %}
         {{  data['recallStatus2'] or '' }}
           {% endif %}
            - 12-Apr-2020
         </dd>
-        <dd class="nhsuk-summary-list__actions">
-
+        <dd class="nhsuk-summary-list__actions no-print">
+          {% if data.role == 'csas' %}
+          {% if data.patientSummary.pnl_action == 'Ceased' %}
+          Actions:
+          {% if data.patientSummary.pnl_reason == "No cervix" or data.patientSummary.pnl_reason == "Due to age" %}
+            <a href="#">Resend invite</a><br />
+            <a href="#">Pause notifications</a>
+          {% else %}
+          <a href="#">Resend invite</a><br />
+          <a href="#">Pause notifications</a>
+          {% endif %}
+          {% else %}
+          Actions:
+          <a href="#">Resend invite</a><br />
+          <a href="#">Pause notifications</a>
+          {% endif %}
+          {% endif %}
         </dd>
       </div>
 
