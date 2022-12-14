@@ -27,12 +27,11 @@ NHS Cervical screening management system
 
     <div class="nhsuk-card nhsuk-card--feature">
     <div class="nhsuk-card__content nhsuk-card__content--feature">
-      {% include '../../components/pnl-patient-4.html' %}
 
       {% if data.role == 'csas' %}
-      <span class="nhsuk-hint">Step 1 of 3</span>
+      <span class="nhsuk-hint nhsuk-u-margin-top-4">Step 1 of 3</span>
       {% else %}
-      <span class="nhsuk-hint">Step 2 of 3</span>
+      <span class="nhsuk-hint nhsuk-u-margin-top-4">Step 2 of 3</span>
       {% endif %}
 
           <form action="prior-notification-reinstate-crm" method="post">
